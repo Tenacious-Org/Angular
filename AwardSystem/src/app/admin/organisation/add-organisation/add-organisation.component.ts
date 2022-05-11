@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Organisation } from 'Models/Organisation';
 import { SharedService } from 'src/app/shared.service';
+import { OrganisationService } from '../organisation.service';
+
 
 @Component({
   selector: 'app-add-organisation',
@@ -9,55 +11,36 @@ import { SharedService } from 'src/app/shared.service';
 })
 export class AddOrganisationComponent implements OnInit {
 
-  constructor(private service:SharedService) { }
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
+  constructor(private organisationService:OrganisationService) { }
+  id = 0;
+  organisationName = '';
+  isActive = true;
+  addedBy = 1;
+  addedOn = Date.now;
+  updatedBy = 1;
+  updatedOn = Date.now;
+  
+
+  Organisation : any = {
+    id : 0,
+    organisationName : this.organisationName,
+    isActive : this.isActive,
+    addedBy : this.addedBy,
+    addedOn : this.addedOn,
+    updatedBy : this.updatedBy,
+    updatedOn : this.updatedOn,
+  
   }
-  // @Input() org:any;
-  
-  // organisation:Organisation=
-  // {
-  //   id=0,
-  //   organisationName='',
-  //   isActive=true,
 
-  // }
-
-  // ngOnInit(): void {
-  //   this.organisationName = this.organisation.organisationName;
-  //   this.isActive = this.org.isActive;
-  // }
-
-  // addOrganisation(){
-  //   var val = {
-  //     organisationName:this.organisationName,
-  //     isActive:this.org.isActive
-  //   };
-  //   this.service.addOrganisation(val).subscribe(res=>{
-  //     alert(res.toString());
-  //   });
-  //   console.log(val);
-  // }
+  ngOnInit(): void {
+  }
+  OnSubmit(){
+    // console.log(this.Organisation)
+    this.organisationService.AddOrganisation(this.Organisation).subscribe((res) =>{
+      console.log(res);
+    })
+  }
+ 
 
 }
 
-
-/*
-export class AddOrganisationComponent {
-  @Input() org:any;
-  constructor(private service:SharedService) 
-  {
-    this.service.addOrganisation().subscribe((data)=>{
-      this.org=data;
-    });
-   }
-   getUserFormData(data:any)
-   {
-     console.warn(data)
-     this.service.saveorg(data).subscribe((result)=>){
-      console.warn(data)
-     }
-   }
-  
-}
-*/

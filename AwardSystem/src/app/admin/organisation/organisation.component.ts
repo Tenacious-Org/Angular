@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { Organisation } from 'Models/Organisation';
+import { OrganisationService } from './organisation.service';
 
 @Component({
   selector: 'app-organisation',
@@ -17,6 +18,9 @@ export class OrganisationComponent implements OnInit {
    
  
    constructor(private http: HttpClient) { }
+   
+
+
    ngOnInit(): void {
      this.http
        .get<any>(this.orgsrc)
@@ -26,6 +30,8 @@ export class OrganisationComponent implements OnInit {
          console.log(data)
        });
    }
+
+
  
    public data: Organisation[] = [];
 

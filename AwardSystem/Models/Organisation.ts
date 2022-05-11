@@ -1,6 +1,10 @@
 export class Organisation
 {
-    id : number = 0;
-    organisationName : string = '';
-    isActive : boolean= true;
+    id = 0;
+    organisationName = '';
+    isActive = true;
+    addedBy = 1;
+    addedOn = Date.now;
+    updatedBy = 1;
+    updatedOn = Date.now;
 }

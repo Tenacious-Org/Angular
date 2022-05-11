@@ -43,6 +43,7 @@ import { HrYettopublishComponent } from './hr/hr-yettopublish/hr-yettopublish.co
 import { HrAwardComponent } from './hr/hr-award/hr-award.component';
 import { RequesterHomepageComponent } from './requester/requester-homepage/requester-homepage.component';
 import { HrHomepageComponent } from './hr/hr-homepage/hr-homepage.component';
+import { AdminComponent } from './admin/admin.component';
 
 
 const routes: Routes = [
@@ -113,7 +114,7 @@ const routes: Routes = [
   {path:'hr-homepage' , component:HrHomepageComponent},
 
 
-   {path:'', component:ApproverHomepageComponent},
+   {path:'', component:HomePageComponent},
 
 
 

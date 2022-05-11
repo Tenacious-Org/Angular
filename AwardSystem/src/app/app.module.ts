@@ -66,6 +66,8 @@ import { HrAwardComponent } from './hr/hr-award/hr-award.component';
 import { RequesterHomepageComponent } from './requester/requester-homepage/requester-homepage.component';
 import { HrHomepageComponent } from './hr/hr-homepage/hr-homepage.component';
 
+import{FormsModule} from '@angular/forms'
+
 
 @NgModule({
   declarations: [
@@ -141,7 +143,8 @@ import { HrHomepageComponent } from './hr/hr-homepage/hr-homepage.component';
     BrowserModule,
     AppRoutingModule,
     NgxPaginationModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

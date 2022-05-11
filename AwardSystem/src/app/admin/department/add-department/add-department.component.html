@@ -2,7 +2,7 @@
 <app-admin-sidebar></app-admin-sidebar>
 <div class="container d-flex justify-content-center table-box">
 
-    <form class="border-box position-relative">
+    <form class="border-box position-relative" #ngForm (ngSubmit)="OnSubmit()">
 
         <span class="border-box-tip"><b>Add Department</b></span>
 
@@ -11,7 +11,7 @@
                 <label for="org" class="col-form-label">Organisation</label>
 
                 <div class="input-group">
-                    <select class="custom-select" id="inputGroupSelect04">
+                    <select class="custom-select" id="inputGroupSelect04" >
                               <option selected>Choose...</option>
                               <option value="1">Development</option>
                               <option value="2">Testing</option>
