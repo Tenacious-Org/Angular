@@ -12,13 +12,13 @@
       <h4 style="margin-left: 0rem;" class="text-light mt-4 text-center">Hello Requester!</h4>
       <ul class="list-unstyled components mt-4 mb-5 sidebar-items">
           <li>
-              <a [routerLink]="['']" routerLinkActive="router-link-active" > <i class="fa-solid fa-house ml-4 mr-4"></i>Home</a>
+              <a [routerLink]="['/requester-homepage']" routerLinkActive="router-link-active" > <i class="fa-solid fa-house ml-4 mr-4"></i>Home</a>
           </li>
           <li>
               <a [routerLink]="['/requester-myawards']" routerLinkActive="router-link-active" ><i class="fa-solid fa-trophy ml-4 mr-4"></i>My Awards</a>
           </li>
           <li>
-              <a    ><i class="fa-solid fa-user ml-4 mr-4"></i>Profile</a>
+              <a [routerLink]="['/profile']"   ><i class="fa-solid fa-user ml-4 mr-4"></i>Profile</a>
           </li>
           <li>
               <a [routerLink]="['/requester-request']" routerLinkActive="router-link-active" ><i  class="fa-solid fa-building ml-4 mr-4"></i>Request</a>

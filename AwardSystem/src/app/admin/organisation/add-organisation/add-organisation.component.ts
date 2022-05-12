@@ -28,7 +28,7 @@ export class AddOrganisationComponent implements OnInit {
     addedBy : this.addedBy,
     addedOn : this.addedOn,
     updatedBy : this.updatedBy,
-    updatedOn : this.updatedOn,
+    updatedOn : this.updatedOn, 
   
   }
 

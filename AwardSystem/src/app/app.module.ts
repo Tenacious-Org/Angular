@@ -68,7 +68,14 @@ import { HrHomepageComponent } from './hr/hr-homepage/hr-homepage.component';
 
 import{FormsModule} from '@angular/forms';
 import { RequestComponent } from './requester/request/request.component';
-import { ApproverRequestComponent } from './approver/approver-request/approver-request.component'
+import { ApproverRequestComponent } from './approver/approver-request/approver-request.component';
+import { ApproverViewComponent } from './approver/approver-view/approver-view.component';
+import { RequesterRejectComponent } from './requester/requester-reject/requester-reject.component';
+import { ProfileComponent } from './profile/profile.component';
+
+
+
+
 
 
 @NgModule({
@@ -139,6 +146,11 @@ import { ApproverRequestComponent } from './approver/approver-request/approver-r
  HrHomepageComponent,
  RequestComponent,
  ApproverRequestComponent,
+ ApproverViewComponent,
+ RequesterRejectComponent,
+ ProfileComponent,
+
+
 
 
 
@@ -149,6 +161,7 @@ import { ApproverRequestComponent } from './approver/approver-request/approver-r
     NgxPaginationModule,
     HttpClientModule,
     FormsModule,
+   
   ],
   providers: [],
   bootstrap: [AppComponent]

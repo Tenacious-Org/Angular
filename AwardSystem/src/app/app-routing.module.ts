@@ -45,6 +45,10 @@ import { RequesterHomepageComponent } from './requester/requester-homepage/reque
 import { HrHomepageComponent } from './hr/hr-homepage/hr-homepage.component';
 import { AdminComponent } from './admin/admin.component';
 import { RequestComponent } from './requester/request/request.component';
+import { ApproverViewComponent } from './approver/approver-view/approver-view.component';
+import { RequesterRejectComponent } from './requester/requester-reject/requester-reject.component';
+import { profile } from 'console';
+import { ProfileComponent } from './profile/profile.component';
 
 
 const routes: Routes = [
@@ -81,6 +85,7 @@ const routes: Routes = [
   {path:'approver-homepage', component:ApproverHomepageComponent},
   {path:'approver-myawards', component:ApproverMyawardsComponent},
   {path:'approver-homepage', component:ApproverHomepageComponent},
+  {path:'approver-view', component:ApproverViewComponent},
 
   
 
@@ -94,6 +99,7 @@ const routes: Routes = [
   {path:'morecomments' , component:MoreCommentsComponent},
   {path:'cardpost' , component:CardPostComponent},
   {path:'request' , component:RequestComponent},
+  {path:'pofile' , component:ProfileComponent},
 
 
 
@@ -104,6 +110,7 @@ const routes: Routes = [
   {path:'requester-sidebar' , component:RequesterSidebarComponent},
   {path:'requester-view' , component:RequesterViewComponent},
   {path:'requester-homepage' , component:RequesterHomepageComponent},
+  {path:'requester-reject' , component:RequesterRejectComponent},
 
   {path:'hr' , component:HrComponent},
   {path:'hr-add-request' , component:HrAddRequestComponent},
@@ -116,7 +123,7 @@ const routes: Routes = [
   {path:'hr-homepage' , component:HrHomepageComponent},
 
 
-   {path:'', component:RequestComponent},
+   {path:'', component:RequesterRejectComponent},
 
 
 

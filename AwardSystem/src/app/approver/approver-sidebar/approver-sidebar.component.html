@@ -1,4 +1,4 @@
-<app-layout></app-layout>
+
 <nav id="sidebar">
     <div class="custom-menu">
         <button type="button" id="sidebarCollapse" class="btn btn-primary">
@@ -12,24 +12,24 @@
         <h4 style="margin-left: 0rem;" class="text-light mt-4 text-center">Hello Approver!</h4>
         <ul class="list-unstyled components mt-4 mb-5 sidebar-items">
             <li>
-                <a href="post.html" > <i class="fa-solid fa-house ml-4 mr-4"></i>Home</a>
+                <a [routerLink]="['/approver-homepage']" > <i class="fa-solid fa-house ml-4 mr-4"></i>Home</a>
             </li>
 
             <li>
-                <a href="Requesterawardpage.html"><i class="fa-solid fa-trophy ml-4 mr-4"></i>My Awards</a>
+                <a [routerLink]="['/approver-myawards']" ><i class="fa-solid fa-trophy ml-4 mr-4"></i>My Awards</a>
             </li>
             <li>
-                <a href="ApprovalList.html"><i class="fa-solid fa-user ml-4 mr-4"></i>Approval</a>
+                <a [routerLink]="['/approver-APPROVAL']"><i class="fa-solid fa-user ml-4 mr-4"></i>Approval</a>
             </li>
             <li>
                 <a [routerLink]="['profile']"><i class="fa-solid fa-user ml-4 mr-4"></i>Profile</a>
             </li>
 
             <li>
-                <a href="RequesterList.html"><i  class="fa-solid fa-building ml-4 mr-4 "></i>Request</a>
+                <a [routerLink]="['/approver-request']"><i  class="fa-solid fa-building ml-4 mr-4 "></i>Request</a>
             </li>
             <li>
-                <a href="Dashboard.html"><i  class="fa-solid fa-building ml-4 mr-4 "></i>Dash Board</a>
+                <a [routerLink]="['/approver-']"><i  class="fa-solid fa-building ml-4 mr-4 "></i>Dash Board</a>
             </li>
 
         </ul>

@@ -1,0 +1,75 @@
+<app-layout></app-layout>
+<app-approver-sidebar></app-approver-sidebar>
+
+
+<div class="container d-flex justify-content-center ">
+
+    <!-- Write your contents here -->
+    <div class="card " style="border-radius: 15px; width:500px; margin-top:30px;">
+        <div class="card-body">
+            <div class=" rounded-circle text-center">
+                <img src="./assets/images/Adminlogo.png" width="150px" height="150px" />
+            </div>
+            <hr>
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <p class="mb-0">ACE ID</p>
+
+                    <p class="text-muted mb-0">ACE0987</p>
+                </div>
+                <div class="col-sm-6">
+                    <p class="mb-0">Name</p>
+                    <p class="text-muted mb-0">Sanjay Subramani</p>
+                </div>
+            </div>
+            <hr>
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <p class="mb-0">Department</p>
+
+                    <p class="text-muted mb-0">Java</p>
+                </div>
+
+                <div class="col-sm-6">
+                    <p class="mb-0">Designation</p>
+
+                    <p class="text-muted mb-0">Software Engineer</p>
+                </div>
+            </div>
+
+            <hr>
+            <div class="row">
+                <div class="col-sm-6">
+                    <p class="mb-0">Requester</p>
+
+                    <p class="text-muted mb-0">dhoni</p>
+                </div>
+                <div class="col-sm-6">
+                    <p class="mb-0">Award</p>
+                    <p class="text-muted mb-0">Role Star</p>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-6">
+                    <p class="mb-0">Reason</p>
+
+                    <p class="text-muted mb-0">For consistent performance</p>
+                </div>
+                <div class="col-sm-6">
+                    <p class="mb-0">Status</p>
+
+                    <p class="text-muted mb-0">Pending</p>
+                </div>
+            </div>
+            <br>
+            <div class="py-4 justify-content-between text-center">
+                <div class="mr-10 btn-group "><a [routerLink]="['/requester-request']" routerLinkActive="router-link-active"  class="btn btn-primary profile-button" type="button">Approve</a></div>
+                <div class="ml-10 btn-group"><a  [routerLink]="['/requester-request']" routerLinkActive="router-link-active"  class="btn btn-danger profile-button" type="button">reject</a></div>
+            </div>
+
+        </div>
+    </div>
+</div>
