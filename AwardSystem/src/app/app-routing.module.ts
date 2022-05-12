@@ -124,7 +124,7 @@ const routes: Routes = [
   {path:'hr-homepage' , component:HrHomepageComponent},
 
 
-   {path:'', component:RequesterRejectComponent},
+   {path:'', component:AddDepartmentComponent},
 
 
 

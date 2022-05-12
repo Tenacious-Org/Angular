@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { Organisation } from 'Models/Organisation';
-import { OrganisationService } from './organisation.service';
+import { SharedService } from 'src/app/shared.service';
 
 @Component({
   selector: 'app-organisation',
@@ -17,19 +17,26 @@ export class OrganisationComponent implements OnInit {
   @Input() org:any;
    
  
-   constructor(private http: HttpClient) { }
+   constructor(private sharedService:SharedService ) { }
    
 
 
    ngOnInit(): void {
-     this.http
-       .get<any>(this.orgsrc)
-       .subscribe((data) => {
-         this.data = data;
-         this.totalLength = data.length;
-         console.log(data)
-       });
+    //  this.sharedService
+    //    .get<any>(this.orgsrc)
+    //    .subscribe((data) => {
+    //      this.data = data;
+    //      this.totalLength = data.length;
+    //      console.log(data)
+    //    });
+    
+  
+    this.sharedService.getAllOrganisation().subscribe(data=>{
+      this.data=data;
+    });
+    
    }
+
 
 
  

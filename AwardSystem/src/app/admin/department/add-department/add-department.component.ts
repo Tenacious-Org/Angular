@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import { SharedService } from 'src/app/shared.service';
+import { Organisation } from 'Models/Organisation';
 import { DepartmentService } from '../department.service';
 @Component({
   selector: 'app-add-department',
@@ -8,31 +9,33 @@ import { DepartmentService } from '../department.service';
 })
 export class AddDepartmentComponent implements OnInit {
 
-  constructor(private departmentService:DepartmentService) {}
+  constructor(private departmentService:DepartmentService, private sharedService:SharedService) {}
 
   id = 0;
   departmentName = '';
-  organisationId = 2;
-  isActive = true;
+  organisationId = 0;
   addedBy = 1;
-  addedOn = Date();
-  updatedBy = 1;
-  updatedOn = Date();
+  addedOn = Date.now;
+
+
 
   Department : any = {
-    id : 0,
+    id : this.id,
     departmentName : this.departmentName,
     organisationId : this.organisationId,
-    isActive : this.isActive,
     addedBy : this.addedBy,
-    addedOn : this.addedOn,
-    updatedBy : this.updatedBy,
-    updatedOn : this.updatedOn
-  }
-
-  ngOnInit(): void {
+    addedOn : this.addedOn
   }
   
+
+  ngOnInit(): void {
+    this.sharedService.getAllOrganisation().subscribe(data=>{
+      this.data=data;
+    });
+    
+
+  }
+  public data: Organisation[] = [];
   OnSubmit(){
     console.log(this.Department)
     this.departmentService.AddDepartment(this.Department).subscribe((res) =>{

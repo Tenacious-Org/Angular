@@ -11,6 +11,7 @@ import { OrganisationService } from '../organisation.service';
 })
 export class AddOrganisationComponent implements OnInit {
 
+
   constructor(private organisationService:OrganisationService) { }
   id = 0;
   organisationName = '';
@@ -33,6 +34,9 @@ export class AddOrganisationComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+    
+    
   }
   OnSubmit(){
     // console.log(this.Organisation)
