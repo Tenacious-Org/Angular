@@ -66,7 +66,9 @@ import { HrAwardComponent } from './hr/hr-award/hr-award.component';
 import { RequesterHomepageComponent } from './requester/requester-homepage/requester-homepage.component';
 import { HrHomepageComponent } from './hr/hr-homepage/hr-homepage.component';
 
-import{FormsModule} from '@angular/forms'
+import{FormsModule} from '@angular/forms';
+import { RequestComponent } from './requester/request/request.component';
+import { ApproverRequestComponent } from './approver/approver-request/approver-request.component'
 
 
 @NgModule({
@@ -135,6 +137,8 @@ import{FormsModule} from '@angular/forms'
  HrAwardComponent,
  RequesterHomepageComponent,
  HrHomepageComponent,
+ RequestComponent,
+ ApproverRequestComponent,
 
 
 

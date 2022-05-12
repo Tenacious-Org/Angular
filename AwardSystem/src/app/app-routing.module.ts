@@ -44,6 +44,7 @@ import { HrAwardComponent } from './hr/hr-award/hr-award.component';
 import { RequesterHomepageComponent } from './requester/requester-homepage/requester-homepage.component';
 import { HrHomepageComponent } from './hr/hr-homepage/hr-homepage.component';
 import { AdminComponent } from './admin/admin.component';
+import { RequestComponent } from './requester/request/request.component';
 
 
 const routes: Routes = [
@@ -92,6 +93,7 @@ const routes: Routes = [
   {path:'homepage' , component:HomePageComponent},
   {path:'morecomments' , component:MoreCommentsComponent},
   {path:'cardpost' , component:CardPostComponent},
+  {path:'request' , component:RequestComponent},
 
 
 
@@ -114,7 +116,7 @@ const routes: Routes = [
   {path:'hr-homepage' , component:HrHomepageComponent},
 
 
-   {path:'', component:HomePageComponent},
+   {path:'', component:RequestComponent},
 
 
 
