@@ -7,13 +7,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { LayoutComponent } from './layout/layout.component';
-import { AdminEmployeeComponent } from './admin-employee/admin-employee.component';
-import { AdminAddEmployeeComponent } from './admin-add-employee/admin-add-employee.component';
-import { AdminEditEmployeeComponent } from './admin-edit-employee/admin-edit-employee.component';
-import { AdminViewEmployeeComponent } from './admin-view-employee/admin-view-employee.component';
-import { AdminDesignationComponent } from './admin-designation/admin-designation.component';
-import { AdminEditDesignationComponent } from './admin-edit-designation/admin-edit-designation.component';
-import { AdminAddDesignationComponent } from './admin-add-designation/admin-add-designation.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { MoreCommentsComponent } from './more-comments/more-comments.component';
@@ -45,63 +38,104 @@ import { EditEmployeeComponent } from './admin/employee/edit-employee/edit-emplo
 
 import { ViewEmployeeComponent } from './admin/employee/view-employee/view-employee.component';
 import { AdminSidebarComponent } from './admin/admin-sidebar/admin-sidebar.component';
+import { ApproverComponent } from './approver/approver.component';
+import { ApproverSidebarComponent } from './approver/approver-sidebar/approver-sidebar.component';
+import { ApproverHomepageComponent } from './approver/approver-homepage/approver-homepage.component';
+import { ApproverAddrequestComponent } from './approver/approver-addrequest/approver-addrequest.component';
+import { ApproverApprovalComponent } from './approver/approver-approval/approver-approval.component';
+import { ApproverDashboardComponent } from './approver/approver-dashboard/approver-dashboard.component';
+import { ApproverMyawardsComponent } from './approver/approver-myawards/approver-myawards.component';
+import { ApproverProfileComponent } from './approver/approver-profile/approver-profile.component';
+import { LoginComponent } from './login/login.component';
 
 
+import { RequesterComponent } from './requester/requester.component';
+import { RequesterSidebarComponent } from './requester/requester-sidebar/requester-sidebar.component';
+import { RequesterAddRequestComponent } from './requester/requester-add-request/requester-add-request.component';
+import { RequesterRequestComponent } from './requester/requester-request/requester-request.component';
+import { RequesterMyawardsComponent } from './requester/requester-myawards/requester-myawards.component';
+import { RequesterViewComponent } from './requester/requester-view/requester-view.component';
+import { HrComponent } from './hr/hr.component';
+import { HrAddRequestComponent } from './hr/hr-add-request/hr-add-request.component';
+import { HrSidebarComponent } from './hr/hr-sidebar/hr-sidebar.component';
+import { HrPublishComponent } from './hr/hr-publish/hr-publish.component';
+import { HrRequestComponent } from './hr/hr-request/hr-request.component';
+import { HrRequestViewComponent } from './hr/hr-request-view/hr-request-view.component';
+import { HrYettopublishComponent } from './hr/hr-yettopublish/hr-yettopublish.component';
+import { HrAwardComponent } from './hr/hr-award/hr-award.component';
+import { RequesterHomepageComponent } from './requester/requester-homepage/requester-homepage.component';
+import { HrHomepageComponent } from './hr/hr-homepage/hr-homepage.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    AdminSidebarComponent,
     LayoutComponent,
-    AwardsComponent,
-   
-    AdminEmployeeComponent,
-    AdminAddEmployeeComponent,
-    AdminEditEmployeeComponent,
-    AdminViewEmployeeComponent,
-  
- 
-    
-  
-    AdminDesignationComponent,
-   
-    AdminEditDesignationComponent,
-    AdminAddDesignationComponent,
-   
     FooterComponent,
     HomePageComponent,
     MoreCommentsComponent,
     CardPostComponent,
+
+    LoginComponent,
+
+
     AdminComponent,
+    AdminSidebarComponent,
 
 
     OrganisationComponent,
     AddOrganisationComponent,
     EditOrganisationComponent,
-  
-   
+
+
     DepartmentComponent,
     AddDepartmentComponent,
     EditDepartmentComponent,
-    
+
     DesignationComponent,
     AddDesignationComponent,
     EditDesignationComponent,
-   
+
     AwardsComponent,
     AddAwardsComponent,
     EditAwardComponent,
- 
     ViewAwardComponent,
+
+
     EmployeeComponent,
     AddEmployeeComponent,
     EditEmployeeComponent,
     ViewEmployeeComponent,
+    ApproverComponent,
+    ApproverSidebarComponent,
+    ApproverHomepageComponent,
+    ApproverAddrequestComponent,
+    ApproverApprovalComponent,
+    ApproverDashboardComponent,
+    ApproverMyawardsComponent,
+    ApproverProfileComponent,
 
-  
- 
-   
+
+
+ RequesterComponent,
+ RequesterSidebarComponent,
+ RequesterAddRequestComponent,
+ RequesterRequestComponent,
+ RequesterMyawardsComponent,
+ RequesterViewComponent,
+ HrComponent,
+ HrAddRequestComponent,
+ HrSidebarComponent,
+ HrPublishComponent,
+ HrRequestComponent,
+ HrRequestViewComponent,
+ HrYettopublishComponent,
+ HrAwardComponent,
+ RequesterHomepageComponent,
+ HrHomepageComponent,
+
+
+
   ],
   imports: [
     BrowserModule,
