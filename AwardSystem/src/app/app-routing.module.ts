@@ -47,7 +47,7 @@ import { AdminComponent } from './admin/admin.component';
 import { RequestComponent } from './requester/request/request.component';
 import { ApproverViewComponent } from './approver/approver-view/approver-view.component';
 import { RequesterRejectComponent } from './requester/requester-reject/requester-reject.component';
-import { profile } from 'console';
+
 import { ProfileComponent } from './profile/profile.component';
 
 
@@ -99,7 +99,8 @@ const routes: Routes = [
   {path:'morecomments' , component:MoreCommentsComponent},
   {path:'cardpost' , component:CardPostComponent},
   {path:'request' , component:RequestComponent},
-  {path:'pofile' , component:ProfileComponent},
+  {path:'profile' , component:RequestComponent},
+ 
 
 
 
