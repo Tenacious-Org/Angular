@@ -1,6 +1,6 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { AwardType } from 'Models/AwardType';
+import { SharedService } from 'src/app/shared.service';
 @Component({
   selector: 'app-awards',
   templateUrl: './awards.component.html',
@@ -8,24 +8,17 @@ import { AwardType } from 'Models/AwardType';
 })
 export class AwardsComponent implements OnInit {
 
- 
-  @Input() awdsrc: string ="https://localhost:7275/api/AwardType/GetAll";
-  totalLength: any;
-  page: number = 1;
-  
+  constructor(private sharedService:SharedService ) { }
 
-  constructor(private http: HttpClient) { }
   ngOnInit(): void {
-    this.http
-      .get<any>(this.awdsrc)
-      .subscribe((data) => {
-        this.data = data;
-        this.totalLength = data.length;
-        console.log(data)
-       
-      });
-      
+   this.sharedService.getAllAwardType().subscribe(data=>{
+   this.data=data;
+   
+
+   });
+   
   }
+ 
 
   public data: AwardType[] = [];
 }

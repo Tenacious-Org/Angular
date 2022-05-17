@@ -23,6 +23,8 @@
                 <tr class="text-center">
                     <th>Award ID</th>
                     <th>Award Name</th>
+                    <th>Award Description</th>
+                    <th>Award Image </th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -30,8 +32,10 @@
                 <tr class="text-center" *ngFor="let item of data">
                     <td>{{item.id}}</td>
                     <td>{{item.awardName}}</td>
+                    <td>{{item.awardDescription}}</td>
+                    <td><img [src]="'data:image/jpg;base64,'+ item.image" /></td>
                     <td> <button [routerLink]="['../']" class="btn btn-primary" target="_self"><i class="fa-solid fa-pen-to-square" title="Edit"></i></button>
-                        <button [routerLink]="['../']"  class="btn btn-success" target="_self"><i class="fa-solid fa-circle-info" title="Details"></i></button>
+                        <button [routerLink]="['../view-award']"  class="btn btn-success" target="_self"><i class="fa-solid fa-circle-info" title="Details"></i></button>
 
                         <a href="#" class="btn btn-danger" target="_self"><i class="fa-solid fa-user-slash" data-toggle="modal" data-target="#Mymodal"title="Disable"></i></a></td>
                     <div class="modal fade" id="Mymodal">

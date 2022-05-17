@@ -9,10 +9,20 @@ export class SharedService {
   readonly apiurl = "https://localhost:7275/api/";
   constructor(private http:HttpClient) { }
 
-  addOrganisation(val:any){
-    return this.http.post(this.apiurl+'Organisation/',val);
+  addOrganisation(data:any): Observable<any>{
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json; charset=utf-8');
+    return this.http.post<any>(this.apiurl + 'Organisation/Create', data)
   }
   getAllOrganisation():Observable<any>{
     return this.http.get<Organisation>(this.apiurl + 'Organisation/GetAll')
+  }
+  addAwardType(data:any): Observable<any>{
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json; charset=utf-8');
+    return this.http.post<any>(this.apiurl + 'AwardType/Create', data)
+  }
+  getAllAwardType():Observable<any>{
+    return this.http.get<Organisation>(this.apiurl + 'AwardType/GetAll')
   }
 }

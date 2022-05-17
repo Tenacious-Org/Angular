@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Organisation } from 'Models/Organisation';
 import { SharedService } from 'src/app/shared.service';
-import { OrganisationService } from '../organisation.service';
 
 
 @Component({
@@ -12,35 +11,20 @@ import { OrganisationService } from '../organisation.service';
 export class AddOrganisationComponent implements OnInit {
 
 
-  constructor(private organisationService:OrganisationService) { }
-  id = 0;
-  organisationName = '';
-  isActive = true;
-  addedBy = 1;
-  addedOn = Date.now;
-  updatedBy = 1;
-  updatedOn = Date.now;
-  
-
+  constructor(private sharedService:SharedService) { }
   Organisation : any = {
     id : 0,
-    organisationName : this.organisationName,
-    isActive : this.isActive,
-    addedBy : this.addedBy,
-    addedOn : this.addedOn,
-    updatedBy : this.updatedBy,
-    updatedOn : this.updatedOn, 
-  
+    organisationName : '',
+    addedBy : 1,
+    addedOn : Date.now
+ 
   }
 
   ngOnInit(): void {
-
-    
-    
+   
   }
   OnSubmit(){
-    // console.log(this.Organisation)
-    this.organisationService.AddOrganisation(this.Organisation).subscribe((res) =>{
+    this.sharedService.addOrganisation(this.Organisation).subscribe((res) =>{
       console.log(res);
     })
   }
