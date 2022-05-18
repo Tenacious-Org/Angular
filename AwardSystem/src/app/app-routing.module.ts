@@ -48,9 +48,11 @@ import { RequestComponent } from './requester/request/request.component';
 import { ApproverViewComponent } from './approver/approver-view/approver-view.component';
 import { RequesterRejectComponent } from './requester/requester-reject/requester-reject.component';
 
+
 import { ProfileComponent } from './profile/profile.component';
 import { EmployeeComponent } from './admin/employee/employee.component';
 import { AddEmployeeComponent } from './admin/employee/add-employee/add-employee.component';
+import { ApproverARComponent } from './approver/approver-acceptreject/approver-ar.component';
 
 
 const routes: Routes = [
@@ -90,6 +92,7 @@ const routes: Routes = [
   {path:'approver-myawards', component:ApproverMyawardsComponent},
   {path:'approver-homepage', component:ApproverHomepageComponent},
   {path:'approver-view', component:ApproverViewComponent},
+  {path:'approver-acceptreject', component:ApproverARComponent},
 
   
 

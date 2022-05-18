@@ -1,0 +1,125 @@
+<app-layout></app-layout>
+<app-approver-sidebar></app-approver-sidebar>
+<div class="container d-flex justify-content-center ">
+
+    <!-- Write your contents here -->
+
+    <div class="card " style="border-radius: 15px; width: 500rem; margin-top:60px;">
+        <div class="card-body">
+            <div class="mt-3 mb-4 text-center">
+                <h2>Awardee Details</h2>
+
+                <img src="https://wallpapercave.com/dwp1x/wp6649916.jpg" style=width:10rem; class="rounded-circle img-fluid" style="width: 100px;" />
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <p class="mb-0">ACEID</p>
+
+                    <p class="text-muted mb-0">INT0664</p>
+                </div>
+
+                <div class="col-sm-6">
+                    <p class="mb-0">Name</p>
+
+                    <p class="text-muted mb-0">Anu</p>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+
+
+                <div class="col-sm-6">
+                    <p class="mb-0">Designation</p>
+
+                    <p class="text-muted mb-0">SE</p>
+                </div>
+
+                <div class="col-sm-6">
+                    <p class="mb-0">Department</p>
+
+                    <p class="text-muted mb-0">.net</p>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-6">
+                    <p class="mb-0">Requester</p>
+
+                    <p class="text-muted mb-0">Anitha</p>
+                </div>
+
+                <div class="col-sm-6">
+                    <p class="mb-0">Award</p>
+
+                    <p class="text-muted mb-0">Rolestar</p>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-6">
+                    <p class="mb-0">Reason</p>
+
+                    <p class="text-muted mb-0">For consistent performance</p>
+                </div>
+            </div>
+            <br>
+            <div class="text-center mt-3">
+                <button type="button" class="btn btn-success pull-left  " data-toggle="modal" data-target="#myModal">Accept</button>
+                <!-- <-- Modal -->
+                <div class="modal fade" id="myModal" role="dialog">
+                    <div class="modal-dialog">
+                        <!-- 
+                        <-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+
+                                <h4 class="modal-title">Success!</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p>You have approved the request and forwarded to HR partners.</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+               
+                <button class="btn btn-danger" data-target="#loginmodal" data-toggle="modal">Reject</button>
+                <div class="container">
+                    <div class="row">
+                        <div class="col col-sm-12">
+                            <div class="modal" data-keyboard="false" data-backdrop="static" id="loginmodal" tabindex="-1">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h4 class="modal-title">Rejection Reason</h4>
+                                            <button class="close" data-dismiss="modal">&times;</button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form>
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" placeholder="Enter Reason" id="inputUserName" />
+                                                </div>
+
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer button-group">
+                                            <button class="btn btn-danger col-lg-2" data-dismiss="modal" >Cancel</button>
+                                            <button class="btn btn-success col-lg-2" data-dismiss="modal">Submit</button>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

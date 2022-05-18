@@ -72,6 +72,7 @@ import { ApproverRequestComponent } from './approver/approver-request/approver-r
 import { ApproverViewComponent } from './approver/approver-view/approver-view.component';
 import { RequesterRejectComponent } from './requester/requester-reject/requester-reject.component';
 import { ProfileComponent } from './profile/profile.component';
+import { ApproverARComponent } from './approver/approver-acceptreject/approver-ar.component';
 
 
 
@@ -149,6 +150,7 @@ import { ProfileComponent } from './profile/profile.component';
  ApproverViewComponent,
  RequesterRejectComponent,
  ProfileComponent,
+ ApproverARComponent,
 
 
 

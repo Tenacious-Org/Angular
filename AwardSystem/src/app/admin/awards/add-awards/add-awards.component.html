@@ -10,14 +10,20 @@
         <div class="row g-3 align-items-center justify-content-center mb-3">
             <div class="col-auto p-1.5">
                 <label  class="col-form-label">Award Name</label>
-                <input type="text"  class="form-control" name="awardName" [(ngModel)]="AwardType.awardName">
+                <input type="text" #name="ngModel" required pattern="^[a-zA-Z][a-zA-Z\s]{0,20}[a-zA-Z]$" class="form-control" name="awardName" [(ngModel)]="AwardType.awardName">
+                <div *ngIf ="name.touched && name.errors" class="alert alert-danger">
+                    Award Name is Required!
+                </div>
+                <div *ngIf ="name.touched && name.errors" class="alert alert-danger" >
+                    Award Name is invalid!
+                </div>
             </div>
         </div>
         <div class="row g-3 align-items-center justify-content-center mb-3">
             <div class="col-auto p-1.5">
                 <label  class="col-form-label">Award Description</label>
-                <input type="text" class="form-control" name="awardDescription" [(ngModel)]="AwardType.awardDescription">
-
+                <input type="text" #description="ngModel" required class="form-control" name="awardDescription" [(ngModel)]="AwardType.awardDescription">
+                <div *ngIf ="description.touched && description.invalid" class="alert alert-danger">Award Description is Required!</div>
             </div>
         </div>
         <div class="row g-3 align-items-center justify-content-center mb-3">
