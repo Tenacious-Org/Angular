@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Designation } from 'Models/Designation';
 import { Organisation } from 'Models/Organisation';
 import { Observable } from 'rxjs';
 @Injectable({
@@ -24,5 +25,13 @@ export class SharedService {
   }
   getAllAwardType():Observable<any>{
     return this.http.get<Organisation>(this.apiurl + 'AwardType/GetAll')
+  }
+  addDesignation(data:any): Observable<any>{
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json; charset=utf-8');
+    return this.http.post<any>(this.apiurl + 'Designation/Create', data)
+  }
+  getAllDesignation():Observable<any>{
+    return this.http.get<Designation>(this.apiurl + 'Designation/GetAll')
   }
 }

@@ -2,50 +2,41 @@
 <app-admin-sidebar></app-admin-sidebar>
 <div class="container d-flex justify-content-center table-box">
 
-    <form class="border-box position-relative">
+    <form class="border-box position-relative" #ngForm (ngSubmit)="OnSubmit()">
 
-        <span class="border-box-tip"><b>Add Designation</b></span>
+        <span class="border-box-tip"><b>Add Department</b></span>
 
         <div class="row g-3 align-items-center justify-content-center mb-3">
-           
-            <div class="col-auto p-1.5">
-                <label for="org" class="col-form-label">Organisation</label>
+            <div class="row-auto p-1.5 align-items-center">
+                <label for="dept" class="col-form-label">Designation</label>
 
                 <div class="input-group">
-                    <select class="custom-select" id="inputGroupSelect04">
+                    <select name="departmentId" [(ngModel)]="Designation.departmentId" class="custom-select" id="inputGroupSelect04"  >
                               <option selected>Choose...</option>
-                              <option value="1">DotNet</option>
-                              <option value="2">Java</option>
-                              <option value="3">LAMP</option>
+                              <option *ngFor="let items of data"  ngValue={{items.id}} >{{items.depatrmentName}}</option>
+                            </select>
+                </div>
+                <div class="input-group">
+                    <select name="departmentId" [(ngModel)]="Designation.departmentId" class="custom-select" id="inputGroupSelect04"  >
+                              <option selected>Choose...</option>
+                              <option *ngFor="let items of data"  ngValue={{items.id}} >{{items.depatrmentName}}</option>
                             </select>
                 </div>
             </div>
-            
-                <div class="col-auto p-1.5">
-                    <label for="org" class="col-form-label">Department</label>
-
-                    <div class="input-group">
-                        <select class="custom-select" id="inputGroupSelect04">
-                                  <option selected>Choose...</option>
-                                  <option value="1">DotNet</option>
-                                  <option value="2">Java</option>
-                                  <option value="3">LAMP</option>
-                                </select>
-                    </div>
-                </div>
-            <div class="col-auto p-1.5">
+            <div class="row-auto p-1.5 align-items-center">
                 <label for="firstName" class="col-form-label">Designation Name</label>
-                <input type="text" id="firstName" class="form-control" aria-describedby="firstNameHelpInline">
+                <input type="text" id="firstName" class="form-control" name="designationName" [(ngModel)]="Designation.designationName" >
 
             </div>
+     
         </div>
-       
+            
+
 
         <div class="row justify-content-center align-items-center mt-5 button-group">
-            <a [routerLink]="['../designation']" class="btn btn-primary col-lg-2">Add</a>
-            <a  [routerLink]="['../designation']" class="btn btn-primary col-lg-2">Cancel</a>
+            <button  type="submit" class="btn btn-primary col-lg-2"> Add </button>
+            <button [routerLink]="['../designation']" class="btn btn-danger col-lg-2">Back</button>
+           
         </div>
     </form>
 </div>
-
-
