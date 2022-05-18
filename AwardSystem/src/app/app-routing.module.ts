@@ -49,6 +49,8 @@ import { ApproverViewComponent } from './approver/approver-view/approver-view.co
 import { RequesterRejectComponent } from './requester/requester-reject/requester-reject.component';
 
 import { ProfileComponent } from './profile/profile.component';
+import { EmployeeComponent } from './admin/employee/employee.component';
+import { AddEmployeeComponent } from './admin/employee/add-employee/add-employee.component';
 
 
 const routes: Routes = [
@@ -58,6 +60,8 @@ const routes: Routes = [
   {path:'login', component:LoginComponent},
 
 
+  {path:'employee', component:EmployeeComponent},
+  {path:'add-employee', component:AddEmployeeComponent},
 
   {path:'awards', component:AwardsComponent},
   {path:'add-awards', component:AddAwardsComponent},
