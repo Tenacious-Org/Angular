@@ -82,7 +82,7 @@ const routes: Routes = [
 
   {path:'organisation', component:OrganisationComponent},
   {path:'add-organisation', component:AddOrganisationComponent},
-  {path:'edit-organisation', component:EditOrganisationComponent},
+  {path:'edit-organisation/:id', component:EditOrganisationComponent},
 
   {path:'approver', component:ApproverComponent},
   {path:'approver-addrequest', component:ApproverAddrequestComponent},

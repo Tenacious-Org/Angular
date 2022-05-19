@@ -9,15 +9,14 @@
         <div class="row g-3 align-items-center justify-content-center mb-3">
             <div class="col-auto p-1.5">
                 <label for="firstName" class="col-form-label">Organisation Name</label>
-                <input type="text" id="firstName" class="form-control" aria-describedby="firstNameHelpInline" value="Development">
-
+                <input type="text" name="OrganisationName" id="organisation.organisationName" class="form-control" value={{data.organisationName}} #Organisationtion.organisationName >
             </div>
         </div>
 
 
         <div class="row justify-content-center align-items-center mt-5 button-group">
             <a [routerLink]="['../organisation']" type="submit" class="btn btn-primary col-lg-2">Update</a>
-            <a [routerLink]="['../organisation']" class="btn btn-danger col-lg-2">Cancel</a>
+            <a href="javascript:void(0)" (click)="goBack()" class="btn btn-danger col-lg-2">Cancel</a>
         </div>
     </form>
 </div>
