@@ -30,7 +30,6 @@ export class AddAwardsComponent implements OnInit {
   }
 
   OnSubmit(){
-    // console.log(this.Organisation)
     this.sharedService.addAwardType(this.AwardType).subscribe((res) =>{
       console.log(res);
     })
@@ -68,10 +67,7 @@ export class AddAwardsComponent implements OnInit {
           this.cardImageBase64= this.cardImageBase64.replace("data:image/jpeg;base64,", "");
           this.AwardType.imageString=this.cardImageBase64;
           this.isImageSaved = true;
-          
-
         }
-
       };
 
       reader.readAsDataURL(fileInput.target.files[0]);

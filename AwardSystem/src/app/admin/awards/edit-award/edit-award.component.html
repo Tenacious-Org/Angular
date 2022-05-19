@@ -2,28 +2,35 @@
 <app-admin-sidebar></app-admin-sidebar>
 <div class="container d-flex justify-content-center table-box">
 
-    <form class="border-box position-relative ">
+    <form class="border-box position-relative" >
 
-        <span class="border-box-tip"><b>Edit Awards</b></span>
+        <span class="border-box-tip"><b>Add Awards</b></span>
 
         <div class="row g-3 align-items-center justify-content-center mb-3">
             <div class="col-auto p-1.5">
-                <label for="firstName" class="col-form-label">Award Name</label>
-                <input type="text" id="firstName" class="form-control" aria-describedby="firstNameHelpInline" Value="Role Star">
-
+                <label  class="col-form-label">Award Name</label>
+                <input type="text"  class="form-control" name="awardName" value={{data.awardName}} #data.awardName>
             </div>
         </div>
         <div class="row g-3 align-items-center justify-content-center mb-3">
             <div class="col-auto p-1.5">
-                <label for="firstName" class="col-form-label">Picture URL</label>
-                <input type="text" id="firstName" name="Hema" class="form-control" aria-describedby="firstNameHelpInline" Value="https://github/Tenacious/A5/Image3">
+                <label  class="col-form-label">Award Description</label>
+                <input type="text" class="form-control" name="awardDescription" value={{data.awardDescription}} #data.awardDescription>
 
             </div>
         </div>
+        <div class="row g-3 align-items-center justify-content-center mb-3">
+        <div class="col-auto p-1.5">
+            <label class="col-form-label">Award Image</label>
+            <input type="file" (change)="ImageConversion($event)" class="fileInputProfile" name="image" >
+            <label class="text-danger"> {{imageError}}</label>
+
+        </div>
+    </div>
 
 
         <div class="row justify-content-center align-items-center mt-5 button-group">
-             <button  [routerLink]="['../awards']" class="btn btn-primary col-lg-2">Edit</button>
+             <button (click)="OnSubmit()"  class="btn btn-primary col-lg-2">Edit</button>
             <button [routerLink]="['../awards']" class="btn btn-danger col-lg-2">Cancel</button>
         </div>
     </form>

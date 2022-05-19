@@ -67,8 +67,8 @@ const routes: Routes = [
 
   {path:'awards', component:AwardsComponent},
   {path:'add-awards', component:AddAwardsComponent},
-  {path:'edit-award', component:EditAwardComponent},
-  {path:'view-award', component:ViewAwardComponent},
+  {path:'edit-award/:id', component:EditAwardComponent},
+  {path:'awards/:id', component:ViewAwardComponent},
 
   {path:'department', component:DepartmentComponent},
   {path:'add-department', component:AddDepartmentComponent},
@@ -131,7 +131,7 @@ const routes: Routes = [
   {path:'hr-homepage' , component:HrHomepageComponent},
 
 
-   {path:'', component:AddDepartmentComponent},
+   {path:'', component:OrganisationComponent},
 
 
 

@@ -6,23 +6,23 @@
     <div class="card " style="border-radius: 15px; width:500px; margin-top:60px;">
         <div class="card-body">
             <div class="mt-3 mb-4 text-center">
-                <img src="./assets/images/123.jpg" style=width:10rem; class="rounded-circle img-fluid" style="width: 100px;" />
+                <img [src]="'data:image/jpg;base64,'+ data.image" class="rounded-circle img-fluid"  />
             </div>
             <div class="row">
                 <div class="col-sm-6">
                     <p class="mb-0">Award</p>
                 </div>
                 <div class="col-sm-6">
-                    <p class="text-muted mb-0">Role Star</p>
+                    <p class="text-muted mb-0">{{data.awardName}}</p>
                 </div>
             </div>
             <hr>
             <div class="row">
                 <div class="col-sm-6">
-                    <p class="mb-0">Image URL</p>
+                    <p class="mb-0">Award Description</p>
                 </div>
                 <div class="col-sm-6">
-                    <p class="text-muted mb-0">https://github/Tenacious/A5/Image3</p>
+                    <p class="text-muted mb-0">{{data.awardDescription}}</p>
                 </div>
             </div>
             <hr>

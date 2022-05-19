@@ -1,5 +1,9 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+<<<<<<< Updated upstream
+=======
+import { AwardType } from 'Models/AwardType';
+>>>>>>> Stashed changes
 import { Designation } from 'Models/Designation';
 import { Organisation } from 'Models/Organisation';
 import { Observable } from 'rxjs';
@@ -23,8 +27,16 @@ export class SharedService {
     headers.append('Content-Type', 'application/json; charset=utf-8');
     return this.http.post<any>(this.apiurl + 'AwardType/Create', data)
   }
+  editAwardType(id:number,data:any): Observable<any>{
+    const headers = new HttpHeaders();
+    headers.append('Content-Type', 'application/json; charset=utf-8');
+    return this.http.put<any>(this.apiurl + `AwardType/Update?id=${id}`, data,{headers:headers})
+  }
   getAllAwardType():Observable<any>{
-    return this.http.get<Organisation>(this.apiurl + 'AwardType/GetAll')
+    return this.http.get<AwardType>(this.apiurl + 'AwardType/GetAll')
+  }
+  getAllDesignation():Observable<any>{
+    return this.http.get<Designation>(this.apiurl + 'Designation/GetAll')
   }
   addDesignation(data:any): Observable<any>{
     const headers = new Headers();
