@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Organisation } from 'Models/Organisation';
 import { SharedService } from 'src/app/shared.service';
+import { Location } from '@angular/common';
 
 
 @Component({
@@ -11,7 +12,7 @@ import { SharedService } from 'src/app/shared.service';
 export class AddOrganisationComponent implements OnInit {
 
 
-  constructor(private sharedService:SharedService) { }
+  constructor(private sharedService:SharedService, private location: Location) { }
   Organisation : any = {
     id : 0,
     organisationName : '',
@@ -29,6 +30,11 @@ export class AddOrganisationComponent implements OnInit {
     })
   }
  
+  goBack() {
+    // window.history.back();
+    this.location.back();
+    console.log( 'goBack()...' );
+  }
 
 }
 
