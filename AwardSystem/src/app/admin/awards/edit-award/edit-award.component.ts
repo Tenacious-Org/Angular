@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { SharedService } from 'src/app/shared.service';
 
@@ -15,7 +16,6 @@ export class EditAwardComponent implements OnInit {
   data :any;
   Id =0;
 
-  constructor(private sharedService: SharedService,private http:HttpClient , private router:ActivatedRoute) { }
   AwardType : any ={
     id : 0,
     awardName : '',
@@ -26,11 +26,15 @@ export class EditAwardComponent implements OnInit {
     addedOn : Date.now
   
     }
+  
+
+
+  constructor(private sharedService: SharedService,private http:HttpClient , private router:ActivatedRoute) { }
 
   ngOnInit(): void {
 
     this.router.params.subscribe(params => {
-      this.Id = params['id'];
+    this.Id = params['id'];
     this.http
       .get<any>(`https://localhost:7275/api/AwardType/GetById?id=${this.Id}`)
       .subscribe((result) => {
@@ -39,18 +43,18 @@ export class EditAwardComponent implements OnInit {
         console.log(this.data);
       });
     });
+   
 
   }
 
   OnSubmit(){
-    // this.sharedService.editAwardType(this.Id,this.AwardType).subscribe(data=>{this.Id=data.id
-    //   console.log(data);
-    // });
     console.log(this.data);
-    console.log(this.AwardType);
-    this.http.put<any>( `https://localhost:7275/api/AwardType/Update?id=${this.Id}`, this.data).subscribe(data=>{this.Id=data.id
-    console.log(data);});
-    
+
+    this.sharedService.editAwardType(this.Id,this.data).subscribe(data=>{
+      console.log(data);
+    });
+    console.log(this.data);
+
   }
   ImageConversion(fileInput:any){
     this.imageError = "";

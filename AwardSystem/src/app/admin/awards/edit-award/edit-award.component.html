@@ -9,20 +9,20 @@
         <div class="row g-3 align-items-center justify-content-center mb-3">
             <div class="col-auto p-1.5">
                 <label  class="col-form-label">Award Name</label>
-                <input type="text"  class="form-control" name="awardName" value={{data.awardName}} #data.awardName>
+                <input type="text"  class="form-control" name="awardName" value={{data.awardName}} [(ngModel)]="data.awardName" >
             </div>
         </div>
         <div class="row g-3 align-items-center justify-content-center mb-3">
             <div class="col-auto p-1.5">
                 <label  class="col-form-label">Award Description</label>
-                <input type="text" class="form-control" name="awardDescription" value={{data.awardDescription}} #data.awardDescription>
+                <input type="text" class="form-control" name="awardDescription" value={{data.awardDescription}} [(ngModel)]="data.awardDescription">
 
             </div>
         </div>
         <div class="row g-3 align-items-center justify-content-center mb-3">
         <div class="col-auto p-1.5">
             <label class="col-form-label">Award Image</label>
-            <input type="file" (change)="ImageConversion($event)" class="fileInputProfile" name="image" >
+            <input type="file" (change)="ImageConversion($event)" class="fileInputProfile" name="image"  value={{data.image}} [(ngModel)]="data.image">
             <label class="text-danger"> {{imageError}}</label>
 
         </div>
