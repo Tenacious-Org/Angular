@@ -7,11 +7,12 @@ import { SharedService } from 'src/app/shared.service';
   styleUrls: ['./awards.component.css']
 })
 export class AwardsComponent implements OnInit {
-
+  endpoints ="AwardType";
   constructor(private sharedService:SharedService ) { }
 
   ngOnInit(): void {
-   this.sharedService.getAllAwardType().subscribe(data=>{
+  
+   this.sharedService.getAll(this.endpoints).subscribe(data=>{
    this.data=data;
    
 

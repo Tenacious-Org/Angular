@@ -19,19 +19,27 @@ export class SharedService {
   getAllOrganisation():Observable<any>{
     return this.http.get<Organisation>(this.apiurl + 'Organisation/GetAll')
   }
-  addAwardType(data:any): Observable<any>{
+  // addAwardType(data:any): Observable<any>{
+  //   const headers = new Headers();
+  //   headers.append('Content-Type', 'application/json; charset=utf-8');
+  //   return this.http.post<any>(this.apiurl + 'AwardType/Create', data)
+  // }
+  add(endpoint:any,data:any): Observable<any>{
     const headers = new Headers();
     headers.append('Content-Type', 'application/json; charset=utf-8');
-    return this.http.post<any>(this.apiurl + 'AwardType/Create', data)
+    return this.http.post<any>(this.apiurl + endpoint+'/Create', data)
   }
+
+
+
+
+
   editAwardType(id:number,data:any): Observable<any>{
     const headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json; charset=utf-8');
-    return this.http.put<any>(this.apiurl + `AwardType/Update?id=${id}`, data,{headers:headers})
+    return this.http.put<any>(this.apiurl + `AwardType/Update?id=${id}`, data,{headers})
   }
-  getAllAwardType():Observable<any>{
-    return this.http.get<AwardType>(this.apiurl + 'AwardType/GetAll')
-  }
+ 
   getAllDesignation():Observable<any>{
     return this.http.get<Designation>(this.apiurl + 'Designation/GetAll')
   }
@@ -39,5 +47,8 @@ export class SharedService {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json; charset=utf-8');
     return this.http.post<any>(this.apiurl + 'Designation/Create', data)
+  }
+  getAll(endpoint:string):Observable<any>{
+    return this.http.get<any>(this.apiurl + endpoint +'/GetAll')
   }
 }

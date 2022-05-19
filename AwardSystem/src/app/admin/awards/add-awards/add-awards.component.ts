@@ -10,7 +10,7 @@ import { SharedService } from 'src/app/shared.service';
 export class AddAwardsComponent implements OnInit {
 
   constructor(private sharedService:SharedService) { }
-  
+  endpoint ="AwardType";
   imageError = "";
   isImageSaved: boolean = false;
   cardImageBase64 = "";
@@ -30,7 +30,7 @@ export class AddAwardsComponent implements OnInit {
   }
 
   OnSubmit(){
-    this.sharedService.addAwardType(this.AwardType).subscribe((res) =>{
+    this.sharedService.add( this.endpoint,this.AwardType).subscribe((res) =>{
       console.log(res);
     })
   }

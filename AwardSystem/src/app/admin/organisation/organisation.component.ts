@@ -9,11 +9,11 @@ import { SharedService } from 'src/app/shared.service';
   styleUrls: ['./organisation.component.css']
 })
 export class OrganisationComponent implements OnInit {
- 
+ endpoints="Organisation";
    constructor(private sharedService:SharedService ) { }
 
    ngOnInit(): void {
-    this.sharedService.getAllOrganisation().subscribe(data=>{
+    this.sharedService.getAll(this.endpoints).subscribe(data=>{
       this.data=data;
     });
     
