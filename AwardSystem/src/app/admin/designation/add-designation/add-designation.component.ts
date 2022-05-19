@@ -8,7 +8,7 @@ import { Designation } from 'Models/Designation';
   styleUrls: ['./add-designation.component.css']
 })
 export class AddDesignationComponent implements OnInit {
-  organisationID : ''
+  // organisationID : ''
   constructor(private sharedService:SharedService) { }
   Designation : any = {
     id : 0,

@@ -16,6 +16,16 @@ export class EditAwardComponent implements OnInit {
   Id =0;
 
   constructor(private sharedService: SharedService,private http:HttpClient , private router:ActivatedRoute) { }
+  AwardType : any ={
+    id : 0,
+    awardName : '',
+    awardDescription :'',
+    image: '',
+    imageString : this.cardImageBase64,
+    addedBy : 1,
+    addedOn : Date.now
+  
+    }
 
   ngOnInit(): void {
 
@@ -33,10 +43,13 @@ export class EditAwardComponent implements OnInit {
   }
 
   OnSubmit(){
+    // this.sharedService.editAwardType(this.Id,this.AwardType).subscribe(data=>{this.Id=data.id
+    //   console.log(data);
+    // });
     console.log(this.data);
-    this.sharedService.editAwardType(this.Id,this.data).subscribe(data=>{
-      console.log(data);
-    });
+    console.log(this.AwardType);
+    this.http.put<any>( `https://localhost:7275/api/AwardType/Update?id=${this.Id}`, this.data).subscribe(data=>{this.Id=data.id
+    console.log(data);});
     
   }
   ImageConversion(fileInput:any){
