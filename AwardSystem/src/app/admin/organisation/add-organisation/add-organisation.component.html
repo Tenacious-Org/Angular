@@ -9,8 +9,13 @@
         <div class="row g-3 align-items-center justify-content-center mb-3">
             <div class="col-auto p-1.5">
                 <label class="col-form-label">Organisation Name</label>
-                <input type="text"   class="form-control" name="organisationName" [(ngModel)]="Organisation.organisationName" >   
-
+                <input type="text"  #organisationName="ngModel" required pattern="^[a-zA-Z][a-zA-Z\s]{0,20}[a-zA-Z]$" class="form-control" name="organisationName" [(ngModel)]="Organisation.organisationName" >   
+                <div *ngIf ="organisationName.touched && organisationName.errors?.['required']" class="alert alert-danger">
+                    Organisation Name is Required!
+                </div>
+                <div *ngIf ="organisationName.touched && organisationName.errors?.['pattern']" class="alert alert-danger" >
+                    Organisation Name is invalid!
+                </div>
             </div>
         </div>
        

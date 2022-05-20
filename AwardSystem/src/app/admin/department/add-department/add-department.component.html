@@ -11,7 +11,10 @@
                 <label for="org" class="col-form-label">Organisation</label>
 
                 <div class="input-group">
-                    <select name="organisationId" [(ngModel)]="Department.organisationId" class="custom-select" id="inputGroupSelect04"  >
+                    <select name="organisationId" #organisationName="ngModel" required [(ngModel)]="Department.organisationId" class="custom-select" id="inputGroupSelect04">
+                        <div *ngIf ="organisationName.touched && organisationName.errors?.['required']" class="alert alert-danger">
+                            Organisation Name is Required!
+                        </div>
                               <option selected>Choose...</option>
                               <option *ngFor="let items of data"  ngValue={{items.id}} >{{items.organisationName}}</option>
                             </select>
@@ -19,8 +22,13 @@
             </div>
             <div class="row-auto p-1.5 align-items-center">
                 <label for="firstName" class="col-form-label">Department Name</label>
-                <input type="text" id="firstName" class="form-control" name="departmentName" [(ngModel)]="Department.departmentName" >
-
+                <input type="text" id="firstName" #departmentName="ngModel" required pattern="^[a-zA-Z][a-zA-Z\s]{0,20}[a-zA-Z]$" class="form-control" name="departmentName" [(ngModel)]="Department.departmentName" >
+                <div *ngIf ="departmentName.touched && departmentName.errors?.['required']" class="alert alert-danger">
+                    Department Name is Required!
+                </div>
+                <div *ngIf ="departmentName.touched && departmentName.errors?.['pattern']" class="alert alert-danger" >
+                    Department Name is invalid!
+                </div>
             </div>
      
         </div>

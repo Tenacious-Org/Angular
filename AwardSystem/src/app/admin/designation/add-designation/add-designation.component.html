@@ -28,8 +28,13 @@
             </div> 
             <div class="row-auto p-1.5 align-items-center">
                 <label for="firstName" class="col-form-label">Designation Name</label>
-                <input type="text"  class="form-control" name="designationName" [(ngModel)]="Designation.designationName" >
-
+                <input type="text"  #designation="ngModel" required pattern="^[a-zA-Z][a-zA-Z\s]{0,20}[a-zA-Z]$" class="form-control" name="designationName" [(ngModel)]="Designation.designationName" >
+                <div *ngIf ="designation.touched && designation.errors?.['required']" class="alert alert-danger">
+                    Designation is Required!
+                </div>
+                <div *ngIf ="designation.touched && designation.errors?.['pattern']" class="alert alert-danger" >
+                    Designation is invalid!
+                </div>
             </div>
      
         </div>
