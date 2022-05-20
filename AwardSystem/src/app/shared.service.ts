@@ -1,8 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { AwardType } from 'Models/AwardType';
-import { Designation } from 'Models/Designation';
-import { Organisation } from 'Models/Organisation';
 import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
@@ -35,7 +32,7 @@ export class SharedService {
   {
     const headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json; charset=utf-8');
-    return this.http.put<any>(this.apiurl + endpoint+`/Update`, data,{headers})
+    return this.http.put<any>(this.apiurl + endpoint +`/Update`, data,{headers})
   }
  
 //Get Department By Organisation ID
