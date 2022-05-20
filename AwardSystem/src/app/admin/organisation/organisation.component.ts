@@ -9,7 +9,7 @@ import { SharedService } from 'src/app/shared.service';
   styleUrls: ['./organisation.component.css']
 })
 export class OrganisationComponent implements OnInit {
- endpoints="Organisation";
+   endpoints="Organisation";
    constructor(private sharedService:SharedService ) { }
 
    ngOnInit(): void {

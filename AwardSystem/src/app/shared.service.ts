@@ -51,4 +51,7 @@ export class SharedService {
   getAll(endpoint:string):Observable<any>{
     return this.http.get<any>(this.apiurl + endpoint +'/GetAll')
   }
+  getDepartmentByOrganisation(id:any):Observable<any>{
+    return this.http.get<any>(this.apiurl + `Department/GetDepartmentsByOrganisationId?id=${id}`)
+  }
 }

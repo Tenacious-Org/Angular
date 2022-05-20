@@ -11,20 +11,12 @@ export class AddDepartmentComponent implements OnInit {
 
   constructor(private departmentService:DepartmentService, private sharedService:SharedService) {}
 
-  id = 0;
-  departmentName = '';
-  organisationId = 0;
-  addedBy = 1;
-  addedOn = Date.now;
-
-
-
   Department : any = {
-    id : this.id,
-    departmentName : this.departmentName,
-    organisationId : this.organisationId,
-    addedBy : this.addedBy,
-    addedOn : this.addedOn
+    id :0,
+    departmentName : '',
+    organisationId :0,
+    addedBy : 1,
+    addedOn : Date.now
   }
   
 
