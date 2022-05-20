@@ -54,4 +54,7 @@ export class SharedService {
   getDepartmentByOrganisation(id:any):Observable<any>{
     return this.http.get<any>(this.apiurl + `Department/GetDepartmentsByOrganisationId?id=${id}`)
   }
+  getDesignationByDepartment(id:any):Observable<any>{
+    return this.http.get<any>(this.apiurl + `Designation/GetDesignationsByDepartmentId?id=${id}`)
+  }
 }
