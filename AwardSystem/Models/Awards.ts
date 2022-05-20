@@ -1,14 +1,14 @@
 export class Awards
 {
-    Id : number = 0;
-    RequesterId : number = 0;
-    AwardeeId : number = 0;
-    AwardTypeId : number = 0;
-    ApproverId : number = 0;
-    Reason : string = '';
-    RejectReason : string = '';
-    HRId : number = 0;
-    CouponCode : string = '';
-    StatusId : string = '';
-    IsActive : boolean= true;
+    id : number = 0;
+    requesterId : number = 0;
+    awardeeId : number = 0;
+    awardTypeId : number = 0;
+    approverId : number = 0;
+    reason : string = '';
+    rejectReason : string = '';
+    hRId : number = 0;
+    couponCode : string = '';
+    statusId : string = '';
+    isActive : boolean= true;
 }

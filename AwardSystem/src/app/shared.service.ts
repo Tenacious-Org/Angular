@@ -48,9 +48,9 @@ export class SharedService {
   }
 
 //Get Reguested Award List
-  getRequestedAwardList(endpoint:string):Observable<any>
+  getRequestedAwardList(id:number):Observable<any>
   {
-    return this.http.get<any>(this.apiurl + endpoint +'/GetRequestedAwardsList')
+    return this.http.get<any>(this.apiurl +`Award/GetRequestedAwardsList?id=${id}`)
   }
 
 }

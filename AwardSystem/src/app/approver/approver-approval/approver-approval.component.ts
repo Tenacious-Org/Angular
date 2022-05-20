@@ -9,12 +9,15 @@ import { SharedService } from 'src/app/shared.service';
 })
 export class ApproverApprovalComponent implements OnInit {
   
-  endpoints="Awards";
+  
   constructor(private sharedService:SharedService ) { }
 
+  id = 5;
+
   ngOnInit(): void {
-    this.sharedService.getRequestedAwardList(this.endpoints).subscribe(data=>{
-      this.data=data;
+    this.sharedService.getRequestedAwardList(this.id).subscribe(data=>
+    {
+        this.data = data;
     });
   }
   
