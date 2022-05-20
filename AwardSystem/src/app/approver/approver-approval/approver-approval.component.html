@@ -45,74 +45,23 @@
                     <thead>
                         <tr class="text-center">
                             <th>ACE ID</th>
-                            <th>Name</th>
+                            <!-- <th>Name</th> -->
                             <th>Award</th>
-                            <th>Date</th>
+                            <!-- <th>Date</th> -->
                             <th>Status</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="text-center">
-                            <td>ACE0123</td>
-                            <td>Sanjay Subramani</td>
-                            <td>First Victor</td>
-                            <td>12-11-2022</td>
-                            <td>Pending</td>
+                        <tr class="text-center" *ngFor="let item of data">
+                            <td>{{item.AwardeeId}}</td>
+                            <!-- <td>{{item.awardeeName}}</td> -->
+                            <td>{{item.AwardTypeId}}</td>
+                            <!-- <td>{{item.AddedOn}}</td> -->
+                            <td>{{item.StatusId}}</td>
                             <td>
                                 <a href="Approver AR View.html" class="btn btn-success" target="_self"><i class="fa-solid fa-circle-info" title="Details"></i></a>
                         </tr>
-    
-                        <tr class="text-center">
-                            <td>ACE0893</td>
-                            <td>Kathir Ramarajan</td>
-                            <td>Role Star</td>
-                            <td>25-04-2022</td>
-                            <td>Pending</td>
-                            <td>
-                                <a href="Approver AR View.html" class="btn btn-success " target="_self "><i class="fa-solid fa-circle-info " title="Details "></i></a>
-    
-                        </tr>
-    
-                        <tr class="text-center ">
-                            <td>ACE1234</td>
-                            <td>Saravana Dinesh</td>
-                            <td>Gladiator</td>
-                            <td>21-02-2022</td>
-                            <td>Pending</td>
-                            <td>
-                                <a href="Approver AR View.html " class="btn btn-success " target="_self "><i class="fa-solid fa-circle-info " title="Details "></i></a>
-    
-                        </tr>
-                        <tr class="text-center ">
-                            <td>ACE0987</td>
-                            <td>Dinesh Thilasiraman</td>
-                            <td>Insta</td>
-                            <td>25-03-2022</td>
-                            <td>Pending</td>
-                            <td>
-                                <a href="Approver AR View.html " class="btn btn-success " target="_self "><i class="fa-solid fa-circle-info " title="Details "></i></a>
-    
-                        </tr>
-    
-                        <tr class="text-center ">
-                            <td>ACE9456</td>
-                            <td>Anand Thevaraj</td>
-                            <td>Role Star</td>
-                            <td>01-01-2022</td>
-                            <td>Pending</td>
-                            <td>
-                                <a href="Approver AR View.html " class="btn btn-success " target="_self "><i class="fa-solid fa-circle-info " title="Details "></i></a>
-    
-                        </tr>
-    
-                       
-    
-    
-    
-    
-    
-    
                     </tbody>
                 </table>
     
