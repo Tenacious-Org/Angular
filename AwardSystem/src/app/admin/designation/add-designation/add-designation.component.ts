@@ -42,7 +42,7 @@ export class AddDesignationComponent implements OnInit {
   OnSubmit(){
     this.sharedService.add(this.endpoint1,this.Designation).subscribe(data=>{
       console.log(data);
-    })
+    });
   }
 
 }

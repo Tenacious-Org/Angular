@@ -10,51 +10,44 @@ import { Observable } from 'rxjs';
 export class SharedService {
   readonly apiurl = "https://localhost:7275/api/";
   constructor(private http:HttpClient) { }
+//common services
+//GetAll method
+  getAll(endpoint:string):Observable<any>
+  {
+    return this.http.get<any>(this.apiurl + endpoint +'/GetAll')
+  }
 
-  addOrganisation(data:any): Observable<any>{
-    const headers = new Headers();
-    headers.append('Content-Type', 'application/json; charset=utf-8');
-    return this.http.post<any>(this.apiurl + 'Organisation/Create', data)
+//Get By ID method
+  getById(endpoint:string,id:any)
+  {
+    return this.http.get<any>(this.apiurl + endpoint+`/GetById?id=${id}`)
   }
-  getAllOrganisation():Observable<any>{
-    return this.http.get<Organisation>(this.apiurl + 'Organisation/GetAll')
-  }
-  // addAwardType(data:any): Observable<any>{
-  //   const headers = new Headers();
-  //   headers.append('Content-Type', 'application/json; charset=utf-8');
-  //   return this.http.post<any>(this.apiurl + 'AwardType/Create', data)
-  // }
-  add(endpoint:any,data:any): Observable<any>{
+
+//create method
+  add(endpoint:any,data:any): Observable<any>
+  {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json; charset=utf-8');
     return this.http.post<any>(this.apiurl + endpoint+'/Create', data)
   }
-
-
-
-
-
-  editAwardType(id:number,data:any): Observable<any>{
+//Update method
+  edit(endpoint:any,data:any): Observable<any>
+  {
     const headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json; charset=utf-8');
-    return this.http.put<any>(this.apiurl + `AwardType/Update?id=${id}`, data,{headers})
+    return this.http.put<any>(this.apiurl + endpoint+`/Update`, data,{headers})
   }
  
-  getAllDesignation():Observable<any>{
-    return this.http.get<Designation>(this.apiurl + 'Designation/GetAll')
-  }
-  addDesignation(data:any): Observable<any>{
-    const headers = new Headers();
-    headers.append('Content-Type', 'application/json; charset=utf-8');
-    return this.http.post<any>(this.apiurl + 'Designation/Create', data)
-  }
-  getAll(endpoint:string):Observable<any>{
-    return this.http.get<any>(this.apiurl + endpoint +'/GetAll')
-  }
-  getDepartmentByOrganisation(id:any):Observable<any>{
+//Get Department By Organisation ID
+  getDepartmentByOrganisation(id:any):Observable<any>
+  {
     return this.http.get<any>(this.apiurl + `Department/GetDepartmentsByOrganisationId?id=${id}`)
   }
-  getDesignationByDepartment(id:any):Observable<any>{
+
+//Get Designation By Department ID
+  getDesignationByDepartment(id:any):Observable<any>
+  {
     return this.http.get<any>(this.apiurl + `Designation/GetDesignationsByDepartmentId?id=${id}`)
   }
+
 }

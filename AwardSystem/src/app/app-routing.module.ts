@@ -72,7 +72,7 @@ const routes: Routes = [
 
   {path:'department', component:DepartmentComponent},
   {path:'add-department', component:AddDepartmentComponent},
-  {path:'edit-department', component:EditDepartmentComponent},
+  {path:'edit-department/:id', component:EditDepartmentComponent},
 
 
   {path:'designation', component:DesignationComponent},

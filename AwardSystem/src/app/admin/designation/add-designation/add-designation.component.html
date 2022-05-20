@@ -29,10 +29,10 @@
             </div> 
             <div class="row-auto p-1.5 align-items-center">
                 <label for="firstName" class="col-form-label">Designation Name</label>
+
                 <input type="text"  class="form-control" #designationName="ngModel" required pattern="^[a-zA-Z][a-zA-Z\s]{0,20}[a-zA-Z]$" name="designationName" [(ngModel)]="Designation.designationName" >
                 <div *ngIf ="designationName.touched && designationName.errors?.['required']" class="alert alert-danger">
                     Designation Name is Required!
-                </div>
                 <div *ngIf ="designationName.touched && designationName.errors?.['pattern']" class="alert alert-danger" >
                     Designation Name is invalid!
                 </div>
@@ -43,6 +43,7 @@
             <button  type="submit" class="btn btn-primary col-lg-2" [disabled]="!myForm.form.valid"> Add </button>
             <button [routerLink]="['../designation']" class="btn btn-danger col-lg-2">Back</button>
            
+        </div>
         </div>
     </form>
 </div> 

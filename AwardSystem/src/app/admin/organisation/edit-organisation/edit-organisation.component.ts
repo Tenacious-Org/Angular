@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {ActivatedRoute} from '@angular/router';
 import { Location } from '@angular/common';
+import { SharedService } from 'src/app/shared.service';
 
 @Component({
   selector: 'app-edit-organisation',
@@ -10,9 +11,9 @@ import { Location } from '@angular/common';
 })
 export class EditOrganisationComponent implements OnInit {
   
-  constructor(private http:HttpClient,
+  constructor(private sharedService:SharedService,
     private route:ActivatedRoute, private location: Location) { }
-
+endpoint="Organisation";
     id:any;
     data:any;
 
@@ -25,9 +26,7 @@ export class EditOrganisationComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.id = params['id'];
     console.log(this.id)
-    this.http
-      .get<any>(`https://localhost:7275/api/Organisation/GetById?id=${this.id}`)
-      .subscribe((data) => {
+   this.sharedService.getById(this.endpoint,this.id).subscribe((data) => {
         this.data = data;
         console.log(data);
       });

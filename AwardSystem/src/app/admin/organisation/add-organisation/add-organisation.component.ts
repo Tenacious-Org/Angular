@@ -11,7 +11,7 @@ import { Location } from '@angular/common';
 })
 export class AddOrganisationComponent implements OnInit {
 
-
+endpoint="Organisation";
   constructor(private sharedService:SharedService, private location: Location) { }
   Organisation : any = {
     id : 0,
@@ -26,7 +26,7 @@ export class AddOrganisationComponent implements OnInit {
   }
   OnSubmit(){
     console.log(this.Organisation)
-    this.sharedService.addOrganisation(this.Organisation).subscribe((res) =>{
+    this.sharedService.add(this.endpoint,this.Organisation).subscribe((res) =>{
       console.log(res);
     })
   }

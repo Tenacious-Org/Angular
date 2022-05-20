@@ -16,19 +16,18 @@ export class EditAwardComponent implements OnInit {
   data :any;
   Id =0;
 
+  endpoint="AwardType";
   constructor(private sharedService: SharedService,private http:HttpClient , private router:ActivatedRoute) { }
 
   ngOnInit(): void {
 
     this.router.params.subscribe(params => {
     this.Id = params['id'];
-    this.http
-      .get<any>(`https://localhost:7275/api/AwardType/GetById?id=${this.Id}`)
-      .subscribe((result) => {
-        this.data = result;
-        console.log(this.Id);
-        console.log(this.data);
-      });
+    this.sharedService.getById(this.endpoint,this.Id).subscribe((result) => {
+      this.data = result;
+      console.log(this.Id);
+      console.log(this.data);
+    });
     });
    
 
@@ -36,7 +35,7 @@ export class EditAwardComponent implements OnInit {
 
   OnSubmit(){
     console.log(this.data);
-    this.sharedService.editAwardType(this.Id,this.data).subscribe(data=>{
+    this.sharedService.edit(this.endpoint,this.data).subscribe(data=>{
       console.log(data);
     });
 

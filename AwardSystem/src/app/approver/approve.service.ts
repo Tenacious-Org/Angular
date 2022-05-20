@@ -14,6 +14,6 @@ export class ApproveService {
   {
     const headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json; charset=utf-8');
-    return this.httpclient.put('https://localhost:7275/api/Award/Approve?id=${id}',data,{headers});
+    return this.httpclient.put(`https://localhost:7275/api/Award/Approve?id=${id}`,data,{headers});
   }
 }

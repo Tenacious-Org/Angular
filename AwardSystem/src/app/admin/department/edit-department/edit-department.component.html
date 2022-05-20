@@ -2,7 +2,7 @@
 <app-admin-sidebar></app-admin-sidebar>
 <div class="container d-flex justify-content-center table-box">
 
-    <form class="border-box position-relative">
+    <form class="border-box position-relative"  #ngForm (ngSubmit)="OnSubmit()">
 
         <span class="border-box-tip"><b>Edit Department</b></span>
 
@@ -11,26 +11,32 @@
                 <label for="org" class="col-form-label">Organisation Name</label>
 
                 <div class="input-group">
-                    <select class="custom-select" id="inputGroupSelect04">
-                              <option >Choose...</option>
-                              <option selected value="1">Development</option>
-                              <option value="2">Testing</option>
-                              <option value="3">Support</option>
+                    <select name="organisationId" #organisationName="ngModel" required  [(ngModel)]="data.organisationId" class="custom-select" >
+                        <div *ngIf ="organisationName.touched && organisationName.errors?.['required']" class="alert alert-danger">
+                            Organisation Name is Required!
+                        </div>
+                              <option selected value={{data.organisationId}}>--Select Organisation--</option>
+                              <option *ngFor="let items of organisation"   ngValue={{items.id}} >{{items.organisationName}}</option>
                             </select>
                 </div>
             </div>
 
-            <div class="col-auto p-1.5">
-                <label for="firstName" class="col-form-label">Department Name</label>
-                <input type="text" id="firstName" class="form-control" aria-describedby="firstNameHelpInline" value="Software Engineer">
-
+            <div class="row-auto p-1.5 align-items-center">
+                <label class="col-form-label">Department Name</label>
+                <input type="text" #departmentName="ngModel" required pattern="^[a-zA-Z][a-zA-Z\s]{0,20}[a-zA-Z]$" class="form-control" name="departmentName" value={{data.departmentName}} [(ngModel)]="data.departmentName" >
+                <div *ngIf ="departmentName.touched && departmentName.errors?.['required']" class="alert alert-danger">
+                    Department Name is Required!
+                </div>
+                <div *ngIf ="departmentName.touched && departmentName.errors?.['pattern']" class="alert alert-danger" >
+                    Department Name is invalid!
+                </div>
             </div>
         </div>
         
 
 
             <div class="row justify-content-center align-items-center mt-5 button-group">
-                <a [routerLink]="['../department']" class="btn btn-primary col-lg-2">Edit</a>
+                <button type="submit" class="btn btn-primary col-lg-2">Edit</button>
                 <a [routerLink]="['../department']" class="btn btn-danger col-lg-2">Cancel</a>
             </div>
     </form>
