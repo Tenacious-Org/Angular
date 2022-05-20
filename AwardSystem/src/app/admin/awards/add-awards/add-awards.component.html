@@ -3,7 +3,7 @@
 
 <div class="container d-flex justify-content-center table-box">
 
-    <form class="border-box position-relative" #ngForm (ngSubmit)="OnSubmit()">
+    <form class="border-box position-relative" #myForm="ngForm" (ngSubmit)="OnSubmit()">
 
         <span class="border-box-tip"><b>Add Awards</b></span>
 
@@ -22,7 +22,7 @@
         <div class="row g-3 align-items-center justify-content-center mb-3">
             <div class="col-auto p-1.5">
                 <label  class="col-form-label">Award Description</label>
-                <input type="text" #description="ngModel" required pattern="^[a-zA-Z][a-zA-Z\s]{0,20}[a-zA-Z]$" class="form-control" name="awardDescription" [(ngModel)]="AwardType.awardDescription">
+                <input type="text" #description="ngModel" required pattern="^[a-zA-Z][a-zA-Z\s]{0,100}[a-zA-Z]$" class="form-control" name="awardDescription" [(ngModel)]="AwardType.awardDescription">
                 <div *ngIf ="description.touched && description.errors?.['required']" class="alert alert-danger">
                     Description is Required!
                 </div>
@@ -42,7 +42,7 @@
 
 
         <div class="row justify-content-center align-items-center mt-5 button-group">
-            <button  type="submit" class="btn btn-primary col-lg-2">Add</button>
+            <button  type="submit" class="btn btn-primary col-lg-2" [disabled]="!myForm.form.valid" >Add</button>
             <button  [routerLink]="['../awards']" class="btn btn-danger col-lg-2">Cancel</button>
         </div>
     </form>
