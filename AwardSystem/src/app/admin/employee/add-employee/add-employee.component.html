@@ -2,82 +2,78 @@
 <app-admin-sidebar></app-admin-sidebar>
 <div class="container d-flex justify-content-center table-box">
 
-    <form class="border-box position-relative">
+    <form class="border-box position-relative" #myForm="ngForm" (ngSubmit)="OnSubmit()">
 
         <span class="border-box-tip"><b>Add Employee</b></span>
 
         <div class="row g-3 align-items-center justify-content-center mb-3">
+
             <div class="col-auto p-1.5">
                 <label for="firstName" class="col-form-label">First Name</label>
-                <input type="text" id="firstName" class="form-control" aria-describedby="firstNameHelpInline">
-
+                <input type="text" name="firstName" [(ngModel)]="Employee.firstName" id="firstName" class="form-control" aria-describedby="firstNameHelpInline">
             </div>
 
             <div class="col-auto p-1.5">
-                <label for="firstName" class="col-form-label">Last Name</label>
-                <input type="text" id="firstName" class="form-control" aria-describedby="firstNameHelpInline">
-
+                <label for="lastName" class="col-form-label">Last Name</label>
+                <input type="text" name="lastName" [(ngModel)]="Employee.lastName" id="lastName" class="form-control" aria-describedby="lastNameHelpInline">
             </div>
+
         </div>
+
+
         <div class="row g-3 align-items-center justify-content-center mb-3">
+
             <div class="col-auto p-1.5">
                 <label for="datetime" class="col-form-label">Date of Birth</label>
-
-
-                <input type="date" id="Test_DatetimeLocal" class="form-control" aria-describedby="passwordHelpInline">
+                <input type="date" name="dob" [(ngModel)]="Employee.dob" id="Test_DatetimeLocal" class="form-control" aria-describedby="passwordHelpInline">
             </div>
 
             <div class="col-auto p-1.5">
                 <label for="aceid" class="col-form-label">AceID</label>
-
-                <input type="text" id="aceid" class="form-control" aria-describedby="aceidHelpInline">
+                <input type="text" name="aceid" [(ngModel)]="Employee.aceid" id="aceid" class="form-control" aria-describedby="aceidHelpInline">
             </div>
+
         </div>
+
+
         <div class="row g-3 align-items-center justify-content-center mb-3">
+
             <div class="col-auto p-1.5">
-
                 <label for="email" class="col-form-label">Email</label>
-
-                <input type="email" id="email" class="form-control" aria-describedby="emailHelpInline">
-
+                <input type="email" name="email" [(ngModel)]="Employee.email" id="email" class="form-control" aria-describedby="emailHelpInline">
             </div>
 
             <div class="col-auto p-1.5">
                 <label class="col-form-label">Employee Image</label>
-
-                <input type="file" id="image" class="form-control " aria-describedby="imageHelpInline">
-
+                <input type="file" (change)="ImageConversion($event)" class="fileInputProfile" name="image">
             </div>
+
         </div>
+
+
         <div class="row g-3 align-items-center justify-content-center mb-3">
             <div class="col-auto p-1.5">
                 <label for="org" class="col-form-label">Organisation</label>
 
                 <div class="input-group">
-                    <select class="custom-select" id="inputGroupSelect04">
-                              <option selected>Choose...</option>
-                              <option value="1">Development</option>
-                              <option value="2">Testing</option>
-                              <option value="3">Support</option>
-                            </select>
+                    <select name="organisationId" [(ngModel)]="Employee.organisationId" name="SelectOrg"[(ngModel)]="SelectOrg" (change)="onSelectDep()" class="custom-select"   >
+                        <option selected>Choose...</option>
+                        <option *ngFor="let items of organisations"  ngValue={{items.id}} >{{items.organisationName}}</option>
+                    </select>
                 </div>
             </div>
 
             <div class="col-auto p-1.5">
 
-
                 <label for="dept" class="col-form-label">Department</label>
 
-
                 <div class="input-group">
-                    <select class="custom-select" id="inputGroupSelect04">
+                    <select name="departmentId" [(ngModel)]="Employee.departmentId" name="SelectDep" [(ngModel)]="SelectDep" (change)="onSelectDes()" class="custom-select"   >
                               <option selected>Choose...</option>
-                              <option value="1">Development</option>
-                              <option value="2">Testing</option>
-                              <option value="3">Support</option>
-                            </select>
-
+                              <option *ngFor="let items of departments"  ngValue={{items.id}} >{{items.departmentName}}</option>
+                    </select>
                 </div>
+
             </div>
         </div>
         <div class="row g-3 align-items-center justify-content-center mb-3">
@@ -88,13 +84,10 @@
 
 
                 <div class="input-group">
-                    <select class="custom-select" id="inputGroupSelect04">
+                    <select name="designationId" [(ngModel)]="Employee.designationId" class="custom-select"   >
                               <option selected>Choose...</option>
-                              <option value="1">Development</option>
-                              <option value="2">Testing</option>
-                              <option value="3">Support</option>
-                            </select>
-
+                              <option *ngFor="let items of designations"  ngValue={{items.id}} >{{items.designationName}}</option>
+                    </select>
                 </div>
             </div>
 

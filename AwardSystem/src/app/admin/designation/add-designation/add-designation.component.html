@@ -12,10 +12,11 @@
 
                 <div class="input-group">
                     <select name="selectOrg" [(ngModel)]="selectOrg" (change)="onSelect()" class="custom-select"   >
-                              <option selected>Choose...</option>
-                              <option *ngFor="let items of organsiations"  ngValue={{items.id}} >{{items.organisationName}}</option>
-                            </select>
+                        <option selected>Choose...</option>
+                        <option *ngFor="let items of organsiations"  ngValue={{items.id}} >{{items.organisationName}}</option>
+                    </select>
                 </div>
+
             </div>
                 <div class="row-auto p-1.5 align-items-center">
                     <label for="dept" class="col-form-label">Department</label>
