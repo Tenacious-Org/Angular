@@ -6,4 +6,8 @@ export class Department
     departmentName : string = '';
     organisationId : number = 0;
     isActive : boolean = true;
+    addedBy = 1;
+    addedOn = Date.now;
+    updatedBy = 1;
+    updatedOn = Date.now;
 }

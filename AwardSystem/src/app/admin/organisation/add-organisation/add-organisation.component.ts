@@ -25,6 +25,7 @@ export class AddOrganisationComponent implements OnInit {
    
   }
   OnSubmit(){
+    console.log(this.Organisation)
     this.sharedService.addOrganisation(this.Organisation).subscribe((res) =>{
       console.log(res);
     })
