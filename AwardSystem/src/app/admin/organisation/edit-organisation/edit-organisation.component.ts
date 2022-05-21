@@ -13,7 +13,7 @@ export class EditOrganisationComponent implements OnInit {
   
   constructor(private sharedService:SharedService,
     private route:ActivatedRoute, private location: Location) { }
-endpoint="Organisation";
+    endpoint="Organisation";
     id:any;
     data:any;
 
@@ -28,15 +28,18 @@ endpoint="Organisation";
     console.log(this.id)
    this.sharedService.getById(this.endpoint,this.id).subscribe((data) => {
         this.data = data;
-        console.log(data);
+        console.log(this.data);
       });
     });
   }
 
-  goBack() {
-    // window.history.back();
-    this.location.back();
-    console.log( 'goBack()...' );
-  }
+  OnSubmit(){
+    console.log(this.data);
+    this.sharedService.edit(this.endpoint,this.data).subscribe(data=>{
+      console.log(data);
+    });
+    
+  }      
+
 
 }
