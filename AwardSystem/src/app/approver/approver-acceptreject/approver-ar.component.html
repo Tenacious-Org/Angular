@@ -15,13 +15,13 @@
                 <div class="col-sm-6">
                     <p class="mb-0">ACEID</p>
 
-                    <p class="text-muted mb-0">INT0664</p>
+                    <p class="text-muted mb-0">{{data.awardeeId}}</p>
                 </div>
 
                 <div class="col-sm-6">
                     <p class="mb-0">Name</p>
 
-                    <p class="text-muted mb-0">Anu</p>
+                    <p class="text-muted mb-0">{{data.awardTypeId}}</p>
                 </div>
             </div>
             <hr>
@@ -31,7 +31,7 @@
                 <div class="col-sm-6">
                     <p class="mb-0">Designation</p>
 
-                    <p class="text-muted mb-0">SE</p>
+                    <p class="text-muted mb-0">{{data.statusId}}</p>
                 </div>
 
                 <div class="col-sm-6">
@@ -64,7 +64,7 @@
             </div>
             <br>
             <div class="text-center mt-3">
-                <button type="button" class="btn btn-success pull-left  "type="submit" data-toggle="modal" data-target="#myModal">Accept</button>
+                <button type="button" class="btn btn-success pull-left  "type="submit" (click)="OnSubmit()" data-toggle="modal" data-target="#myModal">Accept</button>
                 <!-- <-- Modal -->
                 <div class="modal fade" id="myModal" role="dialog">
                     <div class="modal-dialog">

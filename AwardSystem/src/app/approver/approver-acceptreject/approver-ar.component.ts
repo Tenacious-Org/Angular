@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Awards } from 'Models/Awards';
 import { ApproveService } from '../approve.service';
+import { ActivatedRoute } from '@angular/router';
+import { SharedService } from 'src/app/shared.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-approver-ar',
@@ -23,9 +26,18 @@ export class ApproverARComponent implements OnInit {
     IsActive =  true;
   
 
-  constructor(private approveService:ApproveService) { }
-
+  constructor(private approveService:ApproveService, private sharedService:SharedService,
+    private route:ActivatedRoute, private location: Location) { }
+  endpoint="Award";
   ngOnInit(): void {
+    this.route.params.subscribe(params => {
+      this.Id = params['id'];
+     this.sharedService.getById(this.endpoint,this.Id).subscribe((result) => {
+          this.data = result;
+          console.log(this.Id);
+          console.log(this.data);
+        });
+      });
   }
   OnSubmit(){
     console.log(this.data);

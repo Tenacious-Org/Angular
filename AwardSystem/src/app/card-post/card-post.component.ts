@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SharedService } from '../shared.service';
 
 @Component({
   selector: 'app-card-post',
@@ -6,21 +7,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./card-post.component.css']
 })
 export class CardPostComponent implements OnInit {
-
+  
+  Comments :any ={
+    id :  0,
+    comments : '',
+    employeeId : 0,
+    awardId : 0,
+  }
   data: any;
   totalLength: any;
   page: number = 1;
 
-  constructor() { }
+  constructor(private sharedService:SharedService) { }
 
   ngOnInit(): void {
-    // this.http
-    //   .get<any>('https://jsonplaceholder.typicode.com/comments')
-    //   .subscribe((data) => {
-    //     this.data = data;
-    //     this.totalLength = data.length;
-    //     console.log(this.totalLength);
-    //   });
+  }
+  OnSubmit(){
+    console.log(this.Comments)
+    this.sharedService.addComment(this.Comments).subscribe((res) =>{
+      console.log(res);
+    });
   }
 
 }

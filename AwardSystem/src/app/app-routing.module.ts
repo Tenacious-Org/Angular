@@ -92,7 +92,7 @@ const routes: Routes = [
   {path:'approver-myawards', component:ApproverMyawardsComponent},
   {path:'approver-homepage', component:ApproverHomepageComponent},
   {path:'approver-view', component:ApproverViewComponent},
-  {path:'approver-acceptreject', component:ApproverARComponent},
+  {path:'approver-acceptreject/:id', component:ApproverARComponent},
 
   
 

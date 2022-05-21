@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class SharedService {
-  readonly apiurl = "https://localhost:7275/api/";
+  readonly apiurl = "https://localhost:7275/api/"; 
   constructor(private http:HttpClient) { }
 //common services
 //GetAll method
@@ -58,5 +58,10 @@ export class SharedService {
   {
     return this.http.get<any>(this.apiurl +`Award/GetRequestedAwardsList?id=${id}`)
   }
-
+  addComment(data:any): Observable<any>
+  {
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json; charset=utf-8');
+    return this.http.post<any>(this.apiurl +'/Award/addComment', data)
+  }
 }
