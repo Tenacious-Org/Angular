@@ -1,9 +1,11 @@
 <div class="form-group shadow-textarea">
-    <h2>Enter Rejection Reason</h2>
-    <textarea class="form-control z-depth-1" id="exampleFormControlTextarea6"  placeholder="Write something here..."></textarea>
-    <div class="text-center mt-4">
-        <button (click)="OnSubmit()" class="btn btn-success">Submit</button>
-        <button (click)=" goBack()" class="btn btn-danger">Close</button>
-    </div>
+    <form #ngForm>
+        <h2>Enter Rejection Reason</h2>
+        <textarea class="form-control" name="rejectReason" value={{data.rejectReason}} [(ngModel)]="data.rejectReason"  placeholder="Write something here..."></textarea>
+        <div class="text-center mt-4">
+            <button (click)="OnSubmit()" class="btn btn-success">Submit</button>
+            <button (click)=" goBack()" class="btn btn-danger">Close</button>
+        </div>
+    </form>
 </div>
 
