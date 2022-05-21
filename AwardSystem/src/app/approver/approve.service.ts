@@ -16,4 +16,10 @@ export class ApproveService {
     headers.append('Content-Type', 'application/json; charset=utf-8');
     return this.httpclient.put(`https://localhost:7275/api/Award/Approve?id=${id}`,data,{headers});
   }
+  reject(id:number,data:any): Observable<any>
+  {
+    const headers = new HttpHeaders();
+    headers.append('Content-Type', 'application/json; charset=utf-8');
+    return this.httpclient.put(`https://localhost:7275/api/Award/Reject?id=${id}`,data,{headers});
+  }
 }

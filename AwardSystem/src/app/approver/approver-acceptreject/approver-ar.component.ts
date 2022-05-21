@@ -4,6 +4,8 @@ import { ApproveService } from '../approve.service';
 import { ActivatedRoute } from '@angular/router';
 import { SharedService } from 'src/app/shared.service';
 import { Location } from '@angular/common';
+import { MatDialog } from '@angular/material/dialog';
+import { RejectionReasonComponent } from '../rejection-reason/rejection-reason.component';
 
 @Component({
   selector: 'app-approver-ar',
@@ -19,7 +21,7 @@ export class ApproverARComponent implements OnInit {
     AwardTypeId = 1;
     ApproverId = 5;
     Reason =  "Best performer in team";
-    RejectReason = 4;
+    RejectReason = '';
     HRId =  0;
     CouponCode =  '';
     StatusId = 2;
@@ -27,7 +29,7 @@ export class ApproverARComponent implements OnInit {
   
 
   constructor(private approveService:ApproveService, private sharedService:SharedService,
-    private route:ActivatedRoute, private location: Location) { }
+    private route:ActivatedRoute, private location: Location,private dialogRef : MatDialog) { }
   endpoint="Award";
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -42,6 +44,15 @@ export class ApproverARComponent implements OnInit {
   OnSubmit(){
     console.log(this.data);
     this.approveService.approve(this.Id,this.data).subscribe(data=>{
+      console.log(data);
+    });
+  }
+  openDialog(){
+    this.dialogRef.open(RejectionReasonComponent);
+  }
+  reject(){
+    console.log(this.data);
+    this.approveService.reject(this.Id,this.data).subscribe(data=>{
       console.log(data);
     });
   }

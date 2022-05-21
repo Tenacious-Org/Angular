@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -73,6 +73,8 @@ import { ApproverViewComponent } from './approver/approver-view/approver-view.co
 import { RequesterRejectComponent } from './requester/requester-reject/requester-reject.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ApproverARComponent } from './approver/approver-acceptreject/approver-ar.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RejectionReasonComponent } from './approver/rejection-reason/rejection-reason.component';
 
 
 
@@ -151,6 +153,7 @@ import { ApproverARComponent } from './approver/approver-acceptreject/approver-a
  RequesterRejectComponent,
  ProfileComponent,
  ApproverARComponent,
+ RejectionReasonComponent,
 
 
 
@@ -163,6 +166,8 @@ import { ApproverARComponent } from './approver/approver-acceptreject/approver-a
     NgxPaginationModule,
     HttpClientModule,
     FormsModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
    
   ],
   providers: [],
