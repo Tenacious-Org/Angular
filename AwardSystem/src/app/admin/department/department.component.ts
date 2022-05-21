@@ -19,12 +19,16 @@ export class DepartmentComponent implements OnInit {
   ngOnInit(): void {
    this.sharedService.getAll(this.endpoint).subscribe(data=>{
       this.data = data;
+      console.log(this.data);
     });
-    console.log();
+    console.log(this.data);
    this.sharedService.getAll(this.endpoint1).subscribe(data1=>{
       this.data1 = data1;
+      console.log(this.data1);
     });
-    console.log(this.data1);
+
+    
+    
   }
 
   public data: Department[] = [];
