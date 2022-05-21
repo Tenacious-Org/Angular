@@ -50,18 +50,21 @@ export class SharedService {
   //Get Employee By Department ID
   getEmployeeByDepartment(id : any): Observable<any>
   {
-    return this.http.get<any>(this.apiurl + `GetEmloyeeByDepartment?id=${id}`)
+    return this.http.get<any>(this.apiurl + `Employee/GetEmloyeeByDepartment?id=${id}`)
   }
 
-//Get Reguested Award List
+//Get Requested Award List
   getRequestedAwardList(id:number):Observable<any>
   {
     return this.http.get<any>(this.apiurl +`Award/GetRequestedAwardsList?id=${id}`)
   }
+
+// Add comments - Awardservices
   addComment(data:any): Observable<any>
   {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json; charset=utf-8');
     return this.http.post<any>(this.apiurl +'/Award/addComment', data)
   }
+
 }

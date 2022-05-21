@@ -1,6 +1,6 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { Employee } from 'Models/Employee';
+import { SharedService } from 'src/app/shared.service';
 
 @Component({
   selector: 'app-employee',
@@ -9,16 +9,15 @@ import { Employee } from 'Models/Employee';
 })
 export class EmployeeComponent implements OnInit {
 
-  @Input() empsrc: string ="https://localhost:7275/api/Employee/GetAll";
+  endpoint="Employee";
   totalLength: any;
   page: number = 1;
 
-  constructor(private http: HttpClient) { }
+  constructor(private sharedService: SharedService) { }
 
   ngOnInit(): void {  
-      this.http
-        .get<any>(this.empsrc)
-        .subscribe((data) => {
+      this.sharedService
+        .getAll(this.endpoint).subscribe((data) => {
           this.data = data;
           this.totalLength = data.length;
           console.log(data)

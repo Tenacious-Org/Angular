@@ -33,7 +33,8 @@ export class AddEmployeeComponent implements OnInit {
     reportingPersonId : 0,
     hrID : 0,
     password : '',
-    isActive : true,
+    addedBy : 1,
+    addedOn : Date.now
   }
 
   
@@ -75,6 +76,7 @@ export class AddEmployeeComponent implements OnInit {
     });   }
 
    OnSubmit(){
+     console.log(this.Employee)
     this.sharedService.add(this.endpoint1,this.Employee).subscribe(data=>{
       console.log(data);
     });
