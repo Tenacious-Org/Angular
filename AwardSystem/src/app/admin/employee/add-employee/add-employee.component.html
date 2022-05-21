@@ -97,32 +97,29 @@
                 <label for="rpname" class="col-form-label">Reporting Person Name</label>
 
                 <div class="input-group">
-                    <select class="custom-select" id="inputGroupSelect04">
+                    <select name="reportingPersonId" [(ngModel)]="Employee.reportingPersonId" class="custom-select"   >
                               <option selected>Choose...</option>
-                              <option value="1">Development</option>
-                              <option value="2">Testing</option>
-                              <option value="3">Support</option>
-                            </select>
-
+                              <option *ngFor="let items of employeeData"  ngValue={{items.id}} >{{items.firstName}}</option>
+                    </select>
                 </div>
             </div>
-        </div>
+
+            </div>
         <div class="row g-3 align-items-center justify-content-center mb-3">
 
             <div class="col-auto p-1.5">
                 <label for="hrname" class="col-form-label">HR Name</label>
 
                 <div class="input-group">
-                    <select class="custom-select" id="inputGroupSelect04">
+                    <select name="hrID" [(ngModel)]="Employee.hrID" class="custom-select"   >
                               <option selected>Choose...</option>
-                              <option value="1">Development</option>
-                              <option value="2">Testing</option>
-                              <option value="3">Support</option>
-                            </select>
-
+                              <option *ngFor="let items of employeeData"  ngValue={{items.id}} >{{items.firstName}}</option>
+                    </select>
                 </div>
             </div>
-        </div>
+
+            </div>
+        
 
         <div class="row justify-content-center align-items-center mt-5 button-group">
             <a [routerLink]="['../employee']" class="btn btn-primary col-lg-2">Add</a>

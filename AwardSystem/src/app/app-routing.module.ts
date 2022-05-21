@@ -67,22 +67,22 @@ const routes: Routes = [
 
   {path:'awards', component:AwardsComponent},
   {path:'add-awards', component:AddAwardsComponent},
-  {path:'edit-award', component:EditAwardComponent},
+  {path:'edit-award/:id', component:EditAwardComponent},
   {path:'awards/:id', component:ViewAwardComponent},
 
   {path:'department', component:DepartmentComponent},
   {path:'add-department', component:AddDepartmentComponent},
-  {path:'edit-department', component:EditDepartmentComponent},
+  {path:'edit-department/:id', component:EditDepartmentComponent},
 
 
   {path:'designation', component:DesignationComponent},
   {path:'add-designation', component:AddDesignationComponent},
-  {path:'edit-designation', component:EditDesignationComponent},
+  {path:'edit-designation/:id', component:EditDesignationComponent},
 
 
   {path:'organisation', component:OrganisationComponent},
   {path:'add-organisation', component:AddOrganisationComponent},
-  {path:'edit-organisation', component:EditOrganisationComponent},
+  {path:'edit-organisation/:id', component:EditOrganisationComponent},
 
   {path:'approver', component:ApproverComponent},
   {path:'approver-addrequest', component:ApproverAddrequestComponent},

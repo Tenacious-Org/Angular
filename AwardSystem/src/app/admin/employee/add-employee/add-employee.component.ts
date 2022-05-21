@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Department } from 'Models/Department';
 import { Designation } from 'Models/Designation';
+import { Employee } from 'Models/Employee';
 import { Organisation } from 'Models/Organisation';
 import { SharedService } from 'src/app/shared.service';
 
@@ -40,7 +41,7 @@ export class AddEmployeeComponent implements OnInit {
   organisations: Organisation[] = [];
   departments: Department[] = [];
   designations: Designation[] = [];
-
+  employeeData : Employee[]=[];
   SelectOrg: any = 0;
   SelectDep: any = 0;
 
@@ -52,6 +53,8 @@ export class AddEmployeeComponent implements OnInit {
       this.organisations=data;
       console.log(this.organisations);
     });
+
+    
   }
 
   onSelectDep(){
@@ -66,7 +69,10 @@ export class AddEmployeeComponent implements OnInit {
       this.designations = data;
       console.log(this.designations);
     });
-   }
+    this.sharedService.getEmployeeByDepartment(this.SelectDep).subscribe(data=>{
+      this.employeeData = data;
+      console.log(this.employeeData);
+    });   }
 
    OnSubmit(){
     this.sharedService.add(this.endpoint1,this.Employee).subscribe(data=>{
