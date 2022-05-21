@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { Department } from 'Models/Department';
+import { Organisation } from 'Models/Organisation';
+import { SharedService } from 'src/app/shared.service';
 
 @Component({
   selector: 'app-department',
@@ -9,23 +11,22 @@ import { Department } from 'Models/Department';
 })
 export class DepartmentComponent implements OnInit {
 
-  @Input() deptsrc: string ="https://localhost:7275/api/Department/GetAll";
-  totalLength: any;
-  page: number = 1;
-  
+  endpoint = "Department";
+  endpoint1 = "Organisation";
 
-  constructor(private http: HttpClient) { }
+  constructor(private sharedService:SharedService ) { }
+
   ngOnInit(): void {
-    this.http
-      .get<any>(this.deptsrc)
-      .subscribe((data) => {
-        this.data = data;
-        this.totalLength = data.length;
-        console.log(data)
-       
-      });
-      
+   this.sharedService.getAll(this.endpoint).subscribe(data=>{
+      this.data = data;
+    });
+    console.log();
+   this.sharedService.getAll(this.endpoint1).subscribe(data1=>{
+      this.data1 = data1;
+    });
+    console.log(this.data1);
   }
 
   public data: Department[] = [];
+  public data1: Organisation[] = [];
 }
