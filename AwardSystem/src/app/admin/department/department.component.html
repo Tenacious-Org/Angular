@@ -37,10 +37,10 @@
                 </tr>
             </thead>
             <tbody>
-                <tr class="text-center" *ngFor="let item of data">
-                    <td>{{item.id}}</td>
+                <tr class="text-center" *ngFor="let item of data; let i = index">
+                    <td>{{ i + 1 }}</td>
                     <td>{{item.departmentName}}</td>
-                    <td>{{item.organisationId}}</td>
+                    <td>{{item.organisationName}}</td>
 
                     <td> <a [routerLink]="['../edit-department',item.id]" class="btn btn-primary" target="_self"><i class="fa-solid fa-pen-to-square" title="Edit"></i></a>
 
