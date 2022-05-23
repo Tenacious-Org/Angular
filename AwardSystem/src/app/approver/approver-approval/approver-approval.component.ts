@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Awards } from 'Models/Awards';  
-import { SharedService } from 'src/app/shared.service';
+import { AwardService } from 'src/app/award.service';
 
 @Component({
   selector: 'app-approver-approval',
@@ -8,14 +8,14 @@ import { SharedService } from 'src/app/shared.service';
   styleUrls: ['./approver-approval.component.css']
 })
 export class ApproverApprovalComponent implements OnInit {
+  pageId=3;
+  employeeId=5;
   
+  constructor(private awardService:AwardService ) { }
   
-  constructor(private sharedService:SharedService ) { }
-
-  id = 5;
 
   ngOnInit(): void {
-    this.sharedService.getRequestedAwardList(this.id).subscribe(data=>
+    this.awardService.getAwards(this.pageId,this.employeeId).subscribe(data=>
     {
         this.data = data;
     });
