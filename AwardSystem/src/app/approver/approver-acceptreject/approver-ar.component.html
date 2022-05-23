@@ -63,9 +63,9 @@
                 </div>
             </div>
             <br>
-            <div class="text-center mt-3 ">
+            <div class="text-center mt-3 " *ngIf="data.statusId==1">
                 <button type="submit" class="btn btn-success" (click)="OnSubmit()">Accept</button>
-                <button class="btn btn-danger " (click)="openDialog();reject()" >Reject</button>
+                <button class="btn btn-danger" mat-raised-button (click)="openDialog()"  >Reject</button>
             </div>
 
         </div>

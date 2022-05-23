@@ -24,17 +24,12 @@ endpoint="Organisation";
   ngOnInit(): void {
    
   }
+
   OnSubmit(){
     console.log(this.Organisation)
     this.sharedService.add(this.endpoint,this.Organisation).subscribe((res) =>{
       console.log(res);
     })
-  }
- 
-  goBack() {
-    // window.history.back();
-    this.location.back();
-    console.log( 'goBack()...' );
   }
 
 }

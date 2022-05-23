@@ -48,7 +48,6 @@ import { RequestComponent } from './requester/request/request.component';
 import { ApproverViewComponent } from './approver/approver-view/approver-view.component';
 import { RequesterRejectComponent } from './requester/requester-reject/requester-reject.component';
 
-
 import { ProfileComponent } from './profile/profile.component';
 import { EmployeeComponent } from './admin/employee/employee.component';
 import { AddEmployeeComponent } from './admin/employee/add-employee/add-employee.component';
@@ -62,7 +61,6 @@ const routes: Routes = [
   {path:'admin-sidebar', component:AdminSidebarComponent},
   {path:'login', component:LoginComponent},
 
-
   {path:'employee', component:EmployeeComponent},
   {path:'add-employee', component:AddEmployeeComponent},
 
@@ -75,11 +73,9 @@ const routes: Routes = [
   {path:'add-department', component:AddDepartmentComponent},
   {path:'edit-department/:id', component:EditDepartmentComponent},
 
-
   {path:'designation', component:DesignationComponent},
   {path:'add-designation', component:AddDesignationComponent},
   {path:'edit-designation/:id', component:EditDesignationComponent},
-
 
   {path:'organisation', component:OrganisationComponent},
   {path:'add-organisation', component:AddOrganisationComponent},
@@ -95,14 +91,7 @@ const routes: Routes = [
   {path:'approver-view', component:ApproverViewComponent},
   {path:'approver-acceptreject/:id', component:ApproverARComponent},
   {path:'rejection-reason/:id' , component:RejectionReasonComponent},
-
   
-
-
-
-
-
-
   {path:'footer' , component:FooterComponent},
   {path:'homepage' , component:HomePageComponent},
   {path:'morecomments' , component:MoreCommentsComponent},
@@ -110,9 +99,6 @@ const routes: Routes = [
   {path:'request' , component:RequestComponent},
   {path:'profile' , component:RequestComponent},
  
-
-
-
   {path:'requester' , component:RequesterComponent},
   {path:'requester-add-request' , component:RequesterAddRequestComponent},
   {path:'requester-myawards' , component:RequesterMyawardsComponent},
@@ -132,11 +118,7 @@ const routes: Routes = [
   {path:'hr-award' , component:HrAwardComponent},
   {path:'hr-homepage' , component:HrHomepageComponent},
 
-
-   {path:'', component:OrganisationComponent},
-
-
-
+  {path:'', component:OrganisationComponent},
 
 ];
 

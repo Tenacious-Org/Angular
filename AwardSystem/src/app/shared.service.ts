@@ -59,12 +59,6 @@ export class SharedService {
     return this.http.get<any>(this.apiurl +`Award/GetRequestedAwardsList?id=${id}`)
   }
 
-// Add comments - Awardservices
-  addComment(data:any): Observable<any>
-  {
-    const headers = new Headers();
-    headers.append('Content-Type', 'application/json; charset=utf-8');
-    return this.http.post<any>(this.apiurl +'/Award/addComment', data)
-  }
+
 
 }

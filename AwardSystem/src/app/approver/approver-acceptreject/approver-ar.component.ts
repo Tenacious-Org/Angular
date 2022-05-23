@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Awards } from 'Models/Awards';
-import { ApproveService } from '../approve.service';
 import { ActivatedRoute } from '@angular/router';
-import { SharedService } from 'src/app/shared.service';
 import { Location } from '@angular/common';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog,MatDialogConfig, MatDialogRef } from '@angular/material/dialog';
 import { RejectionReasonComponent } from '../rejection-reason/rejection-reason.component';
+import { AwardService } from 'src/app/award.service';
 
 @Component({
   selector: 'app-approver-ar',
@@ -14,46 +12,44 @@ import { RejectionReasonComponent } from '../rejection-reason/rejection-reason.c
 })
 export class ApproverARComponent implements OnInit {
    data: any;
- 
-    Id =  1;
-    RequesterId = 6;
-    AwardeeId = 7;
-    AwardTypeId = 1;
-    ApproverId = 5;
-    Reason =  "Best performer in team";
-    RejectReason = '';
-    HRId =  0;
-    CouponCode =  '';
-    StatusId = 2;
-    IsActive =  true;
+   Id:any;
+   Reason :any;
+   approvedId=2;
+   rejectedId=3;
   
 
-  constructor(private approveService:ApproveService, private sharedService:SharedService,
-    private route:ActivatedRoute, private location: Location,private dialogRef : MatDialog) { }
-  endpoint="Award";
+  constructor(private awardService:AwardService,
+    private route:ActivatedRoute,private dialog: MatDialog) { }
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.Id = params['id'];
-     this.sharedService.getById(this.endpoint,this.Id).subscribe((result) => {
+     this.awardService.getAwardById(this.Id).subscribe((result) => {
           this.data = result;
-          console.log(this.Id);
-          console.log(this.data);
+          console.log(this.data.statusId);
+          console.log(this.data.rejectedReason);
         });
       });
   }
   OnSubmit(){
     console.log(this.data);
-    this.approveService.approve(this.Id,this.data).subscribe(data=>{
+    this.data.statusId=this.approvedId;
+    this.awardService.approval(this.data).subscribe(data=>{
       console.log(data);
     });
   }
   openDialog(){
-    this.dialogRef.open(RejectionReasonComponent);
-  }
-  reject(){
-    console.log(this.data);
-    this.approveService.reject(this.Id,this.data).subscribe(data=>{
-      console.log(data);
+    let dialogRef = this.dialog.open(RejectionReasonComponent,{data:{reason:this.Reason}});
+    dialogRef.afterClosed().subscribe(value => {
+      this.data.rejectedReason=value;
+      if(value!=undefined){
+        this.data.statusId=this.rejectedId;
+        this.awardService.approval(this.data).subscribe(data=>{
+          console.log(this.data);
+        });
+      }
+      
     });
+    
   }
-}
+
+  }

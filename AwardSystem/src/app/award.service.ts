@@ -22,20 +22,21 @@ export class AwardService {
     return this.http.get<any>(this.apiurl+`GetAwardById?id=${id}`)
   }
 
-  //Approve the request
-  approve(data:any): Observable<any>
+  //Approval of the request
+  approval(data:any): Observable<any>
   {
     const headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json; charset=utf-8');
-    return this.http.put<any>(this.apiurl+`Approve`,data,{headers});
+    return this.http.put<any>(this.apiurl+`Approval`,data,{headers});
   }
 
-  //Reject the Request
-  reject(data:any): Observable<any>
+  
+  // Add comments - Awardservices
+  addComment(data:any): Observable<any>
   {
-    const headers = new HttpHeaders();
+    const headers = new Headers();
     headers.append('Content-Type', 'application/json; charset=utf-8');
-    return this.http.put<any>(this.apiurl+`Reject`,data,{headers});
+    return this.http.post<any>(this.apiurl +'addComment', data)
   }
 
 }

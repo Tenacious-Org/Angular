@@ -21,8 +21,8 @@
        
 
         <div class="row justify-content-center align-items-center mt-5 button-group">
-            <button href="javascript:void(0)" (click)="goBack()" type="submit" class="btn btn-primary col-lg-2" [disabled]="!myForm.form.valid"> Add </button>
-            <button [routerLink]="['../organisation']" class="btn btn-danger col-lg-2">Back</button>
+            <button type="submit" class="btn btn-primary col-lg-2" [disabled]="!myForm.form.valid"> Add </button>
+            <button [routerLink]="['/organisation']" class="btn btn-danger col-lg-2">Back</button>
         </div>
     </form>
 </div>

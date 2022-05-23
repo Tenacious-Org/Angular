@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AwardService } from '../award.service';
 import { SharedService } from '../shared.service';
 
 @Component({
@@ -18,13 +19,13 @@ export class CardPostComponent implements OnInit {
   totalLength: any;
   page: number = 1;
 
-  constructor(private sharedService:SharedService) { }
+  constructor(private awardService:AwardService) { }
 
   ngOnInit(): void {
   }
   OnSubmit(){
     console.log(this.Comments)
-    this.sharedService.addComment(this.Comments).subscribe((res) =>{
+    this.awardService.addComment(this.Comments).subscribe((res) =>{
       console.log(res);
     });
   }
