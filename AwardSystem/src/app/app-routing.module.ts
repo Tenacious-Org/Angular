@@ -53,6 +53,7 @@ import { EmployeeComponent } from './admin/employee/employee.component';
 import { AddEmployeeComponent } from './admin/employee/add-employee/add-employee.component';
 import { ApproverARComponent } from './approver/approver-acceptreject/approver-ar.component';
 import { RejectionReasonComponent } from './approver/rejection-reason/rejection-reason.component';
+import { ViewEmployeeComponent } from './admin/employee/view-employee/view-employee.component';
 
 
 const routes: Routes = [
@@ -63,6 +64,7 @@ const routes: Routes = [
 
   {path:'employee', component:EmployeeComponent},
   {path:'add-employee', component:AddEmployeeComponent},
+  {path:'employee/:id', component:ViewEmployeeComponent},
 
   {path:'awards', component:AwardsComponent},
   {path:'add-awards', component:AddAwardsComponent},
