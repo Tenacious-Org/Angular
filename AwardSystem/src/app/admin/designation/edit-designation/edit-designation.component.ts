@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Department } from 'Models/Department';
 import { Organisation } from 'Models/Organisation';
 import { SharedService } from 'src/app/shared.service';
@@ -9,37 +10,31 @@ import { SharedService } from 'src/app/shared.service';
   styleUrls: ['./edit-designation.component.css']
 })
 export class EditDesignationComponent implements OnInit {
-  constructor(private sharedService:SharedService) { }
-  Designation : any = {
-    id : 0,
-    designationName : '',
-    departmentID : '',
-    addedBy : 1,
-    addedOn : Date.now
- 
-  }
-  organsiations: Organisation[] = [];
+  constructor(private sharedService:SharedService, private router:ActivatedRoute) { }
+  Id:any=0;
+  data:any;
   departments : Department[]=[];
-  selectOrg:any=0;
-  endpoint="Organisation";
+  selectedDepartment:any;
+  endpoint="Department";
   endpoint1="Designation";
 
    ngOnInit(): void {
+    this.router.params.subscribe(params => {
+      this.Id = params['id'];
+     this.sharedService.getById(this.endpoint1,this.Id).subscribe((result) => {
+          this.data = result;
+          console.log(this.data);
+          this.selectedDepartment=this.data.departmentId;
+          console.log(this.selectedDepartment);
+        });
+      });
     this.sharedService.getAll(this.endpoint).subscribe(data=>{
-      this.organsiations=data;
-      console.log(this.organsiations);
-    });
-    
-   }
-   onSelect(){
-    this.sharedService.getDepartmentByOrganisation(this.selectOrg).subscribe(data=>{
       this.departments=data;
-      console.log(this.departments);
-    });
+    });    
    }
 
   OnSubmit(){
-    this.sharedService.add(this.endpoint1,this.Designation).subscribe(data=>{
+    this.sharedService.edit(this.endpoint1,this.data).subscribe(data=>{
       console.log(data);
     })
   }

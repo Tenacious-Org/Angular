@@ -12,7 +12,8 @@ import { SharedService } from 'src/app/shared.service';
 export class EditDepartmentComponent implements OnInit {
 Id:any=0;
 data:any;
-  constructor(private sharedService:SharedService ,private http:HttpClient , private router:ActivatedRoute) { }
+selectedOrganisation:any;
+  constructor(private sharedService:SharedService, private router:ActivatedRoute) { }
   endpoint="Department";
   endpoint1="Organisation";
     ngOnInit(): void {
@@ -22,6 +23,7 @@ data:any;
             this.data = result;
             console.log(this.Id);
             console.log(this.data);
+            this.selectedOrganisation=this.data.organisationId;
           });
         });
       this.sharedService.getAll(this.endpoint1).subscribe(data=>{

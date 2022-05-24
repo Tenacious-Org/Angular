@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
+
 import { SharedService } from 'src/app/shared.service';
 import { DesignationVM } from 'ViewModels/DesignationVM';
+
 
 @Component({
   selector: 'app-designation',
@@ -17,9 +19,9 @@ export class DesignationComponent implements OnInit {
    this.sharedService.getAll(this.endpoint).subscribe(data=>{
       this.data = data;
       console.log(this.data);
+
     });
     
-   
   }
 
   public data: DesignationVM[] = [];

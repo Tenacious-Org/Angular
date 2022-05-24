@@ -27,6 +27,15 @@
                 <label for="datetime" class="col-form-label">Date of Birth</label>
                 <input type="date" name="dob" [(ngModel)]="Employee.dob" id="Test_DatetimeLocal" class="form-control" aria-describedby="passwordHelpInline">
             </div>
+            <div class="col-auto p-1.5">
+                <label for="dept" class="col-form-label">Gender</label>
+                <div class="input-group">
+                    <select name="gender" [(ngModel)]="Employee.gender"   class="custom-select"   >
+                              <option value="Male">Male</option>
+                              <option  value="Female" >Female</option>
+                    </select>
+                </div>
+            </div>
 
             <div class="col-auto p-1.5">
                 <label for="aceid" class="col-form-label">AceID</label>

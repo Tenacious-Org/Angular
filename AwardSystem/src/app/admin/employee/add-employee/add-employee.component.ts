@@ -25,6 +25,7 @@ export class AddEmployeeComponent implements OnInit {
     lastName : '',
     email : '',
     dob : '',
+    gender:'',
     Image:'',
     imageString : this.cardImageBase64,
     organisationId : 0,

@@ -19,24 +19,17 @@ export class AddDesignationComponent implements OnInit {
     addedOn : Date.now
  
   }
-  organsiations: Organisation[] = [];
   departments : Department[]=[];
   selectOrg:any=0;
-  endpoint="Organisation";
+  endpoint="Department";
   endpoint1="Designation";
 
    ngOnInit(): void {
     this.sharedService.getAll(this.endpoint).subscribe(data=>{
-      this.organsiations=data;
-      console.log(this.organsiations);
-    });
-    
-   }
-   onSelect(){
-    this.sharedService.getDepartmentByOrganisation(this.selectOrg).subscribe(data=>{
       this.departments=data;
       console.log(this.departments);
     });
+    
    }
 
   OnSubmit(){

@@ -3,42 +3,36 @@
 
 <div class="container d-flex justify-content-center table-box">
 
-    <form class="border-box position-relative">
+    <form class="border-box position-relative" #myForm="ngForm" (ngSubmit)="OnSubmit()">
 
         <span class="border-box-tip"><b>Edit Designation</b></span>
 
         <div class="row g-3 align-items-center justify-content-center mb-3">
-            <div class="row-auto p-1.5 align-items-center">
-                <label for="dept" class="col-form-label">Organsiation</label>
-
-                <div class="input-group">
-                    <select name="selectOrg" [(ngModel)]="selectOrg" (change)="onSelect()" class="custom-select"   >
-                              <option selected>Choose...</option>
-                              <option *ngFor="let items of organsiations"  ngValue={{items.id}} >{{items.organisationName}}</option>
-                            </select>
-                </div>
-            </div>
+           
                 <div class="row-auto p-1.5 align-items-center">
                     <label for="dept" class="col-form-label">Department</label>
                 <div class="input-group">
-                    <select name="departmentID" [(ngModel)]="Designation.departmentID" class="custom-select"   >
-                              <option selected>Choose...</option>
-                              <option *ngFor="let items of departments"  ngValue={{items.id}} >{{items.departmentName}}</option>
+                    <select name="departmentID" [(ngModel)]="data.departmentID" class="custom-select"   >
+                              <option *ngFor="let items of departments" [selected]="items.id==selectedDepartment" value={{items.id}}> {{items.departmentName}}</option>
                     </select>
                 </div>
             </div> 
             <div class="row-auto p-1.5 align-items-center">
                 <label for="firstName" class="col-form-label">Designation Name</label>
-                <input type="text"  class="form-control" name="designationName" [(ngModel)]="Designation.designationName" >
+                <input type="text"  class="form-control" #designationName="ngModel" required pattern="^[a-zA-Z][a-zA-Z\s]{0,20}[a-zA-Z]$" name="designationName" value={{data.designationName}} [(ngModel)]="data.designationName" >
+                <div *ngIf ="designationName.touched && designationName.errors?.['required']" class="alert alert-danger">
+                    Designation Name is Required!
+                <div *ngIf ="designationName.touched && designationName.errors?.['pattern']" class="alert alert-danger" >
+                    Designation Name is invalid!
+                </div>
             </div>   
-    
         </div>
-        
-
-
-            <div class="row justify-content-center align-items-center mt-5 button-group">
-                <a [routerLink]="['../designation']" class="btn btn-primary col-lg-2">Edit</a>
-                <a  [routerLink]="['/designation']" class="btn btn-danger col-lg-2">Cancel</a>
-            </div>
+            
+        <div class="row justify-content-center align-items-center mt-5 button-group">
+            <button  type="submit" class="btn btn-primary col-lg-2" [disabled]="!myForm.form.valid"> Edit </button>
+            <button [routerLink]="['/designation']" class="btn btn-danger col-lg-2">Back</button>
+           
+        </div>
+        </div>
     </form>
-    </div>
+</div> 

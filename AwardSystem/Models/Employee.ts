@@ -6,6 +6,7 @@ export class Employee
     lastName : string = '';
     email : string = '';
     dob : string = '';
+    gender:string='';
     image : string = '';
     organisationId : number = 0;
     departmentId : number = 0;

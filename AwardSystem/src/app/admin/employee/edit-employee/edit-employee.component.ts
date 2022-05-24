@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Department } from 'Models/Department';
+import { Designation } from 'Models/Designation';
+import { Employee } from 'Models/Employee';
+import { Organisation } from 'Models/Organisation';
+import { SharedService } from 'src/app/shared.service';
 
 @Component({
   selector: 'app-edit-employee',
@@ -6,10 +12,104 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./edit-employee.component.css']
 })
 export class EditEmployeeComponent implements OnInit {
+  imageError = "";
+  isImageSaved: boolean = false;
+  cardImageBase64 = "";
+  Id:any=0;
+  data:any;
+  selectedOrganisation:any;
+  selectedDepartment:any;
+  selectedDesignation:any;
+  organisations: Organisation[] = [];
+  departments: Department[] = [];
+  designations: Designation[] = [];
+  employeeData : Employee[]=[];
+  SelectOrg: any = 0;
+  SelectDep: any = 0;
 
-  constructor() { }
+  endpoint = "Organisation";
+  endpoint1 = "Employee";
+  constructor(private sharedService:SharedService, private router:ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.router.params.subscribe(params => {
+      this.Id = params['id'];
+     this.sharedService.getById(this.endpoint1,this.Id).subscribe((result) => {
+          this.data = result;
+          console.log(this.Id);
+          console.log(this.data.departmentId);
+          this.selectedOrganisation=this.data.organisationId;
+          this.selectedDepartment=this.data.departmentId;
+          this.selectedDesignation=this.data.designationId;
+        });
+      });
+      this.sharedService.getAll(this.endpoint).subscribe(data=>{
+        this.organisations=data;
+      });
   }
+  onSelectDep(){
+    this.sharedService.getDepartmentByOrganisation(this.SelectOrg).subscribe(data=>{
+      this.departments = data;
+      console.log(this.departments);
+    });
+   }
+
+   onSelectDes(){
+    this.sharedService.getDesignationByDepartment(this.SelectDep).subscribe(data=>{
+      this.designations = data;
+      console.log(this.designations);
+    });
+    this.sharedService.getEmployeeByDepartment(this.SelectDep).subscribe(data=>{
+      this.employeeData = data;
+      console.log(this.employeeData);
+    });   }
+
+   OnSubmit(){
+     console.log(this.data)
+    this.sharedService.edit(this.endpoint1,this.data).subscribe(data=>{
+      console.log(data);
+    });
+  }
+  ImageConversion(fileInput:any){
+    this.imageError = "";
+    if (fileInput.target.files && fileInput.target.files[0]) {
+
+      const max_size = 20971520;
+      const allowed_types = ['image/png', 'image/jpeg'];
+
+      if (fileInput.target.files[0].size > max_size) {
+        this.imageError =
+          'Maximum size allowed is ' + max_size / 1000 + 'Mb';
+
+        return false;
+      }
+      console.log(fileInput.target.files[0].type)
+
+      if (!allowed_types.includes(fileInput.target.files[0].type)) {
+        this.imageError = 'Only Images are allowed ( JPG | PNG )';
+        return false;
+      }
+      const reader = new FileReader();
+      reader.onload = (e: any) => {
+        const image = new Image();
+        image.src = e.target.result;
+        image.onload = rs => {
+
+          const imgBase64Path = e.target.result;
+          
+          this.cardImageBase64 = imgBase64Path;
+          this.cardImageBase64= this.cardImageBase64.replace("data:image/png;base64,", "");
+          this.cardImageBase64= this.cardImageBase64.replace("data:image/jpg;base64,", "");
+          this.cardImageBase64= this.cardImageBase64.replace("data:image/jpeg;base64,", "");
+          this.data.imageString=this.cardImageBase64;
+          this.isImageSaved = true;
+        }
+      };
+
+      reader.readAsDataURL(fileInput.target.files[0]);
+    } return false
+  }
+
+
 
 }

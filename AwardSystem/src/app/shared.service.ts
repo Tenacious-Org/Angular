@@ -21,18 +21,17 @@ export class SharedService {
   }
 
 //create method
-  add(endpoint:any,data:any): Observable<any>
+  add(endpoint:any,data:any):Observable<any>
   {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json; charset=utf-8');
     return this.http.post<any>(this.apiurl + endpoint+'/Create', data)
   }
+
 //Update method
-  edit(endpoint:any,data:any): Observable<any>
+  edit(endpoint:any,data:any):Observable<any>
   {
-    const headers = new HttpHeaders();
-    headers.append('Content-Type', 'application/json; charset=utf-8');
-    return this.http.put<any>(this.apiurl + endpoint +`/Update`, data,{headers})
+    return this.http.put<any>(this.apiurl + endpoint +`/Update`, data)
   }
  
 //Get Department By Organisation ID
@@ -47,8 +46,8 @@ export class SharedService {
     return this.http.get<any>(this.apiurl + `Designation/GetDesignationsByDepartmentId?id=${id}`)
   }
 
-  //Get Employee By Department ID
-  getEmployeeByDepartment(id : any): Observable<any>
+//Get Employee By Department ID
+  getEmployeeByDepartment(id:any):Observable<any>
   {
     return this.http.get<any>(this.apiurl + `Employee/GetEmloyeeByDepartment?id=${id}`)
   }
@@ -58,7 +57,5 @@ export class SharedService {
   {
     return this.http.get<any>(this.apiurl +`Award/GetRequestedAwardsList?id=${id}`)
   }
-
-
 
 }

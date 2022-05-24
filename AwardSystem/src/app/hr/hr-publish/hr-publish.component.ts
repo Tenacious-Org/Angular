@@ -9,8 +9,8 @@ import { Awards } from 'Models/Awards';
 })
 export class HrPublishComponent implements OnInit {
 
-  pageId=3;
-  employeeId=5;
+  pageId=4;
+  employeeId=4;
   constructor(private awardService:AwardService ) { }
   
 

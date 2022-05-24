@@ -41,7 +41,7 @@
                             <td>{{item.designationName}}</td>
                             <td>{{item.departmentName}}</td>
 
-                            <td> <a [routerLink]="['../edit-designation']" class="btn btn-primary" target="_self"><i class="fa-solid fa-pen-to-square" title="Edit"></i></a>
+                            <td> <a [routerLink]="['../edit-designation',item.id]" class="btn btn-primary" target="_self"><i class="fa-solid fa-pen-to-square" title="Edit"></i></a>
 
                                 <a href = "#"  class="btn btn-danger" target = "_self"><i class="fa-solid fa-user-slash" data-toggle="modal" data-target="#Mymodal"title="Disable"></i></a></td>
                                 <div class="modal fade" id="Mymodal">

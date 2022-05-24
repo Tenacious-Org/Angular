@@ -11,14 +11,13 @@
                 <label for="org" class="col-form-label">Organisation Name</label>
 
                 <div class="input-group">
-                    <select name="organisationId" #organisationName="ngModel" required  [(ngModel)]="data.organisationId" class="custom-select" >
+                    <select name="organisationId" #organisationName="ngModel" required  [(ngModel)]="data.organisationId"  class="custom-select" >
                         <div *ngIf ="organisationName.touched && organisationName.errors?.['required']" class="alert alert-danger">
                             Organisation Name is Required!
                         </div>
-                              <option selected value={{data.organisationId}}>--Select Organisation--</option>
-                              <option *ngFor="let items of organisation"   ngValue={{items.id}} >{{items.organisationName}}</option>
+                              <option *ngFor="let items of organisation" [selected]="items.id==selectedOrganisation"  value={{items.id}} >{{items.organisationName}}</option>
                             </select>
-                </div>
+                        </div>
             </div>
 
             <div class="row-auto p-1.5 align-items-center">
