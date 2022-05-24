@@ -36,10 +36,10 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="text-center" *ngFor="let item of data">
-                            <td>{{item.id}}</td>
+                        <tr class="text-center" *ngFor="let item of data; let i = index">
+                            <td>{{i + 1}}</td>
                             <td>{{item.designationName}}</td>
-                            <td>{{item.departmentId}}</td>
+                            <td>{{item.departmentName}}</td>
 
                             <td> <a [routerLink]="['../edit-designation']" class="btn btn-primary" target="_self"><i class="fa-solid fa-pen-to-square" title="Edit"></i></a>
 

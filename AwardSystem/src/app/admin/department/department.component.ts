@@ -10,7 +10,6 @@ import { SharedService } from 'src/app/shared.service';
 export class DepartmentComponent implements OnInit {
 
   endpoint = "Department";
-  endpoint1 = "Organisation";
 
   constructor(private sharedService:SharedService ) { }
 
