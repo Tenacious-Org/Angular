@@ -11,14 +11,16 @@ import {SharedService} from 'src/app/shared.service';
 export class RequesterAddRequestComponent implements OnInit {
 
   endpoint="Employee";
-  id: any;
+  id=6;
+  data:string[]=['Ajay','Jeeva']
   constructor(private sharedService:SharedService) { }
 
   ngOnInit(): void {
-    this.sharedService.getEmployeeByRequester(this.id).subscribe(data=>{
-      this.data=data;
-    });
-  }
-  public data:Employee[]=[];
+    //this.sharedService.getEmployeeByRequester(this.id).subscribe(data=>{
+     // this.data=data;
+      //console.log(data);
+    }
+
+  //public data:Employee[]=[];
 
 }
