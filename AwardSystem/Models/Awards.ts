@@ -9,6 +9,6 @@ export class Awards
     rejectReason : string = '';
     hRId : number = 0;
     couponCode : string = '';
-    statusId : string = '';
+    statusId = 0;
     isActive : boolean= true;
 }
