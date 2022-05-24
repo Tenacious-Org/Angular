@@ -11,7 +11,6 @@ export class HrPublishComponent implements OnInit {
 
   pageId=3;
   employeeId=5;
-  
   constructor(private awardService:AwardService ) { }
   
 

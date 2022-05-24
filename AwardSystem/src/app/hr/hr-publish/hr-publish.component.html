@@ -54,9 +54,11 @@
                             </td>
                             <td><span class="badge badge-danger rounded-pill d-inline">{{item.statusId}}</span></td>
                             <td>
-                              <a  [routerLink]="['../hr-yettopublish',item.id]"type="button" class="btn btn-link btn-sm btn-rounded">
-                                Publish
-                              </a>
+                              <div *ngIf="item.statusId==2">
+                                <a  [routerLink]="['../hr-yettopublish',item.id]"type="button" class="btn btn-link btn-sm btn-rounded">
+                                  Publish
+                                </a>
+                              </div>
                             </td>
                           </tr>
                         </tbody>
