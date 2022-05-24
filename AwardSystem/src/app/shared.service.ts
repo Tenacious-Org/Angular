@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class SharedService {
-  readonly apiurl = "https://localhost:7275/api/"; 
+  readonly apiurl = "https://localhost:7275/api/";
   constructor(private http:HttpClient) { }
 //common services
 //GetAll method
@@ -33,7 +33,7 @@ export class SharedService {
   {
     return this.http.put<any>(this.apiurl + endpoint +`/Update`, data)
   }
- 
+
 //Get Department By Organisation ID
   getDepartmentByOrganisation(id:any):Observable<any>
   {
@@ -56,6 +56,11 @@ export class SharedService {
   getRequestedAwardList(id:number):Observable<any>
   {
     return this.http.get<any>(this.apiurl +`Award/GetRequestedAwardsList?id=${id}`)
+  }
+  getEmployeeByRequester(id:any):Observable<any>
+  {
+    return this.http.get<any>(this.apiurl+`Employee/GetEmployeeByRequesterId?=${id}`)
+
   }
 
 }

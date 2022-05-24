@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { MatDialogModule } from '@angular/material/dialog';
+import {MatInputModule} from'@angular/material/input';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -168,7 +170,9 @@ import { RejectionReasonComponent } from './approver/rejection-reason/rejection-
     FormsModule,
     BrowserAnimationsModule,
     MatDialogModule,
-   
+    MatInputModule,
+    MatAutocompleteModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

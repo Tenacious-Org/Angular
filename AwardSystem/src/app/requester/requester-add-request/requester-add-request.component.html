@@ -13,7 +13,13 @@
                       <h4 class="text-right">Raise Request</h4>
                   </div>
                   <div class="row mt-3">
-                      <div class="col-md-12"><label class="labels">User Name</label><input type="text" class="form-control" placeholder="first name" value=""></div>
+                      <div class="col-md-12"><label class="labels">User Name</label>
+                        <input matInput type="text" [matAutocomplete]="auto" class="form-control" placeholder="first name" >
+                          <mat-autocomplete #auto="matAutocomplete">
+                            <mat-option *ngFor="let item of data" [value]="item"> {{item.firstName}}</mat-option>
+
+                          </mat-autocomplete>
+                     </div>
                   </div>
                   <div class="row mt-3">
                       <div class="col-md-12  form-group" id="Award">
