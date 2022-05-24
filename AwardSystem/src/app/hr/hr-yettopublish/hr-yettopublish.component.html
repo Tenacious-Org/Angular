@@ -64,14 +64,14 @@
               <div class="col-sm-4">
                   <p class="mb-0">Coupon</p>
 
-                 <input type="text">
+                 <input type="text" name="couponCode" [(ngModel)]="data.couponCode">
 
               </div>
           </div>
           <br>
-          <div class="modal-footer justify-content-center">
-              <a href="publish.html" class="btn btn-primary" data-dismiss="modal">Publish</a>
-              <a href="publish.html" class="btn btn-danger" data-dismiss="modal">Back</a>
+          <div class="modal-footer justify-content-center" *ngIf="data.statusId==2">
+              <a (click)="OnSubmit()" class="btn btn-primary" data-dismiss="modal">Publish</a>
+              <a class="btn btn-danger" data-dismiss="modal">Back</a>
           </div>
       </div>
   </div>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AwardService } from 'src/app/award.service';
+import { Awards } from 'Models/Awards';
 
 @Component({
   selector: 'app-hr-publish',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HrPublishComponent implements OnInit {
 
-  constructor() { }
+  pageId=3;
+  employeeId=5;
+  
+  constructor(private awardService:AwardService ) { }
+  
 
   ngOnInit(): void {
+    this.awardService.getAwards(this.pageId,this.employeeId).subscribe(data=>
+    {
+        this.data = data;
+    });
   }
-
+  
+  public data: Awards[] = [];
 }
+
+
+

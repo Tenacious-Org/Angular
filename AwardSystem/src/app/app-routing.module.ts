@@ -116,7 +116,7 @@ const routes: Routes = [
   {path:'hr-request' , component:HrRequestComponent},
   {path:'hr-request-view' , component:HrRequestViewComponent},
   {path:'hr-sidebar' , component:HrSidebarComponent},
-  {path:'hr-yettopublish' , component:HrYettopublishComponent},
+  {path:'hr-yettopublish/:id' , component:HrYettopublishComponent},
   {path:'hr-award' , component:HrAwardComponent},
   {path:'hr-homepage' , component:HrHomepageComponent},
 

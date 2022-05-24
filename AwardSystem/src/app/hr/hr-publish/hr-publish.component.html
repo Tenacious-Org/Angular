@@ -27,8 +27,8 @@
                         </thead>
                         <tbody>
 
-                          <tr>
-                            <td>
+                          <tr *ngFor="let item of data">
+                            <td >
                               <div class="d-flex align-items-center">
                                 <img
                                     src="https://mdbootstrap.com/img/new/avatars/8.jpg"
@@ -47,14 +47,14 @@
                               <p class="text-muted mb-0">IT department</p>
                             </td>
                             <td>
-                                <p class="fw-normal mb-1">Budding Star</p>
+                                <p class="fw-normal mb-1">{{item.awardTypeId}}</p>
                             </td>
                             <td>
                               22/06/2018
                             </td>
-                            <td><span class="badge badge-danger rounded-pill d-inline">Yet to Publish</span></td>
+                            <td><span class="badge badge-danger rounded-pill d-inline">{{item.statusId}}</span></td>
                             <td>
-                              <a [routerLink]="['/hr-yettopublish']" routerLinkActive="router-link-active"  type="button" class="btn btn-link btn-sm btn-rounded">
+                              <a  [routerLink]="['../hr-yettopublish',item.id]"type="button" class="btn btn-link btn-sm btn-rounded">
                                 Publish
                               </a>
                             </td>
