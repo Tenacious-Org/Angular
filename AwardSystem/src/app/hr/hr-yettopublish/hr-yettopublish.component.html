@@ -64,8 +64,8 @@
               <div class="col-sm-4">
                   <p class="mb-0">Coupon</p>
 
-                 <input type="text" name="couponCode" [(ngModel)]="data.couponCode">
-
+                 <input *ngIf="data.statusId==2" type="text" name="couponCode" [(ngModel)]="data.couponCode">
+                 <p *ngIf="data.statusId==4" class="text-muted mb-0">{{data.couponCode}}</p>
               </div>
           </div>
           <br>
