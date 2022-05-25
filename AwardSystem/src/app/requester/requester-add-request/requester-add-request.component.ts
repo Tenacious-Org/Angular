@@ -19,6 +19,7 @@ export class RequesterAddRequestComponent implements OnInit {
   ngOnInit(): void {
     this.sharedService.getEmployeeByRequester(this.id).subscribe(data=>{
      this.employees=data;
+     console.log(this.employees);
     });
   }
 
