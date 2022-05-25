@@ -15,12 +15,12 @@ export class RequesterAddRequestComponent implements OnInit {
   //data:string[]=['Ajay','Jeeva']
   constructor(private sharedService:SharedService,private http:HttpClientModule) { }
 
+  employees : Employee[] = [];
   ngOnInit(): void {
     this.sharedService.getEmployeeByRequester(this.id).subscribe(data=>{
-     this.data=data;
+     this.employees=data;
     });
   }
 
-  public data:Employee[]=[];
 
 }

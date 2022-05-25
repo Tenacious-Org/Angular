@@ -16,7 +16,7 @@
                       <div class="col-md-12"><label class="labels">User Name</label>
                         <input matInput type="text" [matAutocomplete]="auto" class="form-control" placeholder="first name" >
                           <mat-autocomplete #auto="matAutocomplete">
-                            <mat-option *ngFor="let item of data" [value]="item"> {{item.firstName}}</mat-option>
+                            <mat-option *ngFor="let item of employees" [value]="item"> {{item.firstName}}</mat-option>
 
                           </mat-autocomplete>
                      </div>
