@@ -13,5 +13,10 @@ export class EmployeeVM
     hRName = '';
     password = '';
     isActive = true;
+    addedBy = 0;
+    addedOn = Date.now;
+    updatedBy = 0;
+    updatedOn = Date.now;
+
 
 }
