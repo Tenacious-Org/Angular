@@ -59,7 +59,7 @@ export class SharedService {
   }
   getEmployeeByRequester(id:any):Observable<any>
   {
-    return this.http.get<any>(this.apiurl+`Employee/GetEmloyeeByRequesterId?id=${id}`)
+    return this.http.get<any>(this.apiurl+`Employee/GetEmployeeByRequesterId?id=${id}`)
 
   }
 
