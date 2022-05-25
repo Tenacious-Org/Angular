@@ -1,4 +1,4 @@
-import{HttpClient} from '@angular/common/http';
+import{HttpClientModule} from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import {Employee} from 'Models/Employee';
 import {SharedService} from 'src/app/shared.service';
@@ -12,15 +12,15 @@ export class RequesterAddRequestComponent implements OnInit {
 
   endpoint="Employee";
   id=6;
-  data:string[]=['Ajay','Jeeva']
-  constructor(private sharedService:SharedService) { }
+  //data:string[]=['Ajay','Jeeva']
+  constructor(private sharedService:SharedService,private http:HttpClientModule) { }
 
   ngOnInit(): void {
-    //this.sharedService.getEmployeeByRequester(this.id).subscribe(data=>{
-     // this.data=data;
-      //console.log(data);
-    }
+    this.sharedService.getEmployeeByRequester(this.id).subscribe(data=>{
+     this.data=data;
+    });
+  }
 
-  //public data:Employee[]=[];
+  public data:Employee[]=[];
 
 }
