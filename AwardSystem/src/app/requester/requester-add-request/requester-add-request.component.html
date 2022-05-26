@@ -15,10 +15,15 @@
                       <h4 class="text-right">Raise Request</h4>
                   </div>
                   <div class="row mt-3">
+                    
                       <div class="col-md-12"><label class="labels">User Name</label>
-                        <input [formControl]="searchAwardee" matInput type="text" [matAutocomplete]="auto" [(ngModel)]="Awards.awardeeId" name="awardeeId" class="form-control" placeholder="first name" >
+                        
+                        <mat-form-field>
+                        <input [formControl]="searchAwardee" aria-label="Awardee" matInput type="text" [matAutocomplete]="auto"  name="awardeeId" class="form-control" placeholder="Pick Awardee" >
+                      </mat-form-field>
+                        
                         <mat-autocomplete #auto="matAutocomplete" >
-                          <mat-option *ngFor="let item of employees" value={{item.id}}> {{item.firstName}}</mat-option>
+                          <mat-option *ngFor="let item of filteredOptions | async" [value]="item"> {{item.firstName}}</mat-option>
 
                         </mat-autocomplete>
 

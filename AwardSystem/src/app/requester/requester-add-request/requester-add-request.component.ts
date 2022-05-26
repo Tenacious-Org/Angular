@@ -1,8 +1,8 @@
-import{HttpClientModule} from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import {Employee} from 'Models/Employee';
 import {Awards} from 'Models/Awards';
 import {SharedService} from 'src/app/shared.service';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { AwardType } from 'Models/AwardType';
 import { AwardService } from 'src/app/award.service';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
@@ -16,11 +16,16 @@ import {map, startWith} from 'rxjs/operators';
   styleUrls: ['./requester-add-request.component.css']
 })
 export class RequesterAddRequestComponent implements OnInit {
-  searchAwardee=new FormControl();
+  
   endpoint="Employee";
   endpoints="AwardType";
   id=6;
-  filteredOptions!: Observable<any>;
+
+
+  searchAwardee!: FormControl;
+  filteredOptions!: Observable<any[]>;
+  employees : Employee[] = [];
+
   Awards:any=
    {
     id : 0,
@@ -39,25 +44,33 @@ export class RequesterAddRequestComponent implements OnInit {
   //data:string[]=['Ajay','Jeeva']
   constructor(private sharedService:SharedService,private awardService:AwardService,private formBuilder:FormBuilder) { }
 
-  employees : Employee[] = [];
+  
   data:AwardType[]=[];
+
+
+
   ngOnInit(): void {
     this.sharedService.getEmployeeByRequester(this.id).subscribe(response=>{
      this.employees=response;
+     console.log(this.employees)
     });
+
+    this.searchAwardee = new FormControl();
+
     this.filteredOptions=this.searchAwardee.valueChanges.pipe(
-      startWith(''),
+      startWith(null),
       map(value=>this._filter(value))
     );
+    console.log(this.filteredOptions)
+
     this.sharedService.getAll(this.endpoints).subscribe(data=>{
       this.data=data;
       console.log(this.data);
     });
 
   }
-  private _filter(value:string):Employee[]{
-     const filterValue=value.toLowerCase();
-     return this.employees.filter(data=>data['toLowerCase']().includes(filterValue));
+  private _filter(val:string){
+    return this.employees.filter((s) => new RegExp(val, 'gi').test(s.firstName));
   }
 
   OnSubmit(){
