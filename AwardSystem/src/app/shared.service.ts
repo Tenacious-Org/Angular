@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -60,7 +60,7 @@ export class SharedService {
   getEmployeeByRequester(id:number)
   {
     return this.http.get<any>(this.apiurl+`Employee/GetEmployeeByRequesterId?id=${id}`)
-
+    
   }
 
 }

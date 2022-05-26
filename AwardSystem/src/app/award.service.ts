@@ -6,9 +6,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AwardService {
-  readonly apiurl = "https://localhost:7275/api/Award/"; 
+  readonly apiurl = "https://localhost:7275/api/Award/";
   constructor(private http:HttpClient) { }
-  
+
   // Get Awards --> pageId 0=Homepage , 1=mywards, 2= requesterList , 3= approverList, 4=HR List .
   getAwards(pageId:any,employeeId:any):Observable<any>
   {
@@ -30,7 +30,7 @@ export class AwardService {
     return this.http.put<any>(this.apiurl+`Approval`,data,{headers});
   }
 
-  
+
   // Add comments - Awardservices
   addComment(data:any): Observable<any>
   {
@@ -38,5 +38,12 @@ export class AwardService {
     headers.append('Content-Type', 'application/json; charset=utf-8');
     return this.http.post<any>(this.apiurl +'addComment', data)
   }
+  addRequest(data:any): Observable<any>
+  {
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json; charset=utf-8');
+    return this.http.post<any>(this.apiurl +'RaiseRequest', data)
+  }
+
 
 }

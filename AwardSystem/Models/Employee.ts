@@ -1,5 +1,6 @@
 export class Employee
 {
+    [x: string]: any;
     id : number = 0;
     aceid : string ='';
     firstName : string = '';

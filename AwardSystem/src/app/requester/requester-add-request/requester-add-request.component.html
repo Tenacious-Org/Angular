@@ -6,36 +6,38 @@
   <!-- Write your contents here -->
 
   <div class="container container-fluid rounded bg-white mt-5 mb-5">
+    <form  class="border-box position-relative" #myForm="ngForm" (ngSubmit)="OnSubmit()">
       <div class="row">
           <div class="col-md-5">
+
 
                   <div class="d-flex justify-content-between align-items-center mb-3">
                       <h4 class="text-right">Raise Request</h4>
                   </div>
                   <div class="row mt-3">
                       <div class="col-md-12"><label class="labels">User Name</label>
-                        <input matInput type="text" [matAutocomplete]="auto" class="form-control" placeholder="first name" >
-                          <mat-autocomplete #auto="matAutocomplete">
-                            <mat-option *ngFor="let item of employees" [value]="item"> {{item.firstName}}</mat-option>
+                        <input [formControl]="searchAwardee" matInput type="text" [matAutocomplete]="auto" [(ngModel)]="Awards.awardeeId" name="awardeeId" class="form-control" placeholder="first name" >
+                        <mat-autocomplete #auto="matAutocomplete" >
+                          <mat-option *ngFor="let item of employees" value={{item.id}}> {{item.firstName}}</mat-option>
 
-                          </mat-autocomplete>
+                        </mat-autocomplete>
+
                      </div>
                   </div>
                   <div class="row mt-3">
                       <div class="col-md-12  form-group" id="Award">
                           <label for="exampleFormControlSelect1">Award</label>
-                          <select class="form-control" id="awardType">
-                            <option>Select Award Type</option>
-                            <option>Role Star</option>
-                            <option>Solo Star</option>
-                            <option>Tech Thunder</option>
-                            <option>First Victor</option>
-                            <option>Gladiator</option>
-                          </select>
+                          <select name="awardTypeId" #awardName="ngModel" required [(ngModel)]="Awards.awardTypeId" class="custom-select" id="inputGroupSelect04">
+                            <div *ngIf ="awardName.touched && awardName.errors?.['required']" class="alert alert-danger">
+                                Award Name is Required!
+                            </div>
+                                  <option selected>Choose...</option>
+                                  <option *ngFor="let items of data"  ngValue={{items.id}} >{{items.awardName}}</option>
+                                </select>
                       </div>
                   </div>
                   <div class="row mt-3">
-                      <div class="col-md-12"><label class="labels">Reason</label><textarea type="textarea" class="form-control" placeholder="Reason" ></textarea></div>
+                      <div class="col-md-12"><label class="labels">Reason</label><textarea type="textarea" [(ngModel)]="Awards.reason" name="Awards.name" class="form-control" placeholder="Reason" ></textarea></div>
                   </div>
 
           </div>
@@ -45,9 +47,13 @@
           </div>
       </div>
       <div class="py-4 justify-content-between text-center">
-          <div class="mr-10 btn-group "><a [routerLink]="['/requester-request']" routerLinkActive="router-link-active"  class="btn btn-primary profile-button" type="button">Submit</a></div>
-          <div class="ml-10 btn-group"><a  [routerLink]="['/requester-request']" routerLinkActive="router-link-active"  class="btn btn-danger profile-button" type="button">Cancel</a></div>
+          <div class="mr-10 btn-group ">
+            <button type="submit" class="btn btn-primary profile-button" >Submit</button>
+          </div>
+          <div class="ml-10 btn-group">
+            <a  [routerLink]="['/requester-request']" routerLinkActive="router-link-active"  class="btn btn-danger profile-button" type="button">Cancel</a></div>
       </div>
+    </form>
   </div>
 
   </div>
