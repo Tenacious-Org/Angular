@@ -99,7 +99,8 @@ const routes: Routes = [
   {path:'morecomments' , component:MoreCommentsComponent},
   {path:'cardpost' , component:CardPostComponent},
   {path:'request' , component:RequestComponent},
-  {path:'profile' , component:RequestComponent},
+
+  {path:'profile/:id' , component:ProfileComponent},
  
   {path:'requester' , component:RequesterComponent},
   {path:'requester-add-request' , component:RequesterAddRequestComponent},

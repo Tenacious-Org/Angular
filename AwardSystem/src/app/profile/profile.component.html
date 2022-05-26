@@ -1,58 +1,67 @@
+<app-layout></app-layout>
+<app-requester-sidebar></app-requester-sidebar>
 <div class="container d-flex justify-content-center ">
 
-    <!-- Write your contents here -->
-    <div class="card " style="border-radius: 15px; width:500px; margin-top:30px;">
+    <div class="card " style="border-radius: 15px; width: 500px; margin-top: -10px;">
         <div class="card-body">
             <div class=" rounded-circle text-center">
                 <img src="./assets/images/Adminlogo.png" width="150px" height="150px" />
             </div>
-            <hr>
-
-            <div class="row">
-                <div class="col-sm-6">
-                    <p class="mb-0">ACE ID</p>
-
-                    <p class="text-muted mb-0">ACE0987</p>
-                </div>
-                <div class="col-sm-6">
-                    <p class="mb-0">Name</p>
-                    <p class="text-muted mb-0">Sanjay Subramani</p>
-                </div>
-            </div>
-            <hr>
-
-
-            <div class="row">
-                <div class="col-sm-6">
-                    <p class="mb-0">Email</p>
-
-                    <p class="text-muted mb-0">sanjay@aspiresys.com</p>
-                </div>
-
-                <div class="col-sm-6">
-                    <p class="mb-0">Organisation</p>
-
-                    <p class="text-muted mb-0">Development</p>
-                </div>
-            </div>
-            <hr>
-            <div class="row">
-                <div class="col-sm-6">
-                    <p class="mb-0">Department</p>
-
-                    <p class="text-muted mb-0">Java</p>
-                </div>
-
-                <div class="col-sm-6">
-                    <p class="mb-0">Designation</p>
-
-                    <p class="text-muted mb-0">Software Engineer</p>
-                </div>
-            </div>
-
             <br>
+            <div class="text-center"> 
+                <h3 class="mb-0">{{data.firstName}} {{data.lastName}}</h3>
+            </div>
+            <hr>
+            <div class="row text-center">
+                <div class="col-sm-6">
+                    <h3 class="mb-0">ACE ID</h3>
+                    <h4 class="text-muted mb-0">{{data.aceid}}</h4>
+                </div>
 
+                <div class="col-sm-6">
+                    <h3 class="mb-0">Gender</h3>
+                    <h4 class="text-muted mb-0">Male</h4>
+                </div>
+            </div>
+            <hr>
+
+            <div class="row text-center">
+                <div class="col-sm-6">
+                    <h3 class="mb-0">Email</h3>
+                    <h4 class="text-muted mb-0">{{data.email}}</h4>
+                </div>
+
+                <div class="col-sm-6">
+                    <h3 class="mb-0">DOB</h3>
+                    <h4 class="text-muted mb-0">{{data.dob}}</h4>
+                </div>
+            </div>
+            <hr>
+
+            <div class="row text-center">
+                <div class="col-sm-6">
+                    <h3 class="mb-0">Designation</h3>
+                    <h4 class="text-muted mb-0">FullStackDeveloper{{data.designationId}}</h4>
+                </div>
+
+                <div class="col-sm-6">
+                    <h3 class="mb-0">Department</h3>
+                    <h4 class="text-muted mb-0">DotNet{{data.departmentId}}</h4>
+                </div>
+            </div>
+            <hr>
+
+            <div class="row text-center">
+                <div class="col-sm-6">
+                    <h3 class="mb-0">Organisation</h3>
+                    <h4 class="text-muted mb-0">SoftwraeDevelopment{{data.organisationId}}</h4>
+                </div>
+
+                <div class="col-sm-6">
+                    <h3 class="mb-0">HR Name</h3>
+                    <h4 class="text-muted mb-0">Ani{{data.hrID}}</h4>
+                </div>
+            </div>
         </div>
     </div>
 </div>
-

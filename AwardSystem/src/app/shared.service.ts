@@ -57,7 +57,7 @@ export class SharedService {
   {
     return this.http.get<any>(this.apiurl +`Award/GetRequestedAwardsList?id=${id}`)
   }
-  getEmployeeByRequester(id:number)
+  getEmployeeByRequester(id:any):Observable<any>
   {
     return this.http.get<any>(this.apiurl+`Employee/GetEmployeeByRequesterId?id=${id}`)
     
