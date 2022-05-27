@@ -32,7 +32,7 @@
                             <th>FirstName</th>
                             <th>LastName</th>
                             <th>Email</th>
-                            <th>Organization</th>
+                            <th>Organisation</th>
                             <th>Department</th>
                             <th>Designation</th>
                             <th>Action</th>
@@ -41,14 +41,14 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="text-center" *ngFor="let item of data">
+                        <tr class="text-center" *ngFor="let item of data | paginate: { itemsPerPage: 10, currentPage: page,totalItems:totalLength }">
                             <td>{{item.aceid}}</td>
                             <td>{{item.firstName}}</td>
                             <td>{{item.lastName}}</td>
                             <td>{{item.email}}</td>
-                            <td>{{item.organisationId}}</td>
-                            <td>{{item.departmentId}}</td>
-                            <td>{{item.designationId}}</td>
+                            <td>{{item.organisationName}}</td>
+                            <td>{{item.departmentName}}</td>
+                            <td>{{item.designationName}}</td>
                             
                             
 
@@ -81,23 +81,5 @@
 
                     </tbody>
                 </table>
-                <section id="Paging">
-                    <nav aria-label="Page navigation example">
-                        <ul class="pagination justify-content-center">
-                            <li class="page-item">
-                                <a class="page-link" href="#" aria-label="Previous">
-                                    <span aria-hidden="true">&laquo;</span>
-                                </a>
-                            </li>
-                            <li class="page-item"><a class="btn btn-primary" href="#">1</a></li>
-                            <li class="page-item"><a class="btn btn-primary" href="#">2</a></li>
-                            <li class="page-item"><a class="btn btn-primary" href="#">3</a></li>
-                            <li class="page-item">
-                                <a class="page-link" href="#" aria-label="Next">
-                                    <span aria-hidden="true">&raquo;</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                </section>
+                <pagination-controls class="text-center" (pageChange)="page = $event"></pagination-controls>
             </div>

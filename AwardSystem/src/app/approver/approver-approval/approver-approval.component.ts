@@ -10,7 +10,8 @@ import { AwardService } from 'src/app/award.service';
 export class ApproverApprovalComponent implements OnInit {
   pageId=3;
   employeeId=5;
-  
+  totalLength: any;
+  page: number = 1;
   constructor(private awardService:AwardService ) { }
   
 
@@ -18,6 +19,8 @@ export class ApproverApprovalComponent implements OnInit {
     this.awardService.getAwards(this.pageId,this.employeeId).subscribe(data=>
     {
         this.data = data;
+        this.totalLength=data;
+        console.log(this.data)
     });
   }
   

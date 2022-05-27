@@ -8,7 +8,8 @@ import { SharedService } from 'src/app/shared.service';
   styleUrls: ['./department.component.css']
 })
 export class DepartmentComponent implements OnInit {
-
+  totalLength: any;
+  page: number = 1;
   endpoint = "Department";
 
   constructor(private sharedService:SharedService ) { }
@@ -16,6 +17,7 @@ export class DepartmentComponent implements OnInit {
   ngOnInit(): void {
    this.sharedService.getAll(this.endpoint).subscribe(data=>{
       this.data = data;
+      this.totalLength=data;
       console.log(this.data);
     });
     

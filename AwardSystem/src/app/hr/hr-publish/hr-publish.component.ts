@@ -11,6 +11,8 @@ export class HrPublishComponent implements OnInit {
 
   pageId=4;
   employeeId=4;
+  totalLength: any;
+  page: number = 1;
   constructor(private awardService:AwardService ) { }
   
 
@@ -18,6 +20,7 @@ export class HrPublishComponent implements OnInit {
     this.awardService.getAwards(this.pageId,this.employeeId).subscribe(data=>
     {
         this.data = data;
+        this.totalLength=data;
     });
   }
   

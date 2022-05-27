@@ -10,11 +10,14 @@ import { SharedService } from 'src/app/shared.service';
 })
 export class OrganisationComponent implements OnInit {
    endpoints="Organisation";
+   totalLength: any;
+   page: number = 1;
    constructor(private sharedService:SharedService ) { }
 
    ngOnInit(): void {
     this.sharedService.getAll(this.endpoints).subscribe(data=>{
       this.data=data;
+      this.totalLength=data;
     });
     
    }
