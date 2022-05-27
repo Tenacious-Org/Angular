@@ -11367,6 +11367,10 @@ button {
     float: right;
 }
 
+.dropdown{
+    float: right;
+}
+
 .form-control1 {
     width: 160px;
     height: 38px;
@@ -11523,3 +11527,6 @@ button {
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* dropdown search media query */
+

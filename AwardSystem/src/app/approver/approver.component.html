@@ -1,43 +1,44 @@
-
+<app-layout></app-layout>
+<app-approver-sidebar></app-approver-sidebar>
 <div class="container d-flex justify-content-center">
 
     <!-- Write your contents here -->
 
 
-    <div class="pt-5">
+    <div class="container container-fluid ">
+        <div>
 
-        <div id="wrap">
-            <div class="container container-fluid Requester-container" >
-                <div>
-                    <div class="btn-group">
-                        <a  class="btn btn-primary"><i class="fa-solid fa-user-plus"></i> Add Request</a>
-                    </div>
-                    <span class="btns">
-                        <div class="btn-group search me-3">
-                            <div class="form-outline">
-                                <input type="search" id="form1" class="form-control" placeholder="search" />
-                            </div>
-                            <button type="button" class="btn btn-primary search">
-                          <i class="fas fa-search" ></i>
-                        </button>
-                        </div>
-                        <div class="btn-group dropdown">
-                            <button type="button" class="btn btn-primary" > Status </button>
-                            <select name="" id="">
-                                <option>Pending</option>
-                                <option>Approved</option>
-                                <option>Rejected</option>
-                            </select>
-                            <ul class="dropdown-menu dropdown-item-hovering ">
-                              <li><a class="dropdown-item" href="#">Pending</a></li>
-                              <li><a class="dropdown-item" href="#">Approved</a></li>
-                              <li><a class="dropdown-item" href="#">Rejected</a></li>
-                            </ul>
-                          </div>
-                    </span>` 
-                    
+            <div class="form-inline btn-group search">
+                <div class="form-outline">
+                    <input type="search" id="form1" class="form-control" />
+                    <label class="form-label" for="form1">Search</label>
                 </div>
-                <br>
+                <button type="button" class="btn btn-primary">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+
+            <div class="w3-right search mx-4 mb-4">
+                <select class="form-select" aria-label="Default select example" style="width:auto">
+                    <option selected>Select</option>
+                    <option value="1">Pending</option>
+                    <option value="2">Approved</option>
+                    <option value="3">Rejected</option>
+                </select>
+            </div>
+
+
+            <!-- <div class="dropdown text-right h-100">
+                <select class="select" id="">
+                    <option>Status</option>
+                    <option>Pending</option>
+                    <option>Approved</option>
+                    <option>Rejected</option>
+                </select>
+            </div> -->
+        </div>
+        <br>
+
 
         <table cellpadding="5" cellspacing="5" class="datatable table table-striped table-bordered">
             <thead>
@@ -58,7 +59,9 @@
                     <td>12-11-2022</td>
                     <td>Pending</td>
                     <td>
-                        <a class="btn btn-success" target="_self"><i class="fa-solid fa-circle-info" title="Details"></i></a>
+                        <a [routerLink]="['/requester-view']" routerLinkActive="router-link-active"
+                            class="btn btn-success" target="_self"><i class="fa-solid fa-circle-info"
+                                title="Details"></i></a>
                 </tr>
 
                 <tr class="text-center">
@@ -66,73 +69,13 @@
                     <td>Kathir Ramarajan</td>
                     <td>Role Star</td>
                     <td>25-04-2022</td>
-                    <td>Pending</td>
-                    <td>
-                        <a href="RequestPending.html" class="btn btn-success" target="_self"><i
-                                class="fa-solid fa-circle-info" title="Details"></i></a>
-
-                </tr>
-
-                <tr class="text-center">
-                    <td>ACE1234</td>
-                    <td>Saravana Dinesh</td>
-                    <td>Gladiator</td>
-                    <td>21-02-2022</td>
-                    <td>Pending</td>
-                    <td>
-                        <a href="RequestPending.html" class="btn btn-success" target="_self"><i
-                                class="fa-solid fa-circle-info" title="Details"></i></a>
-
-                </tr>
-                <tr class="text-center">
-                    <td>ACE0987</td>
-                    <td>Dinesh Thilasiraman</td>
-                    <td>Insta</td>
-                    <td>25-03-2022</td>
-                    <td>Pending</td>
-                    <td>
-                        <a href="RequestPending.html" class="btn btn-success" target="_self"><i
-                                class="fa-solid fa-circle-info" title="Details"></i></a>
-
-                </tr>
-
-                <tr class="text-center">
-                    <td>ACE9456</td>
-                    <td>Anand Thevaraj</td>
-                    <td>Role Star</td>
-                    <td>01-01-2022</td>
-                    <td>Pending</td>
-                    <td>
-                        <a href="RequestPending.html" class="btn btn-success" target="_self"><i
-                                class="fa-solid fa-circle-info" title="Details"></i></a>
-
-                </tr>
-
-                <tr class="text-center">
-                    <td>ACE5678</td>
-                    <td>Hariharan Murugan</td>
-                    <td>Role Star</td>
-                    <td>10-10-2021</td>
                     <td>Rejected</td>
                     <td>
-                        <a href="RequestPending.html" class="btn btn-success" target="_self"><i
-                                class="fa-solid fa-circle-info" title="Details"></i></a>
+                        <a [routerLink]="['/requester-view']" routerLinkActive="router-link-active"
+                            class="btn btn-success" target="_self"><i class="fa-solid fa-circle-info"
+                                title="Details"></i></a>
 
                 </tr>
-
-                <tr class="text-center">
-                    <td>ACE0289</td>
-                    <td>Vicky Kailash</td>
-                    <td>First Victor</td>
-                    <td>10-01-2021</td>
-                    <td>Rejected</td>
-                    <td>
-                        <a href="RequestPending.html" class="btn btn-success" target="_self"><i
-                                class="fa-solid fa-circle-info" title="Details"></i></a>
-
-                </tr>
-
-
 
 
 
@@ -161,4 +104,4 @@
             </nav>
         </section>
     </div>
-
+</div>
