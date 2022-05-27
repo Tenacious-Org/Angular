@@ -10,7 +10,8 @@ import { DesignationVM } from 'ViewModels/DesignationVM';
   styleUrls: ['./designation.component.css']
 })
 export class DesignationComponent implements OnInit {
-
+  totalLength: any;
+  page: number = 1;
   endpoint = "Designation";
 
   constructor(private sharedService:SharedService ) { }
@@ -18,6 +19,7 @@ export class DesignationComponent implements OnInit {
   ngOnInit(): void {
    this.sharedService.getAll(this.endpoint).subscribe(data=>{
       this.data = data;
+      this.totalLength=data;
       console.log(this.data);
 
     });
