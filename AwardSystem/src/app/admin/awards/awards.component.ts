@@ -8,14 +8,16 @@ import { SharedService } from 'src/app/shared.service';
 })
 export class AwardsComponent implements OnInit {
   endpoints ="AwardType";
+  totalLength: any;
+  page: number = 1;
   constructor(private sharedService:SharedService ) { }
 
   ngOnInit(): void {
   
    this.sharedService.getAll(this.endpoints).subscribe(data=>{
    this.data=data;
-   
-
+   this.totalLength=data;
+   console.log(this.data);
    });
    
   }
