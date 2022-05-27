@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AwardService } from '../award.service';
-import { SharedService } from '../shared.service';
-
+import { Comments } from 'Models/Comments';
 @Component({
   selector: 'app-card-post',
   templateUrl: './card-post.component.html',
@@ -29,5 +28,10 @@ export class CardPostComponent implements OnInit {
       console.log(res);
     });
   }
+
+  // ngOnInit(): void {
+  //   this.awardService.getAll(this.Comments).subscribe(data=>{
+  //     this.data=data;
+  //   });
 
 }

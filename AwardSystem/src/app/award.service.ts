@@ -36,7 +36,7 @@ export class AwardService {
   {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json; charset=utf-8');
-    return this.http.post<any>(this.apiurl +'addComment', data)
+    return this.http.post<any>(this.apiurl +'AddComment', data)
   }
   addRequest(data:any): Observable<any>
   {
@@ -45,5 +45,10 @@ export class AwardService {
     return this.http.post<any>(this.apiurl +'RaiseRequest', data)
   }
 
+
+  getComments(awardId:any,employeeId:any):Observable<any>
+  {
+    return this.http.get<any>(this.apiurl+`GetComments?awardId=${awardId}&employeeId=${employeeId}`)
+  }
 
 }
