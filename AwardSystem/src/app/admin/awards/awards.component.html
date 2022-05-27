@@ -9,7 +9,7 @@
             </div>
             <div class="btn-group search me-3">
                 <div class="form-outline">
-                    <input type="search" id="form1" class="form-control1" placeholder="search" />
+                    <input type="search" id="form1" class="form-control1"  placeholder="search" [(ngModel)]="val"/>
                 </div>
                 <button type="button" class="btn btn-primary search">
                           <i class="fas fa-search" ></i>
@@ -28,7 +28,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr class="text-center" *ngFor="let item of data | paginate: { itemsPerPage: 10, currentPage: page,totalItems:totalLength }">
+                <tr class="text-center" *ngFor="let item of data | filter:val | paginate: { itemsPerPage: 10, currentPage: page }">
                     <td>{{item.id}}</td>
                     <td>{{item.awardName}}</td>
                     <td>{{item.awardDescription}}</td>

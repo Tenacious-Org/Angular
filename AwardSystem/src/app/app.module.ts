@@ -7,6 +7,10 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {ReactiveFormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
+
+
 
 import { LayoutComponent } from './layout/layout.component';
 import { FooterComponent } from './footer/footer.component';
@@ -156,6 +160,7 @@ import { RejectionReasonComponent } from './approver/rejection-reason/rejection-
  ProfileComponent,
  ApproverARComponent,
  RejectionReasonComponent,
+ 
 
 
 
@@ -173,6 +178,9 @@ import { RejectionReasonComponent } from './approver/rejection-reason/rejection-
     MatInputModule,
     MatAutocompleteModule,
     ReactiveFormsModule,
+    Ng2SearchPipeModule,
+    
+    
 
   ],
   providers: [],

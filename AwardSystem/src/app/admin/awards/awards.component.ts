@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AwardType } from 'Models/AwardType';
 import { SharedService } from 'src/app/shared.service';
+
+
 @Component({
   selector: 'app-awards',
   templateUrl: './awards.component.html',
@@ -10,6 +12,7 @@ export class AwardsComponent implements OnInit {
   endpoints ="AwardType";
   totalLength: any;
   page: number = 1;
+  val:any;
   constructor(private sharedService:SharedService ) { }
 
   ngOnInit(): void {

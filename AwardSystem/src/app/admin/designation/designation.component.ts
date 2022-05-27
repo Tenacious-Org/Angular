@@ -13,7 +13,7 @@ export class DesignationComponent implements OnInit {
   totalLength: any;
   page: number = 1;
   endpoint = "Designation";
-
+  val:any;
   constructor(private sharedService:SharedService ) { }
 
   ngOnInit(): void {

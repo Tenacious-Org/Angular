@@ -11,7 +11,7 @@ export class DepartmentComponent implements OnInit {
   totalLength: any;
   page: number = 1;
   endpoint = "Department";
-
+  val:any;
   constructor(private sharedService:SharedService ) { }
 
   ngOnInit(): void {

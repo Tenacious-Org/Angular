@@ -12,7 +12,8 @@ export class EmployeeComponent implements OnInit {
   endpoint="Employee";
   totalLength: any;
   page: number = 1;
-
+  val:any;
+  
   constructor(private sharedService: SharedService) { }
 
   ngOnInit(): void {  

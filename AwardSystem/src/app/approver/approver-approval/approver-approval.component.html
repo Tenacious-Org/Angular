@@ -53,7 +53,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="text-center" *ngFor="let item of data | paginate: { itemsPerPage: 10, currentPage: page,totalItems:totalLength }">
+                        <tr class="text-center" *ngFor="let item of data | paginate: { itemsPerPage: 10, currentPage: page }">
                             <td>{{item.awardeeId}}</td>
                             <!-- <td>{{item.awardeeName}}</td> -->
                             <td>{{item.awardTypeId}}</td>

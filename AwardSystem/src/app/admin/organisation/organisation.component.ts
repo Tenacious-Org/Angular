@@ -12,6 +12,7 @@ export class OrganisationComponent implements OnInit {
    endpoints="Organisation";
    totalLength: any;
    page: number = 1;
+   val:any;
    constructor(private sharedService:SharedService ) { }
 
    ngOnInit(): void {
