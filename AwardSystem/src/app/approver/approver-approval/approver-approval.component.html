@@ -2,70 +2,66 @@
 <app-approver-sidebar></app-approver-sidebar>
 
 
-        <!-- Write your contents here -->
+<!-- Write your contents here -->
 
 
-        <div class="container d-flex justify-content-center">
+<div class="container d-flex justify-content-center">
 
-            <!-- Write your contents here -->
-    
-    
-            <div class="container container-fluid ">
-                <div>
-                   
-    
-                    <div class="btn-group search me-3">
-                        <div class="form-outline">
-                            <input type="search" id="form1" class="form-control" placeholder="search" />
-                        </div>
-                        <button type="button" class="btn btn-primary search">
-                                  <i class="fas fa-search" ></i>
-                                  </button>
-                    </div>
-                    <div class="btn-group dropdown">
-                        <button type="button" class="btn btn-primary"> Status </button>
-                        <select name="" id="">
-                                        <option>Pending</option>
-                                        <option>Approved</option>
-                                        <option>Rejected</option>
-                                    </select>
-                        <ul class="dropdown-menu dropdown-item-hovering ">
-                            <li><a class="dropdown-item" href="#">Pending</a></li>
-                            <li><a class="dropdown-item" href="#">Approved</a></li>
-                            <li><a class="dropdown-item" href="#">Rejected</a></li>
-                        </ul>
-                    </div>
-    
-    
+    <!-- Write your contents here -->
+
+
+    <div class="container container-fluid ">
+        <div>
+
+            <div class="form-inline btn-group search">
+                <div class="form-outline">
+                    <input type="search" id="form1" class="form-control" />
+                    <label class="form-label" for="form1">Search</label>
                 </div>
-                <br>
-    
-    
-                <table cellpadding="5" cellspacing="5" class="datatable table table-striped table-bordered">
-                    <thead>
-                        <tr class="text-center">
-                            <th>ACE ID</th>
-                            <!-- <th>Name</th> -->
-                            <th>Award</th>
-                            <!-- <th>Date</th> -->
-                            <th>Status</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="text-center" *ngFor="let item of data | paginate: { itemsPerPage: 10, currentPage: page }">
-                            <td>{{item.awardeeId}}</td>
-                            <!-- <td>{{item.awardeeName}}</td> -->
-                            <td>{{item.awardTypeId}}</td>
-                            <!-- <td>{{item.AddedOn}}</td> -->
-                            <td>{{item.statusId}}</td>
-                            <td>
-                                <a [routerLink]="['../approver-acceptreject',item.id]" class="btn btn-success" target="_self"><i  class="fa-solid fa-circle-info"  title="Details"></i></a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-                <pagination-controls class="text-center" (pageChange)="page = $event"></pagination-controls>
-    
-                
+                <button type="button" class="btn btn-primary">
+                    <i class="fas fa-search"></i>
+                </button>
             </div>
+
+            <div class="w3-right dropdown1 me-4 mb-4">
+                <select class="form-select" aria-label="Default select example" style="width:auto">
+                    <option selected>Select</option>
+                    <option value="1">Pending</option>
+                    <option value="2">Approved</option>
+                    <option value="3">Rejected</option>
+                </select>
+            </div>
+
+        </div>
+        <br>
+
+
+        <table cellpadding="5" cellspacing="5" class="datatable table table-striped table-bordered">
+            <thead>
+                <tr class="text-center">
+                    <th>ACE ID</th>
+                    <!-- <th>Name</th> -->
+                    <th>Award</th>
+                    <!-- <th>Date</th> -->
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="text-center" *ngFor="let item of data | paginate: { itemsPerPage: 10, currentPage: page }">
+                    <td>{{item.awardeeId}}</td>
+                    <!-- <td>{{item.awardeeName}}</td> -->
+                    <td>{{item.awardTypeId}}</td>
+                    <!-- <td>{{item.AddedOn}}</td> -->
+                    <td>{{item.statusId}}</td>
+                    <td>
+                        <a [routerLink]="['../approver-acceptreject',item.id]" class="btn btn-success" target="_self"><i
+                                class="fa-solid fa-circle-info" title="Details"></i></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <pagination-controls class="text-center" (pageChange)="page = $event"></pagination-controls>
+
+
+    </div>
