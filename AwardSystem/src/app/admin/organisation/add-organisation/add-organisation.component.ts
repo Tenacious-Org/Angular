@@ -1,5 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Organisation } from 'Models/Organisation';
+import { Component, OnInit } from '@angular/core';
 import { SharedService } from 'src/app/shared.service';
 import { Location } from '@angular/common';
 
