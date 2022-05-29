@@ -96,7 +96,7 @@ const routes: Routes = [
   
   {path:'footer' , component:FooterComponent},
   {path:'homepage' , component:HomePageComponent},
-  {path:'morecomments' , component:MoreCommentsComponent},
+  {path:'morecomments/:id' , component:MoreCommentsComponent},
   {path:'cardpost' , component:CardPostComponent},
   {path:'request' , component:RequestComponent},
 

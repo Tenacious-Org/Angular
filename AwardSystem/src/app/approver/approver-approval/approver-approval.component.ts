@@ -12,11 +12,12 @@ export class ApproverApprovalComponent implements OnInit {
   employeeId=5;
   totalLength: any;
   page: number = 1;
+  data:any;
   constructor(private awardService:AwardService ) { }
   
 
   ngOnInit(): void {
-    this.awardService.getAwards(this.pageId,this.employeeId).subscribe(data=>
+    this.awardService.getAwardsList(this.pageId,this.employeeId).subscribe(data=>
     {
         this.data = data;
         this.totalLength=data;
@@ -24,5 +25,5 @@ export class ApproverApprovalComponent implements OnInit {
     });
   }
   
-  public data: Awards[] = [];
+  
 }

@@ -10,10 +10,10 @@ export class AwardService {
   constructor(private http:HttpClient) { }
 
   // Get Awards --> pageId 0=Homepage , 1=mywards, 2= requesterList , 3= approverList, 4=HR List .
-  getAwards(pageId:any,employeeId:any):Observable<any>
-  {
-    return this.http.get<any>(this.apiurl+`GetAwards?pageId=${pageId}&employeeId=${employeeId}`)
-  }
+  // getAwards(pageId:any,employeeId:any):Observable<any>
+  // {
+  //   return this.http.get<any>(this.apiurl+`GetAwards?pageId=${pageId}&employeeId=${employeeId}`)
+  // }
 
 
   // Get Award By id
@@ -46,9 +46,13 @@ export class AwardService {
   }
 
 
-  getComments(awardId:any,employeeId:any):Observable<any>
+  getComments(awardId:any):Observable<any>
   {
-    return this.http.get<any>(this.apiurl+`GetComments?awardId=${awardId}&employeeId=${employeeId}`)
+    return this.http.get<any>(this.apiurl+`GetComments?awardId=${awardId}`)
+  }
+
+  getAwardsList(pageId:any,employeeId:any):Observable<any>{
+    return this.http.get<any>(this.apiurl+`GetAwardsList?pageId=${pageId}&employeeId=${employeeId}`)
   }
 
 }
