@@ -12,7 +12,7 @@
                 <div class="row-auto p-1.5 align-items-center">
                     <label for="dept" class="col-form-label">Department</label>
                 <div class="input-group">
-                    <select name="departmentID" [(ngModel)]="data.departmentID" class="custom-select"   >
+                    <select name="departmentId" [(ngModel)]="data.departmentId " class="custom-select"   >
                               <option *ngFor="let items of departments" [selected]="items.id==selectedDepartment" value={{items.id}}> {{items.departmentName}}</option>
                     </select>
                 </div>

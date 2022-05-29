@@ -20,6 +20,8 @@ export class EditEmployeeComponent implements OnInit {
   selectedOrganisation:any;
   selectedDepartment:any;
   selectedDesignation:any;
+  selectedReportingPerson:any;
+  selectedHr:any;
   organisations: Organisation[] = [];
   departments: Department[] = [];
   designations: Designation[] = [];
@@ -29,6 +31,7 @@ export class EditEmployeeComponent implements OnInit {
 
   endpoint = "Organisation";
   endpoint1 = "Employee";
+  endpoint2 = "Department";
   constructor(private sharedService:SharedService, private router:ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -38,14 +41,21 @@ export class EditEmployeeComponent implements OnInit {
           this.data = result;
           console.log(this.Id);
           console.log(this.data.departmentId);
-          this.selectedOrganisation=this.data.organisationId;
-          this.selectedDepartment=this.data.departmentId;
+          this.SelectOrg=this.data.organisationId;
+          this.SelectDep=this.data.departmentId;
           this.selectedDesignation=this.data.designationId;
+          this.selectedReportingPerson=this.data.reportingPersonId;
+          this.selectedHr=this.data.hrID;
         });
       });
       this.sharedService.getAll(this.endpoint).subscribe(data=>{
         this.organisations=data;
       });
+      this.sharedService.getAll(this.endpoint2).subscribe(data=>{
+        this.departments=data;
+      });
+      
+     
   }
   onSelectDep(){
     this.sharedService.getDepartmentByOrganisation(this.SelectOrg).subscribe(data=>{
