@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { Organisation } from 'Models/Organisation';
 import { SharedService } from 'src/app/shared.service';
@@ -19,6 +18,7 @@ export class OrganisationComponent implements OnInit {
     this.sharedService.getAll(this.endpoints).subscribe(data=>{
       this.data=data;
       this.totalLength=data;
+      console.log(this.data)
     });
     
    }
