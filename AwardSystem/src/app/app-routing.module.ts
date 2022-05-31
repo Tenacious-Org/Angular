@@ -54,6 +54,7 @@ import { AddEmployeeComponent } from './admin/employee/add-employee/add-employee
 import { ApproverARComponent } from './approver/approver-acceptreject/approver-ar.component';
 import { RejectionReasonComponent } from './approver/rejection-reason/rejection-reason.component';
 import { ViewEmployeeComponent } from './admin/employee/view-employee/view-employee.component';
+import { EditEmployeeComponent } from './admin/employee/edit-employee/edit-employee.component';
 
 
 const routes: Routes = [
@@ -64,7 +65,9 @@ const routes: Routes = [
 
   {path:'employee', component:EmployeeComponent},
   {path:'add-employee', component:AddEmployeeComponent},
+  {path:'edit-employee/:id', component:EditEmployeeComponent},
   {path:'employee/:id', component:ViewEmployeeComponent},
+  
 
   {path:'awards', component:AwardsComponent},
   {path:'add-awards', component:AddAwardsComponent},
@@ -96,7 +99,7 @@ const routes: Routes = [
   
   {path:'footer' , component:FooterComponent},
   {path:'homepage' , component:HomePageComponent},
-  {path:'morecomments' , component:MoreCommentsComponent},
+  {path:'morecomments/:id' , component:MoreCommentsComponent},
   {path:'cardpost' , component:CardPostComponent},
   {path:'request' , component:RequestComponent},
 

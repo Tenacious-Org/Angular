@@ -66,9 +66,9 @@
                 <label for="org" class="col-form-label">Organisation</label>
 
                 <div class="input-group">
-                    <select name="organisationId" [(ngModel)]="data.organisationId" name="SelectOrg"[(ngModel)]="SelectOrg" (change)="onSelectDep()" class="custom-select"   >
+                    <select name="organisationId" [(ngModel)]="data.organisationId" name="SelectOrg" [(ngModel)]="SelectOrg" (change)="onSelectDep()" class="custom-select"   >
                         <option selected>Choose...</option>
-                        <option *ngFor="let items of organisations"  value={{items.id}} >{{items.organisationName}}</option>
+                        <option *ngFor="let items of organisations" [selected]="items.id==SelectOrg"  value={{items.id}} >{{items.organisationName}}</option>
                     </select>
                 </div>
             </div>
@@ -80,7 +80,7 @@
                 <div class="input-group">
                     <select name="departmentId" [(ngModel)]="data.departmentId" name="SelectDep" [(ngModel)]="SelectDep" (change)="onSelectDes()" class="custom-select"   >
                               <option selected>Choose...</option>
-                              <option *ngFor="let items of departments"  value={{items.id}} >{{items.departmentName}}</option>
+                              <option *ngFor="let items of departments" [selected]="items.id==SelectDep"  value={{items.id}} >{{items.departmentName}}</option>
                     </select>
                 </div>
 
@@ -96,7 +96,7 @@
                 <div class="input-group">
                     <select name="designationId" [(ngModel)]="data.designationId" class="custom-select"   >
                               <option selected>Choose...</option>
-                              <option *ngFor="let items of designations"  value={{items.id}} >{{items.designationName}}</option>
+                              <option *ngFor="let items of designations" [selected]="items.id==selectedDesignation" value={{items.id}} >{{items.designationName}}</option>
                     </select>
                 </div>
             </div>
@@ -109,7 +109,7 @@
                 <div class="input-group">
                     <select name="reportingPersonId" [(ngModel)]="data.reportingPersonId" class="custom-select"   >
                               <option selected>Choose...</option>
-                              <option *ngFor="let items of employeeData"  value={{items.id}} >{{items.firstName}} {{items.lastName}}</option>
+                              <option *ngFor="let items of employeeData" [selected]="items.id==selectedReportingPerson" value={{items.id}} >{{items.firstName}} {{items.lastName}}</option>
                     </select>
                 </div>
             </div>
@@ -123,7 +123,7 @@
                 <div class="input-group">
                     <select name="hrID" [(ngModel)]="data.hrID" class="custom-select"   >
                               <option selected>Choose...</option>
-                              <option *ngFor="let items of employeeData"  value={{items.id}} >{{items.firstName}} {{items.lastName}}</option>
+                              <option *ngFor="let items of employeeData" [selected]="items.id==selectedHr" value={{items.id}} >{{items.firstName}} {{items.lastName}}</option>
                     </select>
                 </div>
             </div>

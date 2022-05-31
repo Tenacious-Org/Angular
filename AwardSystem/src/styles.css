@@ -11529,4 +11529,20 @@ html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 /* dropdown search media query */
+@media (max-width: 700px) {
+    .dropdown{
+        display: block;
+        margin-top: 1.5rem;
+        margin-left: 6rem;
+    }
+}
+
+.dropdown1{
+    float: right;
+}
+@media screen and (max-width: 1200px) {
+    .dropdown1{
+        display: inline-block;
+    }
+}
 

@@ -17,7 +17,7 @@ export class EditAwardComponent implements OnInit {
   Id =0;
 
   endpoint="AwardType";
-  constructor(private sharedService: SharedService,private http:HttpClient , private router:ActivatedRoute) { }
+  constructor(private sharedService: SharedService, private router:ActivatedRoute) { }
 
   ngOnInit(): void {
 

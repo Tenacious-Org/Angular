@@ -17,7 +17,7 @@ export class HrPublishComponent implements OnInit {
   
 
   ngOnInit(): void {
-    this.awardService.getAwards(this.pageId,this.employeeId).subscribe(data=>
+    this.awardService.getAwardsList(this.pageId,this.employeeId).subscribe(data=>
     {
         this.data = data;
         this.totalLength=data;
