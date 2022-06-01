@@ -18,7 +18,6 @@
                     <input type="search" id="form1" class="form-control" />
                     <label class="form-label" for="form1">Search</label>
                 </div>
-<<<<<<< Updated upstream
                 <button type="button" class="btn btn-primary">
                     <i class="fas fa-search"></i>
                 </button>
@@ -35,14 +34,12 @@
 
         </div>
         <br>
-
-
         <table cellpadding="5" cellspacing="5" class="datatable table table-striped table-bordered">
             <thead>
                 <tr class="text-center">
                     <th>ACE ID</th>
                     <!-- <th>Name</th> -->
-                    <th>Award</th>
+                    <th>Awardee</th>
                     <!-- <th>Date</th> -->
                     <th>Status</th>
                     <th>Action</th>
@@ -50,11 +47,11 @@
             </thead>
             <tbody>
                 <tr class="text-center" *ngFor="let item of data | paginate: { itemsPerPage: 10, currentPage: page }">
-                    <td>{{item.awardeeId}}</td>
+                    <td>{{item.id}}</td>
                     <!-- <td>{{item.awardeeName}}</td> -->
-                    <td>{{item.awardTypeId}}</td>
+                    <td>{{item.awardeeName}}</td>
                     <!-- <td>{{item.AddedOn}}</td> -->
-                    <td>{{item.statusId}}</td>
+                    <td>{{item.status}}</td>
                     <td>
                         <a [routerLink]="['../approver-acceptreject',item.id]" class="btn btn-success" target="_self"><i
                                 class="fa-solid fa-circle-info" title="Details"></i></a>
@@ -64,38 +61,4 @@
         </table>
         <pagination-controls class="text-center" (pageChange)="page = $event"></pagination-controls>
 
-
     </div>
-=======
-                <br>
-    
-    
-                <table cellpadding="5" cellspacing="5" class="datatable table table-striped table-bordered">
-                    <thead>
-                        <tr class="text-center">
-                            <th>ACE ID</th>
-                            <!-- <th>Name</th> -->
-                            <th>Awardee</th>
-                            <!-- <th>Date</th> -->
-                            <th>Status</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="text-center" *ngFor="let item of data | paginate: { itemsPerPage: 10, currentPage: page }">
-                            <td>{{item.id}}</td>
-                            <!-- <td>{{item.awardeeName}}</td> -->
-                            <td>{{item.awardeeName}}</td>
-                            <!-- <td>{{item.AddedOn}}</td> -->
-                            <td>{{item.status}}</td>
-                            <td>
-                                <a [routerLink]="['../approver-acceptreject',item.id]" class="btn btn-success" target="_self"><i  class="fa-solid fa-circle-info"  title="Details"></i></a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-                <pagination-controls class="text-center" (pageChange)="page = $event"></pagination-controls>
-    
-                
-            </div>
->>>>>>> Stashed changes

@@ -4,22 +4,20 @@
 
     <!-- Write your contents here -->
 
-
-
-
     <div class="container container-fluid ">
         <div>
             <div class="btn-group">
                 <a [routerLink]="['../add-department']" class="btn btn-primary"> <i class="fa-solid fa-layer-group"></i>+ Add Department</a>
             </div>
 
-            <div class="btn-group search me-3">
+            <div class="form-inline btn-group search">
                 <div class="form-outline">
-                    <input type="search" id="form1" class="form-control1" placeholder="search" [(ngModel)]="val"/>
+                  <input type="search" id="form1" class="form-control" [(ngModel)]="val" />
+                  <label class="form-label" for="form1">Search</label>
                 </div>
-                <!-- <button type="button" class="btn btn-primary search">
-                          <i class="fas fa-search" ></i>
-                        </button> -->
+                <button type="button" class="btn btn-primary">
+                  <i class="fas fa-search"></i>
+                </button>
             </div>
 
 
