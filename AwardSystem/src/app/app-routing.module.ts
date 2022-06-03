@@ -55,6 +55,7 @@ import { ApproverARComponent } from './approver/approver-acceptreject/approver-a
 import { RejectionReasonComponent } from './approver/rejection-reason/rejection-reason.component';
 import { ViewEmployeeComponent } from './admin/employee/view-employee/view-employee.component';
 import { EditEmployeeComponent } from './admin/employee/edit-employee/edit-employee.component';
+import { ApproverRequestComponent } from './approver/approver-request/approver-request.component';
 
 
 const routes: Routes = [
@@ -90,6 +91,7 @@ const routes: Routes = [
   {path:'approver-addrequest', component:ApproverAddrequestComponent},
   {path:'approver-approval', component:ApproverApprovalComponent},
   {path:'approver-dashboard', component:ApproverDashboardComponent},
+  {path:'approver-request', component:ApproverRequestComponent},
   {path:'approver-homepage', component:ApproverHomepageComponent},
   {path:'approver-myawards', component:ApproverMyawardsComponent},
   {path:'approver-homepage', component:ApproverHomepageComponent},
