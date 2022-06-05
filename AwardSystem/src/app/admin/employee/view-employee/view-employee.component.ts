@@ -9,7 +9,6 @@ import { SharedService } from 'src/app/shared.service';
   styleUrls: ['./view-employee.component.css']
 })
 export class ViewEmployeeComponent implements OnInit {
-
   data :any;
   Id=0;
 

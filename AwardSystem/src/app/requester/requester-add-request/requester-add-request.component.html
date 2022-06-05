@@ -44,9 +44,11 @@
             <div class="row d-flex justify-content-center">       
                 <div class="col-md-7">           
                     <div class="card p-3 py-4">               
-                        <div class="text-center">
-                            <img [src]="'data:image/jpg;base64,'+ awardeeData.image" width="100" class="rounded-circle">
-                        </div>               
+                        <div class="text-center"  *ngIf="awardeeData.image==null ; else elseimage">
+                            <img *ngIf="awardeeData.gender=='Male';else elsegender " src='assets/images/male.jpg' style=width:10rem; class="rounded-circle img-fluid" style="width: 100px;" />  
+                            <ng-template #elsegender> <img  src='assets/images/female.jpg' style=width:10rem; class="rounded-circle img-fluid" style="width: 100px;" /></ng-template>     
+                        </div>
+                        <ng-template  #elseimage><div class="text-center"><img [src]="'data:image/jpg;base64,'+ awardeeData.image" style=width:10rem; class="rounded-circle img-fluid" style="width: 100px;" /></div></ng-template>             
                         <div class="text-center mt-3">
                           <span>{{awardeeData.firstName}} {{awardeeData.lastName}}</span> 
                             <h5 class="mt-2 mb-0">{{awardeeData.designationName}}</h5>    
