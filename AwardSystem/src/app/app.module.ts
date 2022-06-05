@@ -41,17 +41,10 @@ import { ViewAwardComponent } from './admin/awards/view-award/view-award.compone
 import { EmployeeComponent } from './admin/employee/employee.component';
 import { AddEmployeeComponent } from './admin/employee/add-employee/add-employee.component';
 import { EditEmployeeComponent } from './admin/employee/edit-employee/edit-employee.component';
-
 import { ViewEmployeeComponent } from './admin/employee/view-employee/view-employee.component';
 import { AdminSidebarComponent } from './admin/admin-sidebar/admin-sidebar.component';
 import { ApproverComponent } from './approver/approver.component';
-import { ApproverSidebarComponent } from './approver/approver-sidebar/approver-sidebar.component';
-import { ApproverHomepageComponent } from './approver/approver-homepage/approver-homepage.component';
-import { ApproverAddrequestComponent } from './approver/approver-addrequest/approver-addrequest.component';
 import { ApproverApprovalComponent } from './approver/approver-approval/approver-approval.component';
-import { ApproverDashboardComponent } from './approver/approver-dashboard/approver-dashboard.component';
-import { ApproverMyawardsComponent } from './approver/approver-myawards/approver-myawards.component';
-import { ApproverProfileComponent } from './approver/approver-profile/approver-profile.component';
 import { LoginComponent } from './login/login.component';
 
 
@@ -62,20 +55,13 @@ import { RequesterRequestComponent } from './requester/requester-request/request
 import { RequesterMyawardsComponent } from './requester/requester-myawards/requester-myawards.component';
 import { RequesterViewComponent } from './requester/requester-view/requester-view.component';
 import { HrComponent } from './hr/hr.component';
-import { HrAddRequestComponent } from './hr/hr-add-request/hr-add-request.component';
-import { HrSidebarComponent } from './hr/hr-sidebar/hr-sidebar.component';
 import { HrPublishComponent } from './hr/hr-publish/hr-publish.component';
-import { HrRequestComponent } from './hr/hr-request/hr-request.component';
-import { HrRequestViewComponent } from './hr/hr-request-view/hr-request-view.component';
 import { HrYettopublishComponent } from './hr/hr-yettopublish/hr-yettopublish.component';
-import { HrAwardComponent } from './hr/hr-award/hr-award.component';
 import { RequesterHomepageComponent } from './requester/requester-homepage/requester-homepage.component';
-import { HrHomepageComponent } from './hr/hr-homepage/hr-homepage.component';
 
 import{FormsModule} from '@angular/forms';
 import { RequestComponent } from './requester/request/request.component';
-import { ApproverRequestComponent } from './approver/approver-request/approver-request.component';
-import { ApproverViewComponent } from './approver/approver-view/approver-view.component';
+
 import { RequesterRejectComponent } from './requester/requester-reject/requester-reject.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ApproverARComponent } from './approver/approver-acceptreject/approver-ar.component';
@@ -127,13 +113,9 @@ import { RejectionReasonComponent } from './approver/rejection-reason/rejection-
     EditEmployeeComponent,
     ViewEmployeeComponent,
     ApproverComponent,
-    ApproverSidebarComponent,
-    ApproverHomepageComponent,
-    ApproverAddrequestComponent,
     ApproverApprovalComponent,
-    ApproverDashboardComponent,
-    ApproverMyawardsComponent,
-    ApproverProfileComponent,
+
+  
 
 
 
@@ -144,18 +126,10 @@ import { RejectionReasonComponent } from './approver/rejection-reason/rejection-
  RequesterMyawardsComponent,
  RequesterViewComponent,
  HrComponent,
- HrAddRequestComponent,
- HrSidebarComponent,
  HrPublishComponent,
- HrRequestComponent,
- HrRequestViewComponent,
  HrYettopublishComponent,
- HrAwardComponent,
  RequesterHomepageComponent,
- HrHomepageComponent,
  RequestComponent,
- ApproverRequestComponent,
- ApproverViewComponent,
  RequesterRejectComponent,
  ProfileComponent,
  ApproverARComponent,

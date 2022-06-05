@@ -14,11 +14,7 @@ import { EditDesignationComponent } from './admin/designation/edit-designation/e
 import { AddOrganisationComponent } from './admin/organisation/add-organisation/add-organisation.component';
 import { EditOrganisationComponent } from './admin/organisation/edit-organisation/edit-organisation.component';
 import { OrganisationComponent } from './admin/organisation/organisation.component';
-import { ApproverAddrequestComponent } from './approver/approver-addrequest/approver-addrequest.component';
 import { ApproverApprovalComponent } from './approver/approver-approval/approver-approval.component';
-import { ApproverDashboardComponent } from './approver/approver-dashboard/approver-dashboard.component';
-import { ApproverHomepageComponent } from './approver/approver-homepage/approver-homepage.component';
-import { ApproverMyawardsComponent } from './approver/approver-myawards/approver-myawards.component';
 import { ApproverComponent } from './approver/approver.component';
 import { CardPostComponent } from './card-post/card-post.component';
 import { FooterComponent } from './footer/footer.component';
@@ -34,18 +30,11 @@ import { RequesterRequestComponent } from './requester/requester-request/request
 import { RequesterSidebarComponent } from './requester/requester-sidebar/requester-sidebar.component';
 import { RequesterViewComponent } from './requester/requester-view/requester-view.component';
 import { HrComponent } from './hr/hr.component';
-import { HrAddRequestComponent } from './hr/hr-add-request/hr-add-request.component';
 import { HrPublishComponent } from './hr/hr-publish/hr-publish.component';
-import { HrRequestComponent } from './hr/hr-request/hr-request.component';
-import { HrRequestViewComponent } from './hr/hr-request-view/hr-request-view.component';
-import { HrSidebarComponent } from './hr/hr-sidebar/hr-sidebar.component';
 import { HrYettopublishComponent } from './hr/hr-yettopublish/hr-yettopublish.component';
-import { HrAwardComponent } from './hr/hr-award/hr-award.component';
 import { RequesterHomepageComponent } from './requester/requester-homepage/requester-homepage.component';
-import { HrHomepageComponent } from './hr/hr-homepage/hr-homepage.component';
 import { AdminComponent } from './admin/admin.component';
 import { RequestComponent } from './requester/request/request.component';
-import { ApproverViewComponent } from './approver/approver-view/approver-view.component';
 import { RequesterRejectComponent } from './requester/requester-reject/requester-reject.component';
 
 import { ProfileComponent } from './profile/profile.component';
@@ -55,7 +44,7 @@ import { ApproverARComponent } from './approver/approver-acceptreject/approver-a
 import { RejectionReasonComponent } from './approver/rejection-reason/rejection-reason.component';
 import { ViewEmployeeComponent } from './admin/employee/view-employee/view-employee.component';
 import { EditEmployeeComponent } from './admin/employee/edit-employee/edit-employee.component';
-import { ApproverRequestComponent } from './approver/approver-request/approver-request.component';
+
 
 
 const routes: Routes = [
@@ -88,14 +77,7 @@ const routes: Routes = [
   {path:'edit-organisation/:id', component:EditOrganisationComponent},
 
   {path:'approver', component:ApproverComponent},
-  {path:'approver-addrequest', component:ApproverAddrequestComponent},
   {path:'approver-approval', component:ApproverApprovalComponent},
-  {path:'approver-dashboard', component:ApproverDashboardComponent},
-  {path:'approver-request', component:ApproverRequestComponent},
-  {path:'approver-homepage', component:ApproverHomepageComponent},
-  {path:'approver-myawards', component:ApproverMyawardsComponent},
-  {path:'approver-homepage', component:ApproverHomepageComponent},
-  {path:'approver-view', component:ApproverViewComponent},
   {path:'approver-acceptreject/:id', component:ApproverARComponent},
   {path:'rejection-reason/:id' , component:RejectionReasonComponent},
   
@@ -117,15 +99,8 @@ const routes: Routes = [
   {path:'requester-reject' , component:RequesterRejectComponent},
 
   {path:'hr' , component:HrComponent},
-  {path:'hr-add-request' , component:HrAddRequestComponent},
   {path:'hr-publish' , component:HrPublishComponent},
-  {path:'hr-request' , component:HrRequestComponent},
-  {path:'hr-request-view' , component:HrRequestViewComponent},
-  {path:'hr-sidebar' , component:HrSidebarComponent},
   {path:'hr-yettopublish/:id' , component:HrYettopublishComponent},
-  {path:'hr-award' , component:HrAwardComponent},
-  {path:'hr-homepage' , component:HrHomepageComponent},
-
   {path:'', component:OrganisationComponent},
 
 ];
