@@ -43,16 +43,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr class="text-center"
-<<<<<<< Updated upstream
-                    *ngFor="let item of data | filter:val | paginate: { itemsPerPage:6, currentPage: page }">
-=======
-<<<<<<< HEAD
-                    *ngFor="let item of data | filter:val | paginate: { itemsPerPage: 6, currentPage: page }">
-=======
-                    *ngFor="let item of data | filter:val | paginate: { itemsPerPage:6, currentPage: page }">
->>>>>>> db93b907648d597e5abbc7f771336148ae7a4def
->>>>>>> Stashed changes
+                <tr class="text-center" *ngFor="let item of data | filter:val | paginate: { itemsPerPage:6, currentPage: page }">
                     <td>{{item.aceid}}</td>
                     <td>{{item.firstName}}</td>
                     <td>{{item.lastName}}</td>

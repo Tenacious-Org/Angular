@@ -88,17 +88,9 @@ const routes: Routes = [
  
   {path:'requester-request' , component:RequestComponent},
   {path:'requester-add-request' , component:RequesterAddRequestComponent},
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
-  {path:'requester-view' , component:RequesterViewComponent},
-  
-=======
->>>>>>> Stashed changes
-  {path:'requester-view/:id' , component:RequesterViewComponent},
-  {path:'requester-reject' , component:RequesterRejectComponent},
->>>>>>> db93b907648d597e5abbc7f771336148ae7a4def
 
+  {path:'requester-view' , component:RequesterViewComponent},
+  {path:'requester-view/:id' , component:RequesterViewComponent},
   {path:'hr' , component:HrComponent},
   {path:'hr-publish' , component:HrPublishComponent},
   {path:'hr-yettopublish/:id' , component:HrYettopublishComponent},
