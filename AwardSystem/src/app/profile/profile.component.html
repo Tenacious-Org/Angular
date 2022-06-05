@@ -4,9 +4,11 @@
 
     <div class="card " style="border-radius: 15px; width: 500px; margin-top: -10px;">
         <div class="card-body">
-            <div class=" rounded-circle text-center">
-                <img src="./assets/images/Adminlogo.png" width="150px" height="150px" />
-            </div>
+            <div class=" rounded-circle text-center" *ngIf="data.image==null ; else elseimage">
+                    <img *ngIf="data.gender=='Male';else elsegender " src='assets/images/male.jpg' style=width:10rem; class="rounded-circle img-fluid" style="width: 100px;" />  
+                    <ng-template #elsegender> <img  src='assets/images/female.jpg' style=width:10rem; class="rounded-circle img-fluid" style="width: 100px;" /></ng-template>     
+                </div>
+                <ng-template  #elseimage><div class="mt-3 mb-4 text-center"><img [src]="'data:image/jpg;base64,'+ data.image" style=width:10rem; class="rounded-circle img-fluid" style="width: 100px;" /></div></ng-template>
             <br>
             <div class="text-center"> 
                 <h3 class="mb-0">{{data.firstName}} {{data.lastName}}</h3>
@@ -41,12 +43,12 @@
             <div class="row text-center">
                 <div class="col-sm-6">
                     <h3 class="mb-0">Designation</h3>
-                    <h4 class="text-muted mb-0">FullStackDeveloper{{data.designationId}}</h4>
+                    <h4 class="text-muted mb-0">{{data.designationName}}</h4>
                 </div>
 
                 <div class="col-sm-6">
                     <h3 class="mb-0">Department</h3>
-                    <h4 class="text-muted mb-0">DotNet{{data.departmentId}}</h4>
+                    <h4 class="text-muted mb-0">{{data.departmentName}}</h4>
                 </div>
             </div>
             <hr>
@@ -54,12 +56,12 @@
             <div class="row text-center">
                 <div class="col-sm-6">
                     <h3 class="mb-0">Organisation</h3>
-                    <h4 class="text-muted mb-0">SoftwraeDevelopment{{data.organisationId}}</h4>
+                    <h4 class="text-muted mb-0">{{data.organisationName}}</h4>
                 </div>
 
                 <div class="col-sm-6">
                     <h3 class="mb-0">HR Name</h3>
-                    <h4 class="text-muted mb-0">Ani{{data.hrID}}</h4>
+                    <h4 class="text-muted mb-0">{{data.hRName}}</h4>
                 </div>
             </div>
         </div>

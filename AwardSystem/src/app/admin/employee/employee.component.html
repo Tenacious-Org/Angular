@@ -44,7 +44,7 @@
             </thead>
             <tbody>
                 <tr class="text-center"
-                    *ngFor="let item of data | filter:val | paginate: { itemsPerPage: 10, currentPage: page }">
+                    *ngFor="let item of data | filter:val | paginate: { itemsPerPage:6, currentPage: page }">
                     <td>{{item.aceid}}</td>
                     <td>{{item.firstName}}</td>
                     <td>{{item.lastName}}</td>

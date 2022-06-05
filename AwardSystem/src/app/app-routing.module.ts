@@ -87,7 +87,7 @@ const routes: Routes = [
  
   {path:'requester-request' , component:RequestComponent},
   {path:'requester-add-request' , component:RequesterAddRequestComponent},
-  {path:'requester-view' , component:RequesterViewComponent},
+  {path:'requester-view/:id' , component:RequesterViewComponent},
   {path:'requester-reject' , component:RequesterRejectComponent},
 
   {path:'hr' , component:HrComponent},

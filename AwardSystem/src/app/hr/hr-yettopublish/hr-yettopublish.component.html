@@ -69,9 +69,9 @@
               </div>
           </div>
           <br>
-          <div class="modal-footer justify-content-center" *ngIf="data.statusId==2">
-              <a (click)="OnSubmit()" class="btn btn-primary" data-dismiss="modal">Publish</a>
-              <a class="btn btn-danger" data-dismiss="modal">Back</a>
+          <div class="modal-footer justify-content-center" >
+              <a *ngIf="data.statusId==2" (click)="OnSubmit()" class="btn btn-primary" data-dismiss="modal">Publish</a>
+              <a [routerLink]="['/hr-publish']" class="btn btn-danger" data-dismiss="modal">Back</a>
           </div>
       </div>
   </div>
