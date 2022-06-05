@@ -63,6 +63,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { ApproverARComponent } from './approver/approver-acceptreject/approver-ar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RejectionReasonComponent } from './approver/rejection-reason/rejection-reason.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 
 
@@ -126,6 +127,7 @@ import { RejectionReasonComponent } from './approver/rejection-reason/rejection-
  ProfileComponent,
  ApproverARComponent,
  RejectionReasonComponent,
+ SidebarComponent,
  
 
 

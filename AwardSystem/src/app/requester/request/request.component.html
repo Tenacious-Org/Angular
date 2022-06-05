@@ -1,5 +1,5 @@
 <app-layout></app-layout>
-<app-admin-sidebar></app-admin-sidebar>
+<app-sidebar></app-sidebar>
 <div class="container d-flex justify-content-center">
 
     <!-- Write your contents here -->
@@ -51,7 +51,11 @@
                     <td>{{item.awardeeName}}</td>
                     <td>{{item.awardName}}</td>
                     <!-- <td></td> -->
-                    <td>{{item.status}}</td>
+                     <td ><span *ngIf="item.statusId==1" class="badge badge-warning rounded-pill d-inline">{{item.status}}</span>
+                        <span *ngIf="item.statusId==2" class="badge badge-success rounded-pill d-inline">{{item.status}}</span>
+                        <span *ngIf="item.statusId==3" class="badge badge-danger rounded-pill d-inline">{{item.status}}</span>
+                        <span *ngIf="item.statusId==4" class="badge badge-primary rounded-pill d-inline">{{item.status}}</span>
+                      </td> 
                     <td>
                         <a [routerLink]="['../requester-view', item.id]" routerLinkActive="router-link-active"
                             class="btn btn-success" target="_self"><i class="fa-solid fa-circle-info"

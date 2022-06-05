@@ -1,7 +1,7 @@
 <app-layout></app-layout>
-<app-admin-sidebar></app-admin-sidebar>
+<app-sidebar></app-sidebar>
 
-
+<div class="container d-flex justify-content-center">
 
   <div class="container container-fluid ">
       <div>
@@ -44,7 +44,9 @@
                   <!-- <td>{{item.awardeeName}}</td> -->
                   <td>{{item.awardeeName}}</td>
                   <!-- <td>{{item.AddedOn}}</td> -->
-                            <td  ><span  class="badge badge-warning rounded-pill d-inline">{{item.status}}</span></td>                       
+                            <td ><span *ngIf="item.statusId==2;else elseblock" class="badge badge-success rounded-pill d-inline">{{item.status}}</span>
+                              <ng-template #elseblock><span class="badge badge-primary rounded-pill d-inline">{{item.status}}</span></ng-template>
+                            </td>                       
                             <td>
                               <div *ngIf="item.statusId==2">
                                 <a  [routerLink]="['../hr-yettopublish',item.id]" type="button" class="btn btn-link btn-sm btn-rounded">
@@ -63,6 +65,7 @@
                       <pagination-controls class="text-center" (pageChange)="page = $event"></pagination-controls>
 
             </div>
+          </div>
 
 
 

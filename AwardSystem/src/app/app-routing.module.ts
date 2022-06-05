@@ -40,6 +40,7 @@ import { ApproverARComponent } from './approver/approver-acceptreject/approver-a
 import { RejectionReasonComponent } from './approver/rejection-reason/rejection-reason.component';
 import { ViewEmployeeComponent } from './admin/employee/view-employee/view-employee.component';
 import { EditEmployeeComponent } from './admin/employee/edit-employee/edit-employee.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 
 
@@ -48,6 +49,7 @@ const routes: Routes = [
   {path:'layout' , component:LayoutComponent},
   {path:'admin-sidebar', component:AdminSidebarComponent},
   {path:'login', component:LoginComponent},
+  {path:'sidebar', component:SidebarComponent},
 
   {path:'employee', component:EmployeeComponent},
   {path:'add-employee', component:AddEmployeeComponent},
@@ -81,7 +83,6 @@ const routes: Routes = [
   {path:'homepage' , component:HomePageComponent},
   {path:'morecomments/:id' , component:MoreCommentsComponent},
   {path:'cardpost' , component:CardPostComponent},
-  {path:'request' , component:RequestComponent},
 
   {path:'profile/:id' , component:ProfileComponent},
  
