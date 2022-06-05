@@ -49,15 +49,11 @@ import { LoginComponent } from './login/login.component';
 
 
 import { RequesterComponent } from './requester/requester.component';
-import { RequesterSidebarComponent } from './requester/requester-sidebar/requester-sidebar.component';
 import { RequesterAddRequestComponent } from './requester/requester-add-request/requester-add-request.component';
-import { RequesterRequestComponent } from './requester/requester-request/requester-request.component';
-import { RequesterMyawardsComponent } from './requester/requester-myawards/requester-myawards.component';
 import { RequesterViewComponent } from './requester/requester-view/requester-view.component';
 import { HrComponent } from './hr/hr.component';
 import { HrPublishComponent } from './hr/hr-publish/hr-publish.component';
 import { HrYettopublishComponent } from './hr/hr-yettopublish/hr-yettopublish.component';
-import { RequesterHomepageComponent } from './requester/requester-homepage/requester-homepage.component';
 
 import{FormsModule} from '@angular/forms';
 import { RequestComponent } from './requester/request/request.component';
@@ -120,15 +116,11 @@ import { RejectionReasonComponent } from './approver/rejection-reason/rejection-
 
 
  RequesterComponent,
- RequesterSidebarComponent,
  RequesterAddRequestComponent,
- RequesterRequestComponent,
- RequesterMyawardsComponent,
  RequesterViewComponent,
  HrComponent,
  HrPublishComponent,
  HrYettopublishComponent,
- RequesterHomepageComponent,
  RequestComponent,
  RequesterRejectComponent,
  ProfileComponent,

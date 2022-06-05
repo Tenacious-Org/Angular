@@ -25,14 +25,10 @@ import { MoreCommentsComponent } from './more-comments/more-comments.component';
 
 import { RequesterComponent } from './requester/requester.component';
 import { RequesterAddRequestComponent } from './requester/requester-add-request/requester-add-request.component';
-import { RequesterMyawardsComponent } from './requester/requester-myawards/requester-myawards.component';
-import { RequesterRequestComponent } from './requester/requester-request/requester-request.component';
-import { RequesterSidebarComponent } from './requester/requester-sidebar/requester-sidebar.component';
 import { RequesterViewComponent } from './requester/requester-view/requester-view.component';
 import { HrComponent } from './hr/hr.component';
 import { HrPublishComponent } from './hr/hr-publish/hr-publish.component';
 import { HrYettopublishComponent } from './hr/hr-yettopublish/hr-yettopublish.component';
-import { RequesterHomepageComponent } from './requester/requester-homepage/requester-homepage.component';
 import { AdminComponent } from './admin/admin.component';
 import { RequestComponent } from './requester/request/request.component';
 import { RequesterRejectComponent } from './requester/requester-reject/requester-reject.component';
@@ -89,13 +85,9 @@ const routes: Routes = [
 
   {path:'profile/:id' , component:ProfileComponent},
  
-  {path:'requester' , component:RequesterComponent},
+  {path:'requester-request' , component:RequestComponent},
   {path:'requester-add-request' , component:RequesterAddRequestComponent},
-  {path:'requester-myawards' , component:RequesterMyawardsComponent},
-  {path:'requester-request' , component:RequesterRequestComponent},
-  {path:'requester-sidebar' , component:RequesterSidebarComponent},
   {path:'requester-view' , component:RequesterViewComponent},
-  {path:'requester-homepage' , component:RequesterHomepageComponent},
   {path:'requester-reject' , component:RequesterRejectComponent},
 
   {path:'hr' , component:HrComponent},

@@ -1,3 +1,5 @@
+<app-layout></app-layout>
+<app-admin-sidebar></app-admin-sidebar>
 <div class="container d-flex justify-content-center">
 
     <!-- Write your contents here -->
@@ -38,59 +40,24 @@
                     <th>ACE ID</th>
                     <th>Name</th>
                     <th>Award</th>
-                    <th>Date</th>
+                    <!-- <th>Date</th> -->
                     <th>Status</th>
                     <th>Action</th>
                 </tr>
             </thead>
             <tbody>
-                <tr class="text-center">
-                    <td>ACE0123</td>
-                    <td>Sanjay Subramani</td>
-                    <td>First Victor</td>
-                    <td>12-11-2022</td>
-                    <td>Pending</td>
+                <tr class="text-center" *ngFor="let item of data">
+                    <td>{{item.id}}</td>
+                    <td>{{item.awardeeName}}</td>
+                    <td>{{item.awardName}}</td>
+                    <!-- <td></td> -->
+                    <td>{{item.status}}</td>
                     <td>
                         <a [routerLink]="['/requester-view']" routerLinkActive="router-link-active"
                             class="btn btn-success" target="_self"><i class="fa-solid fa-circle-info"
                                 title="Details"></i></a>
                 </tr>
-
-                <tr class="text-center">
-                    <td>ACE0893</td>
-                    <td>Kathir Ramarajan</td>
-                    <td>Role Star</td>
-                    <td>25-04-2022</td>
-                    <td>Rejected</td>
-                    <td>
-                        <a [routerLink]="['/requester-view']" routerLinkActive="router-link-active"
-                            class="btn btn-success" target="_self"><i class="fa-solid fa-circle-info"
-                                title="Details"></i></a>
-
-                </tr>
-
             </tbody>
         </table>
-
-
-        <section id="Paging">
-            <nav aria-label="Page navigation example">
-                <ul class="pagination justify-content-center">
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Previous">
-                            <span aria-hidden="true">&laquo;</span>
-                        </a>
-                    </li>
-                    <li class="page-item"><a class="btn btn-primary" href="#">1</a></li>
-                    <li class="page-item"><a class="btn btn-primary" href="#">2</a></li>
-                    <li class="page-item"><a class="btn btn-primary" href="#">3</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </section>
     </div>
 </div>
