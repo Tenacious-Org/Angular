@@ -19,29 +19,29 @@ export class RequesterAddRequestComponent implements OnInit {
   
   endpoint="Employee";
   endpoints="AwardType";
-  id=6;
-
+  employeeId=6;
+  selectedValue:any;
 
   searchAwardee!: FormControl;
-  filteredOptions!: Observable<any[]>;
+  filteredOptions:any;
   employees : Employee[] = [];
 
   Awards:any=
    {
     id : 0,
-    requesterId : 6,
+    requesterId : 0,
     awardeeId : 0,
     awardTypeId : 0,
-    approverId : 5,
+    approverId : 0,
     reason :  '',
-    rejectReason :  '',
-    hRId : 4,
+    rejectReason : '',
+    hRId : 0,
     couponCode :'',
-    statusId : 1,
+    statusId : 0,
     isActive :  true,
  }
 
-  //data:string[]=['Ajay','Jeeva']
+
   constructor(private sharedService:SharedService,private awardService:AwardService,private formBuilder:FormBuilder) { }
 
   
@@ -50,7 +50,7 @@ export class RequesterAddRequestComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.sharedService.getEmployeeByRequester(this.id).subscribe(response=>{
+    this.sharedService.getEmployeeByRequester(this.employeeId).subscribe(response=>{
      this.employees=response;
      console.log(this.employees)
     });
@@ -69,13 +69,18 @@ export class RequesterAddRequestComponent implements OnInit {
     });
 
   }
-  private _filter(val:string){
+  private _filter(val:string):any[]{
     return this.employees.filter((s) => new RegExp(val, 'gi').test(s.firstName));
+  }
+  onSelectionChanged(event:any){
+    this.selectedValue = event.option.id;
+    console.log(this.selectedValue);
   }
 
   OnSubmit(){
     console.log(this.Awards);
-    this.awardService.addRequest(this.Awards).subscribe(data=>{
+    this.Awards.awardeeId=this.selectedValue;
+    this.awardService.addRequest(this.Awards,this.employeeId).subscribe(data=>{
       console.log(data);
     });
   }

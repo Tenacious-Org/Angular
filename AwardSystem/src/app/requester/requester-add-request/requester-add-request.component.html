@@ -16,23 +16,23 @@
                   </div>
                   <div class="row mt-3">
                     
-                      <div class="col-md-12"><label class="labels">User Name</label>
-                        
+                      <div class="col-md-12">
+                        <label class="labels">Awardee Name</label>
                         <mat-form-field>
-                        <input [formControl]="searchAwardee" aria-label="Awardee" matInput type="text" [matAutocomplete]="auto"  name="awardeeId" class="form-control" placeholder="Pick Awardee" >
-                      </mat-form-field>
+                        <input [formControl]="searchAwardee" matInput type="text" [matAutocomplete]="auto"  name="awardeeId" class="form-control" >
+                        </mat-form-field>
                         
-                        <mat-autocomplete #auto="matAutocomplete" >
-                          <mat-option *ngFor="let item of filteredOptions | async" [value]="item"> {{item.firstName}}</mat-option>
+                        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onSelectionChanged($event)" >
+                          <mat-option *ngFor="let item of filteredOptions | async"  [value]="item.firstName" [id]="item.id">{{item.firstName}}</mat-option>
 
                         </mat-autocomplete>
 
                      </div>
                   </div>
                   <div class="row mt-3">
-                      <div class="col-md-12  form-group" id="Award">
+                      <div class="col-md-12  form-group" >
                           <label for="exampleFormControlSelect1">Award</label>
-                          <select name="awardTypeId" #awardName="ngModel" required [(ngModel)]="Awards.awardTypeId" class="custom-select" id="inputGroupSelect04">
+                          <select name="awardTypeId" #awardName="ngModel" required [(ngModel)]="Awards.awardTypeId" class="custom-select" >
                             <div *ngIf ="awardName.touched && awardName.errors?.['required']" class="alert alert-danger">
                                 Award Name is Required!
                             </div>
