@@ -9,48 +9,71 @@
     <form  class="border-box position-relative" #myForm="ngForm" (ngSubmit)="OnSubmit()">
       <div class="row">
           <div class="col-md-5">
-
-
                   <div class="d-flex justify-content-between align-items-center mb-3">
                       <h4 class="text-right">Raise Request</h4>
                   </div>
                   <div class="row mt-3">
                     
                       <div class="col-md-12">
-                        <label class="labels">Awardee Name</label>
-                        <mat-form-field>
+                        <label class="labels">Awardee Name</label><br>
+                          <mat-form-field>
                         <input [formControl]="searchAwardee" matInput type="text" [matAutocomplete]="auto"  name="awardeeId" class="form-control" >
-                        </mat-form-field>
-                        
-                        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onSelectionChanged($event)" >
-                          <mat-option *ngFor="let item of filteredOptions | async"  [value]="item.firstName" [id]="item.id">{{item.firstName}}</mat-option>
-
+                        </mat-form-field>             
+                        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onSelectAwardee($event)" >
+                          <mat-option *ngFor="let item of filteredOptions | async"  [value]="item.firstName" [id]="item.id"> {{item.firstName}} {{item.lastName}}</mat-option>
                         </mat-autocomplete>
-
                      </div>
                   </div>
                   <div class="row mt-3">
                       <div class="col-md-12  form-group" >
                           <label for="exampleFormControlSelect1">Award</label>
-                          <select name="awardTypeId" #awardName="ngModel" required [(ngModel)]="Awards.awardTypeId" class="custom-select" >
+                          <select name="awardTypeId" #awardName="ngModel" required [(ngModel)]="Awards.awardTypeId" class="custom-select" (change)="onSelectAward()">
                             <div *ngIf ="awardName.touched && awardName.errors?.['required']" class="alert alert-danger">
                                 Award Name is Required!
                             </div>
                                   <option selected>Choose...</option>
-                                  <option *ngFor="let items of data"  ngValue={{items.id}} >{{items.awardName}}</option>
-                                </select>
+                                  <option *ngFor="let items of data"  value={{items.id}} >{{items.awardName}}</option>
+                          </select>
                       </div>
                   </div>
                   <div class="row mt-3">
                       <div class="col-md-12"><label class="labels">Reason</label><textarea type="textarea" [(ngModel)]="Awards.reason" name="Awards.name" class="form-control" placeholder="Reason" ></textarea></div>
                   </div>
-
-          </div>
-          <div class="d-flex  justify-content-between text-center col-md-3">
-              <div class="d-flex flex-column align-items-center text-center p-3 ml-4"><img class="rounded-circle mt-10" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span class="font-weight-bold">Saravana Subramani</span></div>
-              <div class="d-flex flex-column align-items-center text-center p-3 ml-4"><img class="rounded-circle mt-10" width="150px" src="./assets/images/AwardImg.jpg"><span class="font-weight-bold">Finext Award</span></div>
-          </div>
+          </div> 
+          <div class="container mt-5" *ngIf="isAwardee==1">    
+            <div class="row d-flex justify-content-center">       
+                <div class="col-md-7">           
+                    <div class="card p-3 py-4">               
+                        <div class="text-center">
+                            <img [src]="'data:image/jpg;base64,'+ awardeeData.image" width="100" class="rounded-circle">
+                        </div>               
+                        <div class="text-center mt-3">
+                          <span>{{awardeeData.firstName}} {{awardeeData.lastName}}</span> 
+                            <h5 class="mt-2 mb-0">{{awardeeData.designationName}}</h5>    
+                            <h5 class="mt-2 mb-0">{{awardeeData.departmentName}} , {{awardeeData.organisationName}}</h5>            
+                        </div>
+                    </div>            
+                </div>        
+            </div>    
+        </div> 
+        <div class="container mt-5" *ngIf="isAward==1">    
+          <div class="row d-flex justify-content-center">       
+              <div class="col-md-7">           
+                  <div class="card p-3 py-4">               
+                      <div class="text-center">
+                          <img [src]="'data:image/jpg;base64,'+ awardData.image" width="100" class="rounded-circle">
+                      </div>               
+                      <div class="text-center mt-3">
+                        <span>{{awardData.awardName}}</span> 
+                          <h5 class="mt-2 mb-0">{{awardData.awardDescription}}</h5>              
+                      </div>
+                  </div>            
+              </div>        
+          </div>    
+        </div>
+                
       </div>
+      
       <div class="py-4 justify-content-between text-center">
           <div class="mr-10 btn-group ">
             <button type="submit" class="btn btn-primary profile-button" >Submit</button>
@@ -59,7 +82,6 @@
             <a  [routerLink]="['/requester-request']" routerLinkActive="router-link-active"  class="btn btn-danger profile-button" type="button">Cancel</a></div>
       </div>
     </form>
-  </div>
-
+   </div>
   </div>
 

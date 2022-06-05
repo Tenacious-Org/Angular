@@ -20,8 +20,12 @@ export class RequesterAddRequestComponent implements OnInit {
   endpoint="Employee";
   endpoints="AwardType";
   employeeId=6;
-  selectedValue:any;
-
+  selectedAwardee:any;
+  selectedAward:any;
+  awardeeData:any;
+  isAwardee=0;
+  isAward=0;
+  awardData:any;
   searchAwardee!: FormControl;
   filteredOptions:any;
   employees : Employee[] = [];
@@ -72,14 +76,28 @@ export class RequesterAddRequestComponent implements OnInit {
   private _filter(val:string):any[]{
     return this.employees.filter((s) => new RegExp(val, 'gi').test(s.firstName));
   }
-  onSelectionChanged(event:any){
-    this.selectedValue = event.option.id;
-    console.log(this.selectedValue);
+  onSelectAwardee(event:any){
+    this.selectedAwardee = event.option.id;
+    console.log(this.selectedAwardee);
+    
+    this.sharedService.getById(this.endpoint,this.selectedAwardee).subscribe(data=>{
+    this.awardeeData=data;
+    this.isAwardee=1;
+    console.log(this.awardeeData);
+  });
+  }
+
+  onSelectAward(){
+    this.sharedService.getById(this.endpoints,this.Awards.awardTypeId).subscribe(data=>{
+      this.awardData=data;
+      this.isAward=1;
+      console.log(this.awardData);
+    });  
   }
 
   OnSubmit(){
     console.log(this.Awards);
-    this.Awards.awardeeId=this.selectedValue;
+    this.Awards.awardeeId=this.selectedAwardee;
     this.awardService.addRequest(this.Awards,this.employeeId).subscribe(data=>{
       console.log(data);
     });
