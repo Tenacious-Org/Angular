@@ -57,8 +57,6 @@ import { HrYettopublishComponent } from './hr/hr-yettopublish/hr-yettopublish.co
 
 import{FormsModule} from '@angular/forms';
 import { RequestComponent } from './requester/request/request.component';
-
-import { RequesterRejectComponent } from './requester/requester-reject/requester-reject.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ApproverARComponent } from './approver/approver-acceptreject/approver-ar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -123,7 +121,6 @@ import { SidebarComponent } from './sidebar/sidebar.component';
  HrPublishComponent,
  HrYettopublishComponent,
  RequestComponent,
- RequesterRejectComponent,
  ProfileComponent,
  ApproverARComponent,
  RejectionReasonComponent,

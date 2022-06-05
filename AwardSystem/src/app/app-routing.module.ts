@@ -31,7 +31,7 @@ import { HrPublishComponent } from './hr/hr-publish/hr-publish.component';
 import { HrYettopublishComponent } from './hr/hr-yettopublish/hr-yettopublish.component';
 import { AdminComponent } from './admin/admin.component';
 import { RequestComponent } from './requester/request/request.component';
-import { RequesterRejectComponent } from './requester/requester-reject/requester-reject.component';
+
 
 import { ProfileComponent } from './profile/profile.component';
 import { EmployeeComponent } from './admin/employee/employee.component';
@@ -88,8 +88,16 @@ const routes: Routes = [
  
   {path:'requester-request' , component:RequestComponent},
   {path:'requester-add-request' , component:RequesterAddRequestComponent},
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+  {path:'requester-view' , component:RequesterViewComponent},
+  
+=======
+>>>>>>> Stashed changes
   {path:'requester-view/:id' , component:RequesterViewComponent},
   {path:'requester-reject' , component:RequesterRejectComponent},
+>>>>>>> db93b907648d597e5abbc7f771336148ae7a4def
 
   {path:'hr' , component:HrComponent},
   {path:'hr-publish' , component:HrPublishComponent},

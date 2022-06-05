@@ -36,7 +36,7 @@
             </thead>
             <tbody>
                 <tr class="text-center"
-                    *ngFor="let item of data | filter:val | paginate: { itemsPerPage: 10, currentPage: page }; let i = index">
+                    *ngFor="let item of data | filter:val | paginate: { itemsPerPage: 6, currentPage: page }; let i = index">
                     <td>{{i + 1}}</td>
                     <td>{{item.designationName}}</td>
                     <td>{{item.departmentName}}</td>

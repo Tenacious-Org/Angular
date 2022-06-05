@@ -29,7 +29,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr class="text-center" *ngFor="let item of data | filter:val | paginate: { itemsPerPage: 10, currentPage: page }">
+                <tr class="text-center" *ngFor="let item of data | filter:val | paginate: { itemsPerPage: 6, currentPage: page }">
                     <td>{{item.id}}</td>
                     <td>{{item.awardName}}</td>
                     <td>{{item.awardDescription}}</td>
