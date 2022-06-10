@@ -72,7 +72,7 @@
           </div>
           <br>
           <div class="modal-footer justify-content-center" >
-              <a *ngIf="data.statusId==2" (click)="OnSubmit()" class="btn btn-primary" data-dismiss="modal">Publish</a>
+              <a *ngIf="data.statusId==2" [routerLink]="['/hr-publish']" (click)="OnSubmit()" class="btn btn-primary" data-dismiss="modal">Publish</a>
               <a [routerLink]="['/hr-publish']" class="btn btn-danger" data-dismiss="modal">Back</a>
           </div>
       </div>

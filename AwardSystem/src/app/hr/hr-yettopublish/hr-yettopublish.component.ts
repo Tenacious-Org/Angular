@@ -8,31 +8,56 @@ import { AwardService } from 'src/app/award.service';
   styleUrls: ['./hr-yettopublish.component.css']
 })
 export class HrYettopublishComponent implements OnInit {
-
+  employeeId=4;
   data: any;
    Id:any;
    couponCode:any;
    publishedId=4;
-  
-  
+   awards:any={
+    id :0,
+    requesterId : 0,
+    awardeeId : 0,
+    awardTypeId : 0,
+    approverId : 0,
+    reason : '',
+    rejectReason : '',
+    hRId : 0,
+    couponCode : '',
+    statusId :0,
+    addedBy :0,
+    addedOn :Date.now,
+    updatedBy : 0,
+    updatedOn : Date.now,
+    isActive : true,
+   }
+
 
   constructor(private awardService:AwardService,
     private route:ActivatedRoute,) { }
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.Id = params['id'];
-     this.awardService.getAwardById(this.Id).subscribe((data) => {
-            this.data = data;
+     this.awardService.getAwardById(this.Id).subscribe((result) => {
+            this.data = result;
+            this.awards.id  = this.data.id;
+            this.awards.requesterId  = this.data.requesterId;
+            this.awards.awardeeId  = this.data.awardeeId;
+            this.awards.awardTypeId  = this.data.awardTypeId;
+            this.awards.approverId  = this.data.approverId;
+            this.awards.reason  = this.data.reason;
+            this.awards.hRId  = this.data.hRId;
+            this.awards.addedBy=this.data.addedBy;
+            this.awards.addedOn=this.data.addedOn;
             console.log(this.Id)
-            console.log(data);
             console.log(this.data.couponCode);
         });
       });
   }
   OnSubmit(){
     console.log(this.data);
-    this.data.statusId=this.publishedId;
-    this.awardService.approval(this.data).subscribe(data=>{
+    this.awards.couponCode=this.data.couponCode;
+    this.awards.statusId=this.publishedId;
+    this.awardService.approval(this.awards,this.employeeId).subscribe(data=>{
       console.log(data);
     });
   }

@@ -10,5 +10,9 @@ export class Awards
     hRId : number = 0;
     couponCode : string = '';
     statusId = 0;
+    addedBy = 0;
+    addedOn = Date.now;
+    updatedBy = 0;
+    updatedOn = Date.now;
     isActive : boolean= true;
 }

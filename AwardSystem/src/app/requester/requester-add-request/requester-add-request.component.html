@@ -13,12 +13,12 @@
                       <h4 class="text-right">Raise Request</h4>
                   </div>
                   <div class="row mt-3">
-                    
+
                       <div class="col-md-12">
                         <label class="labels">Awardee Name</label><br>
                           <mat-form-field>
                         <input [formControl]="searchAwardee" matInput type="text" [matAutocomplete]="auto"  name="awardeeId" class="form-control" >
-                        </mat-form-field>             
+                        </mat-form-field>
                         <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onSelectAwardee($event)" >
                           <mat-option *ngFor="let item of filteredOptions | async"  [value]="item.firstName" [id]="item.id"> {{item.firstName}} {{item.lastName}}</mat-option>
                         </mat-autocomplete>
@@ -39,43 +39,43 @@
                   <div class="row mt-3">
                       <div class="col-md-12"><label class="labels">Reason</label><textarea type="textarea" [(ngModel)]="Awards.reason" name="Awards.name" class="form-control" placeholder="Reason" ></textarea></div>
                   </div>
-          </div> 
-          <div class="container mt-5" *ngIf="isAwardee==1">    
-            <div class="row d-flex justify-content-center">       
-                <div class="col-md-7">           
-                    <div class="card p-3 py-4">               
+          </div>
+          <div class="container mt-5" *ngIf="isAwardee==1">
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-7">
+                    <div class="card p-3 py-4">
                         <div class="text-center"  *ngIf="awardeeData.image==null ; else elseimage">
-                            <img *ngIf="awardeeData.gender=='Male';else elsegender " src='assets/images/male.jpg' style=width:10rem; class="rounded-circle img-fluid" style="width: 100px;" />  
-                            <ng-template #elsegender> <img  src='assets/images/female.jpg' style=width:10rem; class="rounded-circle img-fluid" style="width: 100px;" /></ng-template>     
+                            <img *ngIf="awardeeData.gender=='Male';else elsegender " src='assets/images/male.jpg' style=width:10rem; class="rounded-circle img-fluid" style="width: 100px;" />
+                            <ng-template #elsegender> <img  src='assets/images/female.jpg' style=width:10rem; class="rounded-circle img-fluid" style="width: 100px;" /></ng-template>
                         </div>
-                        <ng-template  #elseimage><div class="text-center"><img [src]="'data:image/jpg;base64,'+ awardeeData.image" style=width:10rem; class="rounded-circle img-fluid" style="width: 100px;" /></div></ng-template>             
+                        <ng-template  #elseimage><div class="text-center"><img [src]="'data:image/jpg;base64,'+ awardeeData.image" style=width:10rem; class="rounded-circle img-fluid" style="width: 100px;" /></div></ng-template>
                         <div class="text-center mt-3">
-                          <span>{{awardeeData.firstName}} {{awardeeData.lastName}}</span> 
-                            <h5 class="mt-2 mb-0">{{awardeeData.designationName}}</h5>    
-                            <h5 class="mt-2 mb-0">{{awardeeData.departmentName}} , {{awardeeData.organisationName}}</h5>            
+                          <span>{{awardeeData.firstName}} {{awardeeData.lastName}}</span>
+                            <h5 class="mt-2 mb-0">{{awardeeData.designationName}}</h5>
+                            <h5 class="mt-2 mb-0">{{awardeeData.departmentName}} , {{awardeeData.organisationName}}</h5>
                         </div>
-                    </div>            
-                </div>        
-            </div>    
-        </div> 
-        <div class="container mt-5" *ngIf="isAward==1">    
-          <div class="row d-flex justify-content-center">       
-              <div class="col-md-7">           
-                  <div class="card p-3 py-4">               
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container mt-5" *ngIf="isAward==1">
+          <div class="row d-flex justify-content-center">
+              <div class="col-md-7">
+                  <div class="card p-3 py-4">
                       <div class="text-center">
                           <img [src]="'data:image/jpg;base64,'+ awardData.image" width="100" class="rounded-circle">
-                      </div>               
-                      <div class="text-center mt-3">
-                        <span>{{awardData.awardName}}</span> 
-                          <h5 class="mt-2 mb-0">{{awardData.awardDescription}}</h5>              
                       </div>
-                  </div>            
-              </div>        
-          </div>    
+                      <div class="text-center mt-3">
+                        <span>{{awardData.awardName}}</span>
+                          <h5 class="mt-2 mb-0">{{awardData.awardDescription}}</h5>
+                      </div>
+                  </div>
+              </div>
+          </div>
         </div>
-                
+
       </div>
-      
+
       <div class="py-4 justify-content-between text-center">
           <div class="mr-10 btn-group ">
             <button type="submit" class="btn btn-primary profile-button" >Submit</button>

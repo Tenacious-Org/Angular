@@ -23,11 +23,11 @@ export class AwardService {
   }
 
   //Approval of the request
-  approval(data:any): Observable<any>
+  approval(data:any,id:any): Observable<any>
   {
     const headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json; charset=utf-8');
-    return this.http.put<any>(this.apiurl+`Approval`,data,{headers});
+    return this.http.put<any>(this.apiurl+`Approval?id=${id}`,data,{headers});
   }
 
 

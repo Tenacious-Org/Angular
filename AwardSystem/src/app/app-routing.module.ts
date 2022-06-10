@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AdminSidebarComponent } from './admin/admin-sidebar/admin-sidebar.component';
 import { AddAwardsComponent } from './admin/awards/add-awards/add-awards.component';
 import { AwardsComponent } from './admin/awards/awards.component';
 import { EditAwardComponent } from './admin/awards/edit-award/edit-award.component';
@@ -47,7 +46,6 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 const routes: Routes = [
 
   {path:'layout' , component:LayoutComponent},
-  {path:'admin-sidebar', component:AdminSidebarComponent},
   {path:'login', component:LoginComponent},
   {path:'sidebar', component:SidebarComponent},
 
@@ -55,7 +53,7 @@ const routes: Routes = [
   {path:'add-employee', component:AddEmployeeComponent},
   {path:'edit-employee/:id', component:EditEmployeeComponent},
   {path:'employee/:id', component:ViewEmployeeComponent},
-  
+
 
   {path:'awards', component:AwardsComponent},
   {path:'add-awards', component:AddAwardsComponent},
@@ -78,14 +76,14 @@ const routes: Routes = [
   {path:'approver-approval', component:ApproverApprovalComponent},
   {path:'approver-acceptreject/:id', component:ApproverARComponent},
   {path:'rejection-reason/:id' , component:RejectionReasonComponent},
-  
+
   {path:'footer' , component:FooterComponent},
   {path:'homepage' , component:HomePageComponent},
   {path:'morecomments/:id' , component:MoreCommentsComponent},
   {path:'cardpost' , component:CardPostComponent},
 
   {path:'profile/:id' , component:ProfileComponent},
- 
+
   {path:'requester-request' , component:RequestComponent},
   {path:'requester-add-request' , component:RequesterAddRequestComponent},
 

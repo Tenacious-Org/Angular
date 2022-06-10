@@ -42,7 +42,6 @@ import { EmployeeComponent } from './admin/employee/employee.component';
 import { AddEmployeeComponent } from './admin/employee/add-employee/add-employee.component';
 import { EditEmployeeComponent } from './admin/employee/edit-employee/edit-employee.component';
 import { ViewEmployeeComponent } from './admin/employee/view-employee/view-employee.component';
-import { AdminSidebarComponent } from './admin/admin-sidebar/admin-sidebar.component';
 import { ApproverComponent } from './approver/approver.component';
 import { ApproverApprovalComponent } from './approver/approver-approval/approver-approval.component';
 import { LoginComponent } from './login/login.component';
@@ -81,7 +80,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 
 
     AdminComponent,
-    AdminSidebarComponent,
+    
 
 
     OrganisationComponent,
@@ -110,7 +109,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     ApproverComponent,
     ApproverApprovalComponent,
 
-  
+
 
 
 
@@ -125,7 +124,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
  ApproverARComponent,
  RejectionReasonComponent,
  SidebarComponent,
- 
+
 
 
 
@@ -144,8 +143,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     MatAutocompleteModule,
     ReactiveFormsModule,
     Ng2SearchPipeModule,
-    
-    
+
+
 
   ],
   providers: [],

@@ -2,74 +2,86 @@
 <app-sidebar></app-sidebar>
 <div class="container d-flex justify-content-center ">
 
-    <!-- Write your contents here -->
+  <div class="card " style="border-radius: 15px; width: 500px; margin-top: 30px;">
+      <div class="card-body">
 
-    <div class="card " style="border-radius: 15px; width: 500rem; margin-top:60px;">
-        <div class="card-body">
-            <div class="mt-3 mb-4 text-center">
-                <h2>Awardee Details</h2>
-              
-                <img src="https://wallpapercave.com/dwp1x/wp6649916.jpg" style=width:10rem; class="rounded-circle img-fluid" style="width: 100px;" />
+          <div class=" rounded-circle text-center">
+              <div class="mt-3 mb-4 text-center" *ngIf="data.image==null ; else elseimage">
+                  <img *ngIf="data.gender=='Male';else elsegender " src='assets/images/male.jpg'  class="rounded-circle img-fluid" width="100px" />
+                  <ng-template #elsegender> <img  src='assets/images/female.jpg'  class="rounded-circle img-fluid" width="100px" /></ng-template>
+                  <img [src]="'data:image/jpg;base64,'+data.awardImage" width="100px" height="150px"  />
+              </div>
+              <ng-template  #elseimage><div class="mt-3 mb-4 text-center"><img [src]="'data:image/jpg;base64,'+ data.awardeeImage" class="rounded-circle img-fluid" width="100px" />
+                  <img [src]="'data:image/jpg;base64,'+data.awardImage" width="100px" height="150px" /></div></ng-template>
+
             </div>
-            <div class="row">
-                <h2>Employee Details</h2>
-                <div class="col-sm-6">
-                    <p class="mb-0">ACEID</p>
+          <hr>
+          <div class="row">
+              <h2>Employee Details</h2>
+              <div class="col-sm-6">
+                  <p class="mb-0">ACEID</p>
 
-                    <p class="text-muted mb-0">{{data.awardeeId}}</p>
-                </div>
+                  <p class="text-muted mb-0">{{data.aceId}}</p>
+              </div>
 
-                <div class="col-sm-6">
-                    <p class="mb-0">Name</p>
+              <div class="col-sm-6">
+                  <p class="mb-0">Name</p>
 
-                    <p class="text-muted mb-0">{{data.awardTypeId}}</p>
-                </div>
-            </div>
-            <hr>
-            <div class="row">
+                  <p class="text-muted mb-0">{{data.awardeeName}}</p>
+              </div>
+          </div>
+          <hr>
 
+          <div class="row">
+              <div class="col-sm-6">
+                  <p class="mb-0">Designation</p>
 
-                <div class="col-sm-6">
-                    <p class="mb-0">Designation</p>
+                  <p class="text-muted mb-0">{{data.designation}}</p>
+              </div>
 
-                    <p class="text-muted mb-0">{{data.statusId}}</p>
-                </div>
+              <div class="col-sm-6">
+                  <p class="mb-0">Department</p>
 
-                <div class="col-sm-6">
-                    <p class="mb-0">Department</p>
+                  <p class="text-muted mb-0">{{data.department}}</p>
+              </div>
+          </div>
+          <hr>
 
-                    <p class="text-muted mb-0">.net</p>
-                </div>
-            </div>
-            <hr>
-            <div class="row">
-                <h2>Award Details</h2>
-                <div class="col-sm-6">
-                    <p class="mb-0">Requester</p>
+          <div class="row">
+              <h2>Award Details</h2>
+              <div class="col-sm-6">
+                  <p class="mb-0">Requester</p>
 
-                    <p class="text-muted mb-0">Anitha</p>
-                </div>
+                  <p class="text-muted mb-0">{{data.requesterName}}</p>
+              </div>
 
-                <div class="col-sm-6">
-                    <p class="mb-0">Award</p>
+              <div class="col-sm-6">
+                  <p class="mb-0">Award</p>
 
-                    <p class="text-muted mb-0">Rolestar</p>
-                </div>
-            </div>
-            <hr>
-            <div class="row">
-                <div class="col-sm-6">
-                    <p class="mb-0">Reason</p>
+                  <p class="text-muted mb-0">{{data.award}}</p>
+              </div>
+          </div>
+          <hr>
+          <div class="row">
+              <div class="col-sm-6">
+                  <p class="mb-0">Reason</p>
 
-                    <p class="text-muted mb-0">For consistent performance</p>
-                </div>
-            </div>
-            <br>
-            <div class="text-center mt-3 " *ngIf="data.statusId==1">
-                <button type="submit" class="btn btn-success" (click)="OnSubmit()">Accept</button>
-                <button class="btn btn-danger" mat-raised-button (click)="openDialog()"  >Reject</button>
-            </div>
+                  <p class="text-muted mb-0">{{data.reason}}</p>
+              </div>
 
+              <div class="col-sm-6"  *ngIf="data.statusId==3" >
+                  <p class="mb-0">Rejected Reason</p>
+                  <p class="text-muted mb-0">{{data.rejectedReason}}</p>
+              </div>
+          </div>
+
+          <br>
+          <div class="text-center mt-3 " *ngIf="data.statusId==1">
+            <button type="submit" class="btn btn-success" (click)="OnSubmit()">Accept</button>
+            <button class="btn btn-danger" mat-raised-button (click)="openDialog()"  >Reject</button>
         </div>
-    </div>
+
+      </div>
+  </div>
 </div>
+
