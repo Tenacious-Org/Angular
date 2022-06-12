@@ -40,6 +40,7 @@ import { RejectionReasonComponent } from './approver/rejection-reason/rejection-
 import { ViewEmployeeComponent } from './admin/employee/view-employee/view-employee.component';
 import { EditEmployeeComponent } from './admin/employee/edit-employee/edit-employee.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { HomeCardComponent } from './home-card/home-card.component';
 
 
 
@@ -81,6 +82,7 @@ const routes: Routes = [
   {path:'homepage' , component:HomePageComponent},
   {path:'morecomments/:id' , component:MoreCommentsComponent},
   {path:'cardpost' , component:CardPostComponent},
+  {path:'homecard' , component:HomeCardComponent},
 
   {path:'profile/:id' , component:ProfileComponent},
 

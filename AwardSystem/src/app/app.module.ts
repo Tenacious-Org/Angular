@@ -61,6 +61,7 @@ import { ApproverARComponent } from './approver/approver-acceptreject/approver-a
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RejectionReasonComponent } from './approver/rejection-reason/rejection-reason.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { HomeCardComponent } from './home-card/home-card.component';
 
 
 
@@ -124,6 +125,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
  ApproverARComponent,
  RejectionReasonComponent,
  SidebarComponent,
+ HomeCardComponent,
 
 
 
