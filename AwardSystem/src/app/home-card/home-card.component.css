@@ -1,0 +1,11 @@
+.card-title{
+    text-align: center;
+    color: goldenrod;
+}
+.card-img-overlay {
+    background-color: rgba(#000, 0.4);
+  }
+  .card-img{
+      height: 400px;
+  
+  }

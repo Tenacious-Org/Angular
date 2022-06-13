@@ -1,0 +1,22 @@
+<div class="d-flex justify-content-center">  
+    
+        <div class="container">
+            <div class="row " *ngFor="let item of awardData" >
+                <div class="card">
+                   <img class="card-img" src="..\assets\images\b6.png" alt="Bologna" >
+                  <div class="card-img-overlay text-white d-flex flex-column justify-content-center">
+                    <div class="profile-card-3">
+                        <div class="profile-thumb-block">
+                            <img [src]="'data:image/jpg;base64,'+ item.image" alt="profile-image" class="profile" />
+                        </div>
+                        <img [src]="'data:image/jpg;base64,'+ item.awardImage"  alt="profile-image" class="profile" />
+                      </div>
+                      <h3 class="card-title">Congratulation {{item.awardeeName}}</h3>
+                      <p class="card-text" >{{item.awardName}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div> 
+        
+          
