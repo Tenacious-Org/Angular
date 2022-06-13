@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { DepartmentVM } from 'ViewModels/DepartmentsVM';
 import { SharedService } from 'src/app/shared.service';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogboxComponent } from 'src/app/dialogbox/dialogbox.component';
 
 @Component({
   selector: 'app-department',
@@ -12,7 +14,8 @@ export class DepartmentComponent implements OnInit {
   page: number = 1;
   endpoint = "Department";
   val:any;
-  constructor(private sharedService:SharedService ) { }
+  departmentname: any;
+  constructor(private sharedService:SharedService,private dialog: MatDialog ) { }
 
   ngOnInit(): void {
    this.sharedService.getAll(this.endpoint).subscribe(data=>{
@@ -20,8 +23,22 @@ export class DepartmentComponent implements OnInit {
       this.totalLength=data;
       console.log(this.data);
     });
-    
-   
+  }
+  Disable(Id:any){
+    console.log(Id);
+    this.sharedService.getById(this.endpoint,Id).subscribe((data) => {
+      this.departmentname=data.departmentName;
+      console.log(this.departmentname);
+    this.sharedService.disable(this.endpoint,Id).subscribe((result) => {
+      console.log(result);
+      this.openDialog(result);
+    });
+  });
+  }
+  openDialog(count:any){
+
+    this.dialog.open(DialogboxComponent,{data:{name:this.departmentname,count:count,value:"Department"}});
+
   }
 
   public data: DepartmentVM[] = [];

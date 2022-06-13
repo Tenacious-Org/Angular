@@ -40,30 +40,13 @@
                     <td>{{item.departmentName}}</td>
                     <td>{{item.organisationName}}</td>
 
-                    <td> <a [routerLink]="['../edit-department',item.id]" class="btn btn-primary" target="_self"><i class="fa-solid fa-pen-to-square" title="Edit"></i></a>
+                    <td> <button [routerLink]="['../edit-department',item.id]" class="btn btn-primary" target="_self"><i class="fa-solid fa-pen-to-square" title="Edit"></i></button>
 
-                        <a href="#" class="btn btn-danger" target="_self"><i class="fa-solid fa-user-slash" data-toggle="modal" data-target="#Mymodal"title="Disable"></i></a></td>
-                    <div class="modal fade" id="Mymodal">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h4 class="modal-title text-center">
-                                        Warning!
-                                    </h4>
-                                </div>
-                                <div class="modal-body">
-                                    You have to change the corresponding department of this organisation.
-                                </div>
-                                <div class="modal-footer">
-                                    <a href="Disable employee.html" class="btn btn-primary" target="_self">View</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                        <button (click)="Disable(item.id)" class="btn btn-danger" ><i class="fa-solid fa-user-slash" data-toggle="modal" data-target="#Mymodal"title="Disable"></i></button></td>
                 </tr>
             </tbody>
         </table>
         <pagination-controls class="text-center" (pageChange)="page = $event"></pagination-controls>
 
-       
+
     </div>

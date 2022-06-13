@@ -12,20 +12,16 @@ import { inject } from '@angular/core/testing';
   styleUrls: ['./rejection-reason.component.css']
 })
 export class RejectionReasonComponent implements OnInit {
-  Id:any;
-  
 
-
-
-  constructor(private location: Location,private route:ActivatedRoute,private awardService:AwardService,public dialogRef: MatDialogRef<RejectionReasonComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any) { 
+  constructor(public dialogRef: MatDialogRef<RejectionReasonComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any) {
 
   }
   ngOnInit(): void {
-    
- 
+
+
   }
- 
+
   close() {
     this.dialogRef.close();
   }

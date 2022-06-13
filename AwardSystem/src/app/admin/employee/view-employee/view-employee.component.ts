@@ -11,14 +11,14 @@ import { SharedService } from 'src/app/shared.service';
 export class ViewEmployeeComponent implements OnInit {
   data :any;
   Id=0;
+  endpoint="Employee";
 
   constructor(private sharedService: SharedService,private http:HttpClient , private router:ActivatedRoute) { }
 
   ngOnInit(): void {
     this.router.params.subscribe(params => {
       this.Id = params['id'];
-    this.http
-      .get<any>(`https://localhost:7275/api/Employee/GetById?id=${this.Id}`)
+    this.sharedService.getById(this.endpoint,this.Id)
       .subscribe((data) => {
         this.data = data;
         console.log(this.Id)

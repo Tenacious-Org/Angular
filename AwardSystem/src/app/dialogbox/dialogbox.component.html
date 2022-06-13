@@ -1,0 +1,26 @@
+<div class="form-group shadow-textarea"  *ngIf="data.count==true && dataType=='boolean'  " >
+  <mat-dialog-content>
+      <h2>{{data.name}} was successfully disabled</h2>
+  </mat-dialog-content>
+      <div class="text-center mt-4">
+          <button (click)="close()" class="btn btn-danger">Ok</button>
+      </div>
+</div>
+<div class="form-group shadow-textarea"  *ngIf="data.count==false ">
+  <mat-dialog-content>
+      <h2>{{data.name}} was not disabled</h2>
+  </mat-dialog-content>
+      <div class="text-center mt-4">
+          <button (click)="close()" class="btn btn-danger">Ok</button>
+      </div>
+</div>
+
+<div class="form-group shadow-textarea" *ngIf="data.count>=1 && dataType=='number'   ">
+  <mat-dialog-content>
+      <h2> There are {{data.count}} Employees in that {{data.name}} {{data.value}}. You're gonna change their {{data.value}} to disable this {{data.name}}.</h2>
+  </mat-dialog-content>
+      <div class="text-center mt-4">
+          <button (click)="close()" class="btn btn-danger">Ok</button>
+      </div>
+</div>
+

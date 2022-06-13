@@ -60,27 +60,10 @@
                         <a routerLink={{item.id}} class="btn btn-success" target="_self"><i
                                 class="fa-solid fa-circle-info" title="Details"></i></a>
 
-                        <a href="#" class="btn btn-danger" target="_self"><i class="fa-solid fa-user-slash"
-                                data-toggle="modal" data-target="#Mymodal" title="Disable"></i></a>
+                        <a (click)="Disable(item.id)" class="btn btn-danger" ><i class="fa-solid fa-user-slash"
+                                 title="Disable"></i></a>
                     </td>
-                    <div class="modal fade" id="Mymodal">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h4 class="modal-title text-center">
-                                        Warning!
-                                    </h4>
-                                </div>
-                                <div class="modal-body">
-                                    This employee is the reporting person.You have to change the corresponding
-                                    employee's reporting person.
-                                </div>
-                                <div class="modal-footer">
-                                    <a href="Disable employee.html" class="btn btn-primary" target="_self">View</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
 
                 </tr>
 

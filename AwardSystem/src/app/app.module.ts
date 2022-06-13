@@ -62,6 +62,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RejectionReasonComponent } from './approver/rejection-reason/rejection-reason.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { HomeCardComponent } from './home-card/home-card.component';
+import { DialogboxComponent } from './dialogbox/dialogbox.component';
 
 
 
@@ -126,6 +127,7 @@ import { HomeCardComponent } from './home-card/home-card.component';
  RejectionReasonComponent,
  SidebarComponent,
  HomeCardComponent,
+ DialogboxComponent,
 
 
 

@@ -35,7 +35,7 @@ export class SharedService {
   }
 
 //Disable method
-disable(endpoint:any,id:any):Observable<any>{
+disable(endpoint:any,id:any):Observable<string>{
   return this.http.put<any>(this.apiurl+endpoint+`/Disable?id=${id}`,Object)
 }
 
