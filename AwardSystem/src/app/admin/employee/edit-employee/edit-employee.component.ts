@@ -13,6 +13,7 @@ import { SharedService } from 'src/app/shared.service';
 })
 export class EditEmployeeComponent implements OnInit {
   imageError = "";
+  imgsrc="";
   isImageSaved: boolean = false;
   cardImageBase64 = "";
   Id:any=0;
@@ -40,7 +41,10 @@ export class EditEmployeeComponent implements OnInit {
      this.sharedService.getById(this.endpoint1,this.Id).subscribe((result) => {
           this.data = result;
           console.log(this.Id);
-          console.log(this.data.departmentId);
+          console.log(this.data);
+          if(this.data.image!=null){
+            this.imgsrc='data:image/jpg;base64,'+ this.data.image;
+          }
           this.SelectOrg=this.data.organisationId;
           this.SelectDep=this.data.departmentId;
           this.selectedDesignation=this.data.designationId;
@@ -51,20 +55,15 @@ export class EditEmployeeComponent implements OnInit {
       this.sharedService.getAll(this.endpoint).subscribe(data=>{
         this.organisations=data;
       });
-      this.sharedService.getAll(this.endpoint2).subscribe(data=>{
-        this.departments=data;
-      });
-      
-     
   }
-  onSelectDep(){
+  onSelectOrg(){
     this.sharedService.getDepartmentByOrganisation(this.SelectOrg).subscribe(data=>{
       this.departments = data;
       console.log(this.departments);
     });
    }
 
-   onSelectDes(){
+   onSelectDep(){
     this.sharedService.getDesignationByDepartment(this.SelectDep).subscribe(data=>{
       this.designations = data;
       console.log(this.designations);
@@ -81,6 +80,12 @@ export class EditEmployeeComponent implements OnInit {
     });
   }
   ImageConversion(fileInput:any){
+    var x:any=document.getElementById("image");
+    var file=x.files[0];
+    if('name' in file){
+      this.data.imageName=file.name;
+      console.log(this.data.imageName);
+    }
     this.imageError = "";
     if (fileInput.target.files && fileInput.target.files[0]) {
 
@@ -104,9 +109,8 @@ export class EditEmployeeComponent implements OnInit {
         const image = new Image();
         image.src = e.target.result;
         image.onload = rs => {
-
+          this.imgsrc=e.target.result;
           const imgBase64Path = e.target.result;
-          
           this.cardImageBase64 = imgBase64Path;
           this.cardImageBase64= this.cardImageBase64.replace("data:image/png;base64,", "");
           this.cardImageBase64= this.cardImageBase64.replace("data:image/jpg;base64,", "");
@@ -119,7 +123,5 @@ export class EditEmployeeComponent implements OnInit {
       reader.readAsDataURL(fileInput.target.files[0]);
     } return false
   }
-
-
 
 }

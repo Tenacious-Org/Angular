@@ -11,18 +11,17 @@ import { SharedService } from 'src/app/shared.service';
 export class ViewAwardComponent implements OnInit {
   data :any;
   Id=0;
-
+  endpoint="AwardType"
   constructor(private sharedService: SharedService,private http:HttpClient , private router:ActivatedRoute) { }
 
   ngOnInit(): void {
     this.router.params.subscribe(params => {
       this.Id = params['id'];
     this.http
-      .get<any>(`https://localhost:7275/api/AwardType/GetById?id=${this.Id}`)
-      .subscribe((data) => {
-        this.data = data;
+    this.sharedService.getById(this.endpoint,this.Id).subscribe((result) => {
+      this.data = result;
         console.log(this.Id)
-        console.log(data);
+        console.log(this.data);
       });
     });
   }

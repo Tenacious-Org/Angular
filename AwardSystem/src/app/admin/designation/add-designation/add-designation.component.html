@@ -7,15 +7,26 @@
         <span class="border-box-tip"><b>Add Designation</b></span>
 
         <div class="row g-3 align-items-center justify-content-center mb-3">
-           
+
                 <div class="row-auto p-1.5 align-items-center">
                     <label for="dept" class="col-form-label">Department</label>
                 <div class="input-group">
-                    <select name="departmentID" [(ngModel)]="Designation.departmentID" class="custom-select"   >
+                    <select name="departmentID" [(ngModel)]="Designation.departmentId" class="custom-select"   >
                               <option *ngFor="let items of departments"  ngValue={{items.id}} >{{items.departmentName}}</option>
                     </select>
                 </div>
-            </div> 
+            </div>
+            <div class="row-auto p-1.5 align-items-center">
+              <label for="dept" class="col-form-label">Role</label>
+              <div class="input-group">
+                  <select name="roleId" [(ngModel)]="Designation.roleId"   class="custom-select"   >
+                            <option value=1>User</option>
+                            <option  value=2 >Requester</option>
+                            <option  value=3 >Approver</option>
+                            <option  value=4 >Publisher</option>
+                  </select>
+              </div>
+          </div>
             <div class="row-auto p-1.5 align-items-center">
                 <label for="firstName" class="col-form-label">Designation Name</label>
 
@@ -25,14 +36,14 @@
                 <div *ngIf ="designationName.touched && designationName.errors?.['pattern']" class="alert alert-danger" >
                     Designation Name is invalid!
                 </div>
-            </div>   
+            </div>
         </div>
-            
+
         <div class="row justify-content-center align-items-center mt-5 button-group">
             <button  type="submit" class="btn btn-primary col-lg-2" [disabled]="!myForm.form.valid"> Add </button>
             <button [routerLink]="['/designation']" class="btn btn-danger col-lg-2">Back</button>
-           
+
         </div>
         </div>
     </form>
-</div> 
+</div>

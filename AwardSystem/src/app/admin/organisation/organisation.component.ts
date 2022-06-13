@@ -8,20 +8,28 @@ import { SharedService } from 'src/app/shared.service';
   styleUrls: ['./organisation.component.css']
 })
 export class OrganisationComponent implements OnInit {
-   endpoints="Organisation";
+   endpoint="Organisation";
    totalLength: any;
    page: number = 1;
    val:any;
    constructor(private sharedService:SharedService ) { }
 
    ngOnInit(): void {
-    this.sharedService.getAll(this.endpoints).subscribe(data=>{
+    this.sharedService.getAll(this.endpoint).subscribe(data=>{
       this.data=data;
       this.totalLength=data;
       console.log(this.data)
     });
-    
+
    }
+   Disable(Id:any){
+    console.log(Id);
+    this.sharedService.disable(this.endpoint,Id).subscribe((result) => {
+      this.data = result;
+      console.log(this.data);
+
+      });
+  }
    public data: Organisation[] = [];
 
 }

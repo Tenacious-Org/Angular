@@ -4,5 +4,6 @@ export class AwardType
     awardName : string = '';
     awardDescription : string = '';
     image:string ='';
+    imageName:string ='';
     isActive : boolean= true;
 }

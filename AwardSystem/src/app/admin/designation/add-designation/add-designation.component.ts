@@ -14,10 +14,11 @@ export class AddDesignationComponent implements OnInit {
   Designation : any = {
     id : 0,
     designationName : '',
-    departmentID : '',
+    departmentId  : 0,
+    roleId:0,
     addedBy : 1,
     addedOn : Date.now
- 
+
   }
   departments : Department[]=[];
   selectOrg:any=0;
@@ -29,7 +30,7 @@ export class AddDesignationComponent implements OnInit {
       this.departments=data;
       console.log(this.departments);
     });
-    
+
    }
 
   OnSubmit(){

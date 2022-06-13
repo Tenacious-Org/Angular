@@ -54,7 +54,8 @@
 
             <div class="col-auto p-1.5">
                 <label class="col-form-label">Employee Image</label>
-                <input type="file" (change)="ImageConversion($event)" class="fileInputProfile" name="image">
+                <input type="file" (change)="ImageConversion($event)" id="image" class="fileInputProfile" name="image">
+                <img [src]="imgsrc" height="100">
             </div>
 
         </div>
@@ -128,7 +129,7 @@
             </div>
 
             </div>
-        
+
 
         <div class="row justify-content-center align-items-center mt-5 button-group">
             <button type="submit"  class="btn btn-primary col-lg-2">Add</button>

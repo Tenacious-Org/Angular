@@ -15,7 +15,7 @@ export class SharedService {
   }
 
 //Get By ID method
-  getById(endpoint:string,id:any)
+  getById(endpoint:any,id:any)
   {
     return this.http.get<any>(this.apiurl + endpoint+`/GetById?id=${id}`)
   }
@@ -34,6 +34,11 @@ export class SharedService {
     return this.http.put<any>(this.apiurl + endpoint +`/Update`, data)
   }
 
+//Disable method
+disable(endpoint:any,id:any):Observable<any>{
+  return this.http.put<any>(this.apiurl+endpoint+`/Disable?id=${id}`,Object)
+}
+
 //Get Department By Organisation ID
   getDepartmentByOrganisation(id:any):Observable<any>
   {
@@ -49,7 +54,13 @@ export class SharedService {
 //Get Employee By Department ID
   getEmployeeByDepartment(id:any):Observable<any>
   {
-    return this.http.get<any>(this.apiurl + `Employee/GetEmloyeeByDepartment?id=${id}`)
+    return this.http.get<any>(this.apiurl + `Employee/GetEmployeeByDepartment?id=${id}`)
+  }
+
+  //Get ReportingPerson By Department ID
+  getReportingPersonByDepartment(id:any):Observable<any>
+  {
+    return this.http.get<any>(this.apiurl + `Employee/GetReportingPersonByDepartment?id=${id}`)
   }
 
 //Get Requested Award List
@@ -60,7 +71,7 @@ export class SharedService {
   getEmployeeByRequester(id:any):Observable<any>
   {
     return this.http.get<any>(this.apiurl+`Employee/GetEmployeeByRequesterId?id=${id}`)
-    
+
   }
 
 }

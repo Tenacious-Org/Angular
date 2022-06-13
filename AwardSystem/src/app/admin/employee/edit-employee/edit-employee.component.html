@@ -55,7 +55,8 @@
 
             <div class="col-auto p-1.5">
                 <label class="col-form-label">Employee Image</label>
-                <input type="file" (change)="ImageConversion($event)" class="fileInputProfile" name="image">
+                <input type="file" (change)="ImageConversion($event)" id="image" class="fileInputProfile" name="image">
+                <img [src]="imgsrc" height="100">
             </div>
 
         </div>
@@ -66,7 +67,7 @@
                 <label for="org" class="col-form-label">Organisation</label>
 
                 <div class="input-group">
-                    <select name="organisationId" [(ngModel)]="data.organisationId" name="SelectOrg" [(ngModel)]="SelectOrg" (change)="onSelectDep()" class="custom-select"   >
+                    <select name="organisationId" [(ngModel)]="data.organisationId" name="SelectOrg" [(ngModel)]="SelectOrg" (change)="onSelectOrg()" class="custom-select"   >
                         <option selected>Choose...</option>
                         <option *ngFor="let items of organisations" [selected]="items.id==SelectOrg"  value={{items.id}} >{{items.organisationName}}</option>
                     </select>
@@ -78,7 +79,7 @@
                 <label for="dept" class="col-form-label">Department</label>
 
                 <div class="input-group">
-                    <select name="departmentId" [(ngModel)]="data.departmentId" name="SelectDep" [(ngModel)]="SelectDep" (change)="onSelectDes()" class="custom-select"   >
+                    <select name="departmentId" [(ngModel)]="data.departmentId" name="SelectDep" [(ngModel)]="SelectDep" (change)="onSelectDep()" class="custom-select"   >
                               <option selected>Choose...</option>
                               <option *ngFor="let items of departments" [selected]="items.id==SelectDep"  value={{items.id}} >{{items.departmentName}}</option>
                     </select>
@@ -128,7 +129,7 @@
             </div>
 
             </div>
-        
+
 
         <div class="row justify-content-center align-items-center mt-5 button-group">
             <button type="submit"  class="btn btn-primary col-lg-2">Edit</button>

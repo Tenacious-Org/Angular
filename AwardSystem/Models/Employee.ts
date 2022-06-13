@@ -9,6 +9,7 @@ export class Employee
     dob : string = '';
     gender:string='';
     image : string = '';
+    imageName : string = '';
     organisationName = '';
     departmentName = '';
     designationName = '';

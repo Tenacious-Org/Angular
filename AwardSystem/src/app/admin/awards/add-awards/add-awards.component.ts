@@ -8,22 +8,23 @@ import { SharedService } from 'src/app/shared.service';
   styleUrls: ['./add-awards.component.css']
 })
 export class AddAwardsComponent implements OnInit {
-
-  constructor(private sharedService:SharedService) { }
+  imgsrc="";
   endpoint ="AwardType";
   imageError = "";
   isImageSaved: boolean = false;
   cardImageBase64 = "";
+
+  constructor(private sharedService:SharedService) { }
 
   AwardType : any ={
   id : 0,
   awardName : '',
   awardDescription :'',
   image: '',
+  imageName:'',
   imageString : this.cardImageBase64,
   addedBy : 1,
   addedOn : Date.now
-
   }
 
   ngOnInit(): void {
@@ -35,7 +36,14 @@ export class AddAwardsComponent implements OnInit {
       console.log(res);
     })
   }
+
   ImageConversion(fileInput:any){
+    var x:any=document.getElementById("image");
+    var file=x.files[0];
+    if('name' in file){
+      this.AwardType.imageName=file.name;
+      console.log(this.AwardType.imageName);
+    }
     this.imageError = "";
     if (fileInput.target.files && fileInput.target.files[0]) {
 
@@ -59,9 +67,8 @@ export class AddAwardsComponent implements OnInit {
         const image = new Image();
         image.src = e.target.result;
         image.onload = rs => {
-
+          this.imgsrc=e.target.result;
           const imgBase64Path = e.target.result;
-          
           this.cardImageBase64 = imgBase64Path;
           this.cardImageBase64= this.cardImageBase64.replace("data:image/png;base64,", "");
           this.cardImageBase64= this.cardImageBase64.replace("data:image/jpg;base64,", "");

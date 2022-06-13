@@ -13,7 +13,7 @@ import { SharedService } from 'src/app/shared.service';
 export class AddEmployeeComponent implements OnInit {
 
   constructor(private sharedService:SharedService) { }
-
+  imgsrc='';
   imageError = "";
   isImageSaved: boolean = false;
   cardImageBase64 = "";
@@ -26,7 +26,8 @@ export class AddEmployeeComponent implements OnInit {
     email : '',
     dob : '',
     gender:'',
-    Image:'',
+    image:'',
+    imageName:'',
     imageString : this.cardImageBase64,
     organisationId : 0,
     departmentId : 0,
@@ -38,7 +39,7 @@ export class AddEmployeeComponent implements OnInit {
     addedOn : Date.now
   }
 
-  
+
 
   organisations: Organisation[] = [];
   departments: Department[] = [];
@@ -56,7 +57,7 @@ export class AddEmployeeComponent implements OnInit {
       console.log(this.organisations);
     });
 
-    
+
   }
 
   onSelectDep(){
@@ -71,10 +72,11 @@ export class AddEmployeeComponent implements OnInit {
       this.designations = data;
       console.log(this.designations);
     });
-    this.sharedService.getEmployeeByDepartment(this.SelectDep).subscribe(data=>{
+    this.sharedService.getReportingPersonByDepartment(this.SelectDep).subscribe(data=>{
       this.employeeData = data;
       console.log(this.employeeData);
-    });   }
+    });
+   }
 
    OnSubmit(){
      console.log(this.Employee)
@@ -86,6 +88,12 @@ export class AddEmployeeComponent implements OnInit {
 
 
   ImageConversion(fileInput:any){
+    var x:any=document.getElementById("image");
+    var file=x.files[0];
+    if('name' in file){
+      this.Employee.imageName=file.name;
+      console.log(this.Employee.imageName);
+    }
     this.imageError = "";
     if (fileInput.target.files && fileInput.target.files[0]) {
 
@@ -109,9 +117,8 @@ export class AddEmployeeComponent implements OnInit {
         const image = new Image();
         image.src = e.target.result;
         image.onload = rs => {
-
+          this.imgsrc=e.target.result;
           const imgBase64Path = e.target.result;
-          
           this.cardImageBase64 = imgBase64Path;
           this.cardImageBase64= this.cardImageBase64.replace("data:image/png;base64,", "");
           this.cardImageBase64= this.cardImageBase64.replace("data:image/jpg;base64,", "");
@@ -124,6 +131,5 @@ export class AddEmployeeComponent implements OnInit {
       reader.readAsDataURL(fileInput.target.files[0]);
     } return false
   }
-
 
 }
