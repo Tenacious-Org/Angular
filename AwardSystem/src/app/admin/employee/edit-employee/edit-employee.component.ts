@@ -33,6 +33,7 @@ export class EditEmployeeComponent implements OnInit {
   endpoint = "Organisation";
   endpoint1 = "Employee";
   endpoint2 = "Department";
+  hrList: any;
   constructor(private sharedService:SharedService, private router:ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -71,7 +72,12 @@ export class EditEmployeeComponent implements OnInit {
     this.sharedService.getEmployeeByDepartment(this.SelectDep).subscribe(data=>{
       this.employeeData = data;
       console.log(this.employeeData);
-    });   }
+    });
+    this.sharedService.getHrByDepartment(this.SelectDep).subscribe(data=>{
+      this.hrList = data;
+      console.log(this.hrList);
+    });
+   }
 
    OnSubmit(){
      console.log(this.data)
