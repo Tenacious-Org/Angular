@@ -17,14 +17,14 @@
                     </select>
                 </div>
             </div>
-            <div class="input-group">
+            <!-- <div class="input-group">
               <select name="roleId" [(ngModel)]="data.roleId"   class="custom-select"   >
                         <option  value=1>User</option>
                         <option  value=2 >Requester</option>
                         <option  value=3 >Approver</option>
                         <option  value=4 >Publisher</option>
               </select>
-          </div>
+          </div> -->
             <div class="row-auto p-1.5 align-items-center">
                 <label for="firstName" class="col-form-label">Designation Name</label>
                 <input type="text"  class="form-control" #designationName="ngModel" required pattern="^[a-zA-Z][a-zA-Z\s]{0,20}[a-zA-Z]$" name="designationName" value={{data.designationName}} [(ngModel)]="data.designationName" >

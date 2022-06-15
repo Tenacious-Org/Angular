@@ -63,6 +63,12 @@ disable(endpoint:any,id:any):Observable<string>{
     return this.http.get<any>(this.apiurl + `Employee/GetReportingPersonByDepartment?id=${id}`)
   }
 
+  //Get HR By Department ID
+  getHrByDepartment(id:any):Observable<any>
+  {
+    return this.http.get<any>(this.apiurl + `Employee/GetHrByDepartment?id=${id}`)
+  }
+
 //Get Requested Award List
   getRequestedAwardList(id:number):Observable<any>
   {

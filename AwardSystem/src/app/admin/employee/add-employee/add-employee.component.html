@@ -37,26 +37,23 @@
                 </div>
             </div>
 
-            <div class="col-auto p-1.5">
-                <label for="aceid" class="col-form-label">AceID</label>
-                <input type="text" name="aceid" [(ngModel)]="Employee.aceid" id="aceid" class="form-control" aria-describedby="aceidHelpInline">
-            </div>
+
 
         </div>
 
 
         <div class="row g-3 align-items-center justify-content-center mb-3">
+          <div class="col-auto p-1.5">
+            <label for="aceid" class="col-form-label">AceID</label>
+            <input type="text" name="aceid" [(ngModel)]="Employee.aceid" id="aceid" class="form-control" aria-describedby="aceidHelpInline">
+        </div>
 
             <div class="col-auto p-1.5">
                 <label for="email" class="col-form-label">Email</label>
                 <input type="email" name="email" [(ngModel)]="Employee.email" id="email" class="form-control" aria-describedby="emailHelpInline">
             </div>
 
-            <div class="col-auto p-1.5">
-                <label class="col-form-label">Employee Image</label>
-                <input type="file" (change)="ImageConversion($event)" id="image" class="fileInputProfile" name="image">
-                <img [src]="imgsrc" height="100">
-            </div>
+
 
         </div>
 
@@ -109,13 +106,13 @@
                 <div class="input-group">
                     <select name="reportingPersonId" [(ngModel)]="Employee.reportingPersonId" class="custom-select"   >
                               <option selected>Choose...</option>
-                              <option *ngFor="let items of employeeData"  ngValue={{items.id}} >{{items.firstName}} {{items.lastName}}</option>
+                              <option *ngFor="let items of reportingPersonList"  ngValue={{items.id}} >{{items.firstName}} {{items.lastName}}</option>
                     </select>
                 </div>
             </div>
 
             </div>
-        <div class="row g-3 align-items-center justify-content-center mb-3">
+        <div class="row g-3  justify-content-center mb-3">
 
             <div class="col-auto p-1.5">
                 <label  class="col-form-label">HR Name</label>
@@ -123,13 +120,21 @@
                 <div class="input-group">
                     <select name="hrID" [(ngModel)]="Employee.hrID" class="custom-select"   >
                               <option selected>Choose...</option>
-                              <option *ngFor="let items of employeeData"  ngValue={{items.id}} >{{items.firstName}} {{items.lastName}}</option>
+                              <option *ngFor="let items of hrList"  ngValue={{items.id}} >{{items.firstName}} {{items.lastName}}</option>
                     </select>
                 </div>
             </div>
 
-            </div>
+            <div class="col-auto p-1.5">
 
+              <label class="col-form-label">Employee Image</label>
+              <div class="input-group">
+              <input type="file" (change)="ImageConversion($event)" id="image" class="fileInputProfile" name="image">
+              <img class="row-auto p-1.5" [src]="imgsrc" height="100">
+            </div>
+          </div>
+
+        </div>
 
         <div class="row justify-content-center align-items-center mt-5 button-group">
             <button type="submit"  class="btn btn-primary col-lg-2">Add</button>

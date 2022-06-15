@@ -44,7 +44,8 @@ export class AddEmployeeComponent implements OnInit {
   organisations: Organisation[] = [];
   departments: Department[] = [];
   designations: Designation[] = [];
-  employeeData : Employee[]=[];
+  reportingPersonList :any;
+  hrList:any;
   SelectOrg: any = 0;
   SelectDep: any = 0;
 
@@ -73,13 +74,18 @@ export class AddEmployeeComponent implements OnInit {
       console.log(this.designations);
     });
     this.sharedService.getReportingPersonByDepartment(this.SelectDep).subscribe(data=>{
-      this.employeeData = data;
-      console.log(this.employeeData);
+      this.reportingPersonList = data;
+      console.log(this.reportingPersonList);
+    });
+    this.sharedService.getHrByDepartment(this.SelectDep).subscribe(data=>{
+      this.hrList = data;
+      console.log(this.hrList);
     });
    }
 
    OnSubmit(){
      console.log(this.Employee)
+    this.Employee.password="Admin@123";
     this.sharedService.add(this.endpoint1,this.Employee).subscribe(data=>{
       console.log(data);
     });
