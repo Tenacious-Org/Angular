@@ -9,7 +9,7 @@
                 <div  class="card  AllComment mb-6"   >
                     <div  class="container">
                     <div  class="profile1-card-3">
-                       
+
                         <div class="profile-thumb-block">
                             <img [src]="'data:image/jpg;base64,'+ data.image" alt="profile-image" class="profile" />
                         </div>
@@ -34,12 +34,16 @@
                             <div class="allcomments">
                                 <div class="d-flex justify-content-between" *ngFor="let item of commentList">
                                     <div class="d-flex flex-row ">
-                                        <img [src]="'data:image/jpg;base64,'+ data.employeeImage" alt="avatar" width="25"
-                                             height="25" />
+                                      <div  *ngIf="item.employeeImage==null ; else elseimage">
+                                        <img *ngIf="item.gender=='Male';else elsegender " src='assets/images/male.jpg'  class="rounded-circle img-fluid" width="40"  height="40" />
+                                        <ng-template #elsegender> <img  src='assets/images/female.jpg'  class="rounded-circle img-fluid" width="40"  height="40" /></ng-template>
+                                    </div>
+                                    <ng-template  #elseimage><div class="mt-3 mb-4 text-center"><img [src]="'data:image/jpg;base64,'+ item.employeeImage"  class="rounded-circle img-fluid"  width="40"  height="40" /></div></ng-template>
+
                                         <p class="small mb-0 ms-2">{{item.employeeName}}</p>
                                     </div>
                                         <p>{{item.comments}}</p>
-                                </div>     
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -50,4 +54,4 @@
                       </div>
         </div>
     </div>
-</div> 
+</div>
