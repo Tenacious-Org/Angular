@@ -109,7 +109,7 @@
                 <div class="input-group">
                     <select name="reportingPersonId" [(ngModel)]="data.reportingPersonId" class="custom-select"   >
                               <option selected>Choose...</option>
-                              <option *ngFor="let items of employeeData" [selected]="items.id==selectedReportingPerson" value={{items.id}} >{{items.firstName}} {{items.lastName}}</option>
+                              <option *ngFor="let items of reportingPersonList" [selected]="items.id==selectedReportingPerson" value={{items.id}} >{{items.firstName}} {{items.lastName}}</option>
                     </select>
                 </div>
             </div>
@@ -123,7 +123,7 @@
                 <div class="input-group">
                     <select name="hrID" [(ngModel)]="data.hrID" class="custom-select"   >
                               <option selected>Choose...</option>
-                              <option *ngFor="let items of employeeData" [selected]="items.id==selectedHr" value={{items.id}} >{{items.firstName}} {{items.lastName}}</option>
+                              <option *ngFor="let items of hrList" [selected]="items.id==selectedHr" value={{items.id}} >{{items.firstName}} {{items.lastName}}</option>
                     </select>
                 </div>
             </div>

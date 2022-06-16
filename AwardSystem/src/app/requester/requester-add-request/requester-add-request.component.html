@@ -20,7 +20,7 @@
                         <input [formControl]="searchAwardee" matInput type="text" [matAutocomplete]="auto"  name="awardeeId" class="form-control" >
                         </mat-form-field>
                         <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onSelectAwardee($event)" >
-                          <mat-option *ngFor="let item of filteredOptions | async"  [value]="item.firstName" [id]="item.id"> {{item.firstName}} {{item.lastName}}</mat-option>
+                          <mat-option *ngFor="let item of filteredOptions | async"  [value]="item.firstName" [id]="item.id"> {{item.firstName}} </mat-option>
                         </mat-autocomplete>
                      </div>
                   </div>

@@ -16,7 +16,7 @@ import {map, startWith} from 'rxjs/operators';
   styleUrls: ['./requester-add-request.component.css']
 })
 export class RequesterAddRequestComponent implements OnInit {
-  
+
   endpoint="Employee";
   endpoints="AwardType";
   employeeId=6;
@@ -48,7 +48,7 @@ export class RequesterAddRequestComponent implements OnInit {
 
   constructor(private sharedService:SharedService,private awardService:AwardService,private formBuilder:FormBuilder) { }
 
-  
+
   data:AwardType[]=[];
 
 
@@ -79,7 +79,7 @@ export class RequesterAddRequestComponent implements OnInit {
   onSelectAwardee(event:any){
     this.selectedAwardee = event.option.id;
     console.log(this.selectedAwardee);
-    
+
     this.sharedService.getById(this.endpoint,this.selectedAwardee).subscribe(data=>{
     this.awardeeData=data;
     this.isAwardee=1;
@@ -92,7 +92,7 @@ export class RequesterAddRequestComponent implements OnInit {
       this.awardData=data;
       this.isAward=1;
       console.log(this.awardData);
-    });  
+    });
   }
 
   OnSubmit(){

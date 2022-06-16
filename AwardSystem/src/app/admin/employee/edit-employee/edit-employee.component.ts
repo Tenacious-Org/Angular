@@ -26,7 +26,7 @@ export class EditEmployeeComponent implements OnInit {
   organisations: Organisation[] = [];
   departments: Department[] = [];
   designations: Designation[] = [];
-  employeeData : Employee[]=[];
+  reportingPersonList : any;
   SelectOrg: any = 0;
   SelectDep: any = 0;
 
@@ -50,12 +50,34 @@ export class EditEmployeeComponent implements OnInit {
           this.SelectDep=this.data.departmentId;
           this.selectedDesignation=this.data.designationId;
           this.selectedReportingPerson=this.data.reportingPersonId;
-          this.selectedHr=this.data.hrID;
+          this.selectedHr=this.data.hrId;
+          console.log(this.SelectOrg);
+          console.log(this.selectedHr);
+          console.log(this.selectedReportingPerson);
+          this.sharedService.getDepartmentByOrganisation(this.SelectOrg).subscribe(data=>{
+            this.departments = data;
+            console.log(this.departments);
+          });
+           this.sharedService.getEmployeeByDepartment(this.SelectDep).subscribe(data=>{
+          this.reportingPersonList = data;
+          console.log(this.reportingPersonList);
+        });
+        this.sharedService.getHrByDepartment(this.SelectDep).subscribe(data=>{
+          this.hrList = data;
+          console.log(this.hrList);
+        });
+        this.sharedService.getDesignationByDepartment(this.SelectDep).subscribe(data=>{
+          this.designations = data;
+          console.log(this.designations);
+        });
+
+
         });
       });
       this.sharedService.getAll(this.endpoint).subscribe(data=>{
         this.organisations=data;
       });
+
   }
   onSelectOrg(){
     this.sharedService.getDepartmentByOrganisation(this.SelectOrg).subscribe(data=>{
@@ -65,17 +87,18 @@ export class EditEmployeeComponent implements OnInit {
    }
 
    onSelectDep(){
-    this.sharedService.getDesignationByDepartment(this.SelectDep).subscribe(data=>{
-      this.designations = data;
-      console.log(this.designations);
-    });
+
     this.sharedService.getEmployeeByDepartment(this.SelectDep).subscribe(data=>{
-      this.employeeData = data;
-      console.log(this.employeeData);
+      this.reportingPersonList = data;
+      console.log(this.reportingPersonList);
     });
     this.sharedService.getHrByDepartment(this.SelectDep).subscribe(data=>{
       this.hrList = data;
       console.log(this.hrList);
+    });
+    this.sharedService.getDesignationByDepartment(this.SelectDep).subscribe(data=>{
+      this.designations = data;
+      console.log(this.designations);
     });
    }
 

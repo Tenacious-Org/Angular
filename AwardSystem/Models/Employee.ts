@@ -5,6 +5,7 @@ export class Employee
     aceid : string ='';
     firstName : string = '';
     lastName : string = '';
+    fullName : string = '';
     email : string = '';
     dob : string = '';
     gender:string='';
