@@ -38,25 +38,18 @@
                 </div>
             </div>
 
-            <div class="col-auto p-1.5">
-                <label for="aceid" class="col-form-label">AceID</label>
-                <input type="text" name="aceid" [(ngModel)]="data.aceid" id="aceid" class="form-control" aria-describedby="aceidHelpInline">
-            </div>
-
         </div>
 
 
         <div class="row g-3 align-items-center justify-content-center mb-3">
+          <div class="col-auto p-1.5">
+            <label for="aceid" class="col-form-label">AceID</label>
+            <input type="text" name="aceid" [(ngModel)]="data.aceid" id="aceid" class="form-control" aria-describedby="aceidHelpInline">
+        </div>
 
             <div class="col-auto p-1.5">
                 <label for="email" class="col-form-label">Email</label>
                 <input type="email" name="email" [(ngModel)]="data.email" id="email" class="form-control" aria-describedby="emailHelpInline">
-            </div>
-
-            <div class="col-auto p-1.5">
-                <label class="col-form-label">Employee Image</label>
-                <input type="file" (change)="ImageConversion($event)" id="image" class="fileInputProfile" name="image">
-                <img [src]="imgsrc" height="100">
             </div>
 
         </div>
@@ -102,11 +95,11 @@
             </div>
 
 
-            <div class="col-auto p-1.5">
+            <div class="col-auto p-1.5" *ngIf="selectedReportingPerson!=3" >
 
                 <label  class="col-form-label">Reporting Person Name</label>
 
-                <div class="input-group">
+                <div class="input-group" >
                     <select name="reportingPersonId" [(ngModel)]="data.reportingPersonId" class="custom-select"   >
                               <option selected>Choose...</option>
                               <option *ngFor="let items of reportingPersonList" [selected]="items.id==selectedReportingPerson" value={{items.id}} >{{items.firstName}} {{items.lastName}}</option>
@@ -115,11 +108,9 @@
             </div>
 
             </div>
-        <div class="row g-3 align-items-center justify-content-center mb-3">
-
-            <div class="col-auto p-1.5">
+        <div class="row g-3  justify-content-center mb-3">
+            <div class="col-auto p-1.5" *ngIf="selectedHr!=2">
                 <label  class="col-form-label">HR Name</label>
-
                 <div class="input-group">
                     <select name="hrID" [(ngModel)]="data.hrID" class="custom-select"   >
                               <option selected>Choose...</option>
@@ -127,6 +118,16 @@
                     </select>
                 </div>
             </div>
+            <div class="col-auto p-1.5">
+
+              <label class="col-form-label">Employee Image</label>
+              <div class="input-group">
+              <input type="file" (change)="ImageConversion($event)" id="image" class="fileInputProfile" name="image">
+              <img class="row-auto p-1.5" [src]="imgsrc" height="100">
+            </div>
+          </div>
+
+
 
             </div>
 

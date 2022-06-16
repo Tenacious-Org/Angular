@@ -58,7 +58,7 @@ export class EditEmployeeComponent implements OnInit {
             this.departments = data;
             console.log(this.departments);
           });
-           this.sharedService.getEmployeeByDepartment(this.SelectDep).subscribe(data=>{
+           this.sharedService.getReportingPersonByDepartment(this.SelectDep).subscribe(data=>{
           this.reportingPersonList = data;
           console.log(this.reportingPersonList);
         });
@@ -70,8 +70,6 @@ export class EditEmployeeComponent implements OnInit {
           this.designations = data;
           console.log(this.designations);
         });
-
-
         });
       });
       this.sharedService.getAll(this.endpoint).subscribe(data=>{
@@ -88,7 +86,7 @@ export class EditEmployeeComponent implements OnInit {
 
    onSelectDep(){
 
-    this.sharedService.getEmployeeByDepartment(this.SelectDep).subscribe(data=>{
+    this.sharedService.getReportingPersonByDepartment(this.SelectDep).subscribe(data=>{
       this.reportingPersonList = data;
       console.log(this.reportingPersonList);
     });
