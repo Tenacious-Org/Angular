@@ -13,7 +13,7 @@ import { SharedService } from 'src/app/shared.service';
 })
 export class EditEmployeeComponent implements OnInit {
   imageError = "";
-  imgsrc="";
+  imgsrc='';
   isImageSaved: boolean = false;
   cardImageBase64 = "";
   Id:any=0;
@@ -43,7 +43,7 @@ export class EditEmployeeComponent implements OnInit {
           this.data = result;
           console.log(this.Id);
           console.log(this.data);
-          if(this.data.image!=null){
+          if(this.data.image!=""){
             this.imgsrc='data:image/jpg;base64,'+ this.data.image;
           }
           this.SelectOrg=this.data.organisationId;
@@ -102,6 +102,9 @@ export class EditEmployeeComponent implements OnInit {
 
    OnSubmit(){
      console.log(this.data)
+     if(this.data.imageString==null && this.data.image!=null){
+      this.data.imageString=this.data.image;
+    }
     this.sharedService.edit(this.endpoint1,this.data).subscribe(data=>{
       console.log(data);
     });

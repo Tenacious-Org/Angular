@@ -11,12 +11,12 @@
 
             <div class="col-auto p-1.5">
                 <label for="firstName" class="col-form-label">First Name</label>
-                <input type="text" name="firstName" [(ngModel)]="data.firstName" id="firstName" class="form-control" aria-describedby="firstNameHelpInline">
+                <input type="text" name="firstName" [(ngModel)]="data.firstName"  class="form-control" aria-describedby="firstNameHelpInline">
             </div>
 
             <div class="col-auto p-1.5">
                 <label for="lastName" class="col-form-label">Last Name</label>
-                <input type="text" name="lastName" [(ngModel)]="data.lastName" id="lastName" class="form-control" aria-describedby="lastNameHelpInline">
+                <input type="text" name="lastName" [(ngModel)]="data.lastName"   class="form-control" aria-describedby="lastNameHelpInline">
             </div>
 
         </div>
@@ -26,7 +26,7 @@
 
             <div class="col-auto p-1.5">
                 <label for="datetime" class="col-form-label">Date of Birth</label>
-                <input type="date" name="dob" [(ngModel)]="data.dob" id="dob" class="form-control" aria-describedby="dobHelpInline">
+                <input type="date" name="dob" [ngModel]="data.dob|date:'yyyy-MM-dd'"  class="form-control" aria-describedby="dobHelpInline">
             </div>
             <div class="col-auto p-1.5">
                 <label for="dept" class="col-form-label">Gender</label>

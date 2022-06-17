@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Awards } from 'Models/Awards';  
+import { Awards } from 'Models/Awards';
 import { AwardService } from 'src/app/award.service';
 
 @Component({
@@ -14,7 +14,7 @@ export class ApproverApprovalComponent implements OnInit {
   page: number = 1;
   data:any;
   constructor(private awardService:AwardService ) { }
-  
+
 
   ngOnInit(): void {
     this.awardService.getAwardsList(this.pageId,this.employeeId).subscribe(data=>
@@ -24,6 +24,6 @@ export class ApproverApprovalComponent implements OnInit {
         console.log(this.data)
     });
   }
-  
-  
+
+
 }

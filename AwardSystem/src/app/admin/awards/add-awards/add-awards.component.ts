@@ -21,7 +21,7 @@ export class AddAwardsComponent implements OnInit {
   id : 0,
   awardName : '',
   awardDescription :'',
-  image: '',
+  image: null,
   imageName:'',
   imageString : this.cardImageBase64,
   addedBy : 1,

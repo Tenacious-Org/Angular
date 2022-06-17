@@ -7,10 +7,11 @@ export class Employee
     lastName : string = '';
     fullName : string = '';
     email : string = '';
-    dob : string = '';
+    dob :Date =new Date("0001-01-01");
     gender:string='';
     image : string = '';
     imageName : string = '';
+    imageString:string='';
     organisationName = '';
     departmentName = '';
     designationName = '';

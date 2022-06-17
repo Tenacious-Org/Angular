@@ -10,7 +10,7 @@ import { SharedService } from 'src/app/shared.service';
 
 export class EditAwardComponent implements OnInit {
   imageError = "";
-  imgsrc="";
+  imgsrc='';
   isImageSaved: boolean = false;
   cardImageBase64 = "";
   Id =0;
@@ -20,7 +20,7 @@ export class EditAwardComponent implements OnInit {
     id : 0,
     awardName : '',
     awardDescription :'',
-    image: '',
+    image: null,
     imageName:'',
     imageString : this.cardImageBase64,
     addedBy : 1,
@@ -34,7 +34,7 @@ export class EditAwardComponent implements OnInit {
     this.Id = params['id'];
     this.sharedService.getById(this.endpoint,this.Id).subscribe((result) => {
       this.data = result;
-      if(this.data.image!=""){
+      if(this.data.image!=''){
         this.imgsrc='data:image/jpg;base64,'+ this.data.image;
       }
       console.log(this.Id);
