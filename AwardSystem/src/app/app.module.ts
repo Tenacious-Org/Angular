@@ -46,7 +46,6 @@ import { ApproverComponent } from './approver/approver.component';
 import { ApproverApprovalComponent } from './approver/approver-approval/approver-approval.component';
 import { LoginComponent } from './login/login.component';
 
-
 import { RequesterComponent } from './requester/requester.component';
 import { RequesterAddRequestComponent } from './requester/requester-add-request/requester-add-request.component';
 import { RequesterViewComponent } from './requester/requester-view/requester-view.component';
@@ -63,6 +62,8 @@ import { RejectionReasonComponent } from './approver/rejection-reason/rejection-
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { HomeCardComponent } from './home-card/home-card.component';
 import { DialogboxComponent } from './dialogbox/dialogbox.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { NgChartsModule } from 'ng2-charts';
 
 
 
@@ -128,6 +129,7 @@ import { DialogboxComponent } from './dialogbox/dialogbox.component';
  SidebarComponent,
  HomeCardComponent,
  DialogboxComponent,
+ DashboardComponent,
 
 
 
@@ -147,6 +149,7 @@ import { DialogboxComponent } from './dialogbox/dialogbox.component';
     MatAutocompleteModule,
     ReactiveFormsModule,
     Ng2SearchPipeModule,
+    NgChartsModule,
 
 
 
