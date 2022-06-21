@@ -15,7 +15,7 @@ export class SidebarComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.role=this.admin;
+    this.role=this.publisher;
   }
 
 }
