@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { SharedService } from 'src/app/shared.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-edit-award',
@@ -27,7 +28,7 @@ export class EditAwardComponent implements OnInit {
     addedOn : Date.now
     }
 
-  constructor(private sharedService: SharedService, private router:ActivatedRoute) { }
+  constructor(private sharedService: SharedService, private router:ActivatedRoute, private routing:Router) { }
 
   ngOnInit(): void {
     this.router.params.subscribe(params => {
@@ -51,6 +52,7 @@ export class EditAwardComponent implements OnInit {
     this.sharedService.edit(this.endpoint,this.data).subscribe(data=>{
       console.log(data);
     });
+    this.routing.navigate(['/awards'])
   }
 
   ImageConversion(fileInput:any){

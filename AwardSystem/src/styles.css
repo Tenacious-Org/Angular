@@ -616,7 +616,7 @@ pre code {
 @media (min-width: 1200px) {
     .container-fluid {
         max-width: 1140px;
-        margin-left: 50px;
+        margin-left: 163px;
     }
 }
 
@@ -11110,6 +11110,12 @@ h5,
     height: 40px;
     border-radius: 50%;
 }
+@media(max-width:1920px)
+{
+    #sidebar .custom-menu .btn{
+        margin-top: 10px;
+    }
+}
 
 #sidebar .custom-menu .btn.btn-primary {
     background: #6749b9;
@@ -11355,6 +11361,12 @@ button {
     padding-top: 140px !important;
     margin-bottom: 50px;
 }
+@media(max-width:1920px){
+    .table-box{
+        margin-left: 150px;
+        
+    }
+}
 
 .custom-select {
     border-color: rgb(0, 0, 0);
@@ -11385,7 +11397,7 @@ button {
 }
 @media (max-width: 1920px) {
     .container {
-        padding-top: 100px;
+        padding-top: 60px;
     }
 }
 

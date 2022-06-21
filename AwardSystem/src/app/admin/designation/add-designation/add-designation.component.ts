@@ -3,6 +3,7 @@ import { SharedService } from 'src/app/shared.service';
 import { Designation } from 'Models/Designation';
 import { Organisation } from 'Models/Organisation';
 import { Department } from 'Models/Department';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-designation',
@@ -10,7 +11,7 @@ import { Department } from 'Models/Department';
   styleUrls: ['./add-designation.component.css']
 })
 export class AddDesignationComponent implements OnInit {
-  constructor(private sharedService:SharedService) { }
+  constructor(private sharedService:SharedService,private router:Router) { }
   Designation : any = {
     id : 0,
     designationName : '',
@@ -37,6 +38,8 @@ export class AddDesignationComponent implements OnInit {
     this.sharedService.add(this.endpoint1,this.Designation).subscribe(data=>{
       console.log(data);
     });
+    this.router.navigate(['/designation']);
+
   }
 
 }

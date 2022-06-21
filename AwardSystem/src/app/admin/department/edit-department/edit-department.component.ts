@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Organisation } from 'Models/Organisation';
 import { SharedService } from 'src/app/shared.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-edit-department',
@@ -13,7 +14,7 @@ export class EditDepartmentComponent implements OnInit {
 Id:any=0;
 data:any;
 selectedOrganisation:any;
-  constructor(private sharedService:SharedService, private router:ActivatedRoute) { }
+  constructor(private sharedService:SharedService, private router:ActivatedRoute, private routing:Router) { }
   endpoint="Department";
   endpoint1="Organisation";
     ngOnInit(): void {
@@ -39,5 +40,6 @@ selectedOrganisation:any;
       this.sharedService.edit(this.endpoint,this.data).subscribe((res) =>{
         console.log(res);
       });
+      this.routing.navigate(['/department'])
     }
 }

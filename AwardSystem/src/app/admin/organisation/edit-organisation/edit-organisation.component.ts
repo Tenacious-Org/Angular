@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import { Location } from '@angular/common';
 import { SharedService } from 'src/app/shared.service';
 
@@ -8,11 +8,12 @@ import { SharedService } from 'src/app/shared.service';
   selector: 'app-edit-organisation',
   templateUrl: './edit-organisation.component.html',
   styleUrls: ['./edit-organisation.component.css']
+
 })
 export class EditOrganisationComponent implements OnInit {
   
   constructor(private sharedService:SharedService,
-    private route:ActivatedRoute, private location: Location) { }
+    private route:ActivatedRoute, private location: Location, private router:Router, private routing:Router) { }
     endpoint="Organisation";
     id:any;
     data:any;
@@ -31,6 +32,7 @@ export class EditOrganisationComponent implements OnInit {
         console.log(this.data);
       });
     });
+    this.routing.navigate(['/organisation'])
   }
 
   OnSubmit(){
@@ -38,6 +40,8 @@ export class EditOrganisationComponent implements OnInit {
     this.sharedService.edit(this.endpoint,this.data).subscribe(data=>{
       console.log(data);
     });
+    this.router.navigate(['/organisation']);
+
     
   }      
 

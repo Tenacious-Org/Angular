@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Department } from 'Models/Department';
 import { Organisation } from 'Models/Organisation';
 import { SharedService } from 'src/app/shared.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-edit-designation',
@@ -10,7 +11,7 @@ import { SharedService } from 'src/app/shared.service';
   styleUrls: ['./edit-designation.component.css']
 })
 export class EditDesignationComponent implements OnInit {
-  constructor(private sharedService:SharedService, private router:ActivatedRoute) { }
+  constructor(private sharedService:SharedService, private router:ActivatedRoute, private routing:Router) { }
   Id:any=0;
   data:any;
   departments : Department[]=[];
@@ -36,7 +37,10 @@ export class EditDesignationComponent implements OnInit {
   OnSubmit(){
     this.sharedService.edit(this.endpoint1,this.data).subscribe(data=>{
       console.log(data);
-    })
+    });
+    this.routing.navigate(['/designation'])
+
+    
   }
 
 

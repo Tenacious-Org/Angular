@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Department } from 'Models/Department';
 import { Designation } from 'Models/Designation';
 import { Employee } from 'Models/Employee';
@@ -12,7 +13,7 @@ import { SharedService } from 'src/app/shared.service';
 })
 export class AddEmployeeComponent implements OnInit {
 
-  constructor(private sharedService:SharedService) { }
+  constructor(private sharedService:SharedService, private router:Router) { }
   imgsrc='';
   imageError = "";
   isImageSaved: boolean = false;
@@ -89,6 +90,8 @@ export class AddEmployeeComponent implements OnInit {
     this.sharedService.add(this.endpoint1,this.Employee).subscribe(data=>{
       console.log(data);
     });
+    this.router.navigate(['/employee']);
+
   }
 
 

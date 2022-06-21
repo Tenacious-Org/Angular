@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from 'src/app/shared.service';
 import { Organisation } from 'Models/Organisation';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-add-department',
   templateUrl: './add-department.component.html',
@@ -8,7 +9,7 @@ import { Organisation } from 'Models/Organisation';
 })
 export class AddDepartmentComponent implements OnInit {
 
-  constructor( private sharedService:SharedService) {}
+  constructor( private sharedService:SharedService, private router:Router) {}
 
   Department : any = {
     id :0,
@@ -35,6 +36,8 @@ endpoint1="Organisation";
     this.sharedService.add(this.endpoint,this.Department).subscribe((res) =>{
       console.log(res);
     });
+    this.router.navigate(['/organisation']);
+
   }
 
 }

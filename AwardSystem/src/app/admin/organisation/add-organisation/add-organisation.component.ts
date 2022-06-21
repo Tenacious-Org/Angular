@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from 'src/app/shared.service';
 import { Location } from '@angular/common';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -11,7 +12,7 @@ import { Location } from '@angular/common';
 export class AddOrganisationComponent implements OnInit {
 
 endpoint="Organisation";
-  constructor(private sharedService:SharedService, private location: Location) { }
+  constructor(private sharedService:SharedService, private location: Location, private router:Router) { }
   Organisation : any = {
     id : 0,
     organisationName : '',
@@ -29,6 +30,7 @@ endpoint="Organisation";
     this.sharedService.add(this.endpoint,this.Organisation).subscribe((res) =>{
       console.log(res);
     })
+    this.router.navigate(['/organisation']);
   }
 
 }

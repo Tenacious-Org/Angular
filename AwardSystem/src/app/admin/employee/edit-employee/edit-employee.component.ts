@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute,Router } from '@angular/router';
 import { Department } from 'Models/Department';
 import { Designation } from 'Models/Designation';
 import { Employee } from 'Models/Employee';
 import { Organisation } from 'Models/Organisation';
 import { SharedService } from 'src/app/shared.service';
+
 
 @Component({
   selector: 'app-edit-employee',
@@ -34,7 +35,7 @@ export class EditEmployeeComponent implements OnInit {
   endpoint1 = "Employee";
   endpoint2 = "Department";
   hrList: any;
-  constructor(private sharedService:SharedService, private router:ActivatedRoute) { }
+  constructor(private sharedService:SharedService, private router:ActivatedRoute, private routing:Router) { }
 
   ngOnInit(): void {
     this.router.params.subscribe(params => {
@@ -108,6 +109,9 @@ export class EditEmployeeComponent implements OnInit {
     this.sharedService.edit(this.endpoint1,this.data).subscribe(data=>{
       console.log(data);
     });
+    this.routing.navigate(['/employee'])
+
+
   }
   ImageConversion(fileInput:any){
     var x:any=document.getElementById("image");

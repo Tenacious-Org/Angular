@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { SharedService } from 'src/app/shared.service';
+
 
 
 @Component({
@@ -15,7 +17,7 @@ export class AddAwardsComponent implements OnInit {
   isImageSaved: boolean = false;
   cardImageBase64 = "";
 
-  constructor(private sharedService:SharedService) { }
+  constructor(private sharedService:SharedService,private router: Router) { }
 
   AwardType : any ={
   id : 0,
@@ -36,6 +38,7 @@ export class AddAwardsComponent implements OnInit {
     this.sharedService.add( this.endpoint,this.AwardType).subscribe((res) =>{
       console.log(res);
     })
+    this.router.navigate(['/awards']);
   }
 
   ImageConversion(fileInput:any){

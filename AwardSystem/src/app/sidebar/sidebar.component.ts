@@ -47,7 +47,7 @@ export class SidebarComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.role=this.publisher;
+    this.role=this.admin;
   }
   isShowDivIf = false;
   
