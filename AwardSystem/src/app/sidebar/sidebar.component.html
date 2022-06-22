@@ -14,7 +14,7 @@
         <div *ngIf="role==1; else userSidebar">
         <ul class="list-unstyled components mt-4 mb-5 sidebar-items">
             <li>
-                <a > <i class="fa-solid fa-house ml-4 mr-4"></i>Home</a>
+                <a [routerLink]="['/dashboard']"> <i class="fa-solid fa-house ml-4 mr-4"></i>Home</a>
             </li>
             <li>
                 <a [routerLink]="['/awards']" ><i class="fa-solid fa-trophy ml-4 mr-4"></i>Awards</a>

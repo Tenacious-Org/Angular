@@ -41,7 +41,7 @@ import { ViewEmployeeComponent } from './admin/employee/view-employee/view-emplo
 import { EditEmployeeComponent } from './admin/employee/edit-employee/edit-employee.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { HomeCardComponent } from './home-card/home-card.component';
-
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 const routes: Routes = [
@@ -94,6 +94,10 @@ const routes: Routes = [
   {path:'hr' , component:HrComponent},
   {path:'hr-publish' , component:HrPublishComponent},
   {path:'hr-yettopublish/:id' , component:HrYettopublishComponent},
+
+  {path: 'dashboard', component:DashboardComponent},
+
+
   {path:'', component:OrganisationComponent},
 
 ];
