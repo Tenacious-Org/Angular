@@ -36,7 +36,7 @@ export class AddEmployeeComponent implements OnInit {
     reportingPersonId : 0,
     hrID : 0,
     password : '',
-    addedBy : 0,
+    addedBy : 1,
     addedOn : Date.now
   }
 
