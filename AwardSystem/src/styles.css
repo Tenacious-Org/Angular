@@ -11352,6 +11352,12 @@ button {
     width: 360px;
     border-color: #000000;
 }
+@media(max-width:1920px){
+    .input-group,.form-control{
+        width:260px;
+        
+    }
+}
 
 .d-flex {
     color: black;
