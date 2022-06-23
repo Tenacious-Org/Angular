@@ -11240,7 +11240,7 @@ button {
 
 .card {
     border: 1px solid black;
-    max-width: 26rem;
+    max-width: 800px;
     margin-left: 2rem;
     margin-top: 1rem;
 }
