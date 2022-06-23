@@ -13,7 +13,7 @@
 
             <div class="form-inline btn-group search">
                 <div class="form-outline">
-                    <input type="search" id="form1" class="form-control" />
+                    <input type="search" id="form1" class="form-control" [(ngModel)] ="val" />
                     <label class="form-label" for="form1">Search</label>
                 </div>
                 <button type="button" class="btn btn-primary">
@@ -22,7 +22,7 @@
             </div>
 
             <div class="w3-right dropdown me-4 mb-4">
-                <select class="form-select" aria-label="Default select example" style="width:auto">
+                <select class="form-select" [(ngModel)]="value" aria-label="Default select example" style="width:auto">
                     <option selected>Select</option>
                     <option value="1">Pending</option>
                     <option value="2">Approved</option>
@@ -46,7 +46,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr class="text-center" *ngFor="let item of data | paginate: { itemsPerPage: 6, currentPage: page }">
+                <tr class="text-center" *ngFor="let item of data |filter:val| filter: value |paginate: { itemsPerPage: 6, currentPage: page }">
                     <td>{{item.id}}</td>
                     <td>{{item.awardeeName}}</td>
                     <td>{{item.awardName}}</td>
