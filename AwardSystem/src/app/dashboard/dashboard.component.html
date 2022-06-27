@@ -1,8 +1,41 @@
-<app-layout></app-layout>
-<app-sidebar></app-sidebar>
-<div style="width:75%;position:absolute; left:15%;bottom:5%"><canvas baseChart 
-    [data]="salesData" 
-    [type]="'bar'"
-    [options]="chartOptions"
-  >
-  </canvas></div>
+<div>
+  <app-layout></app-layout>
+  <app-sidebar></app-sidebar>
+  <div style="margin-left:15%;padding-top: 10%;">
+    <div class="row g-4 align-items-center ml-3 mb-2">
+      <div class="col-auto p-1.5" style="display:inline-block">
+        <label for="org" class="col-form-label">Organisation</label>
+
+        <div class="input-group">
+          <select name="organisationId" name="SelectOrg" [(ngModel)]="SelectOrg" (change)="onSelectDep()"
+            class="custom-select">
+            <option selected>Choose...</option>
+            <option *ngFor="let items of organisations" ngValue={{items.id}}>{{items.organisationName}}</option>
+          </select>
+        </div>
+        <div style="display:inline-block">
+          <label for="exampleFormControlSelect1">Award</label>
+          <div class="input-group">
+            <select name="awardTypeId" #awardName="ngModel" required [(ngModel)]="Awards.awardTypeId"
+              class="custom-select">
+              <div *ngIf="awardName.touched && awardName.errors?.['required']" class="alert alert-danger">
+                Award Name is Required!
+              </div>
+              <option selected>Choose...</option>
+              <option *ngFor="let items of awardData" value={{items.id}}>{{items.awardName}}</option>
+            </select>
+          </div>
+        </div>
+        <label for="fromdate">From Date:</label>
+        <div class="input-group col-auto p-1.5"> 
+          <input type="date" id="fromdate" name="fromdate">
+        </div>
+       
+      </div>
+    </div>
+    <div style="height:50%;width:75%;position:absolute; left:15%;bottom:5%">
+      <canvas baseChart [data]="salesData" [type]="'bar'" [options]="chartOptions">
+      </canvas>
+    </div>
+  </div>
+</div>

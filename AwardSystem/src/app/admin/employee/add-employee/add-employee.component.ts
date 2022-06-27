@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Department } from 'Models/Department';
 import { Designation } from 'Models/Designation';
-import { Employee } from 'Models/Employee';
 import { Organisation } from 'Models/Organisation';
 import { SharedService } from 'src/app/shared.service';
 
