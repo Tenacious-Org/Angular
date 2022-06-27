@@ -67,6 +67,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { NgChartsModule } from 'ng2-charts';
 import { AddDialogComponent } from './add-dialog/add-dialog.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { HotToastModule } from '@ngneat/hot-toast';
 
 
 
@@ -159,6 +160,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     Ng2SearchPipeModule,
     NgChartsModule,
     MatPaginatorModule,
+    HotToastModule.forRoot(),
 
 
 
