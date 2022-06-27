@@ -4,11 +4,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { DialogboxComponent } from 'src/app/dialogbox/dialogbox.component';
 import { Router } from '@angular/router';
 import { SharedService } from 'src/app/shared.service';
-
-
-
-
-
+import { Awards } from 'Models/Awards';
+import { HotToastService } from '@ngneat/hot-toast';
 
 @Component({
   selector: 'app-add-awards',
@@ -21,9 +18,11 @@ export class AddAwardsComponent implements OnInit {
   imageError = "";
   isImageSaved: boolean = false;
   cardImageBase64 = "";
-  
-  constructor(private sharedService:SharedService,private router: Router, private dialog: MatDialog) { }
 
+  
+  constructor(private toastService: HotToastService,private sharedService:SharedService,private router: Router, private dialog: MatDialog) { }
+
+  response="success";
   AwardType : any ={
   id : 0,
   awardName : '',
@@ -42,14 +41,17 @@ export class AddAwardsComponent implements OnInit {
     console.log(this.AwardType);
     this.sharedService.add( this.endpoint,this.AwardType).subscribe((res) =>{
       console.log(res);
-      this.openDialog(res,this.AwardType.awardName);
-
+      //this.openDialog(res,this.AwardType.awardName);
+      this.showToast();
     })
-    //this.router.navigate(['/awards']);
+
+  }
+  showToast() {
+    this.toastService.success('Successfully toasted!')
   }
   openDialog(res:any,name:any){
 
-    this.dialog.open(DialogboxComponent,{data:{isvalid:res,name:name,value:"Awardtype"}});
+    this.dialog.open(DialogboxComponent,{data:{isvalid:res,class:"awards",name:name,value:"Awardtype"}});
 
   }
 

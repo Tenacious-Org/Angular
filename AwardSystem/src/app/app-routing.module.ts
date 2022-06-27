@@ -43,6 +43,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { HomeCardComponent } from './home-card/home-card.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DialogboxComponent } from './dialogbox/dialogbox.component';
+// import { HotToastModule } from '@ngneat/hot-toast';
 
 
 const routes: Routes = [
@@ -107,6 +108,12 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
+
+   
   exports: [RouterModule]
 })
+
 export class AppRoutingModule { }
+
+
+
