@@ -49,7 +49,7 @@ export class AddAwardsComponent implements OnInit {
   showToast() {
     this.toastService.success('Successfully added!',
     {
-      autoClose: false,
+      autoClose: true,
       dismissible: true,
       icon: '❎',
     })

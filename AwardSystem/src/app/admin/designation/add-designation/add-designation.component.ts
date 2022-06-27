@@ -4,14 +4,16 @@ import { Designation } from 'Models/Designation';
 import { Organisation } from 'Models/Organisation';
 import { Department } from 'Models/Department';
 import { Router } from '@angular/router';
-
+import { MatDialog } from '@angular/material/dialog';
+import { DialogboxComponent } from 'src/app/dialogbox/dialogbox.component';
+import { HotToastService } from '@ngneat/hot-toast';
 @Component({
   selector: 'app-add-designation',
   templateUrl: './add-designation.component.html',
   styleUrls: ['./add-designation.component.css']
 })
 export class AddDesignationComponent implements OnInit {
-  constructor(private sharedService:SharedService,private router:Router) { }
+  constructor(private sharedService:SharedService,private router:Router,private toastService: HotToastService,private dialog: MatDialog) { }
   Designation : any = {
     id : 0,
     designationName : '',
@@ -37,9 +39,17 @@ export class AddDesignationComponent implements OnInit {
   OnSubmit(){
     this.sharedService.add(this.endpoint1,this.Designation).subscribe(data=>{
       console.log(data);
+      this.showToast();
     });
+  }
+  showToast() {
+    this.toastService.success('Successfully added!',
+    {
+      autoClose: true,
+      dismissible: true,
+      icon: '❎',
+    })
     this.router.navigate(['/designation']);
 
   }
-
 }

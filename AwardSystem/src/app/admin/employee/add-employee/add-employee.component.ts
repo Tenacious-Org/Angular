@@ -84,6 +84,7 @@ export class AddEmployeeComponent implements OnInit {
     this.sharedService.getHrByDepartment(this.SelectDep).subscribe(data=>{
       this.hrList = data;
       console.log(this.hrList);
+      
     });
    }
 
@@ -92,10 +93,22 @@ export class AddEmployeeComponent implements OnInit {
     this.Employee.password="Admin@123";
     this.sharedService.add(this.endpoint1,this.Employee).subscribe(data=>{
       console.log(data);
-    });
+      this.showToast();
+    })
+
+  }
+  showToast() {
+    this.toastService.success('Successfully added!',
+    {
+      autoClose: true,
+      dismissible: true,
+      icon: '❎',
+    })
     this.router.navigate(['/employee']);
 
   }
+
+   
 
 
 
