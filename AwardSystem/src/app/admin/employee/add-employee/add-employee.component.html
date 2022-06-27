@@ -6,7 +6,7 @@
 
         <span class="border-box-tip"><b>Add Employee</b></span>
 
-        <div class="row g-3 align-items-center justify-content-center mb-3">
+        <!-- <div class="row g-3 align-items-center justify-content-center mb-3">
 
             <div class="col-auto p-1.5">
                 <label for="firstName" class="col-form-label">First Name</label>
@@ -18,6 +18,31 @@
                 <input type="text" name="lastName" [(ngModel)]="Employee.lastName" id="lastName" class="form-control" aria-describedby="lastNameHelpInline">
             </div>
 
+        </div> -->
+
+
+        <div class="row g-3 align-items-center justify-content-center mb-3">
+            <div class="col-auto p-1.5">
+                <label  class="col-form-label">Firstname</label>
+                <input type="text" #name="ngModel" required pattern="^[a-zA-Z][a-zA-Z\s]{0,20}[a-zA-Z]$" class="form-control" name="awardName" [(ngModel)]="Employee.Firstname">
+                <div *ngIf ="name.touched && name.errors?.['required']" class="alert alert-danger">
+                    Firstname is Required!
+                </div>
+                <div *ngIf ="name.touched && name.errors?.['pattern']" class="alert alert-danger" >
+                    Firstname is invalid!
+                </div>
+            </div>
+
+            <div class="col-auto p-1.5">
+                <label  class="col-form-label">Lastname</label>
+                <input type="text" #name="ngModel" required pattern="^[a-zA-Z][a-zA-Z\s]{0,20}[a-zA-Z]$" class="form-control" name="Lastname" [(ngModel)]="Employee.Lastname">
+                <div *ngIf ="name.touched && name.errors?.['required']" class="alert alert-danger">
+                    Lastname is Required!
+                </div>
+                <div *ngIf ="name.touched && name.errors?.['pattern']" class="alert alert-danger" >
+                    Lastname is invalid!
+                </div>
+            </div>
         </div>
 
 
@@ -26,6 +51,7 @@
             <div class="col-auto p-1.5">
                 <label for="datetime" class="col-form-label">Date of Birth</label>
                 <input type="date" name="dob" [ngModel]="Employee.dob |date:'yyyy-MM-dd'" id="dob" class="form-control" aria-describedby="dobHelpInline">
+                
             </div>
             <div class="col-auto p-1.5">
                 <label for="dept" class="col-form-label">Gender</label>
@@ -45,12 +71,26 @@
         <div class="row g-3 align-items-center justify-content-center mb-3">
           <div class="col-auto p-1.5">
             <label for="aceid" class="col-form-label">AceID</label>
-            <input type="text" name="aceid" [(ngModel)]="Employee.aceid" id="aceid" class="form-control" aria-describedby="aceidHelpInline">
+            <!-- <input type="text" name="aceid" [(ngModel)]="Employee.aceid" id="aceid" class="form-control" aria-describedby="aceidHelpInline"> -->
+            <input type="text" #name="ngModel" required pattern="^[a-zA-Z][0-9]{0,20}[a-zA-Z]$" class="form-control" name="AceID" [(ngModel)]="Employee.AceID">
+            <div *ngIf ="name.touched && name.errors?.['required']" class="alert alert-danger">
+                Firstname is Required!
+            </div>
+            <div *ngIf ="name.touched && name.errors?.['pattern']" class="alert alert-danger" >
+                Firstname is invalid!
+            </div>
         </div>
 
             <div class="col-auto p-1.5">
                 <label for="email" class="col-form-label">Email</label>
-                <input type="email" name="email" [(ngModel)]="Employee.email" id="email" class="form-control" aria-describedby="emailHelpInline">
+                <!-- <input type="email" name="email" [(ngModel)]="Employee.email" id="email" class="form-control" aria-describedby="emailHelpInline"> -->
+                <input type="text" #name="ngModel" required pattern="/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" class="form-control" name="Email" [(ngModel)]="Employee.email">
+            <div *ngIf ="name.touched && name.errors?.['required']" class="alert alert-danger">
+                Email is Required!
+            </div>
+            <div *ngIf ="name.touched && name.errors?.['pattern']" class="alert alert-danger" >
+                Email is invalid!
+            </div>
             </div>
 
 

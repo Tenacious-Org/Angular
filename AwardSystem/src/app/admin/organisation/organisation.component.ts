@@ -43,6 +43,26 @@ export class OrganisationComponent implements OnInit {
 
   }
 
-   public data: Organisation[] = [];
+   
 
+   OnSubmit(Id:any){
+    console.log(Id);
+    this.sharedService.getById(this.endpoint,Id).subscribe((data) => {
+      this.organisationname=data.organisationName;
+      console.log(this.organisationname);
+      this.openDialog(result);
+    });
+  }
+  // openDialog(count:any){
+  
+  //   this.dialog.open(DialogboxComponent,{data:{name:this.organisationname,value:"Organisation"}});
+  
+  // }
+  
+   public data: Organisation[] = [];
+  
 }
+function result(result: any) {
+  throw new Error('Function not implemented.');
+}
+

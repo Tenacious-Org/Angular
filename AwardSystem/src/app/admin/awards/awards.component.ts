@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogboxComponent } from 'src/app/dialogbox/dialogbox.component';
 import { SharedService } from 'src/app/shared.service';
-
+import { Awards } from 'Models/Awards';
 @Component({
   selector: 'app-awards',
   templateUrl: './awards.component.html',

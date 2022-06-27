@@ -1,7 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogboxComponent } from 'src/app/dialogbox/dialogbox.component';
 import { Router } from '@angular/router';
 import { SharedService } from 'src/app/shared.service';
+
+
+
 
 
 
@@ -16,8 +21,8 @@ export class AddAwardsComponent implements OnInit {
   imageError = "";
   isImageSaved: boolean = false;
   cardImageBase64 = "";
-
-  constructor(private sharedService:SharedService,private router: Router) { }
+  
+  constructor(private sharedService:SharedService,private router: Router, private dialog: MatDialog) { }
 
   AwardType : any ={
   id : 0,
@@ -37,8 +42,15 @@ export class AddAwardsComponent implements OnInit {
     console.log(this.AwardType);
     this.sharedService.add( this.endpoint,this.AwardType).subscribe((res) =>{
       console.log(res);
+      this.openDialog(res,this.AwardType.awardName);
+
     })
-    this.router.navigate(['/awards']);
+    //this.router.navigate(['/awards']);
+  }
+  openDialog(res:any,name:any){
+
+    this.dialog.open(DialogboxComponent,{data:{isvalid:res,name:name,value:"Awardtype"}});
+
   }
 
   ImageConversion(fileInput:any){

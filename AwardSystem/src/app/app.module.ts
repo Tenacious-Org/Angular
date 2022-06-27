@@ -64,6 +64,10 @@ import { HomeCardComponent } from './home-card/home-card.component';
 import { DialogboxComponent } from './dialogbox/dialogbox.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NgChartsModule } from 'ng2-charts';
+import { AddDialogComponent } from './add-dialog/add-dialog.component';
+import { SnackBarComponent } from './snack-bar/snack-bar.component';
+
+
 
 
 
@@ -131,6 +135,10 @@ import { NgChartsModule } from 'ng2-charts';
  DialogboxComponent,
  DashboardComponent,
 
+ AppComponent,
+   AddDialogComponent,
+   SnackBarComponent,
+
 
 
 
@@ -150,6 +158,8 @@ import { NgChartsModule } from 'ng2-charts';
     ReactiveFormsModule,
     Ng2SearchPipeModule,
     NgChartsModule,
+
+   
 
 
 
