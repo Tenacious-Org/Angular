@@ -16,7 +16,7 @@ export class HomeCardComponent implements OnInit {
   page: number = 1;
   pageId=0;
   employeeId=6;
-  constructor(private awardService:AwardService,private router:ActivatedRoute,private http: HttpClient) { }
+  constructor(private awardService:AwardService,private router:ActivatedRoute,private http:HttpClient){ }
 
   ngOnInit(): void {
     this.router.params.subscribe(params => {
@@ -26,7 +26,6 @@ export class HomeCardComponent implements OnInit {
     });
   });
 
-  
   }
   @Input() ShowStatus:boolean =true;
 	searchAward = "";
@@ -41,9 +40,9 @@ export class HomeCardComponent implements OnInit {
 		if (searchAward.length == 0 && searchAwardee.length == 0 && FromDate == new Date("0001-01-01").toString() && ToDate == new Date("0001-01-01").toString()) this.data = this.filteredData
 
 
-		//1.Search by title
+		//1.Search by award
 		if (searchAward.length != 0 && searchAwardee == '' && FromDate == new Date("0001-01-01").toString() && ToDate == new Date("0001-01-01").toString()) {
-			console.log("title")
+			console.log("award")
 			this.data = this.filteredData.filter(item => item.awardTypeId);
 		}
 		//2.Search by awardee
@@ -61,19 +60,19 @@ export class HomeCardComponent implements OnInit {
 			console.log("ToDate")
 			this.data = this.filteredData.filter(item => new Date(item.updatedOn.toString()) <= new Date(ToDate));
 		}
-		//5.search by title and awardee
+		//5.search by award and awardee
 		else if (searchAward.length != 0 && searchAwardee.length != 0 && FromDate == new Date("0001-01-01").toString() && ToDate == new Date("0001-01-01").toString()) {
-			console.log("title&awardee")
+			console.log("award&awardee")
 			this.data = this.filteredData.filter(item => { return (item.awardTypeId) && (item.awardeeId) });
 		}
-		//6.search by title and fromdate
+		//6.search by award and fromdate
 		else if (searchAward.length != 0 && searchAwardee == '' && FromDate != new Date("0001-01-01").toString() && ToDate == new Date("0001-01-01").toString()) {
-			console.log("title&FromDate")
+			console.log("award&FromDate")
 			this.data = this.filteredData.filter(item => { return (item.awardTypeId) && new Date(item.updatedOn.toString()) >= new Date(FromDate) });
 		}
-		//7.search by title and Todate
+		//7.search by award and Todate
 		else if (searchAward.length != 0 && searchAwardee == '' && FromDate == new Date("0001-01-01").toString() && ToDate != new Date("0001-01-01").toString()) {
-			console.log("title&ToDate")
+			console.log("award&ToDate")
 			this.data = this.filteredData.filter(item => { return (item.awardTypeId) && new Date(item.updatedOn.toString()) <= new Date(ToDate) });
 		}
 		//8.search by awardee and fromdate
@@ -88,17 +87,17 @@ export class HomeCardComponent implements OnInit {
 		}
 		//10.search by fromdate and todate
 		else if (searchAward == '' && searchAwardee == '' && FromDate != new Date("0001-01-01").toString() && ToDate != new Date("0001-01-01").toString()) {
-			console.log("fromdate&TsearchTitle == ''oDate")
+			console.log("fromdate&Tsearchaward == ''oDate")
 			this.data = this.filteredData.filter(item => { return new Date(item.updatedOn.toString()) >= new Date(FromDate) && new Date(item.updatedOn.toString()) <= new Date(ToDate) });
 		}
-		//11.search by awardee,title and fromdate
+		//11.search by awardee,award and fromdate
 		else if (searchAward.length != 0 && searchAwardee.length != 0 && FromDate != new Date("0001-01-01").toString() && ToDate == new Date("0001-01-01").toString()) {
-			console.log("title,awardee,fromdate")
+			console.log("award,awardee,fromdate")
 			this.data = this.filteredData.filter(item => { return (item.awardTypeId) && (item.awardeeId) && new Date(item.updatedOn.toString()) >= new Date(FromDate) });
 		}
-		//12.search by awardee,title and Todate
+		//12.search by awardee,award and Todate
 		else if (searchAward.length != 0 && searchAwardee.length != 0 && FromDate == new Date("0001-01-01").toString() && ToDate != new Date("0001-01-01").toString()) {
-			console.log("title,awardee,Todate")
+			console.log("award,awardee,Todate")
 			this.data = this.filteredData.filter(item => { return (item.awardTypeId) && (item.awardeeId) && new Date(item.updatedOn.toString()) <= new Date(ToDate) });
 		}
 		//13.search by awardee,Fromdate and Todate
@@ -106,14 +105,14 @@ export class HomeCardComponent implements OnInit {
 			console.log("awardee,fromdate,Todate")
 			this.data = this.filteredData.filter(item => { return (item.awardeeId) && new Date(item.updatedOn.toString()) >= new Date(FromDate) && new Date(item.updatedOn.toString()) <= new Date(ToDate) });
 		}
-		//14.search by Title,Fromdate and Todate
+		//14.search by award,Fromdate and Todate
 		else if (searchAward.length != 0 && searchAwardee == '' && FromDate != new Date("0001-01-01").toString() && ToDate != new Date("0001-01-01").toString()) {
-			console.log("title,fromdate,Todate")
+			console.log("award,fromdate,Todate")
 			this.data = this.filteredData.filter(item => { return( item.awardTypeId ) && new Date(item.updatedOn.toString()) >= new Date(FromDate) && new Date(item.updatedOn.toString()) <= new Date(ToDate) });
 		}
-		//14.search by Title,awardee,Fromdate and Todate
+		//14.search by award,awardee,Fromdate and Todate
 		else if (searchAward.length != 0 && searchAwardee.length != 0 && FromDate != new Date("0001-01-01").toString() && ToDate != new Date("0001-01-01").toString()) {
-			console.log("title,awardee,fromdate,Todate")
+			console.log("award,awardee,fromdate,Todate")
 			this.data = this.filteredData.filter(item => { return (item.awardTypeId) && (item.awardeeId) && new Date(item.updatedOn.toString()) >= new Date(FromDate) && new Date(item.updatedOn.toString()) <= new Date(ToDate) });
 		}
 
