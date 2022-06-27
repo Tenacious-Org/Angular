@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { SharedService } from 'src/app/shared.service';
 import { Organisation } from 'Models/Organisation';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogboxComponent } from 'src/app/dialogbox/dialogbox.component';
+import { HotToastService } from '@ngneat/hot-toast';
 @Component({
   selector: 'app-add-department',
   templateUrl: './add-department.component.html',
@@ -9,9 +12,10 @@ import { Router } from '@angular/router';
 })
 export class AddDepartmentComponent implements OnInit {
 
-  constructor( private sharedService:SharedService, private router:Router) {}
+  constructor(private toastService: HotToastService,private sharedService:SharedService, private router:Router,private dialog: MatDialog) {}
 
-  Department : any = {
+    response="success";
+    Department : any = {
     id :0,
     departmentName : '',
     organisationId :0,
@@ -35,9 +39,17 @@ endpoint1="Organisation";
     console.log(this.Department)
     this.sharedService.add(this.endpoint,this.Department).subscribe((res) =>{
       console.log(res);
-    });
-    this.router.navigate(['/organisation']);
-
+      this.showToast;
+    })
   }
+  showToast() {
+    this.toastService.success('Successfully added!')
+    this.router.navigate(['/department']);
+  }
+  }
+  
+    
 
-}
+  
+
+

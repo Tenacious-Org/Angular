@@ -4,6 +4,10 @@ import { Department } from 'Models/Department';
 import { Designation } from 'Models/Designation';
 import { Organisation } from 'Models/Organisation';
 import { SharedService } from 'src/app/shared.service';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogboxComponent } from 'src/app/dialogbox/dialogbox.component';
+import { HotToastService } from '@ngneat/hot-toast';
+
 
 @Component({
   selector: 'app-add-employee',
@@ -12,7 +16,7 @@ import { SharedService } from 'src/app/shared.service';
 })
 export class AddEmployeeComponent implements OnInit {
 
-  constructor(private sharedService:SharedService, private router:Router) { }
+  constructor(private sharedService:SharedService, private router:Router,private toastService: HotToastService,private dialog: MatDialog) { }
   imgsrc='';
   imageError = "";
   isImageSaved: boolean = false;

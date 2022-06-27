@@ -47,7 +47,14 @@ export class AddAwardsComponent implements OnInit {
 
   }
   showToast() {
-    this.toastService.success('Successfully toasted!')
+    this.toastService.success('Successfully added!',
+    {
+      autoClose: false,
+      dismissible: true,
+      icon: '❎',
+    })
+    this.router.navigate(['/awards']);
+
   }
   openDialog(res:any,name:any){
 
