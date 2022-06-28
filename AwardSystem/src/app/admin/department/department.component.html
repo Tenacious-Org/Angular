@@ -40,7 +40,7 @@
                     <td>{{item.departmentName}}</td>
                     <td>{{item.organisationName}}</td>
 
-                    <td> <button [routerLink]="['../edit-department',item.id]" class="btn btn-primary" target="_self"><i class="fa-solid fa-pen-to-square" title="Edit"></i></button>
+                    <td> <button [routerLink]="['../edit-department',item.id]" class="btn btn-primary" target="_self"><i class="fa-solid fa-pen-to-square" title="Edit"></i></button><div class="space"></div>
 
                         <button (click)="Disable(item.id)" class="btn btn-danger" ><i class="fa-solid fa-user-slash" data-toggle="modal" data-target="#Mymodal"title="Disable"></i></button></td>
                 </tr>
