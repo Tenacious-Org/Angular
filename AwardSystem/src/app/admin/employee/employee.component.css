@@ -3,3 +3,8 @@
     height: auto;
     display: inline-block;
   }
+
+  .container-fluid {
+    max-width: px;
+    margin-left: 50px;
+}
