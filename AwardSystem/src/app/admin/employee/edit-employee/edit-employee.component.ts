@@ -107,11 +107,11 @@ export class EditEmployeeComponent implements OnInit {
      console.log(this.data)
      if(this.data.imageString==null && this.data.image!=null){
       this.data.imageString=this.data.image;
-      this.showToast();
+      
     }
     this.sharedService.edit(this.endpoint1,this.data).subscribe(data=>{
       console.log(data);
-      
+      this.showToast();
     });
 }
 showToast() {
