@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { SharedService } from 'src/app/shared.service';
 import { Router } from '@angular/router';
-
+import { HotToastService } from '@ngneat/hot-toast';
 @Component({
   selector: 'app-edit-award',
   templateUrl: './edit-award.component.html',
@@ -28,7 +28,7 @@ export class EditAwardComponent implements OnInit {
     addedOn : Date.now
     }
 
-  constructor(private sharedService: SharedService, private router:ActivatedRoute, private routing:Router) { }
+  constructor(private sharedService: SharedService, private router:ActivatedRoute, private routing:Router,private toastService: HotToastService) { }
 
   ngOnInit(): void {
     this.router.params.subscribe(params => {
@@ -51,8 +51,18 @@ export class EditAwardComponent implements OnInit {
     }
     this.sharedService.edit(this.endpoint,this.data).subscribe(data=>{
       console.log(data);
+      this.showToast();
     });
-    this.routing.navigate(['/awards'])
+    
+  }
+  showToast() {
+    this.toastService.success('Successfully updated!',
+    {
+      autoClose: true,
+      dismissible: true,
+      icon: '❎',
+    })
+    this.routing.navigate(['/awards']);
   }
 
   ImageConversion(fileInput:any){

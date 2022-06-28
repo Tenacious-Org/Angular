@@ -4,6 +4,7 @@ import { Organisation } from 'Models/Organisation';
 import { DialogboxComponent } from 'src/app/dialogbox/dialogbox.component';
 import { SharedService } from 'src/app/shared.service';
 
+
 @Component({
   selector: 'app-organisation',
   templateUrl: './organisation.component.html',
@@ -16,7 +17,7 @@ export class OrganisationComponent implements OnInit {
    count=0;
    val:any;
    organisationname: any;
-   constructor(private sharedService:SharedService,private dialog: MatDialog ) { }
+   constructor(private sharedService:SharedService,private dialog: MatDialog) { }
 
    ngOnInit(): void {
     this.sharedService.getAll(this.endpoint).subscribe(data=>{
@@ -53,7 +54,7 @@ export class OrganisationComponent implements OnInit {
       this.openDialog(result);
     });
   }
-  // openDialog(count:any){
+  // / openDialog(count:any){
   
   //   this.dialog.open(DialogboxComponent,{data:{name:this.organisationname,value:"Organisation"}});
   

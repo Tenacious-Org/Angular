@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Organisation } from 'Models/Organisation';
 import { SharedService } from 'src/app/shared.service';
 import { Router } from '@angular/router';
-
+import { HotToastService } from '@ngneat/hot-toast';
 @Component({
   selector: 'app-edit-department',
   templateUrl: './edit-department.component.html',
@@ -14,7 +14,7 @@ export class EditDepartmentComponent implements OnInit {
 Id:any=0;
 data:any;
 selectedOrganisation:any;
-  constructor(private sharedService:SharedService, private router:ActivatedRoute, private routing:Router) { }
+  constructor(private sharedService:SharedService, private router:ActivatedRoute, private routing:Router,private toastService: HotToastService) { }
   endpoint="Department";
   endpoint1="Organisation";
     ngOnInit(): void {
@@ -39,7 +39,17 @@ selectedOrganisation:any;
       console.log(this.data)
       this.sharedService.edit(this.endpoint,this.data).subscribe((res) =>{
         console.log(res);
+        this.showToast();
       });
-      this.routing.navigate(['/department'])
+    }
+    showToast() {
+      this.toastService.success('Successfully updated!',
+      {
+        autoClose: true,
+        dismissible: true,
+        icon: '❎',
+      })
+      this.routing.navigate(['/department']);
+    
     }
 }

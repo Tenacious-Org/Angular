@@ -20,9 +20,8 @@ export class AddAwardsComponent implements OnInit {
   cardImageBase64 = "";
 
   
-  constructor(private toastService: HotToastService,private sharedService:SharedService,private router: Router, private dialog: MatDialog) { }
+  constructor(private toastService: HotToastService,private sharedService:SharedService,private router: Router) { }
 
-  response="success";
   AwardType : any ={
   id : 0,
   awardName : '',
@@ -41,11 +40,11 @@ export class AddAwardsComponent implements OnInit {
     console.log(this.AwardType);
     this.sharedService.add( this.endpoint,this.AwardType).subscribe((res) =>{
       console.log(res);
-      //this.openDialog(res,this.AwardType.awardName);
       this.showToast();
     })
 
   }
+  
   showToast() {
     this.toastService.success('Successfully added!',
     {
@@ -56,11 +55,11 @@ export class AddAwardsComponent implements OnInit {
     this.router.navigate(['/awards']);
 
   }
-  openDialog(res:any,name:any){
+  // openDialog(res:any,name:any){
 
-    this.dialog.open(DialogboxComponent,{data:{isvalid:res,class:"awards",name:name,value:"Awardtype"}});
+  //   this.dialog.open(DialogboxComponent,{data:{isvalid:res,class:"awards",name:name,value:"Awardtype"}});
 
-  }
+  // }
 
   ImageConversion(fileInput:any){
     var x:any=document.getElementById("image");

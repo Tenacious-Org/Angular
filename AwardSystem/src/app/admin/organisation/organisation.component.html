@@ -48,7 +48,11 @@
                         <tr class="text-center" *ngFor="let item of data | filter:val | paginate: { itemsPerPage: 6, currentPage: page }; let i= index">
                             <td>{{i + 1}}</td>
                             <td>{{item.organisationName}}</td>
+<<<<<<< Updated upstream
                             <td> <button [routerLink]="['../edit-organisation/'+item.id]" class="btn btn-primary" target="_self"><i class="fa-solid fa-pen-to-square" title="Edit"></i></button><div class="space"></div>
+=======
+                            <td> <button [routerLink]="['../edit-organisation/',item.id]" class="btn btn-primary" target="_self"><i class="fa-solid fa-pen-to-square" title="Edit"></i></button>
+>>>>>>> Stashed changes
                                  <button (click)="Disable(item.id)"  class="btn btn-danger"><i class="fa-solid fa-user-slash"  title="Disable"></i></button></td>
                         </tr>
                     </tbody>
