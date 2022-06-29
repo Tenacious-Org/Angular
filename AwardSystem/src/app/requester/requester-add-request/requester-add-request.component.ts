@@ -110,7 +110,6 @@ export class RequesterAddRequestComponent implements OnInit {
     {
       autoClose: true,
       dismissible: true,
-      icon: '❎',
     })
     this.router.navigate(['/requester-request']);
   }
