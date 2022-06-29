@@ -9,6 +9,8 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
+import { HotToastService } from '@ngneat/hot-toast';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-requester-add-request',
@@ -46,7 +48,7 @@ export class RequesterAddRequestComponent implements OnInit {
  }
 
 
-  constructor(private sharedService:SharedService,private awardService:AwardService,private formBuilder:FormBuilder) { }
+  constructor(private sharedService:SharedService,private awardService:AwardService,private formBuilder:FormBuilder,private toastService: HotToastService,private router:Router) { }
 
 
   data:AwardType[]=[];
@@ -100,7 +102,17 @@ export class RequesterAddRequestComponent implements OnInit {
     this.Awards.awardeeId=this.selectedAwardee;
     this.awardService.addRequest(this.Awards,this.employeeId).subscribe(data=>{
       console.log(data);
+      this.showToast();
     });
+  }
+  showToast() {
+    this.toastService.success('Request Added Succssfully!',
+    {
+      autoClose: true,
+      dismissible: true,
+      icon: '❎',
+    })
+    this.router.navigate(['/requester-request']);
   }
 
 

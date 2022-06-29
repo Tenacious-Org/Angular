@@ -4,6 +4,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { RejectionReasonComponent } from '../rejection-reason/rejection-reason.component';
 import { AwardService } from 'src/app/award.service';
 import { Awards } from 'Models/Awards';
+import { Router } from '@angular/router';
+import { HotToastService } from '@ngneat/hot-toast';
 
 @Component({
   selector: 'app-approver-ar',
@@ -18,6 +20,7 @@ export class ApproverARComponent implements OnInit {
    approvedId=2;
    rejectedId=3;
 
+   response="success";
    awards:any={
     id :0,
     requesterId : 0,
@@ -36,7 +39,7 @@ export class ApproverARComponent implements OnInit {
     isActive : true,
    }
   constructor(private awardService:AwardService,
-    private route:ActivatedRoute,private dialog: MatDialog) { }
+    private route:ActivatedRoute,private dialog: MatDialog,private toastService: HotToastService,private router:Router) { }
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.Id = params['id'];
@@ -62,9 +65,21 @@ export class ApproverARComponent implements OnInit {
     console.log(this.awards);
     this.awards.statusId=this.approvedId;
     this.awardService.approval(this.awards,this.employeeId).subscribe(data=>{
+      console.log(res);
+      this.showToast();
 
     });
   }
+  showToast() {
+    this.toastService.success('Request Accepted!',
+    {
+      autoClose: true,
+      dismissible: true,
+      icon: '❎',
+    })
+    this.router.navigate(['/approver-approval']);
+  }
+
   openDialog(){
     let dialogRef = this.dialog.open(RejectionReasonComponent,{data:{reason:this.Reason}});
     dialogRef.afterClosed().subscribe(value => {
@@ -81,3 +96,7 @@ export class ApproverARComponent implements OnInit {
   }
 
   }
+function res(res: any) {
+  throw new Error('Function not implemented.');
+}
+

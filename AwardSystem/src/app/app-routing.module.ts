@@ -101,7 +101,7 @@ const routes: Routes = [
   {path: 'dialogbox', component:DialogboxComponent},
 
 
-  {path:'', component:OrganisationComponent},
+  {path:'', component:ApproverApprovalComponent},
 
 ];
 
