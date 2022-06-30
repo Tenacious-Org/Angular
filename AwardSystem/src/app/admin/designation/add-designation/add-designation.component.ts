@@ -22,14 +22,20 @@ export class AddDesignationComponent implements OnInit {
 
   }
   departments : Department[]=[];
+  roles:any;
   selectOrg:any=0;
   endpoint="Department";
   endpoint1="Designation";
+  endpoint2="Role";
 
    ngOnInit(): void {
     this.sharedService.getAll(this.endpoint).subscribe(data=>{
       this.departments=data;
       console.log(this.departments);
+    });
+    this.sharedService.getAll(this.endpoint2).subscribe(data=>{
+      this.roles=data;
+      console.log(this.roles);
     });
 
    }

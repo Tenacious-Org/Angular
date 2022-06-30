@@ -66,6 +66,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { NgChartsModule } from 'ng2-charts';
 import { AddDialogComponent } from './add-dialog/add-dialog.component';
 import { SnackBarComponent } from './snack-bar/snack-bar.component';
+import {MatPaginatorModule} from '@angular/material/paginator';
+
 
 
 
@@ -158,6 +160,7 @@ import { SnackBarComponent } from './snack-bar/snack-bar.component';
     ReactiveFormsModule,
     Ng2SearchPipeModule,
     NgChartsModule,
+    MatPaginatorModule
 
    
 

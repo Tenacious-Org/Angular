@@ -32,7 +32,6 @@ export class EditOrganisationComponent implements OnInit {
         console.log(this.data);
       });
     });
-    this.routing.navigate(['/organisation'])
   }
 
   OnSubmit(){

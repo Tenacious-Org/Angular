@@ -16,17 +16,14 @@
                     </select>
                 </div>
             </div>
-            <!-- <div class="row-auto p-1.5 align-items-center">
+            <div class="row-auto p-1.5 align-items-center">
               <label for="dept" class="col-form-label">Role</label>
               <div class="input-group">
                   <select name="roleId" [(ngModel)]="Designation.roleId"   class="custom-select"   >
-                            <option value=1>User</option>
-                            <option  value=2 >Requester</option>
-                            <option  value=3 >Approver</option>
-                            <option  value=4 >Publisher</option>
+                            <option *ngFor="let items of roles"  ngValue={{items.id}} >{{items.roleName}}</option>                         
                   </select>
               </div>
-          </div> -->
+          </div>
             <div class="row-auto p-1.5 align-items-center">
                 <label for="firstName" class="col-form-label">Designation Name</label>
 

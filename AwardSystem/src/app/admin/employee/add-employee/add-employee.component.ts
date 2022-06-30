@@ -26,7 +26,7 @@ export class AddEmployeeComponent implements OnInit {
     email : '',
     dob : Date,
     gender:'',
-    image:null,
+    image:'',
     imageName:'',
     imageString : this.cardImageBase64,
     organisationId : 0,
@@ -85,11 +85,12 @@ export class AddEmployeeComponent implements OnInit {
 
    OnSubmit(){
      console.log(this.Employee)
+     console.log(this.Employee.dob)
     this.Employee.password="Admin@123";
     this.sharedService.add(this.endpoint1,this.Employee).subscribe(data=>{
       console.log(data);
     });
-    this.router.navigate(['/employee']);
+    //this.router.navigate(['/employee']);
 
   }
 

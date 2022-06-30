@@ -9,7 +9,7 @@ export class AwardService {
   readonly apiurl = "https://localhost:7275/api/Award/";
   constructor(private http:HttpClient) { }
 
-  // Get Awards --> pageId 0=Homepage , 1=mywards, 2= requesterList , 3= approverList, 4=HR List .
+  // Get Awards --> pageId 0=Homepage , 1=myawards, 2= requesterList , 3= approverList, 4=HR List .
   getAwardsList(pageId:any,employeeId:any):Observable<any>{
     return this.http.get<any>(this.apiurl+`GetAwardsList?pageId=${pageId}&employeeId=${employeeId}`)
   }

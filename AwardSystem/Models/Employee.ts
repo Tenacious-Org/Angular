@@ -7,7 +7,7 @@ export class Employee
     lastName : string = '';
     fullName : string = '';
     email : string = '';
-    dob :Date =new Date("0001-01-01");
+    dob :Date=new Date();
     gender:string='';
     image : string = '';
     imageName : string = '';

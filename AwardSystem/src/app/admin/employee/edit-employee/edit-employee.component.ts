@@ -103,13 +103,14 @@ export class EditEmployeeComponent implements OnInit {
 
    OnSubmit(){
      console.log(this.data)
+     console.log(this.data.dob)
      if(this.data.imageString==null && this.data.image!=null){
       this.data.imageString=this.data.image;
     }
     this.sharedService.edit(this.endpoint1,this.data).subscribe(data=>{
       console.log(data);
     });
-    this.routing.navigate(['/employee'])
+    //this.routing.navigate(['/employee'])
 
 
   }
