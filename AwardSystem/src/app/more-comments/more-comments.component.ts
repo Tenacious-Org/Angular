@@ -38,6 +38,10 @@ export class MoreCommentsComponent implements OnInit {
     this.Comments.awardId=this.Id;
     this.awardService.addComment(this.Comments).subscribe(data=>{
       console.log(data);
+      
+      setTimeout(()=> { this.ngOnInit()}, 1000)
+      this.Comments='';
+      
     });
   }
 

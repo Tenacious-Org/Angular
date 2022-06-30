@@ -8,6 +8,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { ActivatedRoute, Routes } from '@angular/router';
 
 
 
@@ -65,10 +66,8 @@ import { DialogboxComponent } from './dialogbox/dialogbox.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NgChartsModule } from 'ng2-charts';
 import { AddDialogComponent } from './add-dialog/add-dialog.component';
-import { SnackBarComponent } from './snack-bar/snack-bar.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
-
-
+import { HotToastModule } from '@ngneat/hot-toast';
 
 
 
@@ -139,7 +138,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 
  AppComponent,
    AddDialogComponent,
-   SnackBarComponent,
+   
 
 
 
@@ -160,9 +159,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     ReactiveFormsModule,
     Ng2SearchPipeModule,
     NgChartsModule,
-    MatPaginatorModule
-
-   
+    MatPaginatorModule,
+    HotToastModule.forRoot(),
 
 
 

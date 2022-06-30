@@ -10,8 +10,15 @@
                 <a [routerLink]="['/requester-add-request']" routerLinkActive="router-link-active"
                     class="btn btn-primary"><i class="fa-solid fa-user-plus"></i>Add Request</a>
             </div>
-
             <div class="form-inline btn-group search">
+                <input type="search" class="form-control rounded" [(ngModel)]="val" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                <button type="button" class="btn btn-primary">
+                  <i class="fas fa-search"></i>
+                </button>   
+              </div>
+
+
+            <!-- <div class="form-inline btn-group search">
                 <div class="form-outline">
                     <input type="search" id="form1" class="form-control" [(ngModel)] ="val" />
                     <label class="form-label" for="form1">Search</label>
@@ -19,14 +26,15 @@
                 <button type="button" class="btn btn-primary">
                     <i class="fas fa-search"></i>
                 </button>
-            </div>
+            </div> -->
 
             <div class="w3-right dropdown me-4 mb-4">
-                <select class="form-select" [(ngModel)]="value" aria-label="Default select example" style="width:auto">
+                <select class="form-select" [(ngModel)]="filtervalue"  aria-label="Default select example"  style="width:auto">
                     <option selected>Select</option>
-                    <option value="1">Pending</option>
-                    <option value="2">Approved</option>
-                    <option value="3">Rejected</option>
+                    <option ng-value="1">Pending</option>
+                    <option ng-value="2">Approved</option>
+                    <option ng-value="3">Rejected</option>
+                    <option ng-value="4">Published</option>
                 </select>
             </div>
 
@@ -46,7 +54,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr class="text-center" *ngFor="let item of data |filter:val| filter: value |paginate: { itemsPerPage: 6, currentPage: page }">
+                <tr class="text-center" *ngFor="let item of data |filter:val| filter: filtervalue |paginate: { itemsPerPage: 6, currentPage: page }">
                     <td>{{item.id}}</td>
                     <td>{{item.awardeeName}}</td>
                     <td>{{item.awardName}}</td>

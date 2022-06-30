@@ -8,11 +8,14 @@ import { AwardService } from 'src/app/award.service';
   styleUrls: ['./approver-approval.component.css']
 })
 export class ApproverApprovalComponent implements OnInit {
-  pageId=3;
-  employeeId=5;
+  pageId=2;
+  employeeId=6;
   totalLength: any;
   page: number = 1;
   data:any;
+  filtervalue:any;
+  val:any;
+  
   constructor(private awardService:AwardService ) { }
 
 

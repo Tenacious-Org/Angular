@@ -3,6 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import {ActivatedRoute, Router} from '@angular/router';
 import { Location } from '@angular/common';
 import { SharedService } from 'src/app/shared.service';
+import { HotToastService } from '@ngneat/hot-toast';
+import { Organisation } from 'Models/Organisation';
+
 
 @Component({
   selector: 'app-edit-organisation',
@@ -12,8 +15,7 @@ import { SharedService } from 'src/app/shared.service';
 })
 export class EditOrganisationComponent implements OnInit {
   
-  constructor(private sharedService:SharedService,
-    private route:ActivatedRoute, private location: Location, private router:Router, private routing:Router) { }
+ 
     endpoint="Organisation";
     id:any;
     data:any;
@@ -22,6 +24,7 @@ export class EditOrganisationComponent implements OnInit {
       Id:0,
       OrganisationName:'',
     }
+    constructor(private sharedService:SharedService, private route:ActivatedRoute, private location: Location, private router:Router, private routing:Router,private toastService: HotToastService) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -38,11 +41,17 @@ export class EditOrganisationComponent implements OnInit {
     console.log(this.data);
     this.sharedService.edit(this.endpoint,this.data).subscribe(data=>{
       console.log(data);
+      this.showToast();
     });
-    this.router.navigate(['/organisation']);
-
-    
-  }      
-
-
+} 
+showToast() {
+  this.toastService.success('Successfully updated!',
+  {
+    autoClose: true,
+    dismissible: true,
+    icon: '❎',
+  })
+  this.routing.navigate(['/organisation']);
+}     
 }
+

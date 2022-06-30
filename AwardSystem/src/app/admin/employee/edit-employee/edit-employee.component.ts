@@ -5,6 +5,8 @@ import { Designation } from 'Models/Designation';
 import { Employee } from 'Models/Employee';
 import { Organisation } from 'Models/Organisation';
 import { SharedService } from 'src/app/shared.service';
+import { HotToastService } from '@ngneat/hot-toast';
+
 
 
 @Component({
@@ -35,7 +37,7 @@ export class EditEmployeeComponent implements OnInit {
   endpoint1 = "Employee";
   endpoint2 = "Department";
   hrList: any;
-  constructor(private sharedService:SharedService, private router:ActivatedRoute, private routing:Router) { }
+  constructor(private sharedService:SharedService, private router:ActivatedRoute, private routing:Router,private toastService: HotToastService) { }
 
   ngOnInit(): void {
     this.router.params.subscribe(params => {
@@ -106,14 +108,26 @@ export class EditEmployeeComponent implements OnInit {
      console.log(this.data.dob)
      if(this.data.imageString==null && this.data.image!=null){
       this.data.imageString=this.data.image;
+      
     }
     this.sharedService.edit(this.endpoint1,this.data).subscribe(data=>{
       console.log(data);
+      this.showToast();
     });
-    //this.routing.navigate(['/employee'])
+}
+showToast() {
+  this.toastService.success('Successfully updated!',
+  {
+    autoClose: true,
+    dismissible: true,
+    icon: '❎',
+  })
+  this.routing.navigate(['/employee']);
+
+}
 
 
-  }
+
   ImageConversion(fileInput:any){
     var x:any=document.getElementById("image");
     var file=x.files[0];

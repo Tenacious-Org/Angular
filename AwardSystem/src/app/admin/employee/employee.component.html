@@ -56,9 +56,9 @@
 
                     <td>
                         <a [routerLink]="['../edit-employee',item.id]" class="btn btn-primary"><i
-                                class="fa-solid fa-pen-to-square" title="Edit"></i></a>
+                                class="fa-solid fa-pen-to-square" title="Edit"></i></a><div class="space"></div>
                         <a routerLink={{item.id}} class="btn btn-success" target="_self"><i
-                                class="fa-solid fa-circle-info" title="Details"></i></a>
+                                class="fa-solid fa-circle-info" title="Details"></i></a><div class="space"></div>
 
                         <a (click)="Disable(item.id)" class="btn btn-danger" ><i class="fa-solid fa-user-slash"
                                  title="Disable"></i></a>

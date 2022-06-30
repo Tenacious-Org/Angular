@@ -4,6 +4,7 @@ import { Department } from 'Models/Department';
 import { Organisation } from 'Models/Organisation';
 import { SharedService } from 'src/app/shared.service';
 import { Router } from '@angular/router';
+import { HotToastService } from '@ngneat/hot-toast';
 
 @Component({
   selector: 'app-edit-designation',
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./edit-designation.component.css']
 })
 export class EditDesignationComponent implements OnInit {
-  constructor(private sharedService:SharedService, private router:ActivatedRoute, private routing:Router) { }
+  constructor(private sharedService:SharedService, private router:ActivatedRoute, private routing:Router,private toastService: HotToastService) { }
   Id:any=0;
   data:any;
   departments : Department[]=[];
@@ -37,11 +38,19 @@ export class EditDesignationComponent implements OnInit {
   OnSubmit(){
     this.sharedService.edit(this.endpoint1,this.data).subscribe(data=>{
       console.log(data);
+      this.showToast();
     });
-    this.routing.navigate(['/designation'])
+}
+showToast() {
+  this.toastService.success('Successfully updated!',
+  {
+    autoClose: true,
+    dismissible: true,
+    icon: '❎',
+  })
+  this.routing.navigate(['/designation']);
 
-    
-  }
+}
 
 
 }

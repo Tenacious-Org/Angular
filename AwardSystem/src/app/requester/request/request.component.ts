@@ -13,7 +13,7 @@ export class RequestComponent implements OnInit {
   totalLength: any;
   page: number = 1;
   data:any;
-  value:any;
+  filtervalue:any;
   val:any;
   constructor(private awardService:AwardService ) { }
   
