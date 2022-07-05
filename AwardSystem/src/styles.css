@@ -11246,7 +11246,16 @@ button {
     max-width: 800px;
     margin-left: 2rem;
     margin-top: 1rem;
+    border-color: #866ec7;
 }
+.homecard {
+    border: 1px solid black;
+    max-width: 800px;
+    margin-left: 2rem;
+    margin-top: 1rem;
+    border-color: #866ec7;
+}
+
 
 .profile {
     width: 150px;
@@ -11492,9 +11501,7 @@ button {
 
 
  
-.card {
-    border-color: #866ec7;
-}
+
 @media (max-width: 1920px) {
     .card{
        border-radius: 15px;
@@ -11528,6 +11535,12 @@ button {
   overflow-x: hidden;
  
 }
+@media (max-width: 700px) {
+    .content{
+     padding-top: 60px;
+     overflow-x: hidden;
+    }
+}
 .greetingcomment {
   margin: 20px 20px 20px 20px;
   
@@ -11553,6 +11566,9 @@ button {
   color: #866ec7;
 
 }
+
+
+
 /* home end*/
 
 html, body { height: 100%; }
