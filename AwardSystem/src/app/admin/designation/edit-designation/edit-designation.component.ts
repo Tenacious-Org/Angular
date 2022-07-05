@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Department } from 'Models/Department';
-import { Organisation } from 'Models/Organisation';
 import { SharedService } from 'src/app/shared.service';
 import { Router } from '@angular/router';
 import { HotToastService } from '@ngneat/hot-toast';
