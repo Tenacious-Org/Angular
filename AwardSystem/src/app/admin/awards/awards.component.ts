@@ -37,6 +37,7 @@ export class AwardsComponent implements OnInit {
     this.sharedService.disable(this.endpoint,Id).subscribe((result) => {
       console.log(result);
       this.openDialog(result);
+      setTimeout(()=> { this.ngOnInit()}, 1000)
     });
   });
   }

@@ -51,6 +51,8 @@ const routes: Routes = [
   {path:'layout' , component:LayoutComponent},
   {path:'login', component:LoginComponent},
   {path:'sidebar', component:SidebarComponent},
+  {path:'profile/:id' , component:ProfileComponent},
+
 
   {path:'employee', component:EmployeeComponent},
   {path:'add-employee', component:AddEmployeeComponent},
@@ -86,7 +88,7 @@ const routes: Routes = [
   {path:'cardpost' , component:CardPostComponent},
   {path:'homecard' , component:HomeCardComponent},
 
-  {path:'profile/:id' , component:ProfileComponent},
+ 
 
   {path:'requester-request' , component:RequestComponent},
   {path:'requester-add-request' , component:RequesterAddRequestComponent},

@@ -2,7 +2,7 @@
 <app-sidebar></app-sidebar>
 <div class="container d-flex justify-content-center ">
 
-    <div class="card " style="border-radius: 15px; width: 500px; margin-top: -10px;">
+    <div class="card " >
         <div class="card-body">
             <div class=" rounded-circle text-center" *ngIf="data.image==null ; else elseimage">
                     <img *ngIf="data.gender=='Male';else elsegender " src='assets/images/male.jpg' style=width:10rem; class="rounded-circle img-fluid" style="width: 100px;" />  
@@ -17,7 +17,7 @@
             <div class="row text-center">
                 <div class="col-sm-6">
                     <h3 class="mb-0">ACE ID</h3>
-                    <h4 class="text-muted mb-0">{{data.aceid}}</h4>
+                    <h4 class="text-muted mb-0">{{data.aceId}}</h4>
                 </div>
 
                 <div class="col-sm-6">
