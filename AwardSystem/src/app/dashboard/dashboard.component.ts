@@ -33,7 +33,7 @@ export class DashboardComponent implements OnInit {
       statusId: 0,
       isActive: true,
     }
-  
+    
   salesData: ChartData<'bar'> = {
     labels: ['Development', 'Testing', 'Facility', 'Security', 'Management'],
     datasets: [
