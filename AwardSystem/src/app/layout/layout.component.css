@@ -88,5 +88,9 @@
   #nav-logo{
     margin-top:20px;
     margin-left: 20px;
+    font-size: x-large;
   }
-  
+  #logout{
+    font-size:x-large;
+    margin-right:20px;
+  }

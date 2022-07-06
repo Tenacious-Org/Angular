@@ -64,8 +64,50 @@
 
 
 <div class="container d-flex">
+  <div>
+    <div class="row g-4 align-items-center ml-3 mb-2">
+      <div class="col-auto p-1.5" style="display:inline;">
+        <label for="org" class="col-form-label">Organisation</label>
+        <div class="input-group">
+          <select name="organisationId" name="SelectOrg" class="custom-select">
+            <option selected>Choose...</option>
+            <!-- [(ngModel)]="SelectOrg" (change)="onSelectDep()" -->
+            <!-- <option *ngFor="let items of organisations" ngValue={{items.id}}>{{items.organisationName}}</option> -->
+          </select>
+        </div>
+      </div>
+      <div style="display:inline;float:left;width:auto">
+        <label for="exampleFormControlSelect1">Award</label>
+        <div class="input-group">
+          <select name="awardTypeId" required class="custom-select">
+            <!-- [(ngModel)]="Awards.awardTypeId" #awardName="ngModel" -->
 
-    <!-- <div class="form-inline btn-group search ">
+            <!-- <div *ngIf="awardName.touched && awardName.errors?.['required']" class="alert alert-danger">
+            Award Name is Required!
+          </div> -->
+            <option selected>Choose...</option>
+            <option *ngFor="let items of awardData" value={{items.id}}>{{items.awardName}}</option>
+          </select>
+        </div>
+      </div>
+      <div style="float:left;width:auto">
+        <label for="fromdate">From Date:</label>
+        <div class="input-group col-auto p-1.5">
+          <input class="custom-select " type="date" id="fromdate" name="fromdate">
+        </div>
+      </div>
+      <div style="float:left;width:auto">
+        <label for="todate">To Date:</label>
+        <div class="input-group col-auto p-1.5">
+          <input class="custom-select " type="date" id="fromdate" name="todate">
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+  <!-- <div class="form-inline btn-group search ">
       <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
         aria-describedby="search-addon" />
       <button type="button" class="btn btn-primary">
@@ -73,9 +115,9 @@
       </button>
     </div> -->
 
- 
-   
-     <!-- 
+
+
+  <!-- 
     <div class="w3-right dropdown me-4 mb-4 ">
       <select class="form-select" aria-label="Default select example" style="width:auto">
         <option selected>Select</option>
@@ -123,19 +165,19 @@
       <h4>Congrats </h4>
     </div>
   </div>
-    <div class="card">
-      <table>
-        <tr>
-          <img src="./assets/images/male.jpg" alt="Avatar" style="width:50%; height:50%">
-          <img src="./assets/images/award.png" alt="Avatar" style="width:50%;height:50%">
+  <div class="card">
+    <table>
+      <tr>
+        <img src="./assets/images/male.jpg" alt="Avatar" style="width:50%; height:50%">
+        <img src="./assets/images/award.png" alt="Avatar" style="width:50%;height:50%">
 
 
-        </tr>
-      </table>
+      </tr>
+    </table>
 
-      <div class="container">
-        <h4><b>John Doe</b></h4>
-        <h4>Congrats </h4>
-      </div>
+    <div class="container">
+      <h4><b>John Doe</b></h4>
+      <h4>Congrats </h4>
     </div>
   </div>
+</div>
