@@ -60,54 +60,8 @@
 	</div>
   </div>       -->
 
-<app-layout></app-layout>
 
-
-<div class="container d-flex">
-  <div>
-    <div class="row g-4 align-items-center ml-3 mb-2">
-      <div class="col-auto p-1.5" style="display:inline;">
-        <label for="org" class="col-form-label">Organisation</label>
-        <div class="input-group">
-          <select name="organisationId" name="SelectOrg" class="custom-select">
-            <option selected>Choose...</option>
-            <!-- [(ngModel)]="SelectOrg" (change)="onSelectDep()" -->
-            <!-- <option *ngFor="let items of organisations" ngValue={{items.id}}>{{items.organisationName}}</option> -->
-          </select>
-        </div>
-      </div>
-      <div style="display:inline;float:left;width:auto">
-        <label for="exampleFormControlSelect1">Award</label>
-        <div class="input-group">
-          <select name="awardTypeId" required class="custom-select">
-            <!-- [(ngModel)]="Awards.awardTypeId" #awardName="ngModel" -->
-
-            <!-- <div *ngIf="awardName.touched && awardName.errors?.['required']" class="alert alert-danger">
-            Award Name is Required!
-          </div> -->
-            <option selected>Choose...</option>
-            <option *ngFor="let items of awardData" value={{items.id}}>{{items.awardName}}</option>
-          </select>
-        </div>
-      </div>
-      <div style="float:left;width:auto">
-        <label for="fromdate">From Date:</label>
-        <div class="input-group col-auto p-1.5">
-          <input class="custom-select " type="date" id="fromdate" name="fromdate">
-        </div>
-      </div>
-      <div style="float:left;width:auto">
-        <label for="todate">To Date:</label>
-        <div class="input-group col-auto p-1.5">
-          <input class="custom-select " type="date" id="fromdate" name="todate">
-        </div>
-      </div>
-
-
-    </div>
-  </div>
-
-  <!-- <div class="form-inline btn-group search ">
+<!-- <div class="form-inline btn-group search ">
       <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
         aria-describedby="search-addon" />
       <button type="button" class="btn btn-primary">
@@ -117,7 +71,7 @@
 
 
 
-  <!-- 
+<!-- 
     <div class="w3-right dropdown me-4 mb-4 ">
       <select class="form-select" aria-label="Default select example" style="width:auto">
         <option selected>Select</option>
@@ -138,7 +92,7 @@
     </div> -->
 
 
-  <!-- <div class="card col">
+<!-- <div class="card col">
       <div class="card-body">
 
       </div>
@@ -150,7 +104,10 @@
       </div>
     </div>
   </div> -->
-  <div class="card">
+<app-layout></app-layout>
+
+
+<!-- <div class="card">
     <table>
       <tr>
         <img src="./assets/images/male.jpg" alt="Avatar" style="width:50%; height:50%">
@@ -178,6 +135,122 @@
     <div class="container">
       <h4><b>John Doe</b></h4>
       <h4>Congrats </h4>
+    </div>
+  </div> -->
+<link href="https://fonts.googleapis.com/css?family=Schoolbell&v1" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Qwitcher+Grypen:wght@700&family=Splash&display=swap" rel="stylesheet"> 
+
+
+
+<div style="margin-left:30px;padding-top:90px;justify-content: space-between;">
+  <div class="row g-4 align-items-center">
+    <div class="col-auto p-1.5" style="display:inline;">
+      <label for="org" class="col-form-label">Organisation</label>
+      <div class="input-group">
+        <select name="organisationId" name="SelectOrg" class="custom-select">
+          <option selected>Choose...</option>
+          <option></option>
+        </select>
+      </div>
+    </div>
+    <div style="display:inline;float:left;width:auto">
+      <label class="col-form-label" for="exampleFormControlSelect1">Award</label>
+      <div class="input-group">
+        <select name="awardTypeId" required class="custom-select">
+          <div class="alert alert-danger">
+            Award Name is Required!
+          </div>
+          <option selected>Choose...</option>
+          <option *ngFor="let items of awardData" value={{items.id}}>{{items.awardName}}</option>
+        </select>
+      </div>
+    </div>
+    <div style="float:left;width:auto">
+      <label class="col-form-label" for="fromdate">From Date:</label>
+      <div class="input-group col-auto p-1.5">
+        <input class="custom-select " type="date" id="fromdate" name="fromdate">
+      </div>
+    </div>
+    <div style="float:left;width:auto">
+      <label class="col-form-label" for="todate">To Date:</label>
+      <div class="input-group col-auto p-1.5">
+        <input class="custom-select " type="date" id="fromdate" name="todate">
+      </div>
+    </div>
+    <div style="float:left; width:auto;margin-top:3.5rem">
+      <button style="padding:0.5rem;" type="submit">Apply</button>
+    </div>
+  </div>
+</div>
+
+<div class=" container row" id="cardflip">
+
+
+  <div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <img class="card-img-top" src="./assets/images/cardback.png" alt="Card image cap">
+      </div>
+      <div class="card-img-overlay">
+        <svg viewBox="0 0 500 500">
+          <path id="curve" fill="transparent" d="M73.2,148.6c4-6.1,65.5-96.8,178.6-95.6c111.3,1.2,170.8,90.3,175.1,97" />
+          <text width="500">
+            <textPath id="curvetext" xlink:href="#curve">
+              <tspan>Congratulations </tspan>
+              <tspan x="0" dy="1.2em">Dhanush</tspan>
+  
+            </textPath>
+          </text>
+        </svg>
+      <img  class="card-img-bottom" src="./assets/images/frontcard.png" alt="Avatar" style="width:30%">
+      </div>
+      <div class="flip-card-back">
+        <img class="card-img-top" src="./assets/images/firstvictor.png" alt="Card image cap">
+      </div>
+    </div>
+  </div>
+
+  <!-- <table>
+      <tr>
+        <td><img id="image" src="./assets/images/male.png" alt="Avatar">
+          <p id="text"><b>John Doe</b></p>
+        </td>
+        <td> <img id="image" src="./assets/images/trophy.png" alt="Avatar" style="float:right">
+          <p id="text"><b>Rolestar</b></p>
+
+        </td>
+
+
+      </tr>
+    </table> -->
+  <!-- <div class="card " style="width: 500px;">
+
+    <img class="card-img-top" src="./assets/images/cardback.png" alt="Avatar" style="width:100%">
+
+  </div> -->
+ 
+  <div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <img class="card-img-top" src="./assets/images/cardback.png" alt="Card image cap">
+      </div>
+      <div class="card-img-overlay">
+        <svg viewBox="0 0 500 500">
+          <path id="curve" fill="transparent" d="M73.2,148.6c4-6.1,65.5-96.8,178.6-95.6c111.3,1.2,170.8,90.3,175.1,97" />
+          <text width="500">
+            <textPath id="curvetext" xlink:href="#curve">
+              <tspan>Congratulations </tspan>
+              <tspan x="0" dy="1.2em">Dhanush</tspan>
+  
+            </textPath>
+          </text>
+        </svg>
+      <img  class="card-img-bottom" src="./assets/images/frontcard.png" alt="Avatar" style="width:30%">
+      </div>
+      <div class="flip-card-back">
+        <img class="card-img-top" src="./assets/images/trophy.png" alt="Card image cap">
+      </div>
     </div>
   </div>
 </div>

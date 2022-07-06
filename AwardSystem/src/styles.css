@@ -5213,8 +5213,9 @@ input[type="button"].btn-block {
 
 .card-img-top {
     width: 100%;
-    border-top-left-radius: calc(0.25rem - 1px);
-    border-top-right-radius: calc(0.25rem - 1px);
+     border-top-left-radius: calc(0.25rem - 1px);  
+     border-top-right-radius: calc(0.25rem - 1px); 
+    
 }
 
 .card-img-bottom {
@@ -5298,10 +5299,10 @@ input[type="button"].btn-block {
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
     }
-    .card-group>.card:not(:last-child) .card-img-top,
-    .card-group>.card:not(:last-child) .card-header {
-        border-top-right-radius: 0;
-    }
+        .card-group>.card:not(:last-child) .card-img-top,
+        .card-group>.card:not(:last-child) .card-header {
+            border-top-right-radius: 0;
+        }
     .card-group>.card:not(:last-child) .card-img-bottom,
     .card-group>.card:not(:last-child) .card-footer {
         border-bottom-right-radius: 0;
@@ -11246,7 +11247,7 @@ button {
     max-width: 800px;
     margin-left: 2rem;
     margin-top: 1rem;
-    border-color: #866ec7;
+    border-color: black;
 }
 .homecard {
     border: 1px solid black;
@@ -11504,9 +11505,16 @@ button {
 
 @media (max-width: 1920px) {
     .card{
-       border-radius: 15px;
+      
        max-width:500px;
-       margin-top:100px
+       margin-top:100px;
+    }
+}
+@media (max-width: 1920px) {
+    .flip-card{
+      
+       max-width:500px;
+       margin-top:100px;
     }
 }
 
