@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AwardService } from 'src/app/award.service';
 import { Awards } from 'Models/Awards';
+import { AuthenticationService } from 'src/app/authentication.service';
 
 @Component({
   selector: 'app-hr-publish',
@@ -10,7 +11,7 @@ import { Awards } from 'Models/Awards';
 export class HrPublishComponent implements OnInit {
 
   pageId=4;
-  employeeId=4;
+  employeeId=AuthenticationService.GetData("User");
   totalLength: any;
   page: number = 1;
   data:any;

@@ -46,7 +46,7 @@ export class EditEmployeeComponent implements OnInit {
           this.data = result;
           console.log(this.Id);
           console.log(this.data);
-          if(this.data.image!=""){
+          if(this.data.image!=""  ){
             this.imgsrc='data:image/jpg;base64,'+ this.data.image;
           }
           this.SelectOrg=this.data.organisationId;
@@ -105,8 +105,7 @@ export class EditEmployeeComponent implements OnInit {
 
    OnSubmit(){
      console.log(this.data)
-     console.log(this.data.dob)
-     if(this.data.imageString==null && this.data.image!=null){
+     if(this.data.imageString==null && this.data.image!=null ){
       this.data.imageString=this.data.image;
       
     }

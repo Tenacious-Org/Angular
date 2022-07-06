@@ -11,6 +11,7 @@ import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 import { HotToastService } from '@ngneat/hot-toast';
 import { Router } from '@angular/router';
+import { AuthenticationService } from 'src/app/authentication.service';
 
 @Component({
   selector: 'app-requester-add-request',
@@ -21,7 +22,7 @@ export class RequesterAddRequestComponent implements OnInit {
 
   endpoint="Employee";
   endpoints="AwardType";
-  employeeId=6;
+  employeeId=AuthenticationService.GetData("User");
   selectedAwardee:any;
   selectedAward:any;
   awardeeData:any;

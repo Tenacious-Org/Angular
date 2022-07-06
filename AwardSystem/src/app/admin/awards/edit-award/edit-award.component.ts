@@ -46,7 +46,7 @@ export class EditAwardComponent implements OnInit {
 
   OnSubmit(){
     console.log(this.data);
-    if(this.data.imageString==null && this.data.image!=null){
+    if(this.data.imageString==null && this.data.image!=''){
       this.data.imageString=this.data.image;
     }
     this.sharedService.edit(this.endpoint,this.data).subscribe(data=>{

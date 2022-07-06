@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Awards } from 'Models/Awards';
+import { AuthenticationService } from 'src/app/authentication.service';
 import { AwardService } from 'src/app/award.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { AwardService } from 'src/app/award.service';
 })
 export class ApproverApprovalComponent implements OnInit {
   pageId=2;
-  employeeId=6;
+  employeeId=AuthenticationService.GetData("User");
   totalLength: any;
   page: number = 1;
   data:any;

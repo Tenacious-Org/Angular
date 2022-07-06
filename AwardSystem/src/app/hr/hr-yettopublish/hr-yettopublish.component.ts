@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { AuthenticationService } from 'src/app/authentication.service';
 import { AwardService } from 'src/app/award.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { AwardService } from 'src/app/award.service';
   styleUrls: ['./hr-yettopublish.component.css']
 })
 export class HrYettopublishComponent implements OnInit {
-  employeeId=4;
+  employeeId=AuthenticationService.GetData("User");
   data: any;
    Id:any;
    couponCode:any;

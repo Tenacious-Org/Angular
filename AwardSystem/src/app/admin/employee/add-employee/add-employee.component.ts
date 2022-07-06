@@ -43,8 +43,6 @@ export class AddEmployeeComponent implements OnInit {
     addedOn : Date.now
   }
 
-
-
   organisations: Organisation[] = [];
   departments: Department[] = [];
   designations: Designation[] = [];
@@ -52,7 +50,6 @@ export class AddEmployeeComponent implements OnInit {
   hrList:any;
   SelectOrg: any = 0;
   SelectDep: any = 0;
-
   endpoint = "Organisation";
   endpoint1 = "Employee";
 
@@ -90,8 +87,7 @@ export class AddEmployeeComponent implements OnInit {
 
    OnSubmit(){
      console.log(this.Employee)
-     console.log(this.Employee.dob)
-    this.Employee.password="Admin@123";
+         this.Employee.password="Admin@123";
     this.sharedService.add(this.endpoint1,this.Employee).subscribe(data=>{
       console.log(data);
       this.showToast();

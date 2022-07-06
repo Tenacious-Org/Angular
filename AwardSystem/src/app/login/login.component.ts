@@ -63,7 +63,7 @@ showErrorMessage=false;
         this.IsVerified=data.IsVerified
         AuthenticationService.SetDateWithExpiry("token",data.token,data.expiryInMinutes)
         AuthenticationService.SetDateWithExpiry("Role",data.isRole,data.expiryInMinutes)
-        AuthenticationService.SetDateWithExpiry("User",data.user,data.expiryInMinutes)
+        AuthenticationService.SetDateWithExpiry("User",data.userId,data.expiryInMinutes)
         AuthenticationService.SetDateWithExpiry("Admin",data.isAdmin,data.expiryInMinutes)
         AuthenticationService.SetDateWithExpiry("Requester",data.isRequester,data.expiryInMinutes)
         AuthenticationService.SetDateWithExpiry("Approver",data.isApprover,data.expiryInMinutes)

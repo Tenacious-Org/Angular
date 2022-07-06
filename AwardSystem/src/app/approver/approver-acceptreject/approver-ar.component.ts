@@ -6,6 +6,7 @@ import { AwardService } from 'src/app/award.service';
 import { Awards } from 'Models/Awards';
 import { Router } from '@angular/router';
 import { HotToastService } from '@ngneat/hot-toast';
+import { AuthenticationService } from 'src/app/authentication.service';
 
 @Component({
   selector: 'app-approver-ar',
@@ -16,7 +17,7 @@ export class ApproverARComponent implements OnInit {
    data: any;
    Id:any;
    Reason :any;
-   employeeId=5;
+   employeeId=AuthenticationService.GetData("User");
    approvedId=2;
    rejectedId=3;
 

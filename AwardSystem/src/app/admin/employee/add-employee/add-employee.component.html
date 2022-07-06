@@ -6,20 +6,7 @@
 
         <span class="border-box-tip"><b>Add Employee</b></span>
 
-        <!-- <div class="row g-3 align-items-center justify-content-center mb-3">
-
-            <div class="col-auto p-1.5">
-                <label for="firstName" class="col-form-label">First Name</label>
-                <input type="text" name="firstName" [(ngModel)]="Employee.firstName" id="firstName" class="form-control" aria-describedby="firstNameHelpInline">
-            </div>
-
-            <div class="col-auto p-1.5">
-                <label for="lastName" class="col-form-label">Last Name</label>
-                <input type="text" name="lastName" [(ngModel)]="Employee.lastName" id="lastName" class="form-control" aria-describedby="lastNameHelpInline">
-            </div>
-
-        </div> -->
-
+        
 
         <div class="row g-3 align-items-center justify-content-center mb-3">
             <div class="col-auto p-1.5">
@@ -48,11 +35,13 @@
 
         <div class="row g-3 align-items-center justify-content-center mb-3">
 
-            <div class="col-auto p-1.5">
+         <div class="col-auto p-1.5">
                 <label for="datetime" class="col-form-label">Date of Birth</label>
-                <input type="date" name="dob" [ngModel]="Employee.dob |date:'yyyy-MM-dd'" id="dob" class="form-control" aria-describedby="dobHelpInline">
+                <input type="date" name="dob" [ngModel]="Employee.dob " id="dob" class="form-control" aria-describedby="dobHelpInline">
                 
-            </div>
+            </div> 
+
+
             <div class="col-auto p-1.5">
                 <label for="dept" class="col-form-label">Gender</label>
                 <div class="input-group">

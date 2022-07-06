@@ -40,13 +40,9 @@ import { AuthenticationService } from '../authentication.service';
   ]
 })
 export class SidebarComponent implements OnInit {
-  admin=1;
-  user=2;
-  requester=3;
-  approver=4;
-  publisher=5;
+
   role:any;
-  isRole:any;
+ 
   constructor() { }
 
   ngOnInit(): void {
