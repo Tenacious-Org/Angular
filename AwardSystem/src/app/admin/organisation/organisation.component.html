@@ -42,8 +42,8 @@
 
                     <tbody>
 
-                        <tr class="text-center" *ngFor="let item of data | filter:val | paginate: { itemsPerPage: 6, currentPage: page }; let i= index">
-                            <td>{{i + 1}}</td>
+                        <tr class="text-center" *ngFor="let item of data | filter:val | paginate: { itemsPerPage: 5, currentPage: page }; let i= index">
+                            <td>{{5*(page-1)+i + 1}}</td>
                             <td>{{item.organisationName}}</td>
                             <td> <button [routerLink]="['../edit-organisation/'+item.id]" class="btn btn-primary" target="_self"><i class="fa-solid fa-pen-to-square" title="Edit"></i></button><div class="space"></div>
                                  <button (click)="Disable(item.id)"  class="btn btn-danger"><i class="fa-solid fa-user-slash"  title="Disable"></i></button></td>
