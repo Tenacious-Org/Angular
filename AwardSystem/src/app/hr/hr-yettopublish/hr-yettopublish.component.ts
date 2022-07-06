@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AuthenticationService } from 'src/app/authentication.service';
 import { AwardService } from 'src/app/award.service';
+import { HotToastService } from '@ngneat/hot-toast';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-hr-yettopublish',
@@ -34,7 +36,7 @@ export class HrYettopublishComponent implements OnInit {
 
 
   constructor(private awardService:AwardService,
-    private route:ActivatedRoute,) { }
+    private route:ActivatedRoute,private toastService: HotToastService,private router:Router) { }
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.Id = params['id'];
@@ -60,7 +62,17 @@ export class HrYettopublishComponent implements OnInit {
     this.awards.statusId=this.publishedId;
     this.awardService.approval(this.awards,this.employeeId).subscribe(data=>{
       console.log(data);
+      this.showToast();
     });
   }
+  showToast() {
+    this.toastService.success('Published Successfully!',
+    {
+      autoClose: true,
+      dismissible: true,
+    })
+    this.router.navigate(['/hr-publish']);
+  }
+
 
 }

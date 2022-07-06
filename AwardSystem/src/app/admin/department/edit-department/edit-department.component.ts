@@ -47,7 +47,6 @@ selectedOrganisation:any;
       {
         autoClose: true,
         dismissible: true,
-        icon: '❎',
       })
       this.routing.navigate(['/department']);
     

@@ -45,7 +45,6 @@ showToast() {
   {
     autoClose: true,
     dismissible: true,
-    icon: '❎',
   })
   this.routing.navigate(['/designation']);
 

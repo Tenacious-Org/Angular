@@ -41,7 +41,6 @@ endpoint="Organisation";
     {
       autoClose: true,
       dismissible: true,
-      icon: '❎',
     })
     this.router.navigate(['/organisation']);
 

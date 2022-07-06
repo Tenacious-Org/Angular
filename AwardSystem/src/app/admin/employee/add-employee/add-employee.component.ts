@@ -99,7 +99,6 @@ export class AddEmployeeComponent implements OnInit {
     {
       autoClose: true,
       dismissible: true,
-      icon: '❎',
     })
     this.router.navigate(['/employee']);
 
