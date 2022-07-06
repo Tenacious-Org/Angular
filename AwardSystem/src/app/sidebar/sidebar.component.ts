@@ -5,7 +5,9 @@ import { trigger,
   transition,
   query,
   animateChild } from '@angular/animations';
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { AuthenticationService } from '../authentication.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -44,10 +46,12 @@ export class SidebarComponent implements OnInit {
   approver=4;
   publisher=5;
   role:any;
+  isRole:any;
   constructor() { }
 
   ngOnInit(): void {
-    this.role=this.publisher;
+    this.role=AuthenticationService.GetData("Role");
+    
   }
   isShowDivIf = false;
   

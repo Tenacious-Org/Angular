@@ -11,7 +11,7 @@
         <a href="#" class="img logo rounded-circle mb-6"><img src="./assets/images/male.png" alt="Admin Logo" style="margin-left:0.8rem;width:8rem;height:8rem"></a>
         <!-- <h4 class="text-light mt-4 text-center">Admin</h4> -->
         <!-- Admin Sidebar -->
-        <div *ngIf="role==1; else userSidebar">
+        <div *ngIf="role==5; else userSidebar">
         <ul class="list-unstyled components mt-4 mb-5 sidebar-items">
             <li>
                 <a [routerLink]="['/dashboard']">  <i class="fa-solid fa-house ml-4 mr-4"></i>Home</a>
@@ -46,16 +46,16 @@
                 <li>
                     <a [routerLink]="['/Profile']"><i  class="fa-solid fa-user ml-4 mr-4"></i>Profile</a>
                 </li>
-                <li *ngIf="role==3 || role==4 || role==5">
+                <li *ngIf="role==2 || role==3 || role==4">
                     <a [routerLink]="['/requester-request']"><i  class="fa-solid fa-building ml-4 mr-4"></i>Request</a>
                 </li>
-                <li *ngIf="role==4 || role==5">
+                <li *ngIf="role==3 || role==4">
                     <a [routerLink]="['/approver-approval']" ><i  class="fa-solid fa-layer-group ml-4 mr-4"></i>Approval</a>
                 </li>
-                <li *ngIf="role==5">
+                <li *ngIf="role==4">
                     <a [routerLink]="['/hr-publish']"><i  class="fa-solid fa-sitemap ml-4 mr-4"></i>Publish</a>
                 </li>
-                <li *ngIf=" role==5">
+                <li *ngIf=" role==4">
                     <a [routerLink]="['/dashboard']"><i  class="fa-solid fa-sitemap ml-4 mr-4"></i>Dashboard</a>
                 </li>
             </ul>

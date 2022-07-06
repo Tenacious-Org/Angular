@@ -56,20 +56,23 @@ showErrorMessage=false;
       .subscribe({
         next:(data) =>
       {
-
         this.IsAdmin=data.isAdmin,
         this.IsRequester=data.isRequester,
         this.IsApprover=data.isApprover,
         this.IsPublisher=data.isPublisher,
         this.IsVerified=data.IsVerified
         AuthenticationService.SetDateWithExpiry("token",data.token,data.expiryInMinutes)
+        AuthenticationService.SetDateWithExpiry("Role",data.isRole,data.expiryInMinutes)
+        AuthenticationService.SetDateWithExpiry("User",data.user,data.expiryInMinutes)
         AuthenticationService.SetDateWithExpiry("Admin",data.isAdmin,data.expiryInMinutes)
         AuthenticationService.SetDateWithExpiry("Requester",data.isRequester,data.expiryInMinutes)
-        AuthenticationService.SetDateWithExpiry("Approver",data.isRequester,data.expiryInMinutes)
-        AuthenticationService.SetDateWithExpiry("Publisher",data.isRequester,data.expiryInMinutes)
+        AuthenticationService.SetDateWithExpiry("Approver",data.isApprover,data.expiryInMinutes)
+        AuthenticationService.SetDateWithExpiry("Publisher",data.isPublisher,data.expiryInMinutes)
 
 
         console.log(AuthenticationService.GetData("token"))
+        console.log(AuthenticationService.GetData("User"))
+        console.log(AuthenticationService.GetData("Role"))
         console.log(AuthenticationService.GetData("Admin"))
         console.log(AuthenticationService.GetData("Requester"))
         console.log(AuthenticationService.GetData("Approver"))
@@ -80,10 +83,10 @@ showErrorMessage=false;
 
           this.route.navigateByUrl("/organisation");  
         }else if(this.IsPublisher){
-          this.route.navigateByUrl("/publish");
+          this.route.navigateByUrl("/requester-request");
         }
         else {
-          this.route.navigateByUrl("/homepage");
+          this.route.navigateByUrl("/requester-request");
 
         }
         console.log(data)

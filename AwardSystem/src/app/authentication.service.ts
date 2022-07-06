@@ -31,6 +31,7 @@ export class AuthenticationService {
     }
     localStorage.setItem(key, JSON.stringify(item))
   }
+
  
   static IsAdmin():boolean{
  
