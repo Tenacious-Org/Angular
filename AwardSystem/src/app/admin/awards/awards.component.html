@@ -26,8 +26,8 @@
                 </tr>
             </thead>
             <tbody>
-                <tr class="text-center" *ngFor="let item of data | filter:val | paginate: { itemsPerPage: 6, currentPage: page };let i = index">
-                    <td>{{i + 1}}</td>
+                <tr class="text-center" *ngFor="let item of data | filter:val | paginate: { itemsPerPage: 5, currentPage: page };let i = index">
+                    <td>{{5*(page-1)+i + 1}}</td>
                     <td>{{item.awardName}}</td>
                     <td>{{item.awardDescription}}</td>
                     <td> <button [routerLink]="['../edit-award',item.id]"  class="btn btn-primary" ><i class="fa-solid fa-pen-to-square" title="Edit"></i></button><div class="space"></div>
