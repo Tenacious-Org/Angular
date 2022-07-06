@@ -1,4 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+// import { Component, OnInit } from '@angular/core';
+
+// @Component({
+//   selector: 'app-login',
+//   templateUrl: './login.component.html',
+//   styleUrls: ['./login.component.css']
+// })
+// export class LoginComponent implements OnInit {
+
+//   constructor() { }
+
+//   ngOnInit(): void {
+//   }
+
+// }
+import { Component, OnInit,Input } from '@angular/core';
+import { HttpClient} from '@angular/common/http';
+import { Router } from '@angular/router';
+import { AuthenticationService } from '../authentication.service';
+import { Employee } from 'Models/Employee';
 
 @Component({
   selector: 'app-login',
@@ -6,10 +25,81 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+showErrorMessage=false;
+  IsAdmin:boolean=false;
+  IsRequester:boolean=false;
+  IsApprover:boolean=false;
+  IsPublisher:boolean=false;
+  IsLoading:boolean=false;
+  IsVerified:string=''
+  constructor(private http: HttpClient,private route:Router,private authenticationService:AuthenticationService) { }
+  user:any={
 
-  constructor() { }
+    email:'',
+    password: '',
+
+  }
+
 
   ngOnInit(): void {
+  }
+
+  OnSubmit(){
+
+    this.IsLoading=true;
+
+   this.showErrorMessage=false;
+    const headers = { 'content-type': 'application/json'}
+
+    console.log(this.user)  
+    this.http.post<any>(`https://localhost:7275/Token`,this.user)
+      .subscribe({
+        next:(data) =>
+      {
+
+        this.IsAdmin=data.isAdmin,
+        this.IsRequester=data.isRequester,
+        this.IsApprover=data.isApprover,
+        this.IsPublisher=data.isPublisher,
+        this.IsVerified=data.IsVerified
+        AuthenticationService.SetDateWithExpiry("token",data.token,data.expiryInMinutes)
+        AuthenticationService.SetDateWithExpiry("Admin",data.isAdmin,data.expiryInMinutes)
+        AuthenticationService.SetDateWithExpiry("Requester",data.isRequester,data.expiryInMinutes)
+        AuthenticationService.SetDateWithExpiry("Approver",data.isRequester,data.expiryInMinutes)
+        AuthenticationService.SetDateWithExpiry("Publisher",data.isRequester,data.expiryInMinutes)
+
+
+        console.log(AuthenticationService.GetData("token"))
+        console.log(AuthenticationService.GetData("Admin"))
+        console.log(AuthenticationService.GetData("Requester"))
+        console.log(AuthenticationService.GetData("Approver"))
+        console.log(AuthenticationService.GetData("Publisher"))
+
+
+        if(this.IsAdmin){
+
+          this.route.navigateByUrl("/organisation");  
+        }else if(this.IsPublisher){
+          this.route.navigateByUrl("/publish");
+        }
+        else {
+          this.route.navigateByUrl("/homepage");
+
+        }
+        console.log(data)
+
+      },
+     
+      error:(error)=>{
+      
+        this.showErrorMessage=true;
+      }
+    });
+
+
+
+
+       
   }
 
 }

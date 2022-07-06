@@ -1,12 +1,18 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
+import { AuthenticationService } from './authentication.service';
 @Injectable({
   providedIn: 'root'
 })
 export class SharedService {
-  readonly apiurl = "https://localhost:7275/api/";
+  readonly apiurl = "https://localhost:7275/";
   constructor(private http:HttpClient) { }
+
+  public headers = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${AuthenticationService.GetData("token")}`
+  })
 //common services
 //GetAll method
   getAll(endpoint:string):Observable<any>

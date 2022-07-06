@@ -49,7 +49,7 @@ import { DialogboxComponent } from './dialogbox/dialogbox.component';
 const routes: Routes = [
 
   {path:'layout' , component:LayoutComponent},
-  {path:'login', component:LoginComponent},
+  {path:'', component:LoginComponent},
   {path:'sidebar', component:SidebarComponent},
   {path:'profile/:id' , component:ProfileComponent},
 
@@ -103,7 +103,7 @@ const routes: Routes = [
   {path: 'dialogbox', component:DialogboxComponent},
 
 
-  {path:'', component:ApproverApprovalComponent},
+  {path:'ApproverApproval', component:ApproverApprovalComponent},
 
 ];
 
