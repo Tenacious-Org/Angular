@@ -19,6 +19,7 @@ export class HomeCardComponent implements OnInit {
   pageId=0;
   employeeId=0;
   isReadMore =true;
+  searchValue:any;
   isValidUser:any;
   constructor(private awardService:AwardService,private router:ActivatedRoute,private http:HttpClient){ }
 
