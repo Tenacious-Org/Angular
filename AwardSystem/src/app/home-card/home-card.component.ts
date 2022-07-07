@@ -3,7 +3,6 @@ import { ActivatedRoute } from '@angular/router';
 import { AwardService } from '../award.service';
 import { Awards } from 'Models/Awards';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { RouterModule,Router } from '@angular/router';
 @Component({
   selector: 'app-home-card',
   templateUrl: './home-card.component.html',
@@ -31,8 +30,8 @@ export class HomeCardComponent implements OnInit {
   }
   showText()
   {
+	this.isReadMore =!this.isReadMore
 	
-	// this.router.navigate(['/requester-request']);
   }
   @Input() ShowStatus:boolean =true;
 	searchAward = "";

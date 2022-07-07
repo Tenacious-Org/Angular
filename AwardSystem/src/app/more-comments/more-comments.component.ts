@@ -12,12 +12,18 @@ export class MoreCommentsComponent implements OnInit {
   Id:any;
   employeeId=6;
   commentList:any;
+  isReadMore =true;
   constructor(private awardService:AwardService, private route:ActivatedRoute) { }
   Comments :any ={
     id :  0,
     comments : '',
     employeeId : 0,
     awardId : 0,
+  }
+  showText()
+  {
+	this.isReadMore =!this.isReadMore
+	
   }
   ngOnInit(): void {
     this.route.params.subscribe(params => {

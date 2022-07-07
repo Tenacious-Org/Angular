@@ -11273,10 +11273,10 @@ button {
     display: inline-block;
     margin: 15px 50px 15px 20px;
 }
-
+/* 
 .MoreComments {
     margin: 0px 22px 10px 22px;
-}
+} */
 
 .sidebar-items>li:hover {
     background-color: blueviolet;
@@ -11556,15 +11556,7 @@ button {
 .card-footer{
   border-color: #866ec7;
 }
-.allcomments {
-  width: 399px;
-  height: 500px;
-  overflow-y: scroll;
-}
 
-.backbutton{
-  text-align: center;
-}
 
 #Test_DatetimeLocal{
   width:100px; height:38px;
