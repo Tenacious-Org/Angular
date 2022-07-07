@@ -48,6 +48,7 @@ showErrorMessage=false;
         this.IsPublisher=data.isPublisher,
         this.IsVerified=data.IsVerified
         AuthenticationService.SetDateWithExpiry("token",data.token,data.expiryInMinutes)
+        AuthenticationService.SetDateWithExpiry("UserName",data.userName,data.expiryInMinutes)
         AuthenticationService.SetDateWithExpiry("Role",data.isRole,data.expiryInMinutes)
         AuthenticationService.SetDateWithExpiry("User",data.userId,data.expiryInMinutes)
         AuthenticationService.SetDateWithExpiry("Admin",data.isAdmin,data.expiryInMinutes)
@@ -57,6 +58,7 @@ showErrorMessage=false;
 
 
         console.log(AuthenticationService.GetData("token"))
+        console.log(AuthenticationService.GetData("UserName"))
         console.log(AuthenticationService.GetData("User"))
         console.log(AuthenticationService.GetData("Role"))
         console.log(AuthenticationService.GetData("Admin"))

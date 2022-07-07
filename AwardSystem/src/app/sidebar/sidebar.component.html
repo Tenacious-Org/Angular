@@ -9,7 +9,7 @@
 
     <div *ngIf="!isShowDivIf" @ngIfAnimation  @easeInOut class="p-4 pt-5">
         <a class="img logo rounded-circle mb-6"><img src="./assets/images/male.png" alt="Admin Logo" style="margin-left:0.8rem;width:8rem;height:8rem"></a>
-        <!-- <h4 class="text-light mt-4 text-center">Admin</h4> -->
+        <h4 class="text-light mt-4 text-center">{{userName}}</h4>
         <!-- Admin Sidebar -->
         <div *ngIf="role==5; else userSidebar">
         <ul class="list-unstyled components mt-4 mb-5 sidebar-items">

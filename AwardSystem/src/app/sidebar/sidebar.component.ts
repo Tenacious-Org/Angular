@@ -42,12 +42,12 @@ import { AuthenticationService } from '../authentication.service';
 export class SidebarComponent implements OnInit {
 
   role:any;
- 
+  userName:any;
   constructor() { }
 
   ngOnInit(): void {
     this.role=AuthenticationService.GetData("Role");
-    
+    this.userName=AuthenticationService.GetData("UserName");
   }
   isShowDivIf = false;
   
