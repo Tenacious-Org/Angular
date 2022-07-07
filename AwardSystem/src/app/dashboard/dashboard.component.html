@@ -50,3 +50,7 @@
     </div>
   </div>
   </div>
+
+  <div *ngIf="chart">
+    <canvas #canvas id="canvas">{{chart}}</canvas>
+  </div>
