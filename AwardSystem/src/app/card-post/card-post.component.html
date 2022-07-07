@@ -1,41 +1,82 @@
 
-<div class="d-flex justify-content-center card-deck">
-    <div class="row" *ngFor="let item of awardData" >
-              <div class="card " >
-                  <div class="profile-card-3">
-                      <div class="profile-thumb-block">
-                          <img [src]="'data:image/jpg;base64,'+ item.image" alt="profile-image" class="profile" />
-                      </div>
-                      <img [src]="'data:image/jpg;base64,'+ item.awardImage" alt="profile-image" class="profile" />
-                  </div>
-                  <div class="card-body">
-                      <h5 class="card-title">{{item.awardeeName}}</h5>
-                      <p class="card-text">{{item.awardName}}</p>
-                      <div class="card-footer bg-transparent">
-                          <div class="row d-flex ">
-                           <form #myForm="ngForm" (ngSubmit)="OnSubmit()">
-                                  <input type="text" #comments="ngModel"  name="comments" [(ngModel)]="Comments.comments" class="form-control" placeholder="Type comment..." />
-                                  <button  type="submit"  class="btn btn-danger col-lg-2" ><i class="fa-solid fa-plus"></i></button>
-                             </form>   
-                              
-                               <div class="allcomments">
-                                <div class="d-flex justify-content-between" *ngFor="let data of commentList">
-                                    <div class="d-flex flex-row ">
-                                        <img [src]="'data:image/jpg;base64,'+ data.employeeImage" alt="avatar" width="25"
-                                             height="25" />
-                                        <p class="small mb-0 ms-2">{{data.employeeName}}</p>
-                                    </div>
-                                        <p>{{data.comments}}</p>
-                                </div>             
-                            </div>
+  <app-layout></app-layout>
+  <app-sidebar></app-sidebar>
+  <link href="https://fonts.googleapis.com/css?family=Schoolbell&v1" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Qwitcher+Grypen:wght@700&family=Splash&display=swap"
+  rel="stylesheet">
 
-                              
-                              <button [routerLink]="['../morecomments',item.id]" class="btn t-center btn-primary MoreComments ms-0">More Comments</button>
-                          </div>
-                      </div>
-                  </div>
-              </div>
 
-              
+
+<div style="margin-left:30px;padding-top:90px;justify-content: space-between;">
+  <div class="row g-4 align-items-center">
+    <div class="col-auto p-1.5" style="display:inline;">
+      <div class="form-inline btn-group search">
+
+        <input type="search" class="form-control rounded" placeholder="Search by Name" aria-label="Search"
+          aria-describedby="search-addon" />
+      </div>
+
     </div>
+    <div style="display:inline;float:left;width:auto">
+      <label class="col-form-label" for="exampleFormControlSelect1">Award Type</label>
+      <div class="input-group">
+        <select name="awardTypeId" required class="custom-select">
+          <div class="alert alert-danger">
+            Award Name is Required!
+          </div>
+          <option selected>Choose...</option>
+          <option *ngFor="let items of awardData" value={{items.id}}>{{items.awardName}}</option>
+        </select>
+      </div>
+    </div>
+    <div style="float:left;width:auto">
+      <label class="col-form-label" for="fromdate">From Date:</label>
+      <div class="input-group col-auto p-1.5">
+        <input class="custom-select " type="date" id="fromdate" name="fromdate">
+      </div>
+    </div>
+    <div style="float:left;width:auto">
+      <label class="col-form-label" for="todate">To Date:</label>
+      <div class="input-group col-auto p-1.5">
+        <input class="custom-select " type="date" id="fromdate" name="todate">
+      </div>
+    </div>
+    <div style="float:left; width:auto;margin-top:3.5rem">
+      <button style="padding:0.5rem;" type="submit">Apply</button>
+    </div>
+  </div>
 </div>
+
+
+
+
+
+
+<div class=" container row" id="cardflip">
+
+  <div class="card" *ngFor="let item of awardData">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <img src="./assets/images/cardback.png" class="card-img-top" alt="Fissure in Sandstone" style="height:300px" />
+        <div class="card-img-overlay">
+
+          <img class="card-img-bottom"  [src]="'data:image/jpg;base64,'+ item.awardeeImage" alt="Avatar" style="width:30%">
+        </div>
+        <div class="card-img-overlay">
+
+          <img class="card-img-left"  [src]="'data:image/jpg;base64,'+ item.awardImage" alt="Avatar" style="width:30%">
+        </div>
+      </div>
+      
+      <div class="card-body">
+        <p id="text"><b>{{item.awardeeName}}</b></p>
+        <h4 [ngClass]="{'limitTextHeight': isReadMore}">{{item.reason}}</h4>
+      </div>
+      <button  [routerLink]="['/morecomments',item.id]">
+        {{ isReadMore ? 'Read More...': 'Read Less...' }}
+      </button>
+    </div>
+  </div>
+
+  </div>

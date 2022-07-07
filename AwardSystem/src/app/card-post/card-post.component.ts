@@ -12,6 +12,7 @@ export class CardPostComponent implements OnInit {
   commentList:any;
   pageId=0;
   employeeId=6;
+  isReadMore=true;
   Comments :any ={
     id :  0,
     comments : '',
