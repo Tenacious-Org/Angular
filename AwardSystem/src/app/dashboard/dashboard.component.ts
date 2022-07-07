@@ -48,7 +48,7 @@ export class DashboardComponent implements OnInit {
   salesData: ChartData<'bar'> = {
     labels: ['Development', 'Testing', 'Facility', 'Security', 'Management'],
     datasets: [
-      { label: this.award[0], data: [10, 12, 10, 20, 50] },
+      { label: 'Rolestar', data: [10, 12, 10, 20, 50] },
       { label: 'Tech Thunder', data: [20, 10, 40, 50, 90] },
       { label: 'Gladiator', data: [50, 40, 35, 45, 50] },
       { label: 'First victor', data: [10, 50, 10, 60, 90] },
@@ -63,6 +63,7 @@ export class DashboardComponent implements OnInit {
       },
     },
   };
+  
 
 
 
