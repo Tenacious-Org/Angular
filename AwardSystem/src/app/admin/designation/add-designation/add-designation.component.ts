@@ -14,6 +14,10 @@ import { AuthenticationService } from 'src/app/authentication.service';
   styleUrls: ['./add-designation.component.css']
 })
 export class AddDesignationComponent implements OnInit {
+  Id: any;
+  roleID: any;
+  departmentID: any;
+  error: any;
   constructor(private sharedService:SharedService,private router:Router,private toastService: HotToastService,private dialog: MatDialog) { }
   Designation : any = {
     id : 0,
@@ -47,9 +51,11 @@ export class AddDesignationComponent implements OnInit {
    }
 
   OnSubmit(){
-    this.sharedService.add(this.endpoint1,this.Designation).subscribe(data=>{
-      console.log(data);
-      this.showToast();
+    this.sharedService.add(this.endpoint1,this.Designation).subscribe({
+      // console.log(data);
+      // this.showToast();
+      next: (res) => { console.log(res), this.showToast() },
+      error: (error) => this.error = error.error.message
     });
   }
   showToast() {
@@ -60,6 +66,12 @@ export class AddDesignationComponent implements OnInit {
       icon: '❎',
     })
     this.router.navigate(['/designation']);
+    
 
+  }
+  CheckName(DepartmentId: any,RoleId:any)
+  {
+    this.departmentID=DepartmentId;
+    this.roleID=RoleId;
   }
 }

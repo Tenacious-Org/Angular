@@ -15,6 +15,7 @@
                               <option *ngFor="let items of departments"  ngValue={{items.id}} >{{items.departmentName}}</option>
                     </select>
                 </div>
+                <div *ngIf="departmentID==''" class="alert alert-danger">Department name should not be empty! </div>
             </div>
             <div class="row-auto p-1.5 align-items-center">
               <label for="dept" class="col-form-label">Role</label>
@@ -23,6 +24,7 @@
                             <option *ngFor="let items of roles"  ngValue={{items.id}} >{{items.roleName}}</option>                         
                   </select>
               </div>
+              <div *ngIf="roleID==''" class="alert alert-danger">Role  should not be empty! </div>
           </div>
             <div class="row-auto p-1.5 align-items-center">
                 <label for="firstName" class="col-form-label">Designation Name</label>
@@ -30,14 +32,20 @@
                 <input type="text"  class="form-control" #designationName="ngModel" required pattern="^[a-zA-Z][a-zA-Z\s]{0,20}[a-zA-Z]$" name="designationName" [(ngModel)]="Designation.designationName" >
                 <div *ngIf ="designationName.touched && designationName.errors?.['required']" class="alert alert-danger">
                     Designation Name is Required!
+                </div>   
                 <div *ngIf ="designationName.touched && designationName.errors?.['pattern']" class="alert alert-danger" >
                     Designation Name is invalid!
                 </div>
+               
+            
+            <div class="text-left text-danger"  >
+                {{error}}
             </div>
+           
         </div>
 
         <div class="row justify-content-center align-items-center mt-5 button-group">
-            <button  type="submit" class="btn btn-primary col-lg-2" [disabled]="!myForm.form.valid"> Create </button>
+            <button (click)="CheckName(Designation.departmentId,Designation.roleId)" type="submit" class="btn btn-primary col-lg-2" [disabled]="!myForm.form.valid"> Create </button>
             <button [routerLink]="['/designation']" class="btn btn-danger col-lg-2">Back</button>
 
         </div>
