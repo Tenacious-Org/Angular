@@ -1,6 +1,8 @@
 export class dashboard{
-    totalEmployeesByaOrganisationID:number=0;
-    totalAwardsByOrganisationID:number=0;
-    totalAwardsByAwardId:number=0;
-
+    orgid :number = 0;
+    organisation : string = '';
+    deptid :number = 0;
+    department : string = '';
+    awardid :number = 0;
+    awardName : string = '';
 }
