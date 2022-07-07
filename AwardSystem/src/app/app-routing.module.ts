@@ -20,6 +20,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { LayoutComponent } from './layout/layout.component';
 import { LoginComponent } from './login/login.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component'
 import { MoreCommentsComponent } from './more-comments/more-comments.component';
 
 import { RequesterComponent } from './requester/requester.component';
@@ -52,6 +53,7 @@ const routes: Routes = [
   {path:'', component:LoginComponent},
   {path:'sidebar', component:SidebarComponent},
   {path:'profile' , component:ProfileComponent},
+  {path:'forgot-password' , component:ForgotPasswordComponent},
 
 
   {path:'employee', component:EmployeeComponent},

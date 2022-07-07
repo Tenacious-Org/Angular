@@ -69,6 +69,7 @@ import { NgChartsModule } from 'ng2-charts';
 import { AddDialogComponent } from './add-dialog/add-dialog.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { HotToastModule } from '@ngneat/hot-toast';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 
 
@@ -139,7 +140,8 @@ import { HotToastModule } from '@ngneat/hot-toast';
 
  AppComponent,
    AddDialogComponent,
-   
+   ForgotPasswordComponent,
+
 
 
 
