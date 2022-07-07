@@ -11380,12 +11380,12 @@ button {
     padding-top: 140px !important;
     margin-bottom: 50px;
 }
-@media(max-width:1920px){
+/* @media(max-width:1920px){
     .table-box{
         margin-left: 150px;
         
     }
-}
+} */
 
 .custom-select {
     border-color: rgb(0, 0, 0);
