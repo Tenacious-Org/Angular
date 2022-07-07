@@ -15,6 +15,8 @@ export class EditDepartmentComponent implements OnInit {
 Id:any=0;
 data:any;
 selectedOrganisation:any;
+  OrganisationId: any;
+  error: any;
   constructor(private sharedService:SharedService, private router:ActivatedRoute, private routing:Router,private toastService: HotToastService) { }
   endpoint="Department";
   endpoint1="Organisation";
@@ -43,9 +45,11 @@ selectedOrganisation:any;
 
     OnSubmit(){
       console.log(this.data)
-      this.sharedService.edit(this.endpoint,this.data).subscribe((res) =>{
-        console.log(res);
-        this.showToast();
+      this.sharedService.edit(this.endpoint,this.data).subscribe({
+        // console.log(res);
+        // this.showToast();
+        next: (res) => { console.log(res), this.showToast() },
+        error: (error) => this.error = error.error.message
       });
     }
     showToast() {
@@ -56,5 +60,9 @@ selectedOrganisation:any;
       })
       this.routing.navigate(['/department']);
     
+    }
+    CheckName(organisationId:any)
+    {
+      this.OrganisationId=organisationId;
     }
 }

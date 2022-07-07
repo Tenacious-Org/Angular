@@ -5,13 +5,16 @@ import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { HotToastService } from '@ngneat/hot-toast';
 import { AuthenticationService } from 'src/app/authentication.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-add-department',
   templateUrl: './add-department.component.html',
   styleUrls: ['./add-department.component.css']
 })
 export class AddDepartmentComponent implements OnInit {
-
+organisationName:any='';
+error:any='';
+Id:any;
   constructor(private toastService: HotToastService,private sharedService:SharedService, private router:Router) {}
 
     response="success";
@@ -40,23 +43,27 @@ endpoint1="Organisation";
   }
   OnSubmit(){
     console.log(this.Department)
-    this.sharedService.add(this.endpoint,this.Department).subscribe((res) =>{
-      console.log(res);
-      this.showToast();
+    this.sharedService.add(this.endpoint,this.Department).subscribe({
+      // console.log(res);
+      // this.showToast();
+      next: (res) => { console.log(res), this.showToast() },
+        error: (error) => this.error = error.error.message
     });
-    
+  
   }
   showToast() {
     this.toastService.success('Successfully added!',
     {
       autoClose: true,
       dismissible: true,
-      icon: '❎',
       
     })
     this.router.navigate(['/department']);
   }
-  
+  CheckName(OrganisationId: any)
+  {
+    this.Id=OrganisationId;
+  }
   }
 
   
