@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AuthenticationService } from 'src/app/authentication.service';
 import { SharedService } from 'src/app/shared.service';
 
 @Component({
@@ -12,9 +13,13 @@ export class ViewAwardComponent implements OnInit {
   data :any;
   Id=0;
   endpoint="AwardType"
-  constructor(private sharedService: SharedService,private http:HttpClient , private router:ActivatedRoute) { }
+  constructor(private sharedService: SharedService,private http:HttpClient , private router:ActivatedRoute,private route:Router) { }
 
   ngOnInit(): void {
+    if(!AuthenticationService.GetData("Admin")){
+      this.route.navigateByUrl("login")
+      
+    }
     this.router.params.subscribe(params => {
       this.Id = params['id'];
     this.http

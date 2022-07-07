@@ -3,6 +3,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { DialogboxComponent } from 'src/app/dialogbox/dialogbox.component';
 import { SharedService } from 'src/app/shared.service';
 import { Awards } from 'Models/Awards';
+import { AuthenticationService } from 'src/app/authentication.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-awards',
   templateUrl: './awards.component.html',
@@ -17,9 +19,12 @@ export class AwardsComponent implements OnInit {
   data:any;
   awardname: any;
 
-  constructor(private sharedService:SharedService,private dialog: MatDialog ) { }
+  constructor(private sharedService:SharedService,private dialog: MatDialog ,private router:Router) { }
 
   ngOnInit(): void {
+    if(!AuthenticationService.GetData("Admin")){
+      this.router.navigateByUrl("")
+    }
 
    this.sharedService.getAll(this.endpoint).subscribe(data=>{
    this.data=data;

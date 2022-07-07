@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { SharedService } from 'src/app/shared.service';
 import { Awards } from 'Models/Awards';
 import { HotToastService } from '@ngneat/hot-toast';
+import { AuthenticationService } from 'src/app/authentication.service';
 
 @Component({
   selector: 'app-add-awards',
@@ -34,6 +35,9 @@ export class AddAwardsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if(!AuthenticationService.GetData("Admin")){
+      this.router.navigateByUrl("")
+    }
   }
 
   OnSubmit(){

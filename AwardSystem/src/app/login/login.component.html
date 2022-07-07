@@ -20,9 +20,10 @@
                     </span>
                     <div class="text-danger " style="text-align:center ;" [class.d-none]="email.valid || email.untouched" *ngIf="email.errors?.['required']">
                         Email Address is required.
-                      </div><div class="text-danger " style="text-align:center ;" [class.d-none]="email.valid || email.untouched" *ngIf="email.errors?.['pattern']">
-                        Email Address is invalid.
                       </div>
+                      <!-- <div class="text-danger " style="text-align:center ;" [class.d-none]="email.valid || email.untouched" *ngIf="email.errors?.['pattern']">
+                        Email Address is invalid.
+                      </div> -->
                     
                 </div>
                 

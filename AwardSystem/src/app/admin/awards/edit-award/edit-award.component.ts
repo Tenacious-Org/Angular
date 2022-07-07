@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { SharedService } from 'src/app/shared.service';
 import { Router } from '@angular/router';
 import { HotToastService } from '@ngneat/hot-toast';
+import { AuthenticationService } from 'src/app/authentication.service';
 @Component({
   selector: 'app-edit-award',
   templateUrl: './edit-award.component.html',
@@ -28,10 +29,14 @@ export class EditAwardComponent implements OnInit {
     addedOn : Date.now
     }
 
-  constructor(private sharedService: SharedService, private router:ActivatedRoute, private routing:Router,private toastService: HotToastService) { }
+  constructor(private sharedService: SharedService, private route:ActivatedRoute, private routing:Router,private toastService: HotToastService) { }
 
   ngOnInit(): void {
-    this.router.params.subscribe(params => {
+    if(!AuthenticationService.GetData("Admin")){
+      this.routing.navigateByUrl("")
+      
+    }
+    this.route.params.subscribe(params => {
     this.Id = params['id'];
     this.sharedService.getById(this.endpoint,this.Id).subscribe((result) => {
       this.data = result;
