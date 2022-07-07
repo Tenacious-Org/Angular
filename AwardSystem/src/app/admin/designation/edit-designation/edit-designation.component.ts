@@ -14,6 +14,9 @@ import { AuthenticationService } from 'src/app/authentication.service';
 export class EditDesignationComponent implements OnInit {
   roles: any;
   endpoint2="Role";
+  error: any;
+  departmentID: any;
+  roleID: any;
   constructor(private sharedService:SharedService, private router:ActivatedRoute, private routing:Router,private toastService: HotToastService) { }
   Id:any=0;
   data:any;
@@ -47,9 +50,11 @@ export class EditDesignationComponent implements OnInit {
    }
 
   OnSubmit(){
-    this.sharedService.edit(this.endpoint1,this.data).subscribe(data=>{
-      console.log(data);
-      this.showToast();
+    this.sharedService.edit(this.endpoint1,this.data).subscribe({
+      // console.log(data);
+      // this.showToast();
+      next: (res) => { console.log(res), this.showToast() },
+      error: (error) => this.error = error.error.message
     });
 }
 showToast() {
@@ -61,6 +66,10 @@ showToast() {
   this.routing.navigate(['/designation']);
 
 }
-
+CheckName(DepartmentId: any,RoleId:any)
+  {
+    this.departmentID=DepartmentId;
+    this.roleID=RoleId;
+  }
 
 }
