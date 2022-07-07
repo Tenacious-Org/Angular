@@ -7,6 +7,7 @@ import { SharedService } from 'src/app/shared.service';
 import { Employee } from 'Models/Employee';
 import { AwardType } from 'Models/AwardType';
 import { AwardService } from '../award.service';
+import { dashboard } from 'Models/Dashboard';
 
 
 @Component({
@@ -34,6 +35,9 @@ export class DashboardComponent implements OnInit {
       isActive: true,
     }
     
+
+
+
   salesData: ChartData<'bar'> = {
     labels: ['Development', 'Testing', 'Facility', 'Security', 'Management'],
     datasets: [
@@ -52,6 +56,10 @@ export class DashboardComponent implements OnInit {
       },
     },
   };
+
+
+
+
   organisations: Organisation[] = [];
   departments: Department[] = [];
   employee: Employee[] = [];
@@ -64,7 +72,18 @@ export class DashboardComponent implements OnInit {
 
   endpoint = "Organisation";
   endpoint1 = "AwardType";
+
+  
+
   ngOnInit(): void {
+    this.sharedService.getallwinner().subscribe(
+      data =>{
+        this.win = data;
+        console.log(this.win);
+      }
+    );
+
+
     this.sharedService.getAll(this.endpoint).subscribe(data => {
       this.organisations = data;
       console.log(this.organisations);
@@ -85,4 +104,5 @@ export class DashboardComponent implements OnInit {
 
   }
 
+  public win:dashboard[] =[];
 }
