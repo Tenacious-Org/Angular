@@ -47,19 +47,11 @@
         <textarea style="height: 103px; width: 459px;" #reason="ngModel" required pattern="^[a-zA-Z][a-zA-Z\s]{0,100}[a-zA-Z]$" type="textarea" [(ngModel)]="Awards.reason" name="Awards.name"
           class="input-group" placeholder="Reason">
           <div *ngIf ="reason.touched && reason.errors?.['required']" class="alert alert-danger">
-<<<<<<< Updated upstream
                 Reason is Required!
             </div> 
             <div *ngIf ="reason.touched && reason.errors?.['pattern']" class="alert alert-danger" >
                 Reason is invalid!
             </div>
-=======
-            Reason is Required!
-        </div>
-        <div *ngIf ="reason.touched && reason.errors?.['pattern']" class="alert alert-danger" >
-            Reason is invalid!
-        </div>
->>>>>>> Stashed changes
         </textarea>
       </div>
     </div>
@@ -119,11 +111,7 @@
 
     <div class="row justify-content-center align-items-center mt-5 button-group">
 
-<<<<<<< Updated upstream
       <button type="submit" class="btn btn-primary col-lg-2" [disabled]="!myForm.form.valid" >Submit</button>
-=======
-      <button type="submit" class="btn btn-primary col-lg-2" [disabled]="!myForm.form.valid">Submit</button>
->>>>>>> Stashed changes
       <a [routerLink]="['/requester-request']" routerLinkActive="router-link-active" class="btn btn-danger col-lg-2"
         type="button">Cancel</a>
     </div>
