@@ -2,14 +2,14 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { MatDialogModule } from '@angular/material/dialog';
-import {MatInputModule} from'@angular/material/input';
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
-import {ReactiveFormsModule} from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { ActivatedRoute, Routes } from '@angular/router';
-import {MatSelectModule} from '@angular/material/select';
+import { MatSelectModule } from '@angular/material/select';
 
 
 
@@ -55,7 +55,7 @@ import { HrComponent } from './hr/hr.component';
 import { HrPublishComponent } from './hr/hr-publish/hr-publish.component';
 import { HrYettopublishComponent } from './hr/hr-yettopublish/hr-yettopublish.component';
 
-import{FormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { RequestComponent } from './requester/request/request.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ApproverARComponent } from './approver/approver-acceptreject/approver-ar.component';
@@ -67,9 +67,13 @@ import { DialogboxComponent } from './dialogbox/dialogbox.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NgChartsModule } from 'ng2-charts';
 import { AddDialogComponent } from './add-dialog/add-dialog.component';
-import {MatPaginatorModule} from '@angular/material/paginator';
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { HotToastModule } from '@ngneat/hot-toast';
+<<<<<<< Updated upstream
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+=======
+import { MyAwardsComponent } from './my-awards/my-awards.component';
+>>>>>>> Stashed changes
 
 
 
@@ -90,7 +94,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 
 
     AdminComponent,
-    
+
 
 
     OrganisationComponent,
@@ -119,29 +123,36 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     ApproverComponent,
     ApproverApprovalComponent,
 
+    MyAwardsComponent,
 
 
 
+    RequesterComponent,
+    RequesterAddRequestComponent,
+    RequesterViewComponent,
+    HrComponent,
+    HrPublishComponent,
+    HrYettopublishComponent,
+    RequestComponent,
+    ProfileComponent,
+    ApproverARComponent,
+    RejectionReasonComponent,
+    SidebarComponent,
+    HomeCardComponent,
+    DialogboxComponent,
+    DashboardComponent,
 
- RequesterComponent,
- RequesterAddRequestComponent,
- RequesterViewComponent,
- HrComponent,
- HrPublishComponent,
- HrYettopublishComponent,
- RequestComponent,
- ProfileComponent,
- ApproverARComponent,
- RejectionReasonComponent,
- SidebarComponent,
- HomeCardComponent,
- DialogboxComponent,
- DashboardComponent,
+    AppComponent,
+    AddDialogComponent,
+    MyAwardsComponent,
 
+<<<<<<< Updated upstream
  AppComponent,
    AddDialogComponent,
    ForgotPasswordComponent,
 
+=======
+>>>>>>> Stashed changes
 
 
 

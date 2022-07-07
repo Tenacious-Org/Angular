@@ -1,0 +1,206 @@
+<app-layout></app-layout>
+<app-sidebar></app-sidebar>
+<link href="https://fonts.googleapis.com/css?family=Schoolbell&v1" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Qwitcher+Grypen:wght@700&family=Splash&display=swap"
+  rel="stylesheet">
+
+
+
+<div style="margin-left:30px;padding-top:90px;justify-content: space-between;">
+  <div class="row g-4 align-items-center">
+    <div class="col-auto p-1.5" style="display:inline;">
+      <div class="form-inline btn-group search">
+
+        <input type="search" class="form-control rounded" placeholder="Search by Name" aria-label="Search"
+          aria-describedby="search-addon" />
+      </div>
+
+    </div>
+    <div style="display:inline;float:left;width:auto">
+      <label class="col-form-label" for="exampleFormControlSelect1">Award Type</label>
+      <div class="input-group">
+        <select name="awardTypeId" required class="custom-select">
+          <div class="alert alert-danger">
+            Award Name is Required!
+          </div>
+          <option selected>Choose...</option>
+          <!-- <option *ngFor="let items of awardData" value={{items.id}}>{{items.awardName}}</option> -->
+        </select>
+      </div>
+    </div>
+    <div style="float:left;width:auto">
+      <label class="col-form-label" for="fromdate">From Date:</label>
+      <div class="input-group col-auto p-1.5">
+        <input class="custom-select " type="date" id="fromdate" name="fromdate">
+      </div>
+    </div>
+    <div style="float:left;width:auto">
+      <label class="col-form-label" for="todate">To Date:</label>
+      <div class="input-group col-auto p-1.5">
+        <input class="custom-select " type="date" id="fromdate" name="todate">
+      </div>
+    </div>
+    <div style="float:left; width:auto;margin-top:3.5rem">
+      <button style="padding:0.5rem;" type="submit">Apply</button>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- <div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <img class="card-img-top" src="./assets/images/cardback.png" alt="Card image cap">
+      </div>
+  
+      <div class="flip-card-back">
+        <img class="card-img-top" src="./assets/images/firstvictor.png" alt="Card image cap">
+      </div>
+     
+  <div class="card-img-overlay">
+       
+        <img class="card-img-bottom" src="./assets/images/frontcard.png" alt="Avatar" style="width:30%">
+      </div>
+    </div>
+    
+  </div> -->
+
+
+
+
+
+<div class=" container row " id="cardflip">
+
+  <div class="card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <img src="./assets/images/cardback.png" class="card-img-top" alt="Fissure in Sandstone" style="height:300px" />
+        <div class="card-img-overlay">
+
+          <img class="card-img-bottom" src="./assets/images/image1.png" alt="Avatar" style="width:30%">
+        </div>
+        <div class="card-img-overlay">
+
+          <img class="card-img-left" src="./assets/images/award1.png" alt="Avatar" style="width:30%">
+        </div>
+      </div>
+      <!-- <div class="flip-card-back">
+        <img class="card-img-top" src="./assets/images/firstvictor.png" alt="Card image cap">
+      </div> -->
+      <div class="card-body">
+        <p id="text"><b>John Doe</b></p>
+        <h4>Congrats This is long text replaced with reading more/less link
+          example in Angular application paragraph text shown here continue THis is long text replaced with reading
+          more/less link example in Angular application paragraph text shown here continue continue
+          This is long text replaced with reading more/less link example in Angular application paragraph text shown
+          here
+          continue THis is long text replaced with reading more/less link example in Angular application paragraph text
+          shown here continue
+          continue THis is long text replaced with reading more/less link example in Angular application paragraph text
+          shown here continue THis is long text replaced with reading more/less link example in Angular application
+          paragraph text shown here
+          continue continue</h4>
+      </div>
+      <button type="button" ></button>
+    </div>
+  </div>
+  <div class="card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <img src="./assets/images/cardback.png" class="card-img-top" alt="Fissure in Sandstone" style="height:300px" />
+      </div>
+
+      <!-- <div class="flip-card-back">
+        <img class="card-img-top" src="./assets/images/firstvictor.png" alt="Card image cap">
+      </div> -->
+
+      <div class="card-body">
+
+
+        <p id="text"><b>John Doe</b></p>
+        <h4 >Congrats This is long text replaced with reading more/less link
+          example in Angular application paragraph text shown here continue THis is long text replaced with reading
+          more/less link example in Angular application paragraph text shown here continue continue
+          This is long text replaced with reading more/less link example in Angular application paragraph text shown
+          here
+          continue THis is long text replaced with reading more/less link example in Angular application paragraph text
+          shown here continue
+          continue THis is long text replaced with reading more/less link example in Angular application paragraph text
+          shown here continue THis is long text replaced with reading more/less link example in Angular application
+          paragraph text shown here
+          continue continue</h4>
+      </div>
+      <button type="button" >
+        
+      </button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <img src="./assets/images/cardback.png" class="card-img-top" alt="Fissure in Sandstone" style="height:300px" />
+      </div>
+
+      <!-- <div class="flip-card-back">
+        <img class="card-img-top" src="./assets/images/firstvictor.png" alt="Card image cap">
+      </div> -->
+
+      <div class="card-body">
+
+
+        <p id="text"><b>John Doe</b></p>
+        <h4>Congrats This is long text replaced with reading more/less link
+          example in Angular application paragraph text shown here continue THis is long text replaced with reading
+          more/less link example in Angular application paragraph text shown here continue continue
+          This is long text replaced with reading more/less link example in Angular application paragraph text shown
+          here
+          continue THis is long text replaced with reading more/less link example in Angular application paragraph text
+          shown here continue
+          continue THis is long text replaced with reading more/less link example in Angular application paragraph text
+          shown here continue THis is long text replaced with reading more/less link example in Angular application
+          paragraph text shown here
+          continue continue</h4>
+      </div>
+      <button type="button" >
+       
+      </button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <img src="./assets/images/cardback.png" class="card-img-top" alt="Fissure in Sandstone" style="height:300px" />
+      </div>
+
+      <!-- <div class="flip-card-back">
+        <img class="card-img-top" src="./assets/images/firstvictor.png" alt="Card image cap">
+      </div> -->
+
+      <div class="card-body">
+
+
+        <p id="text"><b>John Doe</b></p>
+        <h4 >Congrats This is long text replaced with reading more/less link
+          example in Angular application paragraph text shown here continue THis is long text replaced with reading
+          more/less link example in Angular application paragraph text shown here continue continue
+          This is long text replaced with reading more/less link example in Angular application paragraph text shown
+          here
+          continue THis is long text replaced with reading more/less link example in Angular application paragraph text
+          shown here continue
+          continue THis is long text replaced with reading more/less link example in Angular application paragraph text
+          shown here continue THis is long text replaced with reading more/less link example in Angular application
+          paragraph text shown here
+          continue continue</h4>
+      </div>
+      <button type="button">
+        
+      </button>
+
+    </div>
+
+
+  </div>

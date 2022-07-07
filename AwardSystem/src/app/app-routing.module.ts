@@ -44,6 +44,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { HomeCardComponent } from './home-card/home-card.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DialogboxComponent } from './dialogbox/dialogbox.component';
+import { MyAwardsComponent } from './my-awards/my-awards.component';
 // import { HotToastModule } from '@ngneat/hot-toast';
 
 
@@ -53,7 +54,11 @@ const routes: Routes = [
   {path:'', component:LoginComponent},
   {path:'sidebar', component:SidebarComponent},
   {path:'profile' , component:ProfileComponent},
+<<<<<<< Updated upstream
   {path:'forgot-password' , component:ForgotPasswordComponent},
+=======
+  {path:'myawards',component:MyAwardsComponent},
+>>>>>>> Stashed changes
 
 
   {path:'employee', component:EmployeeComponent},
