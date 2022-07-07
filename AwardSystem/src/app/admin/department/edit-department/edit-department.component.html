@@ -28,7 +28,7 @@
                     Department Name is Required!
                 </div>
                 <div >
-                    <h3 class="text-center text-danger" >{{error}}</h3>
+                    <h3 class="text-left text-danger" >{{error}}</h3>
                 </div>
                 <div *ngIf ="departmentName.touched && departmentName.errors?.['pattern']" class="alert alert-danger" >
                     Department Name is invalid!
