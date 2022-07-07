@@ -14,6 +14,7 @@ import { AuthenticationService } from 'src/app/authentication.service';
   styleUrls: ['./add-organisation.component.css']
 })
 export class AddOrganisationComponent implements OnInit {
+  error:any='';
 
 endpoint="Organisation";
   constructor(private sharedService:SharedService, private location: Location, private router:Router,private toastService: HotToastService,private dialog: MatDialog) { }
@@ -21,7 +22,8 @@ endpoint="Organisation";
     id : 0,
     organisationName : '',
     addedBy : 1,
-    addedOn : Date.now
+    addedOn : Date.now,
+  
  
   }
 
@@ -34,9 +36,11 @@ endpoint="Organisation";
 
   OnSubmit(){
     console.log(this.Organisation)
-    this.sharedService.add(this.endpoint,this.Organisation).subscribe((res) =>{
-      console.log(res);
-      this.showToast();
+    this.sharedService.add(this.endpoint,this.Organisation).subscribe({
+      // console.log(res);
+      // this.showToast();
+      next: (res) => { console.log(res), this.showToast() },
+      error: (error) => this.error = error.error.message
     })
     
   }

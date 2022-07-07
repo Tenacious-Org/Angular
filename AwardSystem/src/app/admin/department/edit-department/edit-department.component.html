@@ -19,6 +19,7 @@
                             </select>
                         </div>
             </div>
+            <div *ngIf="OrganisationId==''"class="alert alert-danger">Department name should not be empty!</div>
 
             <div class="row-auto p-1.5 align-items-center">
                 <label class="col-form-label">Department Name</label>
@@ -26,16 +27,21 @@
                 <div *ngIf ="departmentName.touched && departmentName.errors?.['required']" class="alert alert-danger">
                     Department Name is Required!
                 </div>
+                <div >
+                    <h3 class="text-center text-danger" >{{error}}</h3>
+                </div>
                 <div *ngIf ="departmentName.touched && departmentName.errors?.['pattern']" class="alert alert-danger" >
                     Department Name is invalid!
                 </div>
+               
             </div>
+            
         </div>
         
 
 
             <div class="row justify-content-center align-items-center mt-5 button-group">
-                <button type="submit" class="btn btn-primary col-lg-2">Update</button>
+                <button (click)="CheckName(data.organisationId)" type="submit" class="btn btn-primary col-lg-2">Update</button>
                 <a [routerLink]="['/department']" class="btn btn-danger col-lg-2">Cancel</a>
             </div>
     </form>
