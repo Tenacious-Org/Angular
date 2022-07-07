@@ -119,6 +119,7 @@ showToast() {
   {
     autoClose: true,
     dismissible: true,
+    icon: '❎',
   })
   this.routing.navigate(['/employee']);
 

@@ -53,6 +53,7 @@ export class AddDesignationComponent implements OnInit {
     {
       autoClose: true,
       dismissible: true,
+      icon: '❎',
     })
     this.router.navigate(['/designation']);
 
