@@ -38,6 +38,9 @@ export class HrYettopublishComponent implements OnInit {
   constructor(private awardService:AwardService,
     private route:ActivatedRoute,private toastService: HotToastService,private router:Router) { }
   ngOnInit(): void {
+    if(!AuthenticationService.GetData("Publisher")){
+      this.router.navigateByUrl("")
+    }
     this.route.params.subscribe(params => {
       this.Id = params['id'];
      this.awardService.getAwardById(this.Id).subscribe((result) => {
