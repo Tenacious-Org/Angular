@@ -1,4 +1,3 @@
-
 <app-layout></app-layout>
 
 
@@ -12,8 +11,12 @@
 
 <div style="margin-left:30px;padding-top:90px;justify-content: space-between;">
   <div class="row g-4 align-items-center">
+   
+
     <div class="col-auto p-1.5" style="display:inline;">
+      
       <div class="form-inline btn-group search">
+        
 
         <input type="search" class="form-control rounded" placeholder="Search by Name" aria-label="Search"
           aria-describedby="search-addon" />
@@ -63,22 +66,23 @@
         <img src="./assets/images/cardback.png" class="card-img-top" alt="Fissure in Sandstone" style="height:300px" />
         <div class="card-img-overlay">
 
-          <img class="card-img-bottom"  [src]="'data:image/jpg;base64,'+ item.awardeeImage" alt="Avatar" style="width:30%">
+          <img class="card-img-bottom" [src]="'data:image/jpg;base64,'+ item.awardeeImage" alt="Avatar"
+            style="width:30%">
         </div>
         <div class="card-img-overlay">
 
-          <img class="card-img-left"  [src]="'data:image/jpg;base64,'+ item.awardImage" alt="Avatar" style="width:30%">
+          <img class="card-img-left" [src]="'data:image/jpg;base64,'+ item.awardImage" alt="Avatar" style="width:30%">
         </div>
       </div>
-      
+
       <div class="card-body">
         <p id="text"><b>{{item.awardeeName}}</b></p>
         <h4 [ngClass]="{'limitTextHeight': isReadMore}">{{item.reason}}</h4>
       </div>
-      <button  [routerLink]="['/morecomments',item.id]">
+      <button [routerLink]="['/morecomments',item.id]">
         {{ isReadMore ? 'Read More...': 'Read Less...' }}
       </button>
     </div>
   </div>
 
-  </div>
+</div>
