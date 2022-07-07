@@ -16,6 +16,9 @@ import { dashboard } from 'Models/Dashboard';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+  
+  chart:any
+  
   constructor(private sharedService: SharedService, private awardService: AwardService, private router: Router) { }
 
   awardData: any;
@@ -34,6 +37,10 @@ export class DashboardComponent implements OnInit {
       statusId: 0,
       isActive: true,
     }
+    org:any=[]
+  award:any=[]
+  orgcnt:any=[]
+  awdcnt:any=[]
     
 
 
@@ -41,7 +48,7 @@ export class DashboardComponent implements OnInit {
   salesData: ChartData<'bar'> = {
     labels: ['Development', 'Testing', 'Facility', 'Security', 'Management'],
     datasets: [
-      { label: 'Rolestar', data: [10, 12, 10, 20, 50] },
+      { label: this.award[0], data: [10, 12, 10, 20, 50] },
       { label: 'Tech Thunder', data: [20, 10, 40, 50, 90] },
       { label: 'Gladiator', data: [50, 40, 35, 45, 50] },
       { label: 'First victor', data: [10, 50, 10, 60, 90] },
@@ -75,7 +82,9 @@ export class DashboardComponent implements OnInit {
 
   
 
-  dict = {}
+  
+
+  
 
   ngOnInit(): void {
     this.sharedService.getallwinner().subscribe(
@@ -115,7 +124,8 @@ export class DashboardComponent implements OnInit {
               org.push(x[0])
             }
         }
-        console.log(org)
+        this.org = org
+        console.log(this.org)
 
         //Setting Awards into a list
         var award:any = []
@@ -127,22 +137,51 @@ export class DashboardComponent implements OnInit {
               award.push(x[2])
             }
         }
-        console.log(award)
+        this.award = award
+        console.log(this.award)
+
+        //setting award values into a list
+        var orgcnt:any = []
+        for(var j of org){
+          for(var h of Object.keys(dict)){
+            if(j == h){
+              orgcnt.push(dict[h])
+            }
+          }
+        }
+        this.orgcnt = orgcnt
+        console.log("Organisation :",this.orgcnt)
 
         //setting award values into a list
         var awdcnt:any = []
         for(var j of award){
-          console.log(j)
           for(var k of Object.keys(dict)){
             if(j == k){
               awdcnt.push(dict[k])
             }
           }
         }
-        console.log(awdcnt)
+        this.awdcnt = awdcnt
+        console.log("Awards :",this.awdcnt)
 
-        
-        
+
+      //create a chart data
+      this.chart = new Chart('canvas',{
+        type: 'line',
+        data: {
+          labels: this.award,
+          datasets: [
+            {
+              data: this.awdcnt,
+              borderColor: '#3cba9f',
+              fill: false
+            }
+          ]
+        },
+        options: {
+          responsive:true
+        }
+      })
 
 
       }
@@ -168,4 +207,6 @@ export class DashboardComponent implements OnInit {
   }
 
   public win:dashboard[] =[];
+
+  
 }
