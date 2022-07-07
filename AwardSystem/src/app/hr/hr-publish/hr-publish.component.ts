@@ -6,31 +6,33 @@ import { AuthenticationService } from 'src/app/authentication.service';
 @Component({
   selector: 'app-hr-publish',
   templateUrl: './hr-publish.component.html',
-  styleUrls: ['./hr-publish.component.css']
+  styleUrls: ['./hr-publish.component.css'],
 })
 export class HrPublishComponent implements OnInit {
-
-  pageId=4;
-  employeeId=AuthenticationService.GetData("User");
+  pageId = 4;
+  employeeId = AuthenticationService.GetData('User');
   totalLength: any;
   page: number = 1;
-  data:any;
-  filtervalue:any;
-  val:any;
-  constructor(private awardService:AwardService ) { }
-  
+  data: any;
+  filtervalue: any;
+  val: any;
+  constructor(private awardService: AwardService) {}
 
   ngOnInit(): void {
-    this.awardService.getAwardsList(this.pageId,this.employeeId).subscribe(data=>
-    {
-        this.data = data;
-        console.log(this.data.statusId)
-        this.totalLength=data;
-    });
+    this.getAll();
   }
-  
-
+  onSubmit() {
+    if (this.filtervalue == '') {
+      this.getAll();
+    }
+  }
+  getAll() {
+    this.awardService
+      .getAwardsList(this.pageId, this.employeeId)
+      .subscribe((data) => {
+        this.data = data;
+        console.log(this.data.statusId);
+        this.totalLength = data;
+      });
+  }
 }
-
-
-
