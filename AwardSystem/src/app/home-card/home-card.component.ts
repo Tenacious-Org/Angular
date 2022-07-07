@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { AwardService } from '../award.service';
 import { Awards } from 'Models/Awards';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { AuthenticationService } from '../authentication.service';
+import { Token } from '@angular/compiler';
 @Component({
   selector: 'app-home-card',
   templateUrl: './home-card.component.html',
@@ -17,9 +19,13 @@ export class HomeCardComponent implements OnInit {
   pageId=0;
   employeeId=0;
   isReadMore =true;
+  isValidUser=0;
   constructor(private awardService:AwardService,private router:ActivatedRoute,private http:HttpClient){ }
 
   ngOnInit(): void {
+	if(!AuthenticationService.GetData("token")){
+		this.isValidUser=1;
+	}
     this.router.params.subscribe(params => {
       this.AwardId = params['id'];
     this.awardService.getAwardsList(this.pageId,this.employeeId).subscribe(data=>{
