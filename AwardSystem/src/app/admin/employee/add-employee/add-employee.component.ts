@@ -95,7 +95,7 @@ export class AddEmployeeComponent implements OnInit {
 
   }
   showToast() {
-    this.toastService.success('Successfully added!',
+    this.toastService.success('Successfully Created!',
     {
       autoClose: true,
       dismissible: true,
