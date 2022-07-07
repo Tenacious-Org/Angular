@@ -57,6 +57,9 @@ export class RequesterAddRequestComponent implements OnInit {
 
 
   ngOnInit(): void {
+    if(!AuthenticationService.GetData("Requester")&& !AuthenticationService.GetData("Approver") && !AuthenticationService.GetData("Publisher")){
+      this.router.navigateByUrl("")
+    }
     this.sharedService.getEmployeeByRequester(this.employeeId).subscribe(response=>{
      this.employees=response;
      console.log(this.employees)

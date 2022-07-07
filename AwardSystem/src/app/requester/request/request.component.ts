@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/authentication.service';
 import { AwardService } from 'src/app/award.service';
 
@@ -15,9 +16,12 @@ export class RequestComponent implements OnInit {
   data: any;
   filtervalue: any;
   val: any;
-  constructor(private awardService: AwardService) {}
+  constructor(private awardService: AwardService,private router:Router) {}
 
   ngOnInit(): void {
+    if(!AuthenticationService.GetData("Requester") && !AuthenticationService.GetData("Approver") && !AuthenticationService.GetData("Publisher")){
+      this.router.navigateByUrl("")
+    }
     this.getAll();
   }
   onSubmit() {
