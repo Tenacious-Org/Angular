@@ -43,8 +43,15 @@
 
       <div class="col-auto p-1.5">
         <label class="labels">Reason</label>
-        <textarea style="height: 103px; width: 459px;" type="textarea" [(ngModel)]="Awards.reason" name="Awards.name"
-          class="input-group" placeholder="Reason"></textarea>
+        <textarea style="height: 103px; width: 459px;" #reason="ngModel" required pattern="^[a-zA-Z][a-zA-Z\s]{0,100}[a-zA-Z]$" type="textarea" [(ngModel)]="Awards.reason" name="Awards.name"
+          class="input-group" placeholder="Reason">
+          <div *ngIf ="reason.touched && reason.errors?.['required']" class="alert alert-danger">
+                Reason is Required!
+            </div> 
+            <div *ngIf ="reason.touched && reason.errors?.['pattern']" class="alert alert-danger" >
+                Reason is invalid!
+            </div>
+        </textarea>
       </div>
     </div>
 
@@ -103,7 +110,7 @@
 
     <div class="row justify-content-center align-items-center mt-5 button-group">
 
-      <button type="submit" class="btn btn-primary col-lg-2">Submit</button>
+      <button type="submit" class="btn btn-primary col-lg-2" [disabled]="!myForm.form.valid" >Submit</button>
       <a [routerLink]="['/requester-request']" routerLinkActive="router-link-active" class="btn btn-danger col-lg-2"
         type="button">Cancel</a>
     </div>
