@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { ActivatedRoute, Routes } from '@angular/router';
+import {MatSelectModule} from '@angular/material/select';
 
 
 
@@ -161,6 +162,7 @@ import { HotToastModule } from '@ngneat/hot-toast';
     NgChartsModule,
     MatPaginatorModule,
     HotToastModule.forRoot(),
+    MatSelectModule,
 
 
 

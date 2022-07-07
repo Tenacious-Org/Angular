@@ -33,7 +33,7 @@ endpoint1="Organisation";
   }
   public data: Organisation[] = [];
   OnSubmit(){
-    // console.log(this.Department)
+    console.log(this.Department)
     this.sharedService.add(this.endpoint,this.Department).subscribe((res) =>{
       console.log(res);
       this.showToast();
@@ -45,7 +45,7 @@ endpoint1="Organisation";
     {
       autoClose: true,
       dismissible: true,
-      icon: '❎',
+      
     })
     this.router.navigate(['/department']);
   }

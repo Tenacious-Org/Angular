@@ -9,7 +9,7 @@ import { AwardService } from 'src/app/award.service';
   styleUrls: ['./approver-approval.component.css']
 })
 export class ApproverApprovalComponent implements OnInit {
-  pageId=2;
+  pageId=3;
   employeeId=AuthenticationService.GetData("User");
   totalLength: any;
   page: number = 1;

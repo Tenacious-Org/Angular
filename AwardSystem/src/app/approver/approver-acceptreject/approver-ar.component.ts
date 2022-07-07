@@ -76,7 +76,6 @@ export class ApproverARComponent implements OnInit {
     {
       autoClose: true,
       dismissible: true,
-      icon: '❎',
     })
     this.router.navigate(['/approver-approval']);
   }
@@ -89,11 +88,21 @@ export class ApproverARComponent implements OnInit {
         this.awards.statusId=this.rejectedId;
         this.awardService.approval(this.awards,this.employeeId).subscribe(data=>{
           console.log(this.awards);
+          this.ShowToast();
         });
       }
 
     });
 
+  }
+  ShowToast() {
+    this.toastService.success('Request Rejected!',
+    {
+      autoClose: true,
+      dismissible: true,
+      icon: '❎',
+    })
+    this.router.navigate(['/approver-approval']);
   }
 
   }

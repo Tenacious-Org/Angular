@@ -24,6 +24,7 @@ export class DesignationComponent implements OnInit {
       this.data = data;
       this.totalLength=data;
       console.log(this.data);
+      
     });
   }
 
@@ -35,6 +36,7 @@ export class DesignationComponent implements OnInit {
     this.sharedService.disable(this.endpoint,Id).subscribe((result) => {
       console.log(result);
       this.openDialog(result);
+      setTimeout(()=> { this.ngOnInit()},1000)
     });
   });
   }
