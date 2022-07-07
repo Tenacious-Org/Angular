@@ -76,8 +76,8 @@
           </div>
 
           <br>
-          <div class="text-center mt-3 " *ngIf="data.statusId==1">
-            <button type="submit" class="btn btn-success" (click)="OnSubmit()">Accept</button>
+          <div class="text-center acceptReject mt-3 " *ngIf="data.statusId==1">
+            <button type="submit" class="btn btn-success" style="margin: 15px;" (click)="OnSubmit()">Accept</button>
             <button class="btn btn-danger" mat-raised-button (click)="openDialog()"  >Reject</button>
         </div>
 
