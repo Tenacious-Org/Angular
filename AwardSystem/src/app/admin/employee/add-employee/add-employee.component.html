@@ -11,22 +11,22 @@
         <div class="row g-3 align-items-center justify-content-center mb-3">
             <div class="col-auto p-1.5">
                 <label  class="col-form-label">Firstname</label>
-                <input type="text" #name="ngModel" required pattern="^[a-zA-Z][a-zA-Z\s]{0,20}[a-zA-Z]$" class="form-control" name="awardName" [(ngModel)]="Employee.Firstname">
-                <div *ngIf ="name.touched && name.errors?.['required']" class="alert alert-danger">
+                <input type="text" #firstname="ngModel" required pattern="^[a-zA-Z][a-zA-Z\s]{0,20}[a-zA-Z]$" class="form-control" name="firstName" [(ngModel)]="Employee.Firstname">
+                <div *ngIf ="firstname.touched && firstname.errors?.['required']" class="alert alert-danger">
                     Firstname is Required!
                 </div>
-                <div *ngIf ="name.touched && name.errors?.['pattern']" class="alert alert-danger" >
+                <div *ngIf ="firstname.touched && firstname.errors?.['pattern']" class="alert alert-danger" >
                     Firstname is invalid!
                 </div>
             </div>
 
             <div class="col-auto p-1.5">
                 <label  class="col-form-label">Lastname</label>
-                <input type="text" #name="ngModel" required pattern="^[a-zA-Z][a-zA-Z\s]{0,20}[a-zA-Z]$" class="form-control" name="Lastname" [(ngModel)]="Employee.Lastname">
-                <div *ngIf ="name.touched && name.errors?.['required']" class="alert alert-danger">
+                <input type="text" #lastname="ngModel" required pattern="[A-Z]+$" class="form-control" name="Lastname" [(ngModel)]="Employee.Lastname">
+                <div *ngIf ="lastname.touched && lastname.errors?.['required']" class="alert alert-danger">
                     Lastname is Required!
                 </div>
-                <div *ngIf ="name.touched && name.errors?.['pattern']" class="alert alert-danger" >
+                <div *ngIf ="lastname.touched && lastname.errors?.['pattern']" class="alert alert-danger" >
                     Lastname is invalid!
                 </div>
             </div>
@@ -43,7 +43,7 @@
 
 
             <div class="col-auto p-1.5">
-                <label for="dept" class="col-form-label">Gender</label>
+                <label for="dept" required class="col-form-label">Gender</label>
                 <div class="input-group">
                     <select name="gender" [(ngModel)]="Employee.gender"   class="custom-select"   >
                               <option value="Male">Male</option>
@@ -61,23 +61,23 @@
           <div class="col-auto p-1.5">
             <label for="aceid" class="col-form-label">AceID</label>
             <!-- <input type="text" name="aceid" [(ngModel)]="Employee.aceid" id="aceid" class="form-control" aria-describedby="aceidHelpInline"> -->
-            <input type="text" #name="ngModel" required pattern="^[a-zA-Z][0-9]{0,20}[a-zA-Z]$" class="form-control" name="AceID" [(ngModel)]="Employee.AceID">
-            <div *ngIf ="name.touched && name.errors?.['required']" class="alert alert-danger">
-                Firstname is Required!
+            <input type="text" #aceid="ngModel" required pattern="ACE\d{3,}$" class="form-control" name="AceID" [(ngModel)]="Employee.AceID">
+            <div *ngIf ="aceid.touched && aceid.errors?.['required']" class="alert alert-danger">
+                ACEID is Required!
             </div>
-            <div *ngIf ="name.touched && name.errors?.['pattern']" class="alert alert-danger" >
-                Firstname is invalid!
+            <div *ngIf ="aceid.touched && aceid.errors?.['pattern']" class="alert alert-danger" >
+                ACEID is invalid!
             </div>
         </div>
 
             <div class="col-auto p-1.5">
                 <label for="email" class="col-form-label">Email</label>
                 <!-- <input type="email" name="email" [(ngModel)]="Employee.email" id="email" class="form-control" aria-describedby="emailHelpInline"> -->
-                <input type="text" #name="ngModel" required pattern="/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" class="form-control" name="Email" [(ngModel)]="Employee.email">
-            <div *ngIf ="name.touched && name.errors?.['required']" class="alert alert-danger">
+                <input type="text" #email="ngModel" required pattern="[a-zA-Z0-9_\-\.]+[@][a-z]+[\.][a-z]{2,3}$" class="form-control" name="Email" [(ngModel)]="Employee.email">
+            <div *ngIf ="email.touched && email.errors?.['required']" class="alert alert-danger">
                 Email is Required!
-            </div>
-            <div *ngIf ="name.touched && name.errors?.['pattern']" class="alert alert-danger" >
+            </div> 
+            <div *ngIf ="email.touched && email.errors?.['pattern']" class="alert alert-danger" >
                 Email is invalid!
             </div>
             </div>
@@ -158,7 +158,10 @@
 
               <label class="col-form-label">Employee Image</label>
               <div class="input-group">
-              <input type="file" (change)="ImageConversion($event)" id="image" class="fileInputProfile" name="image">
+              <input type="file" #image="ngModel" required accept=".png,.jpg,.jpeg" (change)="ImageConversion($event)" id="image" class="fileInputProfile" name="image" [(ngModel)]="Employee.Image">
+              <div *ngIf ="image.touched && image.errors?.['required']" class="alert alert-danger">
+                Image is Required!
+               </div>
               <img class="row-auto p-1.5" [src]="imgsrc" height="100">
             </div>
           </div>
