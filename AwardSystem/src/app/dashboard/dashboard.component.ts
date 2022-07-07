@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ChartData, ChartOptions } from 'chart.js';
+import { Chart, ChartData, ChartOptions } from 'chart.js';
 import { Department } from 'Models/Department';
 import { Organisation } from 'Models/Organisation';
 import { SharedService } from 'src/app/shared.service';
@@ -75,22 +75,85 @@ export class DashboardComponent implements OnInit {
 
   
 
+  dict = {}
+
   ngOnInit(): void {
     this.sharedService.getallwinner().subscribe(
-      data =>{
-        this.win = data;
-        console.log(this.win);
+      (res) =>{
+
+        //converting api values into list
+        let d = []
+        let d1:string[][] = []
+        for(var i of res){
+          for(let key in i){
+            let value = i[key];
+            d.push(value)
+          }
+          d1.push(d)
+          d = []          
+        }
+        console.log(d1)
+
+        //setting into calculate a total count in dictionary
+        var dict:any = {}
+        for(var a of d1){
+          for(var b of a){
+            var new_item = b
+            dict[new_item] = dict.hasOwnProperty(new_item)? ++dict[new_item] : 1;
+          }
+        }
+        console.log(dict)
+
+        //Setting Organisation into a list
+        var org:any = []
+        const search = (targetElement : string) => (arrElement : string) => arrElement === targetElement;
+        for(var x of d1){
+            if(org.some(search(x[0]))){
+              continue
+            }
+            else{
+              org.push(x[0])
+            }
+        }
+        console.log(org)
+
+        //Setting Awards into a list
+        var award:any = []
+        for(var x of d1){
+            if(award.some(search(x[2]))){
+              continue
+            }
+            else{
+              award.push(x[2])
+            }
+        }
+        console.log(award)
+
+        //setting award values into a list
+        var awdcnt:any = []
+        for(var j of award){
+          console.log(j)
+          for(var k of Object.keys(dict)){
+            if(j == k){
+              awdcnt.push(dict[k])
+            }
+          }
+        }
+        console.log(awdcnt)
+
+        
+        
+
+
       }
     );
 
 
     this.sharedService.getAll(this.endpoint).subscribe(data => {
       this.organisations = data;
-      console.log(this.organisations);
     });
     this.sharedService.getAll(this.endpoint1).subscribe(data => {
       this.awardData = data;
-      console.log(this.awardData);
     });
 
   }
