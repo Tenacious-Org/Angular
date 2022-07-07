@@ -85,4 +85,10 @@ disable(endpoint:any,id:any):Observable<string>{
 
   }
 
+  //Get All Winners
+  getallwinner():Observable<any>
+  {
+    return this.http.get<any>(this.apiurl + `Dashboard/GetAllWinners`)
+  }
+
 }
