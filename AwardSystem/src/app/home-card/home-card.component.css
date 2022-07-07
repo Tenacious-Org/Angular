@@ -178,8 +178,7 @@ border-radius:50%;
 
 #cardflip{
   padding: 0;
-margin-left: 20px;
-justify-content: space-between;
+
 }
 
 .flip-card {
@@ -217,4 +216,7 @@ p{
 }
 .form-control{
 top:15%;
+}
+.row{
+  margin-left:15%
 }
