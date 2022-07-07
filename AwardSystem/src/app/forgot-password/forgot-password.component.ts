@@ -12,6 +12,12 @@ import { Employee } from 'Models/Employee';
 export class ForgotPasswordComponent implements OnInit {
 
   constructor() { }
+  user:any={
+
+    email:'',
+    password: '',
+
+  }
 
   ngOnInit(): void {
   }
