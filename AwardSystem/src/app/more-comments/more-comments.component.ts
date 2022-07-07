@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { AuthenticationService } from '../authentication.service';
 import { AwardService } from '../award.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { AwardService } from '../award.service';
 export class MoreCommentsComponent implements OnInit {
   data: any;
   Id:any;
-  employeeId=6;
+  employeeId = AuthenticationService.GetData('User');
   commentList:any;
   isReadMore =true;
   constructor(private awardService:AwardService, private route:ActivatedRoute) { }
@@ -20,16 +21,13 @@ export class MoreCommentsComponent implements OnInit {
     employeeId : 0,
     awardId : 0,
   }
-  showText()
-  {
-	this.isReadMore =!this.isReadMore
-	
-  }
+  
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.Id = params['id'];
      this.awardService.getAwardById(this.Id).subscribe((result) => {
           this.data = result;
+          console.log(this.data);
         });
       });
 

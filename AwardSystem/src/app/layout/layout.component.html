@@ -1,48 +1,4 @@
-<!-- <nav class="navbar navbar-expand-lg navbar-light ">
-    <div class="navbar-brand ">
-        <h2 id="nav-logo">Tenacious</h2>
-    </div>
 
-    <div class="container-fluid">
-
-        <!-- <div class="navbar-collapse d-flex align-items-center" id="navbarSupportedContent"> -->
-
-<!-- </div>
-    <!-- <a href="#" class="nav navbar-nav"><img src="./assets/images/Adminlogo.png" alt="Admin Logo"
-            style="position:absolute;width:60px;height:60px;right: 60px;bottom:6px"></a> -->
-
-<!-- <div class="d-flex align-items-center dropdown">
-
-        <button class="dropbtn" id="imgdrop"> -->
-
-<!-- <table >
-                <tr>
-                    <td>Rolex</td>
-                <td > <img  id="profilelogo" src="./assets/images/Adminlogo.png">
-                </td>
-                </tr>
-                
-            </table>
- -->
-
-
-<!-- 
-        </button>
-        <div class="dropdown-content" style="right: 0.5px;" >
-            <a href="#">
-                Profile</a>
-            <a href="#">
-                Logout</a>
-        </div>
-    </div>
- -->
-
-
-
-
-
-<!-- </div> -->
-<!-- </nav> -->
 
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light">
@@ -73,24 +29,13 @@
 
         <!-- Right elements -->
         <div  class=" align-items-center">
-            <!-- Icon -->
-            <!-- <a class="text-reset me-3" href="#">
-          <i class="fas fa-shopping-cart"></i>
-        </a>
-        
-   -->
-            <!-- Notifications -->
-            
-            <a routerLinkActive="active" id='logout'(click)="onSubmit()">Logout</a>
-        
-
-
-
-    
-            <!-- Avatar -->
-
+      
+            <a routerLinkActive="active" id='logout'(click)="onLogout()">Logout</a>            <!-- Notifications -->
+        <!-- <div *ngif="user!=null;else elseblock">
+            <a routerLinkActive="active" id='logout'(click)="onLogout()">Logout</a>
+           
         </div>
-        <!-- Right elements -->
-    
-    <!-- Container wrapper -->
+            <ng-template #elseblock> <a routerLinkActive="active" id='logout'(click)="onLogin()">Login</a>
+        </ng-template> -->
+        </div>
 </nav>

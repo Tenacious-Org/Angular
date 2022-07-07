@@ -11,29 +11,16 @@
                 <img src="./assets/images/cardback.png" class="card-img-top" alt="Fissure in Sandstone"
                     style="height:300px" />
                 <div class="card-img-overlay">
-                    <img class="card-img-right" src="./assets/images/image1.png" alt="Avatar" style="width:30%">
+                    <img class="card-img-right" [src]="'data:image/jpg;base64,'+ data.awardeeImage" alt="Awardee Image" style="width:30%">
 
-                    <img class="card-img-left" src="./assets/images/award1.png" alt="Avatar" style="width:30%">
+                    <img class="card-img-left" [src]="'data:image/jpg;base64,'+ data.awardImage" alt="Award image" style="width:30%">
                 </div>
             </div>      
             <div class="card-body">
                 <h5 class="card-title">{{data.awardeeName}}</h5>
-                <p class="card-text">{{data.awardName}}</p>
-                <h4 [ngClass]="{'limitTextHeight': isReadMore}">Congrats This is long text replaced with reading more/less link
-                  example in Angular application paragraph text shown here continue THis is long text replaced with reading
-                  more/less link example in Angular application paragraph text shown here continue continue
-                  This is long text replaced with reading more/less link example in Angular application paragraph text shown
-                  here
-                  continue THis is long text replaced with reading more/less link example in Angular application paragraph text
-                  shown here continue
-                  continue THis is long text replaced with reading more/less link example in Angular application paragraph text
-                  shown here continue THis is long text replaced with reading more/less link example in Angular application
-                  paragraph text shown here
-                  continue continue</h4>
+                <p class="card-text">{{data.award}}</p>
+                <h4 [ngClass]="{'limitTextHeight': isReadMore}">{{data.reason}}</h4>
               </div>
-              <!-- <button type="button" (click)="showText()">
-                {{ isReadMore ? 'Read More...': 'Read Less...' }}
-              </button> -->
         </div>
        <div class="card mb-6">
             <div class="card-body">

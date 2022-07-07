@@ -1,142 +1,8 @@
-<!-- <app-layout></app-layout>
-<div class="d-flex justify-content-center">
-  <div class="container card " style="height:20%;width: 100%">
-    <form>
-      <label class="labeltext">Award type</label>
-            <input type="search" id="form1" class="form-control" [(ngModel)]="searchAward" />
-      <label class="labeltext">Awardee namer</label>
-            <input type="search" id="form1" class="form-control" [(ngModel)]="searchAwardee" />
-      <label class="labeltext">From</label>
-      <input type="date" name="FromDate" [(ngModel)]="FromDate" autocomplete="off">
-      <label class="labeltext">To</label>
-      <input type="date" name="ToDate" [(ngModel)]="ToDate" autocomplete="off">
-      <button class="custom-btn btn-1" (click)="samplefun(searchAward,searchAwardee,FromDate,ToDate)"> Apply</button>
-    </form>
-  </div>
-</div>
 
-
-<div>
-  <div class="container">
-    <div class="row " *ngFor="let item of awardData">
-      <div class="card">
-        <img class="card-img" src="..\assets\images\b6.png" alt="Bologna">
-        <div class="card-img-overlay text-white d-flex flex-column justify-content-center">
-          <div class="profile-card-3">
-            <div class="profile-thumb-block">
-              <img [src]="'data:image/jpg;base64,'+ item.image" alt="profile-image" class="profile" />
-            </div>
-            <img [src]="'data:image/jpg;base64,'+ item.awardImage" alt="profile-image" class="profile" />
-          </div>
-          <h3 class="card-title">Congratulation {{item.awardeeName}}</h3>
-          <p class="card-text">{{item.awardName}}</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="Container justify-content-center " style="position:absolute;bottom:0;right:0%;">
-    <div class="stickypagination">
-      <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page">
-      </mat-paginator>
-       <pagination-controls class="text-center" (pageChange)="page = $event"></pagination-controls> -->
-<!-- </div>
-  </div>
-</div> -->
-
-<!-- <div class="row homecard">
-	<div class="card_image">
-	  <img src="/src/assets/MicrosoftTeams-image.png" alt="background pic" />
-	</div>
-	<div class="card_title">
-	  <p>Card Title</p>
-	</div>
-  </div>
-  <div class="card 3">
-	<div class="card_image">
-	  <img src="/src/assets/MicrosoftTeams-image.png" alt="background pic" />
-	</div>
-	<div class="card_title">
-	  <p>Card Title</p>
-	</div>
-  </div>       -->
-
-
-<!-- <div class="form-inline btn-group search ">
-      <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
-        aria-describedby="search-addon" />
-      <button type="button" class="btn btn-primary">
-        <i class="fas fa-search"></i>
-      </button>
-    </div> -->
-
-
-
-<!-- 
-    <div class="w3-right dropdown me-4 mb-4 ">
-      <select class="form-select" aria-label="Default select example" style="width:auto">
-        <option selected>Select</option>
-        <option ng-value="1">Pending</option>
-        <option ng-value="2">Approved</option>
-        <option ng-value="3">Rejected</option>
-        <option ng-value="4">Published</option>
-      </select>
-    </div>
-    <div class="w3-right dropdown me-4 mb-4 ">
-      <select class="form-select" aria-label="Default select example" style="width:auto">
-        <option selected>Select</option>
-        <option ng-value="1">Pending</option>
-        <option ng-value="2">Approved</option>
-        <option ng-value="3">Rejected</option>
-        <option ng-value="4">Published</option>
-      </select>
-    </div> -->
-
-
-<!-- <div class="card col">
-      <div class="card-body">
-
-      </div>
-    </div>
-
-    <div class="card col">
-      <div class=" card-body">
-
-      </div>
-    </div>
-  </div> -->
 <app-layout></app-layout>
 
 
-<!-- <div class="card">
-    <table>
-      <tr>
-        <img src="./assets/images/male.jpg" alt="Avatar" style="width:50%; height:50%">
-        <img src="./assets/images/award.png" alt="Avatar" style="width:50%;height:50%">
 
-
-      </tr>
-    </table>
-
-    <div class="container">
-      <h4><b>John Doe</b></h4>
-      <h4>Congrats </h4>
-    </div>
-  </div>
-  <div class="card">
-    <table>
-      <tr>
-        <img src="./assets/images/male.jpg" alt="Avatar" style="width:50%; height:50%">
-        <img src="./assets/images/award.png" alt="Avatar" style="width:50%;height:50%">
-
-
-      </tr>
-    </table>
-
-    <div class="container">
-      <h4><b>John Doe</b></h4>
-      <h4>Congrats </h4>
-    </div>
-  </div> -->
 <link href="https://fonts.googleapis.com/css?family=Schoolbell&v1" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Qwitcher+Grypen:wght@700&family=Splash&display=swap"
@@ -186,160 +52,33 @@
 
 
 
-<!-- <div class="flip-card">
-    <div class="flip-card-inner">
-      <div class="flip-card-front">
-        <img class="card-img-top" src="./assets/images/cardback.png" alt="Card image cap">
-      </div>
-  
-      <div class="flip-card-back">
-        <img class="card-img-top" src="./assets/images/firstvictor.png" alt="Card image cap">
-      </div>
-     
-  <div class="card-img-overlay">
-       
-        <img class="card-img-bottom" src="./assets/images/frontcard.png" alt="Avatar" style="width:30%">
-      </div>
-    </div>
-    
-  </div> -->
-
-
 
 
 
 <div class=" container row" id="cardflip">
 
-  <div class="card">
+  <div class="card" *ngFor="let item of awardData">
     <div class="flip-card-inner">
       <div class="flip-card-front">
         <img src="./assets/images/cardback.png" class="card-img-top" alt="Fissure in Sandstone" style="height:300px" />
         <div class="card-img-overlay">
 
-          <img class="card-img-bottom" src="./assets/images/image1.png" alt="Avatar" style="width:30%">
+          <img class="card-img-bottom"  [src]="'data:image/jpg;base64,'+ item.awardeeImage" alt="Avatar" style="width:30%">
         </div>
         <div class="card-img-overlay">
 
-          <img class="card-img-left" src="./assets/images/award1.png" alt="Avatar" style="width:30%">
+          <img class="card-img-left"  [src]="'data:image/jpg;base64,'+ item.awardImage" alt="Avatar" style="width:30%">
         </div>
       </div>
-      <!-- <div class="flip-card-back">
-        <img class="card-img-top" src="./assets/images/firstvictor.png" alt="Card image cap">
-      </div> -->
+      
       <div class="card-body">
-        <p id="text"><b>John Doe</b></p>
-        <h4 [ngClass]="{'limitTextHeight': isReadMore}">Congrats This is long text replaced with reading more/less link
-          example in Angular application paragraph text shown here continue THis is long text replaced with reading
-          more/less link example in Angular application paragraph text shown here continue continue
-          This is long text replaced with reading more/less link example in Angular application paragraph text shown
-          here
-          continue THis is long text replaced with reading more/less link example in Angular application paragraph text
-          shown here continue
-          continue THis is long text replaced with reading more/less link example in Angular application paragraph text
-          shown here continue THis is long text replaced with reading more/less link example in Angular application
-          paragraph text shown here
-          continue continue</h4>
+        <p id="text"><b>{{item.awardeeName}}</b></p>
+        <h4 [ngClass]="{'limitTextHeight': isReadMore}">{{item.reason}}</h4>
       </div>
-      <button type="button" (click)="showText()">
+      <button  [routerLink]="['/morecomments',item.id]">
         {{ isReadMore ? 'Read More...': 'Read Less...' }}
       </button>
     </div>
   </div>
-  <div class="card">
-    <div class="flip-card-inner">
-      <div class="flip-card-front">
-        <img src="./assets/images/cardback.png" class="card-img-top" alt="Fissure in Sandstone" style="height:300px" />
-      </div>
-
-      <!-- <div class="flip-card-back">
-        <img class="card-img-top" src="./assets/images/firstvictor.png" alt="Card image cap">
-      </div> -->
-
-      <div class="card-body">
-
-
-        <p id="text"><b>John Doe</b></p>
-        <h4 [ngClass]="{'limitTextHeight': isReadMore}">Congrats This is long text replaced with reading more/less link
-          example in Angular application paragraph text shown here continue THis is long text replaced with reading
-          more/less link example in Angular application paragraph text shown here continue continue
-          This is long text replaced with reading more/less link example in Angular application paragraph text shown
-          here
-          continue THis is long text replaced with reading more/less link example in Angular application paragraph text
-          shown here continue
-          continue THis is long text replaced with reading more/less link example in Angular application paragraph text
-          shown here continue THis is long text replaced with reading more/less link example in Angular application
-          paragraph text shown here
-          continue continue</h4>
-      </div>
-      <button type="button" (click)="showText()">
-        {{ isReadMore ? 'Read More...': 'Read Less...' }}
-      </button>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="flip-card-inner">
-      <div class="flip-card-front">
-        <img src="./assets/images/cardback.png" class="card-img-top" alt="Fissure in Sandstone" style="height:300px" />
-      </div>
-
-      <!-- <div class="flip-card-back">
-        <img class="card-img-top" src="./assets/images/firstvictor.png" alt="Card image cap">
-      </div> -->
-
-      <div class="card-body">
-
-
-        <p id="text"><b>John Doe</b></p>
-        <h4 [ngClass]="{'limitTextHeight': isReadMore}">Congrats This is long text replaced with reading more/less link
-          example in Angular application paragraph text shown here continue THis is long text replaced with reading
-          more/less link example in Angular application paragraph text shown here continue continue
-          This is long text replaced with reading more/less link example in Angular application paragraph text shown
-          here
-          continue THis is long text replaced with reading more/less link example in Angular application paragraph text
-          shown here continue
-          continue THis is long text replaced with reading more/less link example in Angular application paragraph text
-          shown here continue THis is long text replaced with reading more/less link example in Angular application
-          paragraph text shown here
-          continue continue</h4>
-      </div>
-      <button type="button" (click)="showText()">
-        {{ isReadMore ? 'Read More...': 'Read Less...' }}
-      </button>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="flip-card-inner">
-      <div class="flip-card-front">
-        <img src="./assets/images/cardback.png" class="card-img-top" alt="Fissure in Sandstone" style="height:300px" />
-      </div>
-
-      <!-- <div class="flip-card-back">
-        <img class="card-img-top" src="./assets/images/firstvictor.png" alt="Card image cap">
-      </div> -->
-
-      <div class="card-body">
-
-
-        <p id="text"><b>John Doe</b></p>
-        <h4 [ngClass]="{'limitTextHeight': isReadMore}">Congrats This is long text replaced with reading more/less link
-          example in Angular application paragraph text shown here continue THis is long text replaced with reading
-          more/less link example in Angular application paragraph text shown here continue continue
-          This is long text replaced with reading more/less link example in Angular application paragraph text shown
-          here
-          continue THis is long text replaced with reading more/less link example in Angular application paragraph text
-          shown here continue
-          continue THis is long text replaced with reading more/less link example in Angular application paragraph text
-          shown here continue THis is long text replaced with reading more/less link example in Angular application
-          paragraph text shown here
-          continue continue</h4>
-      </div>
-      <button type="button" (click)="showText()">
-        {{ isReadMore ? 'Read More...': 'Read Less...' }}
-      </button>
-
-    </div>
-
 
   </div>

@@ -14,7 +14,11 @@ user:any;
   ngOnInit(): void {
     this.user=AuthenticationService.GetData("token");
   }
-  onSubmit(){
+  onLogin(){
+    this.route.navigateByUrl("/login")
+  }
+
+  onLogout(){
     AuthenticationService.Logout();
     this.route.navigateByUrl("")
 

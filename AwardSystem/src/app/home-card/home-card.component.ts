@@ -15,7 +15,7 @@ export class HomeCardComponent implements OnInit {
   totalLength: any;
   page: number = 1;
   pageId=0;
-  employeeId=6;
+  employeeId=0;
   isReadMore =true;
   constructor(private awardService:AwardService,private router:ActivatedRoute,private http:HttpClient){ }
 
@@ -28,11 +28,7 @@ export class HomeCardComponent implements OnInit {
   });
 
   }
-  showText()
-  {
-	this.isReadMore =!this.isReadMore
-	
-  }
+  
   @Input() ShowStatus:boolean =true;
 	searchAward = "";
 	searchAwardee = "";
