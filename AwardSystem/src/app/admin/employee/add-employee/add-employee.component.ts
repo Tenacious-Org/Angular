@@ -8,6 +8,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { DialogboxComponent } from 'src/app/dialogbox/dialogbox.component';
 import { HotToastService } from '@ngneat/hot-toast';
 import { AuthenticationService } from 'src/app/authentication.service';
+import { DatePipe } from '@angular/common';
 
 
 @Component({
@@ -16,6 +17,16 @@ import { AuthenticationService } from 'src/app/authentication.service';
   styleUrls: ['./add-employee.component.css']
 })
 export class AddEmployeeComponent implements OnInit {
+
+  today = new Date();
+  pipe = new DatePipe('en-US');
+  // changed= this.pipe.transform(this.today, 'dd/MM/YYYY');
+  date= this.today.setDate(this.today.getDate());
+  month=this.today.setDate(this.today.getMonth());
+  currentYear=this.today.setDate(this.today.getFullYear());
+  year=this.currentYear-18;
+  changed = (this.month+'/'+this.date+'/'+(this.year)) ;
+
 
   constructor(private sharedService:SharedService, private router:Router,private toastService: HotToastService,private dialog: MatDialog) { }
   imgsrc='';
@@ -62,8 +73,7 @@ export class AddEmployeeComponent implements OnInit {
       this.organisations=data;
       console.log(this.organisations);
     });
-
-
+    
   }
 
   onSelectDep(){
