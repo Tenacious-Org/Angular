@@ -11,11 +11,14 @@ import { HotToastService } from '@ngneat/hot-toast';
   styleUrls: ['./edit-designation.component.css']
 })
 export class EditDesignationComponent implements OnInit {
+  roles: any;
+  endpoint2="Role";
   constructor(private sharedService:SharedService, private router:ActivatedRoute, private routing:Router,private toastService: HotToastService) { }
   Id:any=0;
   data:any;
   departments : Department[]=[];
   selectedDepartment:any;
+  selectedRole:any;
   endpoint="Department";
   endpoint1="Designation";
 
@@ -26,12 +29,17 @@ export class EditDesignationComponent implements OnInit {
           this.data = result;
           console.log(this.data);
           this.selectedDepartment=this.data.departmentId;
-          console.log(this.selectedDepartment);
+          this.selectedRole=this.data.roleId;
+          console.log(this.selectedRole);
         });
       });
     this.sharedService.getAll(this.endpoint).subscribe(data=>{
       this.departments=data;
     });    
+    this.sharedService.getAll(this.endpoint2).subscribe(data=>{
+      this.roles=data;
+      console.log(this.roles);
+    });
    }
 
   OnSubmit(){

@@ -81,12 +81,10 @@ showErrorMessage=false;
 
         if(this.IsAdmin){
 
-          this.route.navigateByUrl("/organisation");  
-        }else if(this.IsPublisher){
-          this.route.navigateByUrl("/requester-request");
+          this.route.navigateByUrl("/dashboard");  
         }
         else {
-          this.route.navigateByUrl("/requester-request");
+          this.route.navigateByUrl("/homepage");
 
         }
         console.log(data)
