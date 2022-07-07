@@ -6,6 +6,7 @@ import { Employee } from 'Models/Employee';
 import { Organisation } from 'Models/Organisation';
 import { SharedService } from 'src/app/shared.service';
 import { HotToastService } from '@ngneat/hot-toast';
+import { AuthenticationService } from 'src/app/authentication.service';
 
 
 
@@ -40,6 +41,9 @@ export class EditEmployeeComponent implements OnInit {
   constructor(private sharedService:SharedService, private router:ActivatedRoute, private routing:Router,private toastService: HotToastService) { }
 
   ngOnInit(): void {
+    if(!AuthenticationService.GetData("Admin")){
+      this.routing.navigateByUrl("")
+    }
     this.router.params.subscribe(params => {
       this.Id = params['id'];
      this.sharedService.getById(this.endpoint1,this.Id).subscribe((result) => {

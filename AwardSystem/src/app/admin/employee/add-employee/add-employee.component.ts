@@ -7,6 +7,7 @@ import { SharedService } from 'src/app/shared.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogboxComponent } from 'src/app/dialogbox/dialogbox.component';
 import { HotToastService } from '@ngneat/hot-toast';
+import { AuthenticationService } from 'src/app/authentication.service';
 
 
 @Component({
@@ -54,6 +55,9 @@ export class AddEmployeeComponent implements OnInit {
   endpoint1 = "Employee";
 
   ngOnInit(): void {
+    if(!AuthenticationService.GetData("Admin")){
+      this.router.navigateByUrl("")
+    }
     this.sharedService.getAll(this.endpoint).subscribe(data=>{
       this.organisations=data;
       console.log(this.organisations);

@@ -1,9 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogboxComponent } from 'src/app/dialogbox/dialogbox.component';
-
+import { Router } from '@angular/router';
 import { SharedService } from 'src/app/shared.service';
 import { DesignationVM } from 'ViewModels/DesignationVM';
+import { AuthenticationService } from 'src/app/authentication.service';
 
 
 @Component({
@@ -17,9 +18,12 @@ export class DesignationComponent implements OnInit {
   endpoint = "Designation";
   val:any;
   designationname: any;
-  constructor(private sharedService:SharedService,private dialog: MatDialog  ) { }
+  constructor(private sharedService:SharedService,private dialog: MatDialog,private router:Router  ) { }
 
   ngOnInit(): void {
+    if(!AuthenticationService.GetData("Admin")){
+      this.router.navigateByUrl("")
+    }
    this.sharedService.getAll(this.endpoint).subscribe(data=>{
       this.data = data;
       this.totalLength=data;

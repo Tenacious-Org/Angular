@@ -17,7 +17,7 @@ export class ViewAwardComponent implements OnInit {
 
   ngOnInit(): void {
     if(!AuthenticationService.GetData("Admin")){
-      this.route.navigateByUrl("login")
+      this.route.navigateByUrl("")
       
     }
     this.router.params.subscribe(params => {

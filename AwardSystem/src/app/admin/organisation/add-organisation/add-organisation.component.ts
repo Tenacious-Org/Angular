@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogboxComponent } from 'src/app/dialogbox/dialogbox.component';
 import { HotToastService } from '@ngneat/hot-toast';
+import { AuthenticationService } from 'src/app/authentication.service';
 
 
 @Component({
@@ -25,6 +26,9 @@ endpoint="Organisation";
   }
 
   ngOnInit(): void {
+    if(!AuthenticationService.GetData("Admin")){
+      this.router.navigateByUrl("")
+    }
    
   }
 

@@ -4,6 +4,7 @@ import { Organisation } from 'Models/Organisation';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { HotToastService } from '@ngneat/hot-toast';
+import { AuthenticationService } from 'src/app/authentication.service';
 @Component({
   selector: 'app-add-department',
   templateUrl: './add-department.component.html',
@@ -23,15 +24,20 @@ export class AddDepartmentComponent implements OnInit {
     updatedBy : 1,
     updatedOn : Date.now, 
   }
-  
+  public data: Organisation[] = [];
+
 endpoint="Department";
 endpoint1="Organisation";
   ngOnInit(): void {
+
+    if(!AuthenticationService.GetData("Admin")){
+      this.router.navigateByUrl("")
+    }
+    
     this.sharedService.getAll(this.endpoint1).subscribe(data=>{
       this.data=data;
     });  
   }
-  public data: Organisation[] = [];
   OnSubmit(){
     console.log(this.Department)
     this.sharedService.add(this.endpoint,this.Department).subscribe((res) =>{
@@ -52,6 +58,7 @@ endpoint1="Organisation";
   }
   
   }
+
   
     
 

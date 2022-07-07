@@ -5,6 +5,7 @@ import { Organisation } from 'Models/Organisation';
 import { SharedService } from 'src/app/shared.service';
 import { Router } from '@angular/router';
 import { HotToastService } from '@ngneat/hot-toast';
+import { AuthenticationService } from 'src/app/authentication.service';
 @Component({
   selector: 'app-edit-department',
   templateUrl: './edit-department.component.html',
@@ -18,6 +19,11 @@ selectedOrganisation:any;
   endpoint="Department";
   endpoint1="Organisation";
     ngOnInit(): void {
+      if(!AuthenticationService.GetData("Admin")){
+        this.routing.navigateByUrl("")
+      }
+      
+
       this.router.params.subscribe(params => {
         this.Id = params['id'];
        this.sharedService.getById(this.endpoint,this.Id).subscribe((result) => {

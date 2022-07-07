@@ -4,6 +4,7 @@ import { Department } from 'Models/Department';
 import { SharedService } from 'src/app/shared.service';
 import { Router } from '@angular/router';
 import { HotToastService } from '@ngneat/hot-toast';
+import { AuthenticationService } from 'src/app/authentication.service';
 
 @Component({
   selector: 'app-edit-designation',
@@ -23,6 +24,9 @@ export class EditDesignationComponent implements OnInit {
   endpoint1="Designation";
 
    ngOnInit(): void {
+    if(!AuthenticationService.GetData("Admin")){
+      this.routing.navigateByUrl("")
+    }
     this.router.params.subscribe(params => {
       this.Id = params['id'];
      this.sharedService.getById(this.endpoint1,this.Id).subscribe((result) => {

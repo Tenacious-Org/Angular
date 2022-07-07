@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogboxComponent } from 'src/app/dialogbox/dialogbox.component';
 import { HotToastService } from '@ngneat/hot-toast';
+import { AuthenticationService } from 'src/app/authentication.service';
 @Component({
   selector: 'app-add-designation',
   templateUrl: './add-designation.component.html',
@@ -31,6 +32,9 @@ export class AddDesignationComponent implements OnInit {
   endpoint2="Role";
 
    ngOnInit(): void {
+    if(!AuthenticationService.GetData("Admin")){
+      this.router.navigateByUrl("")
+    }
     this.sharedService.getAll(this.endpoint).subscribe(data=>{
       this.departments=data;
       console.log(this.departments);

@@ -5,6 +5,7 @@ import { Location } from '@angular/common';
 import { SharedService } from 'src/app/shared.service';
 import { HotToastService } from '@ngneat/hot-toast';
 import { Organisation } from 'Models/Organisation';
+import { AuthenticationService } from 'src/app/authentication.service';
 
 
 @Component({
@@ -27,6 +28,9 @@ export class EditOrganisationComponent implements OnInit {
     constructor(private sharedService:SharedService, private route:ActivatedRoute, private location: Location, private router:Router, private routing:Router,private toastService: HotToastService) { }
 
   ngOnInit(): void {
+    if(!AuthenticationService.GetData("Admin")){
+      this.router.navigateByUrl("")
+    }
     this.route.params.subscribe(params => {
       this.id = params['id'];
     console.log(this.id)
