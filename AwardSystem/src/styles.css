@@ -11382,8 +11382,7 @@ button {
 }
 /* @media(max-width:1920px){
     .table-box{
-        margin-left: 150px;
-        
+        margin-left: 150px;   
     }
 } */
 
@@ -11595,3 +11594,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;}
+
+.btn-danger{
+    margin-left: 15px;
+}
