@@ -61,5 +61,11 @@
     height: 500px;
     overflow-y: auto;
   }
-  
+  p{
+    line-height:5;
+  }
+  #heading{
+    margin-left:15%;
+    color:gray;
+  }
 

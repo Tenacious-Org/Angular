@@ -17,7 +17,7 @@
                 </div>
             </div>      
             <div class="card-body">
-                <h5 class="card-title">{{data.awardeeName}}</h5>
+                <h2 class="card-title">{{data.awardeeName}}</h2>
                 <h4 [ngClass]="{'limitTextHeight': isReadMore}">{{data.reason}}</h4>
               </div>
         </div>
@@ -34,7 +34,7 @@
                         </form>
                     </div>
                     <div class="allcomments">
-                        <div class="d-flex justify-content-between" *ngFor="let item of commentList">
+                        <div class="d-flex row justify-content-between" *ngFor="let item of commentList">
                             <div class="d-flex flex-row ">
                                 <div *ngIf="item.employeeImage==null ; else elseimage">
                                     <img *ngIf="item.gender=='Male';else elsegender " src='assets/images/male.jpg'
@@ -48,15 +48,18 @@
                                             [src]="'data:image/jpg;base64,'+ item.employeeImage"
                                             class="rounded-circle img-fluid" width="40" height="40" /></div>
                                 </ng-template>
-                                <p class=" mb-0 ms-2">{{item.employeeName}}</p>
-                            </div>
-                            <p>{{item.comments}}</p>
+                                <h3 class=" mb-0 ms-2">{{item.employeeName}}</h3>
+                                
+                            </div>      
+                            <h4 id="heading">{{item.comments}}</h4>          
                         </div>
+                        
                     </div>
                 </div>
             </div>
         </div>
     </div> 
+    
     <!-- <div>
         <button type="button" class="btn btn-primary">Back</button>
 
