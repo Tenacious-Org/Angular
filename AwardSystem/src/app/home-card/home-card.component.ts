@@ -23,8 +23,9 @@ export class HomeCardComponent implements OnInit {
   constructor(private awardService:AwardService,private router:ActivatedRoute,private http:HttpClient){ }
 
   ngOnInit(): void {
-	if(!AuthenticationService.GetData("token")){
+	if(AuthenticationService.GetData("token")!=null){
 		this.isValidUser=1;
+		console.log(this.isValidUser);
 	}
     this.router.params.subscribe(params => {
       this.AwardId = params['id'];
