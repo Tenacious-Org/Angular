@@ -18,7 +18,7 @@
       <div class="form-inline btn-group search">
         
 
-        <input type="search" class="form-control rounded" placeholder="Search by Name" aria-label="Search"
+        <input type="search" [(ngModel)]="searchValue" class="form-control rounded" placeholder="Search by Name" aria-label="Search"
           aria-describedby="search-addon" />
       </div>
 
@@ -60,7 +60,7 @@
 
 <div class=" container row" id="cardflip">
 
-  <div class="card" *ngFor="let item of awardData">
+  <div class="card" *ngFor="let item of awardData | filter:searchValue">
     <div class="flip-card-inner">
       <div class="flip-card-front">
         <img src="./assets/images/cardback.png" class="card-img-top" alt="Fissure in Sandstone" style="height:300px" />
