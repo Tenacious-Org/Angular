@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Awards } from 'Models/Awards';
 import { AuthenticationService } from 'src/app/authentication.service';
 import { AwardService } from 'src/app/award.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-approver-approval',
@@ -19,10 +20,13 @@ export class ApproverApprovalComponent implements OnInit {
   status : any;
   showstatus :any[] = [];
   
-  constructor(private awardService:AwardService) { }
+  constructor(private awardService:AwardService,private router:Router) { }
 
 
   ngOnInit(): void {
+    if(!AuthenticationService.GetData("Approver") && !AuthenticationService.GetData("Publisher")){
+      this.router.navigateByUrl("")
+    }
     this.getAll();
   }
 onSubmit(){
