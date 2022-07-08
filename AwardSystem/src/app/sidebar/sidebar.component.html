@@ -14,22 +14,22 @@
         <div *ngIf="role==5; else userSidebar">
         <ul class="list-unstyled components mt-4 mb-5 sidebar-items">
             <li>
-                <a [routerLink]="['/dashboard']">  <i class="fa-solid fa-house ml-4 mr-4"></i>Home</a>
+                <a [routerLink]="['/dashboard']"><i class="fa-solid fa-house-chimney ml-4 mr-3"></i>Home</a>
             </li>
             <li>
-                <a [routerLink]="['/awards']" ><i class="fa-solid fa-trophy ml-4 mr-4"></i>Awards</a>
+                <a [routerLink]="['/awards']" ><i class="fa-solid fa-medal ml-4 mr-3"></i>Awards</a>
             </li>
             <li>
-                <a [routerLink]="['/employee']"><i  class="fa-solid fa-user ml-4 mr-4"></i>Employee</a>
+                <a [routerLink]="['/employee']"><i class="fa-solid fa-address-book ml-4 mr-3"></i>Employee</a>
             </li>
             <li>
-                <a [routerLink]="['/organisation']"><i  class="fa-solid fa-building ml-4 mr-4"></i>Organization</a>
+                <a [routerLink]="['/organisation']"><i class="fa-solid fa-building-columns ml-4 mr-3"></i>Organization</a>
             </li>
             <li>
-                <a [routerLink]="['/department']" ><i  class="fa-solid fa-layer-group ml-4 mr-4"></i>Department</a>
+                <a [routerLink]="['/department']" ><i class="fa-solid fa-landmark-dome ml-4 mr-3"></i>Department</a>
             </li>
             <li>
-                <a [routerLink]="['/designation']"><i  class="fa-solid fa-sitemap ml-4 mr-4"></i>Designation</a>
+                <a [routerLink]="['/designation']"><i class="fa-brands fa-dailymotion ml-4 mr-3"></i>Designation</a>
             </li>
         </ul>
         </div>
@@ -38,25 +38,25 @@
         <div>
             <ul class="list-unstyled components mt-4 mb-5 sidebar-items">
                 <li>
-                    <a  [routerLink]="['/homecard']"> <i class="fa-solid fa-house ml-4 mr-4"></i>Home</a>
+                    <a  [routerLink]="['/homecard']"><i class="fa-solid fa-house-chimney ml-4 mr-3"></i>Home</a>
                 </li>
                 <li>
-                    <a [routerLink]="['/cardpost']" ><i class="fa-solid fa-trophy ml-4 mr-4"></i>My Awards</a>
+                    <a [routerLink]="['/cardpost']" ><i class="fa-solid fa-medal ml-4 mr-3"></i>My Awards</a>
                 </li>
                 <li>
-                    <a [routerLink]="['/profile']"><i  class="fa-solid fa-user ml-4 mr-4"></i>Profile</a>
+                    <a [routerLink]="['/profile']"><i class="fa-solid fa-address-card ml-4 mr-3"></i>Profile</a>
                 </li>
                 <li *ngIf="role==2 || role==3 || role==4">
-                    <a [routerLink]="['/requester-request']"><i  class="fa-solid fa-building ml-4 mr-4"></i>Request</a>
+                    <a [routerLink]="['/requester-request']"><i class="fa-solid fa-paper-plane  ml-4 mr-3"></i>Request</a>
                 </li>
                 <li *ngIf="role==3 || role==4">
-                    <a [routerLink]="['/approver-approval']" ><i  class="fa-solid fa-layer-group ml-4 mr-4"></i>Approval</a>
+                    <a [routerLink]="['/approver-approval']" ><i class="fa-solid fa-circle-check ml-4 mr-3"></i>Approval</a>
                 </li>
                 <li *ngIf="role==4">
-                    <a [routerLink]="['/hr-publish']"><i  class="fa-solid fa-sitemap ml-4 mr-4"></i>Publish</a>
+                    <a [routerLink]="['/hr-publish']"><i class="fa-solid fa-upload ml-4 mr-3"></i>Publish</a>
                 </li>
                 <li *ngIf=" role==4">
-                    <a [routerLink]="['/dashboard']"><i  class="fa-solid fa-sitemap ml-4 mr-4"></i>Dashboard</a>
+                    <a [routerLink]="['/dashboard']"><i class="fa-regular fa-chart-bar ml-4 mr-3"></i>Dashboard</a>
                 </li>
             </ul>
             </div></ng-template>
