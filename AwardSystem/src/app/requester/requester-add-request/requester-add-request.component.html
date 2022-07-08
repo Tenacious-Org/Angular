@@ -18,10 +18,8 @@
       <div class="col-auto p-1.5">
         <label class="labels">Awardee Name &nbsp; </label>
 
-        <input [formControl]="searchAwardee" matInput type="text" [matAutocomplete]="auto" name="awardeeId"
-          class="form-control" [(ngModel)]="Awards.AwardeeName">
-         
-
+        <input [formControl]="searchAwardee" matInput type="text"  required [matAutocomplete]="auto" name="awardeeId"
+          class="form-control" [(ngModel)]="Awards.AwardeeName" >
         <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onSelectAwardee($event)">
           <mat-option *ngFor="let item of filteredOptions | async" [value]="item.firstName" [id]="item.id">
             {{item.firstName}} </mat-option>
@@ -44,18 +42,18 @@
 
       <div class="col-auto p-1.5">
         <label class="labels">Reason</label>
-        <textarea style="height: 103px; width: 459px;" #reason="ngModel" required pattern="^[a-zA-Z][a-zA-Z\s]{0,100}[a-zA-Z]$" type="textarea" [(ngModel)]="Awards.reason" name="Awards.name"
-          class="input-group" placeholder="Reason">
+        <textarea type="textarea" name="reason" class="input-group form-control" placeholder="Reason" style="height: 103px; width: 459px;" #reason="ngModel" required pattern="^[a-zA-Z][a-zA-Z\s]{0,100}[a-zA-Z]$" 
+        [(ngModel)]="Awards.reason" ></textarea>
+          
           <div *ngIf ="reason.touched && reason.errors?.['required']" class="alert alert-danger">
                 Reason is Required!
             </div> 
-            <div *ngIf ="reason.touched && reason.errors?.['pattern']" class="alert alert-danger" >
+            <div *ngIf ="reason.touched && reason.errors?.['pattern']" class="alert alert-danger">
                 Reason is invalid!
             </div>
-        </textarea>
       </div>
     </div>
-
+   
 
 
 
