@@ -19,10 +19,12 @@ export class AddAwardsComponent implements OnInit {
   imageError = "";
   isImageSaved: boolean = false;
   cardImageBase64 = "";
-
+  error: any;
+  
   
   constructor(private toastService: HotToastService,private sharedService:SharedService,private router: Router) { }
 
+  response="success"; 
   AwardType : any ={
   id : 0,
   awardName : '',
@@ -42,10 +44,12 @@ export class AddAwardsComponent implements OnInit {
 
   OnSubmit(){
     console.log(this.AwardType);
-    this.sharedService.add( this.endpoint,this.AwardType).subscribe((res) =>{
-      console.log(res);
-      this.showToast();
-    })
+    this.sharedService.add(this.endpoint,this.AwardType).subscribe({
+      // console.log(res);
+      // this.showToast();
+      next:(res) => { console.log(res), this.showToast() },
+        error: (error) => this.error = error.error.message
+    });
 
   }
   
@@ -54,16 +58,12 @@ export class AddAwardsComponent implements OnInit {
     {
       autoClose: true,
       dismissible: true,
-      icon: '❎',
+      
     })
     this.router.navigate(['/awards']);
 
   }
-  // openDialog(res:any,name:any){
-
-  //   this.dialog.open(DialogboxComponent,{data:{isvalid:res,class:"awards",name:name,value:"Awardtype"}});
-
-  // }
+  
 
   ImageConversion(fileInput:any){
     var x:any=document.getElementById("image");
