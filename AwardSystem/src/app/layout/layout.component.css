@@ -91,7 +91,11 @@
     font-size: x-large;
   }
   #logout{
-    font-size:x-large;
+    font-size:large;
     margin-right:20px;
     cursor: pointer;
+    padding:8px;
+    border-radius:40%;
+   color:#fff;
+    background-color:  #6749b9
   }

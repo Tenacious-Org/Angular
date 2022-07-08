@@ -18,7 +18,7 @@
             <!-- Left links -->
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <div class="navbar-brand">
-                    <a id="nav-logo" href="#">Tenacious</a>
+                    <a id="nav-logo" href="">Tenacious</a>
 
                 </div>
 
@@ -29,8 +29,13 @@
 
         <!-- Right elements -->
         <div  class=" align-items-center">
+            <div class="navbar-brand">    
+               
+                  <a routerLinkActive="active" id='logout' (click)="onLogout()">Logout</a> 
+            </div>
+
       
-            <a routerLinkActive="active" id='logout'(click)="onLogout()">Logout</a>            <!-- Notifications -->
+                     <!-- Notifications -->
         <!-- <div *ngif="user!=null;else elseblock">
             <a routerLinkActive="active" id='logout'(click)="onLogout()">Logout</a>
            
