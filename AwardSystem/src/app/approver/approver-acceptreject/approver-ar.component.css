@@ -1,4 +1,6 @@
-
+p{
+    line-height: 25px;
+}
 
 h2{
     text-align: center;
@@ -9,16 +11,3 @@ h2{
     height: auto;
     display: inline-block;
   }
-  p{
-    line-height:20px;
-    font-weight: 800;
-}
-h2{
-    font-weight: bold;
-
-}
-img{
-    width:100px;
-    height:100px;
-    min-height:100px;
-}
