@@ -11,6 +11,9 @@
 
             <div class="col-auto p-1.5">
                 <label for="firstName" class="col-form-label">First Name</label>
+<<<<<<< Updated upstream
+                <input type="text" name="firstName" [(ngModel)]="data.firstName"  class="form-control" aria-describedby="firstNameHelpInline">
+=======
                 <input type="text" name="firstName" #firstname="ngModel" required pattern="^[a-zA-Z][a-zA-Z\s]{0,20}[a-zA-Z]$" [(ngModel)]="data.firstName"  class="form-control" aria-describedby="firstNameHelpInline">
                 <div *ngIf ="firstname.touched && firstname.errors?.['required']" class="alert alert-danger">
                     Firstname is Required!
@@ -18,10 +21,14 @@
                 <div *ngIf ="firstname.touched && firstname.errors?.['pattern']" class="alert alert-danger" >
                     Firstname is invalid!
                 </div>
+>>>>>>> Stashed changes
             </div>
 
             <div class="col-auto p-1.5">
                 <label for="lastName" class="col-form-label">Last Name</label>
+<<<<<<< Updated upstream
+                <input type="text" name="lastName" [(ngModel)]="data.lastName"   class="form-control" aria-describedby="lastNameHelpInline">
+=======
                 <input type="text" name="lastName" #lastname="ngModel" required pattern="^[a-zA-Z][a-zA-Z\s]{0,20}[a-zA-Z]$" [(ngModel)]="data.lastName"   class="form-control" aria-describedby="lastNameHelpInline">
                 <div *ngIf ="lastname.touched && lastname.errors?.['required']" class="alert alert-danger">
                     Lastname is Required!
@@ -29,6 +36,7 @@
                 <div *ngIf ="lastname.touched && lastname.errors?.['pattern']" class="alert alert-danger" >
                     Lastname is invalid!
                 </div>
+>>>>>>> Stashed changes
             </div>
 
         </div>

@@ -4,93 +4,77 @@
 
 <div class="container d-flex justify-content-center ">
 
-    <!-- Write your contents here -->
+  <!-- Write your contents here -->
 
 
-    <div class="card " style="border-radius: 15px; width:500px; margin-top:30px;">
-        <div class="card-body">
-            <div class=" rounded-circle text-center">
-                <img src="./assets/images/Adminlogo.png" width="150px" height="150px" />
-            </div>
-            <hr>
-            <form #yetToPublish="ngForm" (ngSubmit)="OnSubmit()" autocomplete="off">
+  <div class="card " style="border-radius: 15px; width:500px; margin-top:30px;">
+      <div class="card-body">
+          <div class=" rounded-circle text-center">
+              <img src="./assets/images/Adminlogo.png" width="150px" height="150px" />
+          </div>
+          <hr>
 
-                <div class="row">
-                    <h2>Employee Details</h2>
-                    <div class="col-sm-6">
-                        <p class="mb-0">ACE ID</p>
+          <div class="row">
+            <h2>Employee Details</h2>
+              <div class="col-sm-6">
+                  <p class="mb-0">ACE ID</p>
 
-                        <p class="text-muted mb-0">{{data.aceId}}</p>
-                    </div>
-                    <div class="col-sm-6">
-                        <p class="mb-0">Name</p>
-                        <p class="text-muted mb-0">{{data.awardeeName}}</p>
-                    </div>
-                </div>
-                <hr>
+                  <p class="text-muted mb-0">{{data.aceId}}</p>
+              </div>
+              <div class="col-sm-6">
+                  <p class="mb-0">Name</p>
+                  <p class="text-muted mb-0">{{data.awardeeName}}</p>
+              </div>
+          </div>
+          <hr>
 
-                <div class="row">
-                    <div class="col-sm-6">
-                        <p class="mb-0">Department</p>
+          <div class="row">
+              <div class="col-sm-6">
+                  <p class="mb-0">Department</p>
 
-                        <p class="text-muted mb-0">{{data.department}}</p>
-                    </div>
+                  <p class="text-muted mb-0">{{data.department}}</p>
+              </div>
 
-                    <div class="col-sm-6">
-                        <p class="mb-0">Designation</p>
+              <div class="col-sm-6">
+                  <p class="mb-0">Designation</p>
 
-                        <p class="text-muted mb-0">{{data.designation}}</p>
-                    </div>
-                </div>
+                  <p class="text-muted mb-0">{{data.designation}}</p>
+              </div>
+          </div>
 
-                <hr>
-                <div class="row">
-                    <h2>Award Details</h2>
-                    <div class="col-sm-6">
-                        <p class="mb-0">Requester</p>
+          <hr>
+          <div class="row">
+            <h2>Award Details</h2>
+              <div class="col-sm-6">
+                  <p class="mb-0">Requester</p>
 
-                        <p class="text-muted mb-0">{{data.requesterName}}</p>
-                    </div>
-                    <div class="col-sm-6">
-                        <p class="mb-0">Award</p>
-                        <p class="text-muted mb-0">{{data.award}}</p>
-                    </div>
-                </div>
-                <hr>
-                <div class="row">
-                    <div class="col-sm-6">
-                        <p class="mb-0">Reason</p>
+                  <p class="text-muted mb-0">{{data.requesterName}}</p>
+              </div>
+              <div class="col-sm-6">
+                  <p class="mb-0">Award</p>
+                  <p class="text-muted mb-0">{{data.award}}</p>
+              </div>
+          </div>
+          <hr>
+          <div class="row">
+              <div class="col-sm-6">
+                  <p class="mb-0">Reason</p>
 
-                        <p class="text-muted mb-0">{{data.reason}}</p>
-                    </div>
+                  <p class="text-muted mb-0">{{data.reason}}</p>
+              </div>
 
-                    <div class="col-sm-4">
-                        <p class="mb-0">Coupon</p>
-                        <div *ngIf="data.statusId==2">
-                            <input type="text" name="coupon" #coupon="ngModel" [(ngModel)]="data.couponCode" required>
-                        </div>
-                        <div *ngIf="data.statusId==4">
-                            <p class="text-muted mb-0">{{data.couponCode}}</p>
-                            <div class="text-danger" [class.d-none]="coupon.valid || coupon.untouched"
-                                *ngIf="coupon.errors?.['required']">
-                                required.
-                            </div>
-                        </div>
+              <div class="col-sm-4">
+                  <p class="mb-0">Coupon</p>
 
-                    </div>
-                </div>
-
-                <br>
-                <div class="modal-footer justify-content-center">
-                    <div *ngIf="data.statusId==2">
-                        <button [routerLink]="['/hr-publish']" type="submit" class="btn btn-primary"
-                            data-dismiss="modal" [disabled]="!yetToPublish.valid">Publish</button>
-                    </div>
-                    <div>
-                        <button [routerLink]="['/hr-publish']" class="btn btn-danger" data-dismiss="modal">back</button>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
+                 <input *ngIf="data.statusId==2" type="text" name="couponCode" [(ngModel)]="data.couponCode">
+                 <p *ngIf="data.statusId==4" class="text-muted mb-0">{{data.couponCode}}</p>
+              </div>
+          </div>
+          <br>
+          <div class="modal-footer justify-content-center" >
+              <a *ngIf="data.statusId==2" [routerLink]="['/hr-publish']" (click)="OnSubmit()" class="btn btn-primary" data-dismiss="modal">Publish</a>
+              <a [routerLink]="['/hr-publish']" class="btn btn-danger" data-dismiss="modal">Back</a>
+          </div>
+      </div>
+  </div>
 </div>

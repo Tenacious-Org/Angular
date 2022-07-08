@@ -2186,7 +2186,6 @@ select.form-control:focus::-ms-value {
     margin-bottom: 0;
     font-size: inherit;
     line-height: 1.5;
-    color:#414141;
 }
 
 .col-form-label-lg {
@@ -11332,9 +11331,8 @@ button {
     padding: 20px 20px;
     width: 800px;
     min-width: 240px;
-    border: 2px solid #414141;
+    border: 2px solid #000000;
     background-color: #fafafa;
-   
 }
 
 .border-box-tip {
@@ -11342,7 +11340,6 @@ button {
     top: -13px;
     background-color: #fafafa;
     padding: 0px 5px;
-    color:#414141;
 }
 
 .space-between {
