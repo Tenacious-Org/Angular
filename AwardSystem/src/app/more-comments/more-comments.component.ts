@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthenticationService } from '../authentication.service';
 import { AwardService } from '../award.service';
 
@@ -11,10 +11,10 @@ import { AwardService } from '../award.service';
 export class MoreCommentsComponent implements OnInit {
   data: any;
   Id:any;
-  employeeId = AuthenticationService.GetData('User');
+  employeeId=AuthenticationService.GetData('User');
   commentList:any;
   isReadMore =true;
-  constructor(private awardService:AwardService, private route:ActivatedRoute) { }
+  constructor(private awardService:AwardService, private route:ActivatedRoute,private routing:Router) { }
   Comments :any ={
     id :  0,
     comments : '',
@@ -23,6 +23,7 @@ export class MoreCommentsComponent implements OnInit {
   }
   
   ngOnInit(): void {
+    if (AuthenticationService.GetData("token") == null) this.routing.navigateByUrl("")
     this.route.params.subscribe(params => {
       this.Id = params['id'];
      this.awardService.getAwardById(this.Id).subscribe((result) => {
@@ -31,10 +32,12 @@ export class MoreCommentsComponent implements OnInit {
         });
       });
 
+
       this.awardService.getComments(this.Id).subscribe(result=>{
         this.commentList=result;
         console.log(this.commentList);
       })
+
   }
   OnSubmit(){
     console.log(this.Comments);
@@ -42,10 +45,8 @@ export class MoreCommentsComponent implements OnInit {
     this.Comments.awardId=this.Id;
     this.awardService.addComment(this.Comments).subscribe(data=>{
       console.log(data);
-      
-      setTimeout(()=> { this.ngOnInit()}, 1000)
-      this.Comments='';
-      
+      this.ngOnInit()
+      this.Comments.comments=''
     });
   }
 

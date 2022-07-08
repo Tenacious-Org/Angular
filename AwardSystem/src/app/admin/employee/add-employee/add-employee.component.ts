@@ -4,7 +4,7 @@ import { Department } from 'Models/Department';
 import { Designation } from 'Models/Designation';
 import { Organisation } from 'Models/Organisation';
 import { SharedService } from 'src/app/shared.service';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, throwMatDialogContentAlreadyAttachedError } from '@angular/material/dialog';
 import { DialogboxComponent } from 'src/app/dialogbox/dialogbox.component';
 import { HotToastService } from '@ngneat/hot-toast';
 import { AuthenticationService } from 'src/app/authentication.service';
@@ -124,7 +124,6 @@ export class AddEmployeeComponent implements OnInit {
     this.router.navigate(['/employee']);
 
   }
-
    
   CheckName(OrganisationId:any,DepartmentId: any,DesignationId:any,reportingPersonId:any,hrID:any)
   {
