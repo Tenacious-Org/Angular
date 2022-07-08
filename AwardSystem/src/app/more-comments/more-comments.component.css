@@ -66,7 +66,7 @@
   }
   #scrollable{
     z-index:1;
-    max-height:295px;
+    max-height:200px;
     overflow-y:auto;
     
 
