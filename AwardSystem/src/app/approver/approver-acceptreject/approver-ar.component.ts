@@ -85,13 +85,15 @@ export class ApproverARComponent implements OnInit {
 
   openDialog(){
     let dialogRef = this.dialog.open(RejectionReasonComponent,{data:{reason:this.Reason}});
+
     dialogRef.afterClosed().subscribe(value => {
       this.awards.rejectedReason=value;
       if(value!=undefined){
         this.awards.statusId=this.rejectedId;
         this.awardService.approval(this.awards,this.employeeId).subscribe(data=>{
           console.log(this.awards);
-          this.ShowToast();
+          this.showToast();
+
         });
       }
 
@@ -106,6 +108,7 @@ export class ApproverARComponent implements OnInit {
       icon: '❎',
     })
     this.router.navigate(['/approver-approval']);
+
   }
 
   }

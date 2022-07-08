@@ -37,7 +37,7 @@
 
          <div class="col-auto p-1.5">
                 <label for="datetime" class="col-form-label">Date of Birth</label>
-                <input type="date" #dob="ngModel" required name="dob" (click)="changeDate()" [ngModel]="Employee.dob" id="dob" class="form-control" aria-describedby="dobHelpInline">
+                <input type="date" #dob="ngModel" required name="dob" (click)="changeDate()" [(ngModel)]="Employee.dob " id="dob" class="form-control" aria-describedby="dobHelpInline">
                 <div *ngIf ="dob.touched && dob.errors?.['required']" class="alert alert-danger">
                     Date of Birth is Required!
                 </div>
@@ -62,7 +62,7 @@
           <div class="col-auto p-1.5">
             <label for="aceid" class="col-form-label">AceID</label>
             <!-- <input type="text" name="aceid" [(ngModel)]="Employee.aceid" id="aceid" class="form-control" aria-describedby="aceidHelpInline"> -->
-            <input type="text" #aceid="ngModel" required pattern="ACE\d{3,}$" class="form-control" name="AceID" [(ngModel)]="Employee.AceID">
+            <input type="text" #aceid="ngModel" required pattern="ACE\d{3,}$" class="form-control" name="aceid" [(ngModel)]="Employee.aceid">
             <div *ngIf ="aceid.touched && aceid.errors?.['required']" class="alert alert-danger">
                 ACEID is Required!
             </div>

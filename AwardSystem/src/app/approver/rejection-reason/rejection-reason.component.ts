@@ -28,6 +28,7 @@ export class RejectionReasonComponent implements OnInit {
 
   close() {
     this.dialogRef.close();
+
   }
 
 }

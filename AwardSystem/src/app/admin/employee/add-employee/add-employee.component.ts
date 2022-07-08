@@ -106,8 +106,10 @@ export class AddEmployeeComponent implements OnInit {
    }
 
    OnSubmit(){
-     console.log(this.Employee)
-         this.Employee.password="Admin@123";
+
+    console.log(this.Employee.dob)
+    console.log(this.Employee)
+    this.Employee.password="Admin@123";
     this.sharedService.add(this.endpoint1,this.Employee).subscribe(data=>{
       console.log(data);
       this.showToast();
