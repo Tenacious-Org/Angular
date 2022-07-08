@@ -38,9 +38,10 @@
     margin-top:50px !important;
     text-align: justify;
     padding:0;
+    max-height: 550px;
     perspective: 1000px; 
   }
- 
+
   .card-img-bottom {
     position: absolute;
     right: 0;
@@ -58,9 +59,17 @@
   }
   .allcomments {
     width: 500px;
-    height: 500px;
+    max-height:380px;
     overflow-y: auto;
     overflow-x:hidden;
+
+  }
+  #scrollable{
+    z-index:1;
+    max-height:295px;
+    overflow-y:auto;
+    
+
   }
   p{
     line-height:5;
@@ -75,4 +84,14 @@
     padding:3px;
     margin-bottom:2%;
   }
-
+.input-group,.form-control{
+  width:360px;
+}
+#morecommentspage{
+  height:auto;
+  max-height: 560px;
+  overflow:hidden;
+}
+#contain{
+  padding-top:35px;
+}

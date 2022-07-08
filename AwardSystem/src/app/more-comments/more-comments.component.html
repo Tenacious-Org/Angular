@@ -1,35 +1,43 @@
- <!-- <img [src]="'data:image/jpg;base64,'+ data.image" alt="profile-image" class="profile" /> -->
+<!-- <img [src]="'data:image/jpg;base64,'+ data.image" alt="profile-image" class="profile" /> -->
 
-                <!-- <img [src]="'data:image/jpg;base64,'+ data.awardImage" alt="profile-image" class="profile" /> -->
+<!-- <img [src]="'data:image/jpg;base64,'+ data.awardImage" alt="profile-image" class="profile" /> -->
 
 
 <app-layout></app-layout>
-<div class=" container d-flex justify-content-center">
-    <div class="card-group">
+<div class=" container d-flex justify-content-center" id="contain" >
+    <div class="card-group" id="morecommentspage">
         <div class="card mb-6">
             <div class="flip-card-front">
                 <img src="./assets/images/cardback.png" class="card-img-top" alt="Fissure in Sandstone"
-                    style="height:300px" />
+                    style="height:200px" />
                 <div class="card-img-overlay">
-                    <img class="card-img-right" [src]="'data:image/jpg;base64,'+ data.awardeeImage" alt="Awardee Image" style="width:30%">
+                    <img class="card-img-right" [src]="'data:image/jpg;base64,'+ data.awardeeImage" alt="Awardee Image"
+                        style="width:30%">
 
-                    <img class="card-img-left" [src]="'data:image/jpg;base64,'+ data.awardImage" alt="Award image" style="width:30%">
+                    <img class="card-img-left" [src]="'data:image/jpg;base64,'+ data.awardImage" alt="Award image"
+                        style="width:30%">
                 </div>
-            </div>      
-            <div class="card-body">
+            </div>
+            <div class="card-body" id="scrollable">
                 <h2 class="card-title">{{data.awardeeName}}</h2>
-                <h4 [ngClass]="{'limitTextHeight': isReadMore}">{{data.reason}}</h4>
-              </div>
+                <h4>{{data.reason}}</h4>
+            </div>
         </div>
-       <div class="card mb-6">
+        <div class="card mb-6" id="scroll">
             <div class="card-body">
                 <div class="row d-flex ">
-                    <div class="form-outline mb-1">
+                    <div contenteditable="true" class="form-outline mb-1">
                         <form #myForm="ngForm" (ngSubmit)="OnSubmit()">
                             <input type="text" #comments="ngModel" name="comments" [(ngModel)]="Comments.comments"
                                 class="form-control" placeholder="Type comment..." />
-                            <label class="form-label" for="addANote">+ Add comments</label>
+<<<<<<< Updated upstream
+                            <label class="form-label" >+ Add comments</label>
                             <button type="submit" class="btn btn-danger ">Post Comment</button>
+=======
+                            <label class="form-label" for="addANote">+ Add comments</label>
+                            <button type="submit" class="btn btn-danger col-lg-2"><i
+                                    class="fa-solid fa-plus"></i></button>
+>>>>>>> Stashed changes
                         </form>
                     </div>
                     <div class="allcomments">
@@ -48,17 +56,17 @@
                                             class="rounded-circle img-fluid" width="40" height="40" /></div>
                                 </ng-template>
                                 <h3 class=" mb-0 ms-2">{{item.employeeName}}</h3>
-                                
-                            </div>      
-                            <h4 id="heading">{{item.comments}}</h4>          
+
+                            </div>
+                            <h4 id="heading">{{item.comments}}</h4>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
         </div>
-    </div> 
-    
+    </div>
+
     <!-- <div>
         <button type="button" class="btn btn-primary">Back</button>
 
