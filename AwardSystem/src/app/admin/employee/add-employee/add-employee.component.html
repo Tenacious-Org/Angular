@@ -97,10 +97,12 @@
 
                 <div class="input-group">
                     <select name="organisationId" [(ngModel)]="Employee.organisationId" name="SelectOrg"[(ngModel)]="SelectOrg" (change)="onSelectDep()" class="custom-select"   >
-                        <option selected>Choose...</option>
+                        <!-- <option selected>Choose...</option> -->
                         <option *ngFor="let items of organisations"  ngValue={{items.id}} >{{items.organisationName}}</option>
                     </select>
                 </div>
+                <div *ngIf="organisationID==''" class="alert alert-danger">Organisation  should not be empty! </div>
+
             </div>
 
             <div class="col-auto p-1.5">
@@ -109,10 +111,12 @@
 
                 <div class="input-group">
                     <select name="departmentId" [(ngModel)]="Employee.departmentId" name="SelectDep" [(ngModel)]="SelectDep" (change)="onSelectDes()" class="custom-select"   >
-                              <option selected>Choose...</option>
+                              <!-- <option selected>Choose...</option> -->
                               <option *ngFor="let items of departments"  ngValue={{items.id}} >{{items.departmentName}}</option>
                     </select>
                 </div>
+                <div *ngIf="departmentID==''" class="alert alert-danger">Department  should not be empty! </div>
+
 
             </div>
         </div>
@@ -129,6 +133,8 @@
                               <option *ngFor="let items of designations"  ngValue={{items.id}} >{{items.designationName}}</option>
                     </select>
                 </div>
+                <div *ngIf="designationID==''" class="alert alert-danger">Designation  should not be empty! </div>
+
             </div>
 
 
@@ -142,6 +148,8 @@
                               <option *ngFor="let items of reportingPersonList"  ngValue={{items.id}} >{{items.firstName}} {{items.lastName}}</option>
                     </select>
                 </div>
+                <div *ngIf="reportingPersonID==''" class="alert alert-danger">Reporting Person  should not be empty! </div>
+
             </div>
 
             </div>
@@ -156,6 +164,8 @@
                               <option *ngFor="let items of hrList"  ngValue={{items.id}} >{{items.firstName}} {{items.lastName}}</option>
                     </select>
                 </div>
+                <div *ngIf="HRId==''" class="alert alert-danger">HR should not be empty! </div>
+
             </div>
 
             <div class="col-auto p-1.5">
@@ -173,7 +183,7 @@
         </div>
 
         <div class="row justify-content-center align-items-center mt-5 button-group">
-            <button type="submit"  class="btn btn-primary col-lg-2" [disabled]="!myForm.form.valid" >Create</button>
+            <button (click)="CheckName(Employee.organisationId,Employee.departmentId,Employee.designationId,Employee.reportingPersonId,Employee.hrID)" type="submit"  class="btn btn-primary col-lg-2" [disabled]="!myForm.form.valid" >Create</button>
             <button [routerLink]="['/employee']" class="btn btn-primary col-lg-2">Cancel</button>
         </div>
     </form>

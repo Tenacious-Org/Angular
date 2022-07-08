@@ -20,7 +20,23 @@ export class AddEmployeeComponent implements OnInit {
 
   today = new Date();
   pipe = new DatePipe('en-US');
+<<<<<<< Updated upstream
   changed= this.pipe.transform(this.today ,'YYY-MM-dd');
+=======
+  //changed= this.pipe.transform(this.today ,'YYY-MM-dd');
+  month = (this.today.getMonth());
+  maxMonth = this.pipe.transform(this.month , 'MM');
+  date = (this.today.getDate());
+  maxDate = this.pipe.transform(this.date , 'dd');
+  year = (this.today.getFullYear()-18);
+  change = (this.year + '-' + this.maxMonth + '-' +this.maxDate);
+  organisationID: any;
+  departmentID: any;
+  designationID: any;
+  reportingPersonID: any;
+  HRId: any;
+  DepartmentID: any;
+>>>>>>> Stashed changes
   
   constructor(private sharedService:SharedService, private router:Router,private toastService: HotToastService,private dialog: MatDialog) { }
   imgsrc='';
@@ -114,7 +130,15 @@ export class AddEmployeeComponent implements OnInit {
   }
 
    
-
+  CheckName(OrganisationId:any,DepartmentId: any,DesignationId:any,reportingPersonId:any,hrID:any)
+  {
+    this.organisationID=OrganisationId;
+    this.departmentID=DepartmentId;
+    this.designationID=DesignationId;
+    this.reportingPersonID=reportingPersonId;
+    this.HRId=hrID;
+ 
+  }
 
 
   ImageConversion(fileInput:any){

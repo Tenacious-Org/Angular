@@ -38,6 +38,11 @@ export class EditEmployeeComponent implements OnInit {
   endpoint1 = "Employee";
   endpoint2 = "Department";
   hrList: any;
+  organisationID: any;
+  departmentID: any;
+  designationID: any;
+  reportingPersonID: any;
+  HRId: any;
   constructor(private sharedService:SharedService, private router:ActivatedRoute, private routing:Router,private toastService: HotToastService) { }
 
   ngOnInit(): void {
@@ -175,5 +180,20 @@ showToast() {
       reader.readAsDataURL(fileInput.target.files[0]);
     } return false
   }
+<<<<<<< Updated upstream
+=======
+  changeDate(){
+    document.getElementById("dob")?.setAttribute("max",this.change);
+  }
+  CheckName(OrganisationId:any,DepartmentId: any,DesignationId:any,reportingPersonId:any,hrID:any)
+  {
+    this.organisationID=OrganisationId;
+    this.departmentID=DepartmentId;
+    this.designationID=DesignationId;
+    this.reportingPersonID=reportingPersonId;
+    this.HRId=hrID;
+ 
+  }
+>>>>>>> Stashed changes
 
 }
