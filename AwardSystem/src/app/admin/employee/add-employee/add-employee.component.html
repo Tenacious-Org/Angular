@@ -22,7 +22,7 @@
 
             <div class="col-auto p-1.5">
                 <label  class="col-form-label">Lastname</label>
-                <input type="text" #lastname="ngModel" required pattern="[A-Z]+$" class="form-control" name="Lastname" [(ngModel)]="Employee.Lastname">
+                <input type="text" #lastname="ngModel" required pattern="[A-Za-z]+$" class="form-control" name="Lastname" [(ngModel)]="Employee.Lastname">
                 <div *ngIf ="lastname.touched && lastname.errors?.['required']" class="alert alert-danger">
                     Lastname is Required!
                 </div>
@@ -37,10 +37,12 @@
 
          <div class="col-auto p-1.5">
                 <label for="datetime" class="col-form-label">Date of Birth</label>
-                <input type="date" #dob="ngModel" required [max]="changed" name="dob" [ngModel]="Employee.dob " id="dob" class="form-control" aria-describedby="dobHelpInline">
+                <input type="date" #dob="ngModel" required max="changed" name="dob" [ngModel]="Employee.dob" id="dob" class="form-control" aria-describedby="dobHelpInline">
                 <div *ngIf ="dob.touched && dob.errors?.['required']" class="alert alert-danger">
                     Date of Birth is Required!
                 </div>
+                <!-- <p>{{changed}}</p> -->
+               
             </div> 
 
 
