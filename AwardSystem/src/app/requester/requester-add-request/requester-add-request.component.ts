@@ -47,6 +47,8 @@ export class RequesterAddRequestComponent implements OnInit {
     statusId : 0,
     isActive :  true,
  }
+  firstName: any;
+  error: any;
 
 
   constructor(private sharedService:SharedService,private awardService:AwardService,private formBuilder:FormBuilder,private toastService: HotToastService,private router:Router) { }
@@ -104,9 +106,9 @@ export class RequesterAddRequestComponent implements OnInit {
   OnSubmit(){
     console.log(this.Awards);
     this.Awards.awardeeId=this.selectedAwardee;
-    this.awardService.addRequest(this.Awards,this.employeeId).subscribe(data=>{
-      console.log(data);
-      this.showToast();
+    this.awardService.addRequest(this.Awards,this.employeeId).subscribe({
+      next: (res) => { console.log(res), this.showToast() },
+      error: (error) => this.error = error.error.message
     });
   }
   showToast() {
@@ -117,6 +119,9 @@ export class RequesterAddRequestComponent implements OnInit {
     })
     this.router.navigate(['/requester-request']);
   }
-
+  CheckName(FirstName:any)
+  {
+    this.firstName=FirstName;
+  }
 
 }

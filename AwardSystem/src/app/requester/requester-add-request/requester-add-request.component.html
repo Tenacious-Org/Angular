@@ -19,12 +19,15 @@
         <label class="labels">Awardee Name &nbsp; </label>
 
         <input [formControl]="searchAwardee" matInput type="text"  required [matAutocomplete]="auto" name="awardeeId"
-          class="form-control" [(ngModel)]="Awards.AwardeeName" >
+          class="form-control" [(ngModel)]="Awards.AwardeeName" >        
         <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onSelectAwardee($event)">
           <mat-option *ngFor="let item of filteredOptions | async" [value]="item.firstName" [id]="item.id">
             {{item.firstName}} </mat-option>
-        </mat-autocomplete>
+        </mat-autocomplete> 
+        
       </div>
+      
+      <!-- <div *ngIf="firstName==null" class="alert alert-danger">Awardee should not be empty! </div> -->
 
 
       <div class="col-auto p-1.5">
@@ -38,8 +41,8 @@
           <option *ngFor="let items of data" value={{items.id}}>{{items.awardName}}</option>
         </select>
       </div>
-
-
+      <span class="text-center text-danger errorMessage">{{error}}</span>
+     
       <div class="col-auto p-1.5">
         <label class="labels">Reason</label>
         <textarea type="textarea" name="reason" class="input-group form-control" placeholder="Reason" style="height: 103px; width: 459px;" #reason="ngModel" required pattern="^[a-zA-Z][a-zA-Z\s]{0,100}[a-zA-Z]$" 
@@ -51,7 +54,9 @@
             <div *ngIf ="reason.touched && reason.errors?.['pattern']" class="alert alert-danger">
                 Reason is invalid!
             </div>
+
       </div>
+      
     </div>
    
 
@@ -109,7 +114,7 @@
 
     <div class="row justify-content-center align-items-center mt-5 button-group">
 
-      <button type="submit" class="btn btn-primary col-lg-2" [disabled]="!myForm.form.valid" >Submit</button>
+      <button (click)="CheckName(Awards.AwardeeName)" type="submit" class="btn btn-primary col-lg-2" [disabled]="!myForm.form.valid" >Submit</button>
       <a [routerLink]="['/requester-request']" routerLinkActive="router-link-active" class="btn btn-danger col-lg-2"
         type="button">Cancel</a>
     </div>
