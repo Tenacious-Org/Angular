@@ -20,9 +20,6 @@ export class AddEmployeeComponent implements OnInit {
 
   today = new Date();
   pipe = new DatePipe('en-US');
-<<<<<<< Updated upstream
-  changed= this.pipe.transform(this.today ,'YYY-MM-dd');
-=======
   //changed= this.pipe.transform(this.today ,'YYY-MM-dd');
   month = (this.today.getMonth());
   maxMonth = this.pipe.transform(this.month , 'MM');
@@ -36,7 +33,6 @@ export class AddEmployeeComponent implements OnInit {
   reportingPersonID: any;
   HRId: any;
   DepartmentID: any;
->>>>>>> Stashed changes
   
   constructor(private sharedService:SharedService, private router:Router,private toastService: HotToastService,private dialog: MatDialog) { }
   imgsrc='';
@@ -138,6 +134,9 @@ export class AddEmployeeComponent implements OnInit {
     this.reportingPersonID=reportingPersonId;
     this.HRId=hrID;
  
+  }
+  changeDate(){
+    document.getElementById("dob")?.setAttribute("max",this.change);
   }
 
 

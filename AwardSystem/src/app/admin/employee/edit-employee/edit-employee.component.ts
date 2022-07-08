@@ -7,6 +7,7 @@ import { Organisation } from 'Models/Organisation';
 import { SharedService } from 'src/app/shared.service';
 import { HotToastService } from '@ngneat/hot-toast';
 import { AuthenticationService } from 'src/app/authentication.service';
+import { DatePipe } from '@angular/common';
 
 
 
@@ -16,6 +17,15 @@ import { AuthenticationService } from 'src/app/authentication.service';
   styleUrls: ['./edit-employee.component.css']
 })
 export class EditEmployeeComponent implements OnInit {
+  today = new Date();
+  pipe = new DatePipe('en-US');
+  //changed= this.pipe.transform(this.today ,'YYY-MM-dd');
+  month = (this.today.getMonth());
+  maxMonth = this.pipe.transform(this.month , 'MM');
+  date = (this.today.getDate());
+  maxDate = this.pipe.transform(this.date , 'dd');
+  year = (this.today.getFullYear()-18);
+  change = (this.year + '-' + this.maxMonth + '-' +this.maxDate);
   imageError = "";
   imgsrc='';
   isImageSaved: boolean = false;
@@ -180,8 +190,6 @@ showToast() {
       reader.readAsDataURL(fileInput.target.files[0]);
     } return false
   }
-<<<<<<< Updated upstream
-=======
   changeDate(){
     document.getElementById("dob")?.setAttribute("max",this.change);
   }
@@ -194,6 +202,5 @@ showToast() {
     this.HRId=hrID;
  
   }
->>>>>>> Stashed changes
 
 }
