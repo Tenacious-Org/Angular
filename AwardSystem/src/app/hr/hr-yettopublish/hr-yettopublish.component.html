@@ -13,6 +13,7 @@
               <img src="./assets/images/Adminlogo.png" width="150px" height="150px" />
           </div>
           <hr>
+          <form #yetToPublish="ngForm" (ngSubmit)="OnSubmit()" autocomplete="off">
 
           <div class="row">
             <h2>Employee Details</h2>
@@ -65,16 +66,43 @@
 
               <div class="col-sm-4">
                   <p class="mb-0">Coupon</p>
+                  <div *ngIf="data.statusId==2">
+                    <input type="text" name="coupon" #coupon="ngModel" [(ngModel)]="data.couponCode" required>
+                </div>
+                <div *ngIf="data.statusId==4">
+                    <p class="text-muted mb-0">{{data.couponCode}}</p>
+                    <div class="text-danger" [class.d-none]="coupon.valid || coupon.untouched"
+                        *ngIf="coupon.errors?.['required']">
+                        required.
+                    </div>
+                </div>
 
-                 <input *ngIf="data.statusId==2" type="text" name="couponCode" [(ngModel)]="data.couponCode">
-                 <p *ngIf="data.statusId==4" class="text-muted mb-0">{{data.couponCode}}</p>
-              </div>
-          </div>
-          <br>
-          <div class="modal-footer justify-content-center" >
-              <a *ngIf="data.statusId==2" [routerLink]="['/hr-publish']" (click)="OnSubmit()" class="btn btn-primary" data-dismiss="modal">Publish</a>
-              <a [routerLink]="['/hr-publish']" class="btn btn-danger" data-dismiss="modal">Back</a>
-          </div>
-      </div>
-  </div>
+            </div>
+        </div>
+
+        <br>
+        <div class="modal-footer justify-content-center">
+            <div *ngIf="data.statusId==2">
+                <button [routerLink]="['/hr-publish']" type="submit" class="btn btn-primary"
+                    data-dismiss="modal" [disabled]="!yetToPublish.valid">Publish</button>
+            </div>
+            <div>
+                <button [routerLink]="['/hr-publish']" class="btn btn-danger" data-dismiss="modal">back</button>
+            </div>
+        </div>
+    </form>
 </div>
+</div>
+</div>
+
+
+
+
+
+    
+
+
+
+
+
+                 

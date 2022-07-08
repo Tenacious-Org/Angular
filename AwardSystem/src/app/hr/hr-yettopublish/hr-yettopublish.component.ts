@@ -14,8 +14,9 @@ export class HrYettopublishComponent implements OnInit {
   employeeId=AuthenticationService.GetData("User");
   data: any;
    Id:any;
-   couponCode:any;
+   coupon:any;
    publishedId=4;
+   
    awards:any={
     id :0,
     requesterId : 0,
