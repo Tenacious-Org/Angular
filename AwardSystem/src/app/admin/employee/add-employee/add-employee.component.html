@@ -159,10 +159,10 @@
 
               <label class="col-form-label">Employee Image</label>
               <div class="input-group">
-                <input type="file" (change)="ImageConversion($event)" id="image" class="fileInputProfile" name="image">
-                <!-- <div *ngIf ="image.touched && image.errors?.['required']" class="alert alert-danger">
+                <input type="file" #image="ngModel" accept=".jpeg,.jpg,.png" required (change)="ImageConversion($event)" id="image" class="fileInputProfile" name="image" [ngModel]="Employee.Image">
+                <div *ngIf ="image.touched && image.errors?.['required']" class="alert alert-danger">
                 Image is Required!
-               </div> -->
+               </div>
               <img class="row-auto p-1.5" [src]="imgsrc" height="100">
             </div>
           </div>

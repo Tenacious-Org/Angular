@@ -11,12 +11,24 @@
 
             <div class="col-auto p-1.5">
                 <label for="firstName" class="col-form-label">First Name</label>
-                <input type="text" name="firstName" [(ngModel)]="data.firstName"  class="form-control" aria-describedby="firstNameHelpInline">
+                <input type="text" name="firstName" #firstname="ngModel" [(ngModel)]="data.firstName"  class="form-control" aria-describedby="firstNameHelpInline">
+                <div *ngIf ="firstname.touched && firstname.errors?.['required']" class="alert alert-danger">
+                    Firstname is Required!
+                </div>
+                <div *ngIf ="firstname.touched && firstname.errors?.['pattern']" class="alert alert-danger" >
+                    Firstname is invalid!
+                </div>
             </div>
 
             <div class="col-auto p-1.5">
                 <label for="lastName" class="col-form-label">Last Name</label>
-                <input type="text" name="lastName" [(ngModel)]="data.lastName"   class="form-control" aria-describedby="lastNameHelpInline">
+                <input type="text" name="lastName" #lastname="ngModel" [(ngModel)]="data.lastName"   class="form-control" aria-describedby="lastNameHelpInline">
+                <div *ngIf ="lastname.touched && lastname.errors?.['required']" class="alert alert-danger">
+                    Lastname is Required!
+                </div>
+                <div *ngIf ="lastname.touched && lastname.errors?.['pattern']" class="alert alert-danger" >
+                    Lastname is invalid!
+                </div>
             </div>
 
         </div>
@@ -26,7 +38,10 @@
 
             <div class="col-auto p-1.5">
                 <label for="datetime" class="col-form-label">Date of Birth</label>
-                <input type="date" name="dob" [ngModel]="data.dob|date:'dd-MM-YYYY'"  class="form-control" aria-describedby="dobHelpInline">
+                <input type="date" #dob="ngModel" required name="dob" (click)="changeDate()" [ngModel]="data.dob" id="dob" class="form-control" aria-describedby="dobHelpInline">
+                <div *ngIf ="dob.touched && dob.errors?.['required']" class="alert alert-danger">
+                    Date of Birth is Required!
+                </div>
             </div>
             <div class="col-auto p-1.5">
                 <label for="dept" class="col-form-label">Gender</label>
@@ -44,12 +59,24 @@
         <div class="row g-3 align-items-center justify-content-center mb-3">
           <div class="col-auto p-1.5">
             <label for="aceid" class="col-form-label">AceID</label>
-            <input type="text" name="aceid" [(ngModel)]="data.aceid" id="aceid" class="form-control" aria-describedby="aceidHelpInline">
+            <input type="text" name="aceid" #aceid="ngModel"  required pattern="ACE\d{3,}$" [(ngModel)]="data.aceid" id="aceid" class="form-control" aria-describedby="aceidHelpInline">
+            <div *ngIf ="aceid.touched && aceid.errors?.['required']" class="alert alert-danger">
+                ACEID is Required!
+            </div>
+            <div *ngIf ="aceid.touched && aceid.errors?.['pattern']" class="alert alert-danger" >
+                ACEID is invalid!
+            </div>
         </div>
 
             <div class="col-auto p-1.5">
                 <label for="email" class="col-form-label">Email</label>
-                <input type="email" name="email" [(ngModel)]="data.email" id="email" class="form-control" aria-describedby="emailHelpInline">
+                <input type="email" name="email" #email="ngModel" required pattern="[a-zA-Z0-9_\-\.]+[@][a-z]+[\.][a-z]{2,3}$" [(ngModel)]="data.email" id="email" class="form-control" aria-describedby="emailHelpInline">
+                <div *ngIf ="email.touched && email.errors?.['required']" class="alert alert-danger">
+                    Email is Required!
+                </div> 
+                <div *ngIf ="email.touched && email.errors?.['pattern']" class="alert alert-danger" >
+                    Email is invalid!
+                </div>
             </div>
 
         </div>
@@ -122,8 +149,11 @@
 
               <label class="col-form-label">Employee Image</label>
               <div class="input-group">
-              <input type="file" (change)="ImageConversion($event)" id="image" class="fileInputProfile" name="image">
-              <img class="row-auto p-1.5" [src]="imgsrc" height="100">
+                <input type="file" #image="ngModel" accept=".jpeg,.jpg,.png" required (change)="ImageConversion($event)" id="image" class="fileInputProfile" name="image" [ngModel]="data.Image">
+                <div *ngIf ="image.touched && image.errors?.['required']" class="alert alert-danger">
+                    Image is Required!
+                </div>
+                <img class="row-auto p-1.5" [src]="imgsrc" height="100">
             </div>
           </div>
 
