@@ -60,12 +60,19 @@
     width: 500px;
     height: 500px;
     overflow-y: auto;
+    overflow-x:hidden;
   }
   p{
     line-height:5;
   }
   #heading{
-    margin-left:15%;
+    margin-left:12%;
     color:gray;
+    max-width:85%;
+  }
+  .btn{
+    box-shadow: none;
+    padding:3px;
+    margin-bottom:2%;
   }
 
