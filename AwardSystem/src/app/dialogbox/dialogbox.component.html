@@ -1,27 +1,27 @@
 <div class="form-group shadow-textarea"  *ngIf="data.count==true && dataType=='boolean'  " >
   <mat-dialog-content>
-      <h2>{{data.name}} was successfully disabled</h2>
+      <h5>{{data.name}} was successfully disabled</h5>
   </mat-dialog-content>
       <div class="text-center mt-4">
-          <button (click)="close()" class="btn btn-danger">Ok</button>
+          <button (click)="close()" class="btnak btn-danger">Ok</button>
       </div>
 </div>
 <div class="form-group shadow-textarea"  *ngIf="data.count==false ">
   <mat-dialog-content>
-      <h2>{{data.name}} was not disabled</h2>
+      <h5>{{data.name}} was not disabled</h5>
   </mat-dialog-content>
       <div class="text-center mt-4">
-          <button (click)="close()" class="btn btn-danger">Ok</button>
+          <button (click)="close()" class="btnak btn-danger">Ok</button>
       </div>
 </div>
 
 <!--add-->
 <div class="form-group shadow-textarea"  *ngIf="data.isvalid==true " >
     <mat-dialog-content>
-        <h2>{{data.name}} {{data.value}} was successfully added</h2>
+        <h5>{{data.name}} {{data.value}} was successfully added</h5>
     </mat-dialog-content>
         <div class="text-center mt-4">
-            <button (click)="close()" class="btn btn-danger">Ok</button>
+            <button (click)="close()" class="btnak btn-danger">Ok</button>
         </div>
   </div>
 <!---->  
@@ -31,11 +31,11 @@
 
 <div class="form-group shadow-textarea" *ngIf="data.count>=1 && dataType=='number'   ">
   <mat-dialog-content>
-      <h5> There are {{data.count}} Employees in that {{data.name}} {{data.value}}.<br>
-         You're gonna change their {{data.value}} to disable this {{data.name}}.</h5>
+      <h5> There are {{data.count}} Employees assigned to {{data.name}} .<br>
+         Kindly map them to other {{data.value}} to disable this {{data.value}} {{data.name}}.</h5>
   </mat-dialog-content>
       <div class="text-center mt-4">
-          <button (click)="close()" class="btn btn-danger">Ok</button>
+          <button (click)="close()" class="btnak btn-danger">Ok</button>
       </div>
 </div>
 

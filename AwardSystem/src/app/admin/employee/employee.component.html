@@ -53,9 +53,7 @@
                                 class="fa-solid fa-pen-to-square"  title="Edit"></i></a><div class="space"></div>
                         <a routerLink={{item.id}} class="btn btn-success" target="_self"><i
                                 class="fa-solid fa-circle-info" title="Details"></i></a><div class="space"></div>
-
-                        <a (click)="Disable(item.id)" class="btn btn-danger" ><i class="fa-solid fa-user-slash"
-                                 title="Disable"></i></a>
+                        <button (click)="Disable(item.id)" class="btn btn-danger" ><i class="fa-solid fa-user-slash" data-toggle="modal" data-target="#Mymodal"title="Disable"></i></button> 
                     </td>
 
 
