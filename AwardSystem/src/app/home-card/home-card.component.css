@@ -147,8 +147,7 @@
 #image{
   width:200px;
 height:200px;
-object-fit:cover;
-border-radius:50%;
+
 }
 #text{
   text-align:justify;
@@ -199,8 +198,7 @@ p{
   right: 0;
   width:200px;
   height:200px;
-  object-fit:cover;
-  border-radius:50%;
+
 }
 .card-img-left {
   position: absolute;
@@ -208,8 +206,7 @@ p{
   left: 0;
   width:200px;
   height:200px;
-  object-fit:cover;
-  border-radius:50%;
+
 }
 .card-img-overlay{
   height:60%;
