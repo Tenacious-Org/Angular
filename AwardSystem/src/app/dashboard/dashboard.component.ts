@@ -184,7 +184,7 @@ export class DashboardComponent implements OnInit {
       //   }
       // })
 
-      new Chart('piechart', {
+      new Chart('barchart', {
         type: 'bar',
         data: {
           labels: award,
@@ -216,13 +216,104 @@ export class DashboardComponent implements OnInit {
 
   }
 
-  onSelectDep() {
-    this.sharedService.getDepartmentByOrganisation(this.SelectOrg).subscribe(data => {
-      this.departments = data;
-      console.log(this.departments);
+  onSelectorg() {
+    this.sharedService.getallwinOrgwise(this.SelectOrg).subscribe(res => {
+
+      console.log(res)
+       //converting api values into list
+       let d = []
+       let d1:string[][] = []
+       for(var i of res){
+         for(let key in i){
+           let value = i[key];
+           d.push(value)
+         }
+         d1.push(d)
+         d = []          
+       }
+       console.log(d1)
+
+       //setting into calculate a total count in dictionary
+       var dict:any = {}
+       for(var a of d1){
+         for(var b of a){
+           var new_item = b
+           dict[new_item] = dict.hasOwnProperty(new_item)? ++dict[new_item] : 1;
+         }
+       }
+       console.log(dict)
+
+       //Setting Organisation into a list
+       var org:any = []
+       const search = (targetElement : string) => (arrElement : string) => arrElement === targetElement;
+       for(var x of d1){
+           if(org.some(search(x[0]))){
+             continue
+           }
+           else{
+             org.push(x[0])
+           }
+       }
+       this.org = org
+       console.log(this.org)
+
+       //Setting Awards into a list
+       var award:any = []
+       for(var x of d1){
+           if(award.some(search(x[2]))){
+             continue
+           }
+           else{
+             award.push(x[2])
+           }
+       }
+       this.award = award
+       console.log(this.award)
+
+       //setting award values into a list
+       var orgcnt:any = []
+       for(var j of org){
+         for(var h of Object.keys(dict)){
+           if(j == h){
+             orgcnt.push(dict[h])
+           }
+         }
+       }
+       this.orgcnt = orgcnt
+       console.log("Organisation :",this.orgcnt)
+
+       //setting award values into a list
+       var awdcnt:any = []
+       for(var j of award){
+         for(var k of Object.keys(dict)){
+           if(j == k){
+             awdcnt.push(dict[k])
+           }
+         }
+       }
+       this.awdcnt = awdcnt
+       console.log("Awards :",this.awdcnt)
+
+       //Creating Charts
+       new Chart('barchart', {
+        type: 'bar',
+        data: {
+          labels: award,
+          datasets: [{
+            data: awdcnt,
+          }]
+        },
+        options: {
+          plugins: {
+            legend: {
+              position: 'top',
+              display: true,
+            },
+          },
+        }
+      });
+
     });
-
-
   }
 
   public win:dashboard[] =[];
