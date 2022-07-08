@@ -167,22 +167,40 @@ export class DashboardComponent implements OnInit {
 
 
       //create a chart data
-      this.chart = new Chart('canvas',{
-        type: 'line',
+      // this.chart = new Chart('canvas',{
+      //   type: 'line',
+      //   data: {
+      //     labels: this.award,
+      //     datasets: [
+      //       {
+      //         data: this.awdcnt,
+      //         borderColor: '#3cba9f',
+      //         fill: false
+      //       }
+      //     ]
+      //   },
+      //   options: {
+      //     responsive:true
+      //   }
+      // })
+
+      new Chart('piechart', {
+        type: 'bar',
         data: {
-          labels: this.award,
-          datasets: [
-            {
-              data: this.awdcnt,
-              borderColor: '#3cba9f',
-              fill: false
-            }
-          ]
+          labels: award,
+          datasets: [{
+            data: awdcnt,
+          }]
         },
         options: {
-          responsive:true
+          plugins: {
+            legend: {
+              position: 'top',
+              display: true,
+            },
+          },
         }
-      })
+      });
 
 
       }
