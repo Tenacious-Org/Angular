@@ -22,10 +22,7 @@
         <div class="row g-3 align-items-center justify-content-center mb-3">
         <div class="col-auto p-1.5">
             <label class="col-form-label">Award Image</label>
-            <input type="file" #image="ngModel" accept=".jpeg,.jpg,.png" required (change)="ImageConversion($event)" id="image" class="fileInputProfile" name="image"  [ngModel]="data.Image" >
-            <div *ngIf ="image.touched && image.errors?.['required']" class="alert alert-danger">
-                Image is Required!
-            </div>
+            <input type="file" (change)="ImageConversion($event)" id="image" class="fileInputProfile" name="image"   >
             <img [src]="imgsrc" height="100">
             <label class="text-danger"> {{imageError}}</label>
 

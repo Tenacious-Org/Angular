@@ -4,7 +4,7 @@ import { Department } from 'Models/Department';
 import { Designation } from 'Models/Designation';
 import { Organisation } from 'Models/Organisation';
 import { SharedService } from 'src/app/shared.service';
-import { MatDialog, throwMatDialogContentAlreadyAttachedError } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { DialogboxComponent } from 'src/app/dialogbox/dialogbox.component';
 import { HotToastService } from '@ngneat/hot-toast';
 import { AuthenticationService } from 'src/app/authentication.service';
@@ -20,13 +20,7 @@ export class AddEmployeeComponent implements OnInit {
 
   today = new Date();
   pipe = new DatePipe('en-US');
-  //changed= this.pipe.transform(this.today ,'YYY-MM-dd');
-  month = (this.today.getMonth());
-  maxMonth = this.pipe.transform(this.month , 'MM');
-  date = (this.today.getDate());
-  maxDate = this.pipe.transform(this.date , 'dd');
-  year = (this.today.getFullYear()-18);
-  change = (this.year + '-' + this.maxMonth + '-' +this.maxDate);
+  changed= this.pipe.transform(this.today ,'YYY-MM-dd');
   
   constructor(private sharedService:SharedService, private router:Router,private toastService: HotToastService,private dialog: MatDialog) { }
   imgsrc='';
@@ -118,9 +112,7 @@ export class AddEmployeeComponent implements OnInit {
     this.router.navigate(['/employee']);
 
   }
-  changeDate(){
-    document.getElementById("dob")?.setAttribute("max",this.change);
-  }
+
    
 
 

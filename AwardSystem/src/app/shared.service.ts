@@ -91,10 +91,4 @@ disable(endpoint:any,id:any):Observable<string>{
     return this.http.get<any>(this.apiurl + `Dashboard/GetAllWinners`)
   }
 
-  //get All Winners Org Wise
-  getallwinOrgwise(id:any):Observable<any>
-  {
-    return this.http.get<any>(this.apiurl + `Dashboard/GetAllOrgWise?id=${id}`,{ headers: this.headers })
-  }
-
 }

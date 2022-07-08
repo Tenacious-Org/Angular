@@ -37,13 +37,16 @@
 
          <div class="col-auto p-1.5">
                 <label for="datetime" class="col-form-label">Date of Birth</label>
-                <input type="date" #dob="ngModel" required name="dob" (click)="changeDate()" [ngModel]="Employee.dob" id="dob" class="form-control" aria-describedby="dobHelpInline">
+                <input type="date" #dob="ngModel" required max="changed" name="dob" [ngModel]="Employee.dob" id="dob" class="form-control" aria-describedby="dobHelpInline">
                 <div *ngIf ="dob.touched && dob.errors?.['required']" class="alert alert-danger">
                     Date of Birth is Required!
                 </div>
+                <!-- <p>{{changed}}</p> -->
+               
             </div> 
 
-       <div class="col-auto p-1.5">
+
+            <div class="col-auto p-1.5">
                 <label for="dept" required class="col-form-label">Gender</label>
                 <div class="input-group">
                     <select name="gender" [(ngModel)]="Employee.gender"   class="custom-select"   >
@@ -159,8 +162,8 @@
 
               <label class="col-form-label">Employee Image</label>
               <div class="input-group">
-                <input type="file" #image="ngModel" accept=".jpeg,.jpg,.png" required (change)="ImageConversion($event)" id="image" class="fileInputProfile" name="image" [ngModel]="Employee.Image">
-                <div *ngIf ="image.touched && image.errors?.['required']" class="alert alert-danger">
+              <input type="file" #image="ngModel" required accept=".png,.jpg,.jpeg" (change)="ImageConversion($event)" id="image" class="fileInputProfile" name="image" [(ngModel)]="Employee.Image">
+              <div *ngIf ="image.touched && image.errors?.['required']" class="alert alert-danger">
                 Image is Required!
                </div>
               <img class="row-auto p-1.5" [src]="imgsrc" height="100">

@@ -40,8 +40,7 @@ export class DesignationComponent implements OnInit {
     this.sharedService.disable(this.endpoint,Id).subscribe((result) => {
       console.log(result);
       this.openDialog(result);
-      this.ngOnInit()
-      //setTimeout(()=> { this.ngOnInit()},1000)
+      setTimeout(()=> { this.ngOnInit()},1000)
     });
   });
   }

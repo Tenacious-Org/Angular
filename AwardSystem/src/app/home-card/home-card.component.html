@@ -77,7 +77,7 @@
         <h4 [ngClass]="{'limitTextHeight': isReadMore}">{{item.reason}}</h4>
       </div>
       <button [routerLink]="['/morecomments',item.id]">
-        click pannu
+        {{ isReadMore ? 'Read More...': 'Read Less...' }}
       </button>
     </div>
   </div>
