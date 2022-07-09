@@ -143,7 +143,6 @@
 
 
 
-
 #image{
   width:200px;
 height:200px;
@@ -192,28 +191,59 @@ p{
   line-height: normal;
   
 }
-.card-img-bottom {
-  position: absolute;
-  
-  right: 0;
-  width:200px;
-  height:200px;
 
-}
-.card-img-left {
-  position: absolute;
-  
-  left: 0;
-  width:200px;
-  height:200px;
 
-}
 .card-img-overlay{
   height:60%;
 }
-.form-control{
-top:15%;
-}
+
 .row{
   margin-left:15%
+}
+
+/* corrected css */
+
+#applybutton{
+  padding: 0.5rem;
+}
+.applybutton{
+  width:auto;
+  margin-top:3.5rem;
+}
+#datepicker{
+  width:auto;
+}
+#awardfilter{
+  display:inline;
+  width:auto;
+}
+#searchfilter{
+  margin-top:3.5rem;
+  display:inline;
+}
+.form-control{
+  top:15%;
+  width:13rem;
+}
+.homepage{
+  margin-left:30px;
+  padding-top:90px;
+  justify-content: space-between;
+}
+.card-img-top{
+  height:300px;
+}
+.card-img-left {
+  position: absolute;
+  left: 0;
+  width:200px;
+  height:200px;
+  width:30%;
+}
+.card-img-bottom {
+  position: absolute;
+  width:30%;
+  right: 0;
+  width:200px;
+  height:200px;
 }

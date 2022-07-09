@@ -10,17 +10,17 @@
 
 
 
-<div style="margin-left:30px;padding-top:90px;justify-content: space-between;">
+<div  class="homepage">
   <div class="row g-4 align-items-center" >
    
 
-    <div class="col-auto p-1.5" style="display:inline;margin-top:3.5rem">   
+    <div class="col-auto p-1.5" id="searchfilter">   
       <div class="form-inline btn-group search">
-        <input  style="width: 13rem;"type="search" [(ngModel)]="searchValue" class="form-control rounded" placeholder="Search by Name" aria-label="Search"
+        <input type="search" [(ngModel)]="searchValue" class="form-control rounded" placeholder="Search by Name" aria-label="Search"
           aria-describedby="search-addon" />
       </div>
     </div>
-    <div style="display:inline;float:left;width:auto">
+    <div id="awardfilter">
       <label class="col-form-label" for="exampleFormControlSelect1">Award Type</label>
       <div class="input-group">
         <select name="awardTypeId" required class="custom-select">
@@ -32,20 +32,20 @@
         </select>
       </div>
     </div>
-    <div style="float:left;width:auto">
+    <div id="datepicker">
       <label class="col-form-label" for="fromdate">From Date:</label>
       <div class="input-group col-auto p-1.5">
         <input class="custom-select " type="date" id="fromdate" name="fromdate">
       </div>
     </div>
-    <div style="float:left;width:auto">
+    <div id="datepicker">
       <label class="col-form-label" for="todate">To Date:</label>
       <div class="input-group col-auto p-1.5">
         <input class="custom-select " type="date" id="fromdate" name="todate">
       </div>
     </div>
-    <div style="float:left; width:auto;margin-top:3.5rem">
-      <button style="padding:0.5rem;" type="submit">Apply</button>
+    <div class="applybutton">
+      <button id="applybutton" type="submit">Apply</button>
     </div>
   </div>
 </div>
@@ -60,15 +60,14 @@
   <div class="card" *ngFor="let item of awardData | filter:searchValue">
     <div class="flip-card-inner">
       <div class="flip-card-front">
-        <img src="./assets/images/cardback.png" class="card-img-top" alt="Fissure in Sandstone" style="height:300px" />
+        <img src="./assets/images/cardback.png" class="card-img-top" alt="Fissure in Sandstone" />
         <div class="card-img-overlay">
 
-          <img class="card-img-bottom" [src]="'data:image/jpg;base64,'+ item.awardeeImage" alt="Avatar"
-            style="width:30%">
+          <img class="card-img-bottom" [src]="'data:image/jpg;base64,'+ item.awardeeImage" alt="Avatar">
         </div>
         <div class="card-img-overlay">
 
-          <img class="card-img-left" [src]="'data:image/jpg;base64,'+ item.awardImage" alt="Avatar" style="width:30%">
+          <img class="card-img-left" [src]="'data:image/jpg;base64,'+ item.awardImage" alt="Avatar">
         </div>
       </div>
 

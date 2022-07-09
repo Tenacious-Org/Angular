@@ -4,18 +4,15 @@
 
 
 <app-layout></app-layout>
-<div class=" container d-flex justify-content-center" id="contain" >
+<div class=" container d-flex justify-content-center" id="contain">
     <div class="card-group" id="morecommentspage">
         <div class="card mb-6">
             <div class="flip-card-front">
-                <img src="./assets/images/cardback.png" class="card-img-top" alt="Fissure in Sandstone"
-                    style="height:300px" />
+                <img src="./assets/images/cardback.png" class="card-img-top" alt="Fissure in Sandstone" />
                 <div class="card-img-overlay">
-                    <img class="card-img-right" [src]="'data:image/jpg;base64,'+ data.awardeeImage" alt="Awardee Image"
-                        style="width:30%">
+                    <img class="card-img-right" [src]="'data:image/jpg;base64,'+ data.awardeeImage" alt="Awardee Image">
 
-                    <img class="card-img-left" [src]="'data:image/jpg;base64,'+ data.awardImage" alt="Award image"
-                        style="width:30%">
+                    <img class="card-img-left" [src]="'data:image/jpg;base64,'+ data.awardImage" alt="Award image">
                 </div>
             </div>
             <div class="card-body" id="scrollable">
@@ -42,13 +39,12 @@
                                     <img *ngIf="item.gender=='Male';else elsegender " src='assets/images/male.jpg'
                                         class="rounded-circle img-fluid" width="40" height="40" />
                                     <ng-template #elsegender> <img src='assets/images/female.jpg'
-                                            class="rounded-circle img-fluid" width="40" height="40" />
+                                            class="rounded-circle img-fluid" />
                                     </ng-template>
                                 </div>
                                 <ng-template #elseimage>
                                     <div class="mt-3 mb-4 text-center"><img
-                                            [src]="'data:image/jpg;base64,'+ item.employeeImage"
-                                            class="rounded-circle img-fluid" width="40" height="40" /></div>
+                                            [src]="'data:image/jpg;base64,'+ item.employeeImage" class="rounded-circle img-fluid" /></div>
                                 </ng-template>
                                 <h3 class=" mb-0 ms-2">{{item.employeeName}}</h3>
 
