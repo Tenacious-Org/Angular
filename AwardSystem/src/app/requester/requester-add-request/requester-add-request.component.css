@@ -2,3 +2,19 @@
 {
     padding-right:250px;
 }
+/* corrected css */
+
+.input-group{
+    height:103px;
+    width:459px;
+}
+.img-fluid{
+    width:100px;
+}
+.card{
+    height:250px;
+    overflow:auto;
+    width:300px;
+    margin-left:6rem;
+    margin-top:10px;
+}

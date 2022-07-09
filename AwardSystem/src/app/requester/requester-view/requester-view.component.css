@@ -11,3 +11,25 @@ img{
     height:100px;
     min-height:100px;
 }
+
+
+/* correccted css */
+.card{
+    border-radius: 15px;
+    width: 100%;
+    margin-top: 30px;
+}
+.card-body{
+    width:100%;
+}
+.img-fluid{
+    width: 100px;
+    height: 100px;
+}
+.reason{
+    height: 4rem;
+    width: 100%;
+}
+#reason{
+    text-align: center;
+}
