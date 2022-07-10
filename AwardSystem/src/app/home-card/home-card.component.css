@@ -103,13 +103,7 @@
  */
 
 
-.card {
-  background-color: transparent;
-  margin-top:50px !important;
-  /* text-align: justify; */
-  padding:0;
-  perspective: 1000px; 
-}
+
 .flip-card-inner {
   position: relative;
   width: 100%;
@@ -230,7 +224,7 @@ p{
   justify-content: space-between;
 }
 .card-img-top{
-  height:300px;
+  height:150px;
 }
 .card-img-left {
   position: absolute;
@@ -245,4 +239,11 @@ p{
   right: 0;
   width:200px;
   height:200px;
+}
+.card {
+  background-color: transparent;
+  margin-top:50px !important;
+  padding:0;
+  perspective: 1000px; 
+  width:300px;
 }
