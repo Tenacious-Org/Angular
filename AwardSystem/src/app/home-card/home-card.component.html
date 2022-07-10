@@ -9,12 +9,10 @@
   rel="stylesheet">
 
 
-
+  <!-- Filter Container  contains Search,award dropdown,date picker-->
 <div  class="homepage">
   <div class="row g-4 align-items-center" >
-   
-
-    <div class="col-auto p-1.5" id="searchfilter">   
+    <div class="col-auto" id="searchfilter">   
       <div class="form-inline btn-group search">
         <input type="search" [(ngModel)]="searchValue" class="form-control rounded" placeholder="Search by Name" aria-label="Search"
           aria-describedby="search-addon" />
@@ -34,13 +32,13 @@
     </div>
     <div id="datepicker">
       <label class="col-form-label" for="fromdate">From Date:</label>
-      <div class="input-group col-auto p-1.5">
+      <div class="input-group col-auto ">
         <input class="custom-select " type="date" id="fromdate" name="fromdate">
       </div>
     </div>
     <div id="datepicker">
       <label class="col-form-label" for="todate">To Date:</label>
-      <div class="input-group col-auto p-1.5">
+      <div class="input-group col-auto">
         <input class="custom-select " type="date" id="fromdate" name="todate">
       </div>
     </div>
@@ -49,14 +47,9 @@
     </div>
   </div>
 </div>
-
-
-
-
-
+<!-- Home page Card Container contains award image, awardee image,award name-->
 
 <div class=" container row" id="cardflip">
-
   <div class="card" *ngFor="let item of awardData | filter:searchValue">
     <div class="flip-card-inner">
       <div class="flip-card-front">
@@ -70,7 +63,6 @@
           <img class="card-img-left" [src]="'data:image/jpg;base64,'+ item.awardImage" alt="Avatar">
         </div>
       </div>
-
       <div class="card-body">
         <p id="text"><b>{{item.awardeeName}}</b></p>
         <h4 [ngClass]="{'limitTextHeight': isReadMore}">{{item.reason}}</h4>
@@ -80,5 +72,4 @@
       </button>
     </div>
   </div>
-
 </div>
