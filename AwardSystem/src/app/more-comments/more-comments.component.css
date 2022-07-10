@@ -49,10 +49,7 @@
     object-fit:cover;
     border-radius:50%;
   }
-  .card-img-right{
-    float:right;
   
-  }
   .card-img-overlay{
     align-items: center;
     bottom:0
@@ -97,4 +94,25 @@
 }
 .col-lg-2{
   width:10%;
+}
+
+/* corrected css */
+
+.card-img-top{
+  height:300px;
+}
+.card-img-right{
+  float:right;
+  width:30%;
+}
+.card-img-left{
+  width:30%;
+}
+.img-fluid{
+  width:40;
+  height:40;
+}
+#img-fluid{
+  width:40;
+  height:40;
 }

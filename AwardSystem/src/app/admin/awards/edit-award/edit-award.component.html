@@ -37,7 +37,7 @@
             <div *ngIf ="image.touched && image.errors?.['required']" class="alert alert-danger">
                 Image is Required!
             </div>
-            <img [src]="imgsrc" height="100">
+            <img [src]="imgsrc" id="img">
             <label class="text-danger"> {{imageError}}</label>
 
         </div>

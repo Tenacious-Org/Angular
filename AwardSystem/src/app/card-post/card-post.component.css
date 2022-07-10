@@ -192,28 +192,54 @@
     line-height: normal;
     
   }
-  .card-img-bottom {
-    position: absolute;
-    
-    right: 0;
-    width:200px;
-    height:200px;
-    object-fit:cover;
-    border-radius:50%;
-  }
-  .card-img-left {
-    position: absolute;
-    
-    left: 0;
-    width:200px;
-    height:200px;
-    object-fit:cover;
-    border-radius:50%;
-  }
+ 
+  
   .card-img-overlay{
     height:60%;
   }
   .row{
     margin-left:15%;
   }
+  
+/* corrected css */
+
+.myawards{
+    margin-left:30px;
+    padding-top:90px;
+    justify-content: space-between;
+}
+#awardfilter{
+  display:inline;
+  width:auto;
+}
+#datepicker{
+  width:auto;
+}
+.applybutton{
+  width:auto;
+  margin-top:3.5rem;
+}
+#applybutton{
+  padding: 0.5rem;
+}
+.card-img-top{
+  height:300px;
+}
+.card-img-left {
+  position: absolute;
+  width:30%;
+  left: 0;
+  width:200px;
+  height:200px;
+  object-fit:cover;
+  border-radius:50%;
+}
+.card-img-bottom {
+  position: absolute;
+  width:30%;
+  right: 0;
+  height:200px;
+  object-fit:cover;
+  border-radius:50%;
+}
   

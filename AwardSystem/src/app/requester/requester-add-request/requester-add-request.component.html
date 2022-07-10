@@ -45,7 +45,7 @@
      
       <div class="col-auto p-1.5">
         <label class="labels">Reason</label>
-        <textarea type="textarea" name="reason" class="input-group form-control" placeholder="Reason" style="height: 103px; width: 459px;" #reason="ngModel" required pattern="^[a-zA-Z][a-zA-Z\s]{0,100}[a-zA-Z]$" 
+        <textarea type="textarea" name="reason" class="input-group form-control" placeholder="Reason"  #reason="ngModel" required pattern="^[a-zA-Z][a-zA-Z\s]{0,100}[a-zA-Z]$" 
         [(ngModel)]="Awards.reason" ></textarea>
           
           <div *ngIf ="reason.touched && reason.errors?.['required']" class="alert alert-danger">
@@ -67,16 +67,15 @@
     <div class="row g-3 align-items-center mb-3">
 
       <div class="col-md-5 "  *ngIf="isAwardee==1">
-        <div class="card  py-4"style=" margin-top: 10px;">
+        <div class="card  py-4">
           <div class="text-center" *ngIf="awardeeData.image==null ; else elseimage">
-            <img *ngIf="awardeeData.gender=='Male';else elsegender " src='assets/images/male.jpg' style=width:10rem;
-              class="rounded-circle img-fluid" style="width: 100px;" />
-            <ng-template #elsegender> <img src='assets/images/female.jpg' style=width:10rem;
-                class="rounded-circle img-fluid" style="width: 100px;" /></ng-template>
+            <img *ngIf="awardeeData.gender=='Male';else elsegender " src='assets/images/male.jpg' class="rounded-circle img-fluid"  />
+            <ng-template #elsegender> <img src='assets/images/female.jpg'
+                class="rounded-circle img-fluid"  /></ng-template>
           </div>
           <ng-template #elseimage>
-            <div class="text-center"><img [src]="'data:image/jpg;base64,'+ awardeeData.image" style=width:10rem;
-                class="rounded-circle img-fluid" style="width: 100px;" /></div>
+            <div class="text-center"><img [src]="'data:image/jpg;base64,'+ awardeeData.image" 
+                class="rounded-circle img-fluid"  /></div>
           </ng-template>
           <div class="text-center mt-3">
             <span>{{awardeeData.firstName}} {{awardeeData.lastName}}</span>
@@ -89,14 +88,13 @@
       <div class="col-md-7"  *ngIf="isAward==1">
 
 
-        <div class="card p-3 py-4" style="height: 250px; overflow: auto;width: 300px;margin-left: 6rem; margin-top: 10px;">
+        <div class="card p-3 py-4">
           <div class="mt-3 mb-4 text-center" *ngIf="awardData.image==null ; else elseimage">
-            <img src='assets/images/award.png' style=width:10rem; class="rounded-circle img-fluid"
-              style="width: 100px;" />
+            <img src='assets/images/award.png' class="rounded-circle img-fluid"/>
           </div>
           <ng-template #elseimage>
-            <div class="mt-3 mb-4 text-center"><img [src]="'data:image/jpg;base64,'+ awardData.image" style=width:10rem;
-                class="rounded-circle img-fluid" style="width: 100px;" /></div>
+            <div class="mt-3 mb-4 text-center"><img [src]="'data:image/jpg;base64,'+ awardData.image" 
+                class="rounded-circle img-fluid"  /></div>
           </ng-template>
           <div class="text-center mt-3">
             <span>{{awardData.awardName}}</span>
