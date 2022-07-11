@@ -53,7 +53,7 @@ selectedOrganisation:any;
       });
     }
     showToast() {
-      this.toastService.success('Successfully updated!',
+      this.toastService.success('Department updated Successfully!',
       {
         autoClose: true,
         dismissible: true,

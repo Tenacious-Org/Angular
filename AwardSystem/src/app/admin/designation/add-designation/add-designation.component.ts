@@ -59,7 +59,7 @@ export class AddDesignationComponent implements OnInit {
     });
   }
   showToast() {
-    this.toastService.success('Successfully added!',
+    this.toastService.success('Designation added Successfully!',
     {
       autoClose: true,
       dismissible: true,
