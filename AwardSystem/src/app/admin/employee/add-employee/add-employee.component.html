@@ -1,54 +1,56 @@
 <app-layout></app-layout>
 <app-sidebar></app-sidebar>
+<!-- add employee container contains employee required details -->
+
 <div class="container d-flex justify-content-center table-box">
 
     <form class="border-box position-relative" #myForm="ngForm" (ngSubmit)="OnSubmit()">
 
         <span class="border-box-tip"><b>Add Employee</b></span>
-
-        
-
-        <div class="row g-3 align-items-center justify-content-center mb-3">
+        <div class="employee row mb-3">
             <div class="col-auto p-1.5">
-                <label  class="col-form-label">Firstname</label>
-                <input type="text" #firstname="ngModel" required pattern="^[a-zA-Z][a-zA-Z\s]{0,20}[a-zA-Z]$" class="form-control" name="firstName" [(ngModel)]="Employee.Firstname">
-                <div *ngIf ="firstname.touched && firstname.errors?.['required']" class="alert alert-danger">
+                <label class="col-form-label">Firstname</label>
+                <input type="text" #firstname="ngModel" required pattern="^[a-zA-Z][a-zA-Z\s]{0,20}[a-zA-Z]$"
+                    class="form-control" name="firstName" [(ngModel)]="Employee.Firstname">
+                <div *ngIf="firstname.touched && firstname.errors?.['required']" class="alert alert-danger">
                     Firstname is Required!
                 </div>
-                <div *ngIf ="firstname.touched && firstname.errors?.['pattern']" class="alert alert-danger" >
+                <div *ngIf="firstname.touched && firstname.errors?.['pattern']" class="alert alert-danger">
                     Firstname is invalid!
                 </div>
             </div>
 
             <div class="col-auto p-1.5">
-                <label  class="col-form-label">Lastname</label>
-                <input type="text" #lastname="ngModel" required pattern="[A-Za-z]+$" class="form-control" name="Lastname" [(ngModel)]="Employee.Lastname">
-                <div *ngIf ="lastname.touched && lastname.errors?.['required']" class="alert alert-danger">
+                <label class="col-form-label">Lastname</label>
+                <input type="text" #lastname="ngModel" required pattern="[A-Za-z]+$" class="form-control"
+                    name="Lastname" [(ngModel)]="Employee.Lastname">
+                <div *ngIf="lastname.touched && lastname.errors?.['required']" class="alert alert-danger">
                     Lastname is Required!
                 </div>
-                <div *ngIf ="lastname.touched && lastname.errors?.['pattern']" class="alert alert-danger" >
+                <div *ngIf="lastname.touched && lastname.errors?.['pattern']" class="alert alert-danger">
                     Lastname is invalid!
                 </div>
             </div>
         </div>
 
 
-        <div class="row g-3 align-items-center justify-content-center mb-3">
+        <div class="employee row mb-3">
 
-         <div class="col-auto p-1.5">
+            <div class="col-auto p-1.5">
                 <label for="datetime" class="col-form-label">Date of Birth</label>
-                <input type="date" #dob="ngModel" required name="dob" (click)="changeDate()" [(ngModel)]="Employee.dob " id="dob" class="form-control" aria-describedby="dobHelpInline">
-                <div *ngIf ="dob.touched && dob.errors?.['required']" class="alert alert-danger">
+                <input type="date" #dob="ngModel" required name="dob" (click)="changeDate()" [(ngModel)]="Employee.dob "
+                    id="dob" class="form-control" aria-describedby="dobHelpInline">
+                <div *ngIf="dob.touched && dob.errors?.['required']" class="alert alert-danger">
                     Date of Birth is Required!
                 </div>
-            </div> 
+            </div>
 
-       <div class="col-auto p-1.5">
+            <div class="col-auto p-1.5">
                 <label for="dept" required class="col-form-label">Gender</label>
                 <div class="input-group">
-                    <select name="gender" [(ngModel)]="Employee.gender"   class="custom-select"   >
-                              <option value="Male">Male</option>
-                              <option  value="Female" >Female</option>
+                    <select name="gender" [(ngModel)]="Employee.gender" class="custom-select">
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
                     </select>
                 </div>
             </div>
@@ -58,29 +60,31 @@
         </div>
 
 
-        <div class="row g-3 align-items-center justify-content-center mb-3">
-          <div class="col-auto p-1.5">
-            <label for="aceid" class="col-form-label">AceID</label>
-            <!-- <input type="text" name="aceid" [(ngModel)]="Employee.aceid" id="aceid" class="form-control" aria-describedby="aceidHelpInline"> -->
-            <input type="text" #aceid="ngModel" required pattern="ACE\d{3,}$" class="form-control" name="aceid" [(ngModel)]="Employee.aceid">
-            <div *ngIf ="aceid.touched && aceid.errors?.['required']" class="alert alert-danger">
-                ACEID is Required!
+        <div class="employee row mb-3">
+            <div class="col-auto p-1.5">
+                <label for="aceid" class="col-form-label">AceID</label>
+                <!-- <input type="text" name="aceid" [(ngModel)]="Employee.aceid" id="aceid" class="form-control" aria-describedby="aceidHelpInline"> -->
+                <input type="text" #aceid="ngModel" required pattern="ACE\d{3,}$" class="form-control" name="aceid"
+                    [(ngModel)]="Employee.aceid">
+                <div *ngIf="aceid.touched && aceid.errors?.['required']" class="alert alert-danger">
+                    ACEID is Required!
+                </div>
+                <div *ngIf="aceid.touched && aceid.errors?.['pattern']" class="alert alert-danger">
+                    ACEID is invalid!
+                </div>
             </div>
-            <div *ngIf ="aceid.touched && aceid.errors?.['pattern']" class="alert alert-danger" >
-                ACEID is invalid!
-            </div>
-        </div>
 
             <div class="col-auto p-1.5">
                 <label for="email" class="col-form-label">Email</label>
                 <!-- <input type="email" name="email" [(ngModel)]="Employee.email" id="email" class="form-control" aria-describedby="emailHelpInline"> -->
-                <input type="text" #email="ngModel" required pattern="[a-zA-Z0-9_\-\.]+[@][a-z]+[\.][a-z]{2,3}$" class="form-control" name="Email" [(ngModel)]="Employee.email">
-            <div *ngIf ="email.touched && email.errors?.['required']" class="alert alert-danger">
-                Email is Required!
-            </div> 
-            <div *ngIf ="email.touched && email.errors?.['pattern']" class="alert alert-danger" >
-                Email is invalid!
-            </div>
+                <input type="text" #email="ngModel" required pattern="[a-zA-Z0-9_\-\.]+[@][a-z]+[\.][a-z]{2,3}$"
+                    class="form-control" name="Email" [(ngModel)]="Employee.email">
+                <div *ngIf="email.touched && email.errors?.['required']" class="alert alert-danger">
+                    Email is Required!
+                </div>
+                <div *ngIf="email.touched && email.errors?.['pattern']" class="alert alert-danger">
+                    Email is invalid!
+                </div>
             </div>
 
 
@@ -88,17 +92,19 @@
         </div>
 
 
-        <div class="row g-3 align-items-center justify-content-center mb-3">
+        <div class="employee row mb-3">
             <div class="col-auto p-1.5">
                 <label for="org" class="col-form-label">Organisation</label>
 
                 <div class="input-group">
-                    <select name="organisationId" [(ngModel)]="Employee.organisationId" name="SelectOrg"[(ngModel)]="SelectOrg" (change)="onSelectDep()" class="custom-select"   >
+                    <select name="organisationId" [(ngModel)]="Employee.organisationId" name="SelectOrg"
+                        [(ngModel)]="SelectOrg" (change)="onSelectDep()" class="custom-select">
                         <!-- <option selected>Choose...</option> -->
-                        <option *ngFor="let items of organisations"  ngValue={{items.id}} >{{items.organisationName}}</option>
+                        <option *ngFor="let items of organisations" ngValue={{items.id}}>{{items.organisationName}}
+                        </option>
                     </select>
                 </div>
-                <div *ngIf="organisationID==''" class="alert alert-danger">Organisation  should not be empty! </div>
+                <div *ngIf="organisationID==''" class="alert alert-danger">Organisation should not be empty! </div>
 
             </div>
 
@@ -107,17 +113,18 @@
                 <label for="dept" class="col-form-label">Department</label>
 
                 <div class="input-group">
-                    <select name="departmentId" [(ngModel)]="Employee.departmentId" name="SelectDep" [(ngModel)]="SelectDep" (change)="onSelectDes()" class="custom-select"   >
-                              <!-- <option selected>Choose...</option> -->
-                              <option *ngFor="let items of departments"  ngValue={{items.id}} >{{items.departmentName}}</option>
+                    <select name="departmentId" [(ngModel)]="Employee.departmentId" name="SelectDep"
+                        [(ngModel)]="SelectDep" (change)="onSelectDes()" class="custom-select">
+                        <!-- <option selected>Choose...</option> -->
+                        <option *ngFor="let items of departments" ngValue={{items.id}}>{{items.departmentName}}</option>
                     </select>
                 </div>
-                <div *ngIf="departmentID==''" class="alert alert-danger">Department  should not be empty! </div>
+                <div *ngIf="departmentID==''" class="alert alert-danger">Department should not be empty! </div>
 
 
             </div>
         </div>
-        <div class="row g-3 align-items-center justify-content-center mb-3">
+        <div class="employee row mb-3">
 
             <div class="col-auto p-1.5">
 
@@ -125,40 +132,44 @@
 
 
                 <div class="input-group">
-                    <select name="designationId" [(ngModel)]="Employee.designationId" class="custom-select"   >
-                              <option selected>Choose...</option>
-                              <option *ngFor="let items of designations"  ngValue={{items.id}} >{{items.designationName}}</option>
+                    <select name="designationId" [(ngModel)]="Employee.designationId" class="custom-select">
+                        <option selected>Choose...</option>
+                        <option *ngFor="let items of designations" ngValue={{items.id}}>{{items.designationName}}
+                        </option>
                     </select>
                 </div>
-                <div *ngIf="designationID==''" class="alert alert-danger">Designation  should not be empty! </div>
+                <div *ngIf="designationID==''" class="alert alert-danger">Designation should not be empty! </div>
 
             </div>
 
 
             <div class="col-auto p-1.5">
 
-                <label  class="col-form-label">Reporting Person Name</label>
+                <label class="col-form-label">Reporting Person Name</label>
 
                 <div class="input-group">
-                    <select name="reportingPersonId" [(ngModel)]="Employee.reportingPersonId" class="custom-select"   >
-                              <option selected>Choose...</option>
-                              <option *ngFor="let items of reportingPersonList"  ngValue={{items.id}} >{{items.firstName}} {{items.lastName}}</option>
+                    <select name="reportingPersonId" [(ngModel)]="Employee.reportingPersonId" class="custom-select">
+                        <option selected>Choose...</option>
+                        <option *ngFor="let items of reportingPersonList" ngValue={{items.id}}>{{items.firstName}}
+                            {{items.lastName}}</option>
                     </select>
                 </div>
-                <div *ngIf="reportingPersonID==''" class="alert alert-danger">Reporting Person  should not be empty! </div>
+                <div *ngIf="reportingPersonID==''" class="alert alert-danger">Reporting Person should not be empty!
+                </div>
 
             </div>
 
-            </div>
-        <div class="row g-3  justify-content-center mb-3">
+        </div>
+        <div class="employee row mb-3">
 
             <div class="col-auto p-1.5">
-                <label  class="col-form-label">HR Name</label>
+                <label class="col-form-label">HR Name</label>
 
                 <div class="input-group">
-                    <select name="hrID" [(ngModel)]="Employee.hrID" class="custom-select"   >
-                              <option selected>Choose...</option>
-                              <option *ngFor="let items of hrList"  ngValue={{items.id}} >{{items.firstName}} {{items.lastName}}</option>
+                    <select name="hrID" [(ngModel)]="Employee.hrID" class="custom-select">
+                        <option selected>Choose...</option>
+                        <option *ngFor="let items of hrList" ngValue={{items.id}}>{{items.firstName}} {{items.lastName}}
+                        </option>
                     </select>
                 </div>
                 <div *ngIf="HRId==''" class="alert alert-danger">HR should not be empty! </div>
@@ -167,24 +178,25 @@
 
             <div class="col-auto p-1.5">
 
-              <label class="col-form-label">Employee Image</label>
-              <div class="input-group">
-                <input type="file" #image="ngModel" accept=".jpeg,.jpg,.png" required (change)="ImageConversion($event)" id="image" class="fileInputProfile" name="image" [ngModel]="Employee.Image">
-                <div *ngIf ="image.touched && image.errors?.['required']" class="alert alert-danger">
-                Image is Required!
-               </div>
-              <img class="row-auto p-1.5" [src]="imgsrc" id="img">
+                <label class="col-form-label">Employee Image</label>
+                <div class="input-group">
+                    <input type="file" #image="ngModel" accept=".jpeg,.jpg,.png" required
+                        (change)="ImageConversion($event)" id="image" class="fileInputProfile" name="image"
+                        [ngModel]="Employee.Image">
+                    <div *ngIf="image.touched && image.errors?.['required']" class="alert alert-danger">
+                        Image is Required!
+                    </div>
+                    <img class="row-auto p-1.5" [src]="imgsrc" id="img">
+                </div>
             </div>
-          </div>
 
         </div>
 
-        <div class="row justify-content-center align-items-center mt-5 button-group">
-            <button (click)="CheckName(Employee.organisationId,Employee.departmentId,Employee.designationId,Employee.reportingPersonId,Employee.hrID)" type="submit"  class="btn btn-primary col-lg-2" [disabled]="!myForm.form.valid" >Create</button>
+        <div class="employee row mt-5 button-group">
+            <button
+                (click)="CheckName(Employee.organisationId,Employee.departmentId,Employee.designationId,Employee.reportingPersonId,Employee.hrID)"
+                type="submit" class="btn btn-primary col-lg-2" [disabled]="!myForm.form.valid">Create</button>
             <button [routerLink]="['/employee']" class="btn btn-primary col-lg-2">Cancel</button>
         </div>
     </form>
 </div>
-
-
-

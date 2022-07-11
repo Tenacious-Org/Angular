@@ -1,12 +1,14 @@
 <app-layout></app-layout>
 <app-sidebar></app-sidebar>
+<!-- add designation container contains designation name,department name,role -->
+
 <div class="container d-flex justify-content-center table-box" >
 
     <form class="border-box position-relative" #myForm="ngForm" (ngSubmit)="OnSubmit()">
 
         <span class="border-box-tip"><b>Add Designation</b></span>
     
-        <div class="row g-3 align-items-center justify-content-center mb-3" >
+        <div class="designation row mb-3" >
 
             <div class="col-auto p-1.5 " >
                     <label for="dept" class="col-form-label">Department</label>
@@ -18,7 +20,7 @@
                 <div *ngIf="departmentID==''" class="alert alert-danger">Department name should not be empty! </div>
             </div>
         </div>
-        <div class="row g-3 align-items-center justify-content-center mb-3" >
+        <div class="designation row mb-3" >
             <div class="col-auto p-1.5"  >
               <label for="dept" class="col-form-label">Role</label>
               <div class="input-group" >
@@ -29,7 +31,7 @@
               <div *ngIf="roleID==''" class="alert alert-danger">Role  should not be empty! </div>
           </div>
         </div>
-        <div class="row g-3 align-items-center justify-content-center mb-3" >
+        <div class="designation row mb-3" >
             <div class="col-auto p-1.5">
                 <label for="firstName" class="col-form-label">Designation Name</label>
 
@@ -47,7 +49,7 @@
         </div>
         </div>
 
-        <div class="row justify-content-center align-items-center mt-5 button-group">
+        <div class="designation row mt-5 button-group">
             <button (click)="CheckName(Designation.departmentId,Designation.roleId)" type="submit" class="btn btn-primary col-lg-2" [disabled]="!myForm.form.valid"> Create </button>
             <button [routerLink]="['/designation']" class="btn btn-danger col-lg-2">Back</button>
 

@@ -1,12 +1,14 @@
 <app-layout></app-layout>
 <app-sidebar></app-sidebar>
+<!-- edit organisation container contains organisation name -->
+
 <div class="container d-flex justify-content-center table-box">
 
     <form class="border-box position-relative" #ngForm (ngSubmit)="OnSubmit()">
 
         <span class="border-box-tip"><b>Edit Organisation</b></span>
 
-        <div class="row g-3 align-items-center justify-content-center mb-3">
+        <div class="organisation row mb-3">
             <div class="col-auto p-1.5">
                 <label for="firstName" class="col-form-label">Organisation Name</label>
                 <input type="text" #organisationName="ngModel" name="organisationName" required pattern="^[a-zA-Z][a-zA-Z\s]{0,20}[a-zA-Z]$" class="form-control" value={{data.organisationName}} [(ngModel)]="data.organisationName" >
@@ -23,7 +25,7 @@
         </div>
 
 
-        <div class="row justify-content-center align-items-center mt-5 button-group">
+        <div class="organisation row mt-5 button-group">
             <button  type="submit" class="btn btn-primary col-lg-2">Update</button>
             <a [routerLink]="['/organisation']" class="btn btn-danger col-lg-2">Cancel</a>
         </div>

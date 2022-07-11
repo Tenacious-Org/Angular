@@ -2,13 +2,13 @@
 <app-sidebar></app-sidebar>
 <div class="container d-flex justify-content-center ">
 
-    <!-- Write your contents here -->
+    <!--  view awards container contains awardname, award description,award image-->
     <div class="card">
         <div class="card-body">
-          <div class="mt-3 mb-4 text-center" *ngIf="data.image==null ; else elseimage">
+          <div class="awardimage" *ngIf="data.image==null ; else elseimage">
             <img src='assets/images/award.png' class="rounded-circle img-fluid"  />
         </div>
-        <ng-template  #elseimage><div class="mt-3 mb-4 text-center"><img [src]="'data:image/jpg;base64,'+ data.image" class="rounded-circle img-fluid"  /></div></ng-template>
+        <ng-template  #elseimage><div class="awardimage"><img [src]="'data:image/jpg;base64,'+ data.image" class="rounded-circle img-fluid"  /></div></ng-template>
             <div class="row">
                 <div class="col-sm-6">
                     <p class="mb-0">Award</p>

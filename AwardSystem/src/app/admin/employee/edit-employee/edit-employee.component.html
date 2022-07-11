@@ -1,5 +1,7 @@
 <app-layout></app-layout>
 <app-sidebar></app-sidebar>
+<!-- edit employee container contains employee required details -->
+
 
 <div class="container d-flex justify-content-center table-box">
 
@@ -7,7 +9,7 @@
 
         <span class="border-box-tip"><b>Edit Employee</b></span>
 
-        <div class="row g-3 align-items-center justify-content-center mb-3">
+        <div class="employee row mb-3">
 
             <div class="col-auto p-1.5">
                 <label for="firstName" class="col-form-label">First Name</label>
@@ -37,7 +39,7 @@
         </div>
 
 
-        <div class="row g-3 align-items-center justify-content-center mb-3">
+        <div class="employee row mb-3">
 
             <div class="col-auto p-1.5">
                 <label for="datetime" class="col-form-label">Date of Birth</label>
@@ -59,7 +61,7 @@
         </div>
 
 
-        <div class="row g-3 align-items-center justify-content-center mb-3">
+        <div class="employee row mb-3">
           <div class="col-auto p-1.5">
             <label for="aceid" class="col-form-label">AceID</label>
             <input type="text" name="aceid" #aceid="ngModel"  required pattern="ACE\d{3,}$" [(ngModel)]="data.aceid" id="aceid" class="form-control" aria-describedby="aceidHelpInline">
@@ -85,7 +87,7 @@
         </div>
 
 
-        <div class="row g-3 align-items-center justify-content-center mb-3">
+        <div class="employee row mb-3">
             <div class="col-auto p-1.5">
                 <label for="org" class="col-form-label">Organisation</label>
 
@@ -113,7 +115,7 @@
 
             </div>
         </div>
-        <div class="row g-3 align-items-center justify-content-center mb-3">
+        <div class="employee row mb-3">
 
             <div class="col-auto p-1.5">
 
@@ -145,7 +147,7 @@
             </div>
 
             </div>
-        <div class="row g-3  justify-content-center mb-3">
+        <div class="employee row mb-3">
             <div class="col-auto p-1.5" *ngIf="selectedHr!=2">
                 <label  class="col-form-label">HR Name</label>
                 <div class="input-group">
@@ -174,7 +176,7 @@
             </div>
 
 
-        <div class="row justify-content-center align-items-center mt-5 button-group">
+        <div class="employee row mt-5 button-group">
             <button (click)="CheckName(data.organisationId,data.departmentId,data.designationId,data.reportingPersonId,data.hrID)"type="submit"  class="btn btn-primary col-lg-2">Update</button>
             <button [routerLink]="['/employee']" class="btn btn-primary col-lg-2">Cancel</button>
         </div>
