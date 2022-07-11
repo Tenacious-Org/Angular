@@ -78,7 +78,14 @@ p{
     justify-content: space-between;
 }
 .awardfilter{
-  justify-content: center;
+  align-items: center;
+}
+#applybutton{
+  padding: 0.5rem;
+}
+.applybutton{
+  width:auto;
+  margin-top:3.5rem;
 }
 #awardfilter{
   display:inline;
