@@ -92,7 +92,7 @@ export class ApproverARComponent implements OnInit {
         this.awards.statusId=this.rejectedId;
         this.awardService.approval(this.awards,this.employeeId).subscribe(data=>{
           console.log(this.awards);
-          this.showToast();
+          this.ShowToast();
 
         });
       }
