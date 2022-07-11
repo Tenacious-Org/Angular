@@ -7,7 +7,7 @@ import { Organisation } from 'Models/Organisation';
 import { SharedService } from 'src/app/shared.service';
 import { HotToastService } from '@ngneat/hot-toast';
 import { AuthenticationService } from 'src/app/authentication.service';
-import { DatePipe } from '@angular/common';
+import { DatePipe, formatDate } from '@angular/common';
 
 
 
@@ -53,6 +53,7 @@ export class EditEmployeeComponent implements OnInit {
   designationID: any;
   reportingPersonID: any;
   HRId: any;
+  Dob: any;
   constructor(private sharedService:SharedService, private router:ActivatedRoute, private routing:Router,private toastService: HotToastService) { }
 
   ngOnInit(): void {
@@ -124,6 +125,8 @@ export class EditEmployeeComponent implements OnInit {
 
    OnSubmit(){
      console.log(this.data)
+     this.data.dob=this.Dob;
+     console.log(this.data.dob)
      if(this.data.imageString==null && this.data.image!=null ){
       this.data.imageString=this.data.image;
       

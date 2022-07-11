@@ -61,7 +61,7 @@ export class HrYettopublishComponent implements OnInit {
       });
   }
   OnSubmit(){
-    console.log(this.data);
+    console.log(this.data.couponCode);
     this.awards.couponCode=this.data.couponCode;
     this.awards.statusId=this.publishedId;
     this.awardService.approval(this.awards,this.employeeId).subscribe(data=>{

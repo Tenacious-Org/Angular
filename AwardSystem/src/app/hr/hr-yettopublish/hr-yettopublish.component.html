@@ -83,7 +83,7 @@
         <br>
         <div class="modal-footer justify-content-center">
             <div *ngIf="data.statusId==2">
-                <button [routerLink]="['/hr-publish']" type="submit" class="btn btn-primary"
+                <button type="submit" class="btn btn-primary"
                     data-dismiss="modal" [disabled]="!yetToPublish.valid">Publish</button>
             </div>
             <div>

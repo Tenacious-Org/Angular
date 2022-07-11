@@ -42,10 +42,10 @@
         <div class="employee row mb-3">
 
             <div class="col-auto p-1.5">
-                <label for="datetime" class="col-form-label">Date of Birth</label>
-                <input type="date" #dob="ngModel" required name="dob" (click)="changeDate()"  [ngModel]="data.dob|date:'YYYY-MM-dd' "  id="dob" class="form-control" aria-describedby="dobHelpInline">
+                <label for="datetime" class="col-form-label">Date of Birth </label>
+                <input type="date" #dob="ngModel" required name="dob" (click)="changeDate()" [ngModel]="data.dob | date:'YYYY-MM-dd'"   id="dob" class="form-control" aria-describedby="dobHelpInline">
                 <div *ngIf ="dob.touched && dob.errors?.['required']" class="alert alert-danger">
-                    Date of Birth is Required!
+                    Date of Birth is Require
                 </div>
             </div>
             <div class="col-auto p-1.5">
@@ -167,7 +167,7 @@
                 <div *ngIf ="image.touched && image.errors?.['required']" class="alert alert-danger">
                     Image is Required!
                 </div>
-                <img class="row-auto p-1.5" [src]="imgsrc" id="img">
+                <img class="row-auto p-1.5" [src]="imgsrc " width="100" height="100" id="img">
             </div>
           </div>
 

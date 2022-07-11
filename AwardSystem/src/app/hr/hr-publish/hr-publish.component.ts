@@ -35,7 +35,6 @@ export class HrPublishComponent implements OnInit {
       .getAwardsList(this.pageId, this.employeeId)
       .subscribe((data) => {
         this.data = data;
-        console.log(this.data.statusId);
         this.totalLength = data;
       });
   }
