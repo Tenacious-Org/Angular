@@ -1,15 +1,14 @@
-
-  <app-layout></app-layout>
-  <app-sidebar></app-sidebar>
-  <link href="https://fonts.googleapis.com/css?family=Schoolbell&v1" rel="stylesheet">
+<app-layout></app-layout>
+<app-sidebar></app-sidebar>
+<link href="https://fonts.googleapis.com/css?family=Schoolbell&v1" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Qwitcher+Grypen:wght@700&family=Splash&display=swap"
   rel="stylesheet">
 
-
+<!-- My awards filter container contains search filter, award dropdown, date picker -->
 
 <div class="myawards">
-  <div class="row g-4 align-items-center">
+  <div class="awardfilter row">
     <div id="awardfilter">
       <label class="col-form-label" for="exampleFormControlSelect1">Award Type</label>
       <div class="input-group">
@@ -39,36 +38,26 @@
     </div>
   </div>
 </div>
-
-
-
-
-
+<!-- my awards card container contains award image, awardee image -->
 
 <div class=" container row" id="cardflip">
 
   <div class="card" *ngFor="let item of awardData">
     <div class="flip-card-inner">
-      <div class="flip-card-front">
-        <img src="./assets/images/cardback.png" class="card-img-top" alt="Fissure in Sandstone" />
-        <div class="card-img-overlay">
-
-          <img class="card-img-bottom"  [src]="'data:image/jpg;base64,'+ item.awardeeImage" alt="Avatar">
-        </div>
-        <div class="card-img-overlay">
-
-          <img class="card-img-left"  [src]="'data:image/jpg;base64,'+ item.awardImage" alt="Avatar">
-        </div>
+      <img src="./assets/images/cardback.png" class="card-img-top" alt="Fissure in Sandstone" />
+      <div class="card-img-overlay">
+        <img class="card-img-left" [src]="'data:image/jpg;base64,'+ item.awardImage" alt="Avatar">
       </div>
-      
+      <div class="card-img-overlay">
+        <img class="card-img-right" [src]="'data:image/jpg;base64,'+ item.awardeeImage" alt="Avatar">
+      </div>
       <div class="card-body">
         <p id="text"><b>{{item.awardeeName}}</b></p>
         <h4 [ngClass]="{'limitTextHeight': isReadMore}">{{item.reason}}</h4>
       </div>
-      <button  [routerLink]="['/morecomments',item.id]">
+      <button [routerLink]="['/morecomments',item.id]">
         {{ isReadMore ? 'Read More...': 'Read Less...' }}
       </button>
     </div>
   </div>
-
-  </div>
+</div>
