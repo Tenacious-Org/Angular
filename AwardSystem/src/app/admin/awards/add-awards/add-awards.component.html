@@ -19,12 +19,15 @@
                 <div *ngIf ="name.touched && name.errors?.['pattern']" class="alert alert-danger" >
                     Award Name is invalid!
                 </div>
+                <div >
+                    <h3 class="text-center text-danger" >{{error}}</h3>
+                </div>
             </div>
         </div>
         <div class="award row mb-3">
             <div class="col-auto p-1.5">
                 <label  class="col-form-label">Award Description</label>
-                <input type="text" #description="ngModel" required pattern="^[a-zA-Z][a-zA-Z\s]{0,100}[a-zA-Z]$" class="form-control" name="awardDescription" [(ngModel)]="AwardType.awardDescription">
+                <input type="text" #description="ngModel" required pattern="^[a-zA-Z][a-zA-Z\s]{0,1000}[a-zA-Z]$" class="form-control" name="awardDescription" [(ngModel)]="AwardType.awardDescription">
                 <div *ngIf ="description.touched && description.errors?.['required']" class="alert alert-danger">
                     Description is Required!
                 </div>

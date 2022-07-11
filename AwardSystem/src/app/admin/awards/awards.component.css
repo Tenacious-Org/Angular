@@ -1,5 +1,11 @@
 .space {
-    width: 25px;
+   width: 8px;
     height: auto;
     display: inline-block;
+  }
+  #description
+  {
+    height:4rem;
+    width:30rem;
+    overflow:hidden;
   }
