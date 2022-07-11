@@ -80,13 +80,19 @@ export class HomeCardComponent implements OnInit {
 		
 		else if (searchOrganisation != 0 && searchDepartment == 0&& searchAwardType == 0 && FromDate == new Date("0001-01-01").toString() && ToDate == new Date("0001-01-01").toString()) {
 			console.log(searchOrganisation)
-			this.data = this.filteredData.filter(item => item.organisationId==searchOrganisation);
+			this.awardData = this.filteredData.filter(item => item.organisationId==searchOrganisation);
 		}
 		//3.Search by department
 		else if (searchOrganisation != 0 && searchDepartment != 0&& searchAwardType == 0 && FromDate == new Date("0001-01-01").toString() && ToDate == new Date("0001-01-01").toString()) {
 			console.log(searchOrganisation)
+			console.log(searchDepartment)
+			this.awardData = this.filteredData.filter(item => item.organisationId==searchOrganisation && item.departmentId==searchDepartment );
+		}
+		//3.Search by department and award type
+		else if (searchOrganisation != 0 && searchDepartment != 0&& searchAwardType != 0 && FromDate == new Date("0001-01-01").toString() && ToDate == new Date("0001-01-01").toString()) {
 			console.log(searchOrganisation)
-			this.data = this.filteredData.filter(item => item.departmentId==searchDepartment &&  item.organisationId==searchOrganisation);
+			console.log(searchDepartment)
+			this.awardData = this.filteredData.filter(item => item.organisationId==searchOrganisation && item.departmentId==searchDepartment && item.awardTypeId==searchAwardType );
 		}
 		// //4.Search by ToDate
 		// else if (searchAward == '' && searchAwardee == '' && FromDate == new Date("0001-01-01").toString() && ToDate != new Date("0001-01-01").toString()) {
