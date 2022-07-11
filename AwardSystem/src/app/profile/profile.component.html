@@ -2,13 +2,13 @@
 <app-sidebar></app-sidebar>
 <div class="container d-flex justify-content-center ">
 
-    <div class="card "  >
+    <div class="card"  >
         <div class="card-body">
-            <div class=" rounded-circle text-center" *ngIf="data.image==null ; else elseimage">
-                    <img *ngIf="data.gender=='Male';else elsegender " src='assets/images/male.jpg' style=width:10rem; class="rounded-circle img-fluid" style="width: 100px;" />  
-                    <ng-template #elsegender> <img  src='assets/images/female.jpg' style=width:10rem; class="rounded-circle img-fluid" style="width: 100px;" /></ng-template>     
+            <div class="rounded-circle text-center" *ngIf="data.image==null ; else elseimage">
+                    <img *ngIf="data.gender=='Male';else elsegender " src='assets/images/male.jpg' class="rounded-circle img-fluid" style="width: 100px;" />  
+                    <ng-template #elsegender> <img  src='assets/images/female.jpg' class="rounded-circle img-fluid" style="width: 100px;" /></ng-template>     
                 </div>
-                <ng-template  #elseimage><div class="mt-3 mb-4 text-center"><img [src]="'data:image/jpg;base64,'+ data.image" style=width:10rem; class="rounded-circle img-fluid" style="width: 100px;" /></div></ng-template>
+                <ng-template  #elseimage><div class="text-center"><img [src]="'data:image/jpg;base64,'+ data.image" style=width:10rem; class="rounded-circle img-fluid" style="width: 100px;" /></div></ng-template>
             <br>
             <div class="text-center"> 
                 <h2 class="mb-0">{{data.firstName}} {{data.lastName}}</h2>

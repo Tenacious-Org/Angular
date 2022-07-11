@@ -1,10 +1,11 @@
-p{
+h3{
     line-height:20px;
     font-weight: 800;
 }
 h2{
     font-weight: bold;
-
+    font-size: medium;
+    line-height:20px;
 }
 img{
     width:100px;
@@ -12,7 +13,7 @@ img{
     min-height:100px;
 }
 .card{
-    width: 50%;
+    width: 40%;
     border-radius: 10px;
 }
 .container{
