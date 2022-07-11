@@ -39,6 +39,8 @@ export class AddEmployeeComponent implements OnInit {
   imageError = "";
   isImageSaved: boolean = false;
   cardImageBase64 = "";
+  error='any';
+  
 
   Employee : any = {
     id : 0,
@@ -110,14 +112,16 @@ export class AddEmployeeComponent implements OnInit {
     console.log(this.Employee.dob)
     console.log(this.Employee)
     this.Employee.password="Admin@123";
-    this.sharedService.add(this.endpoint1,this.Employee).subscribe(data=>{
-      console.log(data);
-      this.showToast();
+    this.sharedService.add(this.endpoint1,this.Employee).subscribe({
+      // console.log(data);
+      // this.showToast();
+      next:(res) => { console.log(res), this.showToast() },
+      error: (error) => this.error = error.error.message
     })
 
   }
   showToast() {
-    this.toastService.success('Successfully Created!',
+    this.toastService.success('Employee Added Succesfully!',
     {
       autoClose: true,
       dismissible: true,

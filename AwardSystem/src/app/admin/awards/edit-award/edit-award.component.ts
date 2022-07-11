@@ -17,6 +17,8 @@ export class EditAwardComponent implements OnInit {
   cardImageBase64 = "";
   Id =0;
   endpoint="AwardType";
+  error='any';
+  
 
   data : any ={
     id : 0,
@@ -54,9 +56,11 @@ export class EditAwardComponent implements OnInit {
     if(this.data.imageString==null && this.data.image!=''){
       this.data.imageString=this.data.image;
     }
-    this.sharedService.edit(this.endpoint,this.data).subscribe(data=>{
-      console.log(data);
-      this.showToast();
+    this.sharedService.edit(this.endpoint,this.data).subscribe({
+      // console.log(data);
+      // this.showToast();
+      next:(res) => { console.log(res), this.showToast() },
+      error: (error) => this.error = error.error.message
     });
     
   }
