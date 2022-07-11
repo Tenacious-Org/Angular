@@ -68,7 +68,7 @@
         <p id="text"><b>Congrats {{item.awardeeName}} for getting {{item.awardName}}</b></p>
         <h4 [ngClass]="{'limitTextHeight': isReadMore}">{{item.reason}}</h4>
       </div>
-      <button [routerLink]="['/morecomments',item.id]">
+      <button id="readbutton" [routerLink]="['/morecomments',item.id]">
         Read More...
       </button>
     </div>
