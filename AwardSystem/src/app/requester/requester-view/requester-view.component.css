@@ -29,7 +29,11 @@ img{
 .reason{
     height: 4rem;
     width: 100%;
+    text-align: center;
 }
 #reason{
+    text-align: center;
+}
+#requestdetails{
     text-align: center;
 }

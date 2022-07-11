@@ -7,3 +7,10 @@
     width:auto;
 }
 
+/* Corrected css */
+.pagination{
+    justify-content: center;
+}
+.tabledata{
+    text-align: center;
+}
