@@ -52,7 +52,7 @@
         <img class="card-img-right" [src]="'data:image/jpg;base64,'+ item.awardeeImage" alt="Avatar">
       </div>
       <div class="card-body">
-        <p id="text"><b>{{item.awardeeName}}</b></p>
+        <p id="text"><b>Congrats {{item.awardeeName}} for Getting {{item.awardName}}</b></p>
         <h4 [ngClass]="{'limitTextHeight': isReadMore}">{{item.reason}}</h4>
       </div>
       <button [routerLink]="['/morecomments',item.id]">
