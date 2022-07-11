@@ -98,17 +98,15 @@ p{
 }
 .card-img-left {
   position: absolute;
-  left: 0;
-  width:200px;
-  height:200px;
-  width:30%;
+  left: 10px;
+  width:80px;
+  height:100px;
 }
-.card-img-bottom {
+.card-img-right {
   position: absolute;
-  width:30%;
-  right: 0;
-  width:200px;
-  height:200px;
+  right: 10px;
+  width:80px;
+  height:100px;
 }
 .card {
   background-color: transparent;

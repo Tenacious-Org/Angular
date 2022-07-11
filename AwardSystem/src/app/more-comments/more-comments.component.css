@@ -64,16 +64,21 @@
 .card-img-top{
   height:300px;
 }
-.card-img-right{
-  float:right;
-  width:30%;
+.card-img-left {
+  position: absolute;
+  left: 20px;
+  width:140px;
+  height:250px;
 }
-.card-img-left{
-  width:30%;
+.card-img-right {
+  position: absolute;
+  right: 20px;
+  width:140px;
+  height:250px;
 }
 .img-fluid{
-  width:40;
-  height:40;
+  width:40px;
+  height:40px;
 }
 #img-fluid{
   width:40;

@@ -8,9 +8,9 @@
             <div class="flip-card-front">
                 <img src="./assets/images/cardback.png" class="card-img-top" alt="Fissure in Sandstone" />
                 <div class="card-img-overlay">
+                    <img class="card-img-left" [src]="'data:image/jpg;base64,'+ data.awardImage" alt="Award image">
                     <img class="card-img-right" [src]="'data:image/jpg;base64,'+ data.awardeeImage" alt="Awardee Image">
 
-                    <img class="card-img-left" [src]="'data:image/jpg;base64,'+ data.awardImage" alt="Award image">
                 </div>
             </div>
             <div class="card-body" id="scrollable">
@@ -37,14 +37,14 @@
                             <div class="d-flex flex-row ">
                                 <div *ngIf="item.employeeImage==null ; else elseimage">
                                     <img *ngIf="item.gender=='Male';else elsegender " src='assets/images/male.jpg'
-                                        class="rounded-circle img-fluid" width="40" height="40" />
+                                        class="rounded-circle img-fluid" />
                                     <ng-template #elsegender> <img src='assets/images/female.jpg'
                                             class="rounded-circle img-fluid" />
                                     </ng-template>
                                 </div>
                                 <ng-template #elseimage>
                                     <div class="commenterimage text-center"><img
-                                            [src]="'data:image/jpg;base64,'+ item.employeeImage" class="rounded-circle img-fluid" /></div>
+                                            [src]="'data:image/jpg;base64,'+ item.employeeImage" class="rounded-circle img-fluid"/></div>
                                 </ng-template>
                                 <h3 class="commentername">{{item.employeeName}}</h3>
 
