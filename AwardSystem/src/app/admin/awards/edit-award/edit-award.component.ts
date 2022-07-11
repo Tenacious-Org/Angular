@@ -65,7 +65,7 @@ export class EditAwardComponent implements OnInit {
     
   }
   showToast() {
-    this.toastService.success('Successfully updated!',
+    this.toastService.success('Award updated Successfully !',
     {
       autoClose: true,
       dismissible: true,

@@ -137,7 +137,7 @@ export class EditEmployeeComponent implements OnInit {
     });
 }
 showToast() {
-  this.toastService.success('Successfully updated!',
+  this.toastService.success('Employee updated Successfully!',
   {
     autoClose: true,
     dismissible: true,

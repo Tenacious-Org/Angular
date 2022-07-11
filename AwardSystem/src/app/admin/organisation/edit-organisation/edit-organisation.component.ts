@@ -50,7 +50,7 @@ export class EditOrganisationComponent implements OnInit {
     });
   }
   showToast() {
-    this.toastService.success('Successfully updated!',
+    this.toastService.success('Organisation updated Successfully!',
       {
         autoClose: true,
         dismissible: true,

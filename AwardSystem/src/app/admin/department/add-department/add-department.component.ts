@@ -52,7 +52,7 @@ endpoint1="Organisation";
   
   }
   showToast() {
-    this.toastService.success('Successfully added!',
+    this.toastService.success('Department added Successfully !',
     {
       autoClose: true,
       dismissible: true,

@@ -54,7 +54,7 @@ export class AddAwardsComponent implements OnInit {
   }
   
   showToast() {
-    this.toastService.success('Successfully added!',
+    this.toastService.success('Award added Successfully !',
     {
       autoClose: true,
       dismissible: true,

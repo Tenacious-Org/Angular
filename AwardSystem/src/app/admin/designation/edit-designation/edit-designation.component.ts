@@ -58,7 +58,7 @@ export class EditDesignationComponent implements OnInit {
     });
 }
 showToast() {
-  this.toastService.success('Successfully updated!',
+  this.toastService.success('Designation updated Successfully!',
   {
     autoClose: true,
     dismissible: true,
