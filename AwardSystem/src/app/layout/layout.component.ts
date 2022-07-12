@@ -8,12 +8,15 @@ import { AuthenticationService } from '../authentication.service';
   styleUrls: ['./layout.component.css']
 })
 export class LayoutComponent implements OnInit {
+  user: any;
 
   constructor(private route:Router) { }
-user:any;
+token:any;
   ngOnInit(): void {
-    this.user=AuthenticationService.GetData("token");
-    console.log(this.user)
+    this.token=AuthenticationService.GetData("token");
+    this.user=AuthenticationService.GetData("Role");
+
+    console.log(this.token)
   }
   onLogin(){
     this.route.navigateByUrl("/login")
