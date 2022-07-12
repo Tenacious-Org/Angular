@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AwardService } from '../award.service';
 import { AuthenticationService } from '../authentication.service';
 import { SharedService } from '../shared.service';
@@ -26,7 +26,7 @@ export class HomeCardComponent implements OnInit {
 	endpoint1="Organisation";
 	departments: any;
 	date: any;
-	constructor(private awardService:AwardService,private sharedService:SharedService,private router:ActivatedRoute){ }
+	constructor(private awardService:AwardService,private sharedService:SharedService,private router:ActivatedRoute ,private route:Router){ }
 
   ngOnInit(): void {
 	this.isValidUser=AuthenticationService.GetData("token");
@@ -55,7 +55,7 @@ export class HomeCardComponent implements OnInit {
    }
   
   @Input() ShowStatus:boolean =true;
-  	
+  	isApplied=false;
   	searchOrganisation=0;
   	searchDepartment=0;
 	searchAwardType =0;
@@ -76,7 +76,6 @@ export class HomeCardComponent implements OnInit {
 			this.awardData = this.filteredData.filter(item => item.awardTypeId==searchAwardType);
 		}
 		//2.Search by organisation
-		
 		else if (searchOrganisation != 0 && searchDepartment == 0&& searchAwardType == 0 && FromDate == new Date("0001-01-01").toString() && ToDate == new Date("0001-01-01").toString()) {
 			console.log(searchOrganisation)
 			this.awardData = this.filteredData.filter(item => item.organisationId==searchOrganisation);
@@ -98,7 +97,6 @@ export class HomeCardComponent implements OnInit {
 			this.awardData = this.filteredData.filter(item => new Date(item.updatedOn)>= new Date(FromDate));
 			console.log(this.awardData)
 		}
-
 		//6.Search by ToDate
 		else if (searchOrganisation == 0 && searchDepartment == 0 && searchAwardType == 0  && FromDate == new Date("0001-01-01").toString() && ToDate != new Date("0001-01-01").toString()) {
 			this.awardData = this.filteredData.filter(item => new Date(item.updatedOn) <= new Date(ToDate));
@@ -108,13 +106,10 @@ export class HomeCardComponent implements OnInit {
 			this.awardData = this.filteredData.filter(item => new Date(item.updatedOn)>= new Date(FromDate) && item.organisationId==searchOrganisation && item.departmentId==searchDepartment );
 			console.log(this.awardData)
 		}
-
 		//8.Search by department and ToDate
 		else if (searchOrganisation != 0 && searchDepartment != 0 && searchAwardType == 0  && FromDate == new Date("0001-01-01").toString() && ToDate != new Date("0001-01-01").toString()) {
 			this.awardData = this.filteredData.filter(item => new Date(item.updatedOn) <= new Date(ToDate)&& item.organisationId==searchOrganisation && item.departmentId==searchDepartment );
 		}
-
-		
 		//9.Search by FromDate and ToDate
 		else if (searchOrganisation == 0 && searchDepartment == 0 && searchAwardType == 0  && FromDate != new Date("0001-01-01").toString() && ToDate != new Date("0001-01-01").toString()) {
 			this.awardData = this.filteredData.filter(item => new Date(item.updatedOn)>= new Date(FromDate) && new Date(item.updatedOn) <= new Date(ToDate));
@@ -137,8 +132,12 @@ export class HomeCardComponent implements OnInit {
 			console.log("true")
 			this.awardData = this.filteredData.filter(item => item.organisationId==searchOrganisation && item.departmentId==searchDepartment && item.awardTypeId==searchAwardType && new Date(item.updatedOn)>= new Date(FromDate) && new Date(item.updatedOn) <= new Date(ToDate));
 		}
-
-
+		this.isApplied=true;
+		
+	}
+	Reset(){
+		this.isApplied=false;
+		this.route.navigateByUrl("");
 		
 	}
 }

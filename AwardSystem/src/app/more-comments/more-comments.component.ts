@@ -23,7 +23,6 @@ export class MoreCommentsComponent implements OnInit {
   }
   
   ngOnInit(): void {
-    if (AuthenticationService.GetData("token") == null) this.routing.navigateByUrl("")
     this.route.params.subscribe(params => {
       this.Id = params['id'];
      this.awardService.getAwardById(this.Id).subscribe((result) => {
@@ -40,6 +39,7 @@ export class MoreCommentsComponent implements OnInit {
 
   }
   OnSubmit(){
+    if (AuthenticationService.GetData("token") == null) this.routing.navigateByUrl("/login")
     console.log(this.Comments);
     this.Comments.employeeId=this.employeeId;
     this.Comments.awardId=this.Id;
