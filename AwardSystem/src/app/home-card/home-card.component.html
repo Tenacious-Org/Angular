@@ -9,6 +9,7 @@
   rel="stylesheet">
 
 
+<<<<<<< Updated upstream
   <!-- Filter Container  contains Search,award dropdown,date picker-->
 <div  class="homepage">
   <div class="row g-4 align-items-center" >
@@ -28,53 +29,87 @@
         <option *ngFor="let items of organisations" ngValue={{items.id}}>{{items.organisationName}}
         </option>
     </select>
+=======
+<!-- Filter Container  contains Search,award dropdown,date picker-->
+<div class="homepage">
+<div class="homepagefilter">
+  <div class="align-items-center">
+
+    <form class="row filterform">
+      <div class="col-auto">
+        <label class="col-form-label" for="exampleFormControlSelect1">Organisation</label>
+        <div class="col input-group">
+          <select name="organisationId" name="SelectOrg" [(ngModel)]="searchOrganisation" (change)="onSelectDep()"
+            class="custom-select">
+            <option *ngFor="let items of organisations" ngValue={{items.id}}>{{items.organisationName}}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="col-auto">
+        <label class="col-form-label" for="exampleFormControlSelect1">Department</label>
+        <div class="input-group">
+          <select name="departmentId" name="SelectDep" [(ngModel)]="searchDepartment" class="custom-select">
+            <!-- <option selected>Choose...</option> -->
+            <option *ngFor="let items of departments" ngValue={{items.id}}>{{items.departmentName}}</option>
+          </select>
+        </div>
+>>>>>>> Stashed changes
+      </div>
+      <div class="col-auto" id="awardfilter">
+        <label class="col-form-label" for="exampleFormControlSelect1">Award Type</label>
+        <div class="input-group">
+          <select name="searchAwardType" [(ngModel)]="searchAwardType" required class="custom-select">
+            <div class="alert alert-danger">
+              Award Name is Required!
+            </div>
+            <option selected>Choose...</option>
+            <option *ngFor="let items of awardTypes" value={{items.id}}>{{items.awardName}}</option>
+          </select>
+        </div>
+      </div>
+
+
+      <div class="col-auto" id="datepicker">
+        <label class="col-form-label" for="fromdate">From Date:</label>
+        <div class="input-group col-auto ">
+          <input class="form-control " type="date" id="fromdate" name="fromdate">
+        </div>
+      </div>
+
+      <div class="col-auto" id="datepicker">
+        <label class="col-form-label" for="todate">To Date:</label>
+        <div class="input-group col-auto">
+          <input class="form-control " type="date" id="fromdate" name="todate">
+        </div>
+      </div>
+      <div class="applybutton">
+        <button id="applybutton"
+          (click)="samplefun(searchOrganisation,searchDepartment,searchAwardType,FromDate,ToDate)">Apply</button>
+      </div>
+    </form>
+    <div class="row">
+
+
+      <div class="col-auto" id="searchfilter">
+        <div class="form-inline btn-group search">
+          <input type="search" [(ngModel)]="searchValue" class="form-control" placeholder="Search by Name"
+            aria-label="Search" aria-describedby="search-addon" />
+        </div>
       </div>
     </div>
-    <div >
-      <label class="col-form-label" for="exampleFormControlSelect1">Department</label>
-      <div class="input-group">
-        <select name="departmentId"  name="SelectDep"
-                        [(ngModel)]="searchDepartment" class="custom-select">
-                        <!-- <option selected>Choose...</option> -->
-                        <option *ngFor="let items of departments" ngValue={{items.id}}>{{items.departmentName}}</option>
-                    </select>
-      </div>
-    </div>
-    <div id="awardfilter">
-      <label class="col-form-label" for="exampleFormControlSelect1">Award Type</label>
-      <div class="input-group">
-        <select name="searchAwardType" [(ngModel)]="searchAwardType" required class="custom-select">
-          <div class="alert alert-danger">
-            Award Name is Required!
-          </div>
-          <option selected>Choose...</option>
-          <option *ngFor="let items of awardTypes" value={{items.id}}>{{items.awardName}}</option>
-        </select>
-      </div>
-    </div>
-    <div id="datepicker">
-      <label class="col-form-label" for="fromdate">From Date:</label>
-      <div class="input-group col-auto ">
-        <input class="form-control " type="date" id="fromdate" name="fromdate">
-      </div>
-    </div>
-    <div id="datepicker">
-      <label class="col-form-label" for="todate">To Date:</label>
-      <div class="input-group col-auto">
-        <input class="form-control " type="date" id="fromdate" name="todate">
-      </div>
-    </div>
-    <div class="applybutton">
-      <button  (click)="samplefun(searchOrganisation,searchDepartment,searchAwardType,FromDate,ToDate)">Apply</button>
-    </div></form>
   </div>
-  
+
 </div>
 
 <!-- Home page Card Container contains award image, awardee image,award name-->
 
 <div class=" container row" id="cardflip">
+<<<<<<< Updated upstream
   <div class="card" *ngFor="let item of awardData | filter:searchValue ">
+=======
+  <div class="card" *ngFor="let item of awardData | paginate: { itemsPerPage: 6, currentPage: page }">
+>>>>>>> Stashed changes
     <div class="flip-card-inner">
       <div class="flip-card-front">
         <img src="./assets/images/cardback.png" class="card-img-top" alt="Fissure in Sandstone" />
@@ -86,7 +121,7 @@
 
           <img class="card-img-right" [src]="'data:image/jpg;base64,'+ item.awardeeImage" alt="Avatar">
         </div>
-        
+
       </div>
       <div class="card-body">
         <p id="text"><b>Congrats {{item.awardeeName}} for getting {{item.awardName}}</b></p>
@@ -97,4 +132,7 @@
       </button>
     </div>
   </div>
+  <pagination-controls class="paginate" (pageChange)="page = $event"></pagination-controls>
+
+</div>
 </div>

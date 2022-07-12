@@ -37,10 +37,7 @@ height:200px;
   height: 20px;
   overflow: hidden;
 }
-.input-group{
-  max-width:200px;
-  padding:1.5px;
-}
+
 #cardflip{
   padding: 0;
 
@@ -69,26 +66,29 @@ p{
   padding: 0.5rem;
 }
 .applybutton{
-  width:auto;
-  margin-top:3.5rem;
+  width:20px;
+  margin-top:2.3rem;
+  border:20px;
 }
 #datepicker{
   width:auto;
 }
 #awardfilter{
-  display:inline;
-  width:auto;
+  width:180px;
 }
-#searchfilter{
-  margin-top:3.5rem;
-  display:inline;
-  padding:1.5px;
-}
+
 .form-control{
   top:15%;
-  width:13rem;
+  width:100%;
 }
-.homepage{
+.input-group{
+  max-width:150px;
+  padding:1.5px;
+}
+.form-inline{
+  float:left;
+}
+.homepagefilter{
   margin-left:30px;
   padding-top:90px;
   justify-content: space-between;
@@ -117,4 +117,22 @@ p{
 }
 #readbutton{
   margin-bottom:5px;
+}
+.paginate{
+  text-align: center;
+  margin-top:10px;
+  right:30%;
+
+}
+.filterform{
+  justify-content: left;
+}
+#searchfilter{
+  margin-top:20px;
+}
+.homepage{
+  overflow-x: hidden;
+}
+.container{
+  max-width:1000px;
 }
