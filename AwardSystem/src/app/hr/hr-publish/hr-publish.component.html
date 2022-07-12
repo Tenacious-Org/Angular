@@ -9,10 +9,8 @@
           <input type="search" class="form-control rounded" [(ngModel)]="val" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />  
         </div>
           <div class="w3-right dropdown me-4 mb-4">
-            <select class="form-select" [(ngModel)]="filtervalue"  aria-label="Default select example"  style="width:auto">
-                <option value="">All</option>
-                <option ng-value="2">Approved</option>
-                <option ng-value="4">Published</option>
+            <select name="filtervalue" class="form-select" [(ngModel)]="filtervalue"  style="width:auto">
+              <option *ngFor="let option of options" [value]="option" >{{option}}</option>
             </select>
         </div>
 
