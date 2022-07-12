@@ -6,7 +6,7 @@
       <div class="col-auto p-1.5" style="display:inline;">
         <label for="org" class="col-form-label">Organisation</label>
         <div class="input-group">
-          <select name="organisationId" name="SelectOrg" [(ngModel)]="SelectOrg" (change)="onSelectorg()"
+          <select name="organisationId" name="SelectOrg" [(ngModel)]="SelectOrg" onclick="changeid()" (change)="onSelectorg()"
             class="custom-select">
             <option selected>Choose...</option>
             <option *ngFor="let items of organisations" ngValue={{items.id}}>{{items.organisationName}}</option>
@@ -51,10 +51,12 @@
   </div>
   </div>
 
-  <div *ngIf="chart">
-    <canvas #canvas id="canvas">{{chart}}</canvas>
   </div>
+  
 
   <div id="bargraph" class="wrapper">
     <canvas id="barchart" ></canvas>
+  </div>
+  <div id="bargraph" class="wrapper">
+    <canvas id="barcharts" ></canvas>
   </div>

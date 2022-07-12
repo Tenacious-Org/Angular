@@ -23,6 +23,7 @@ export class DashboardComponent implements OnInit {
 
   awardData: any;
   isAward = 0;
+  cnt = 0;
   Awards: any =
     {
       id: 0,
@@ -185,7 +186,7 @@ export class DashboardComponent implements OnInit {
       // })
 
       new Chart('barchart', {
-        type: 'bar',
+        type: 'pie',
         data: {
           labels: award,
           datasets: [{
@@ -216,8 +217,21 @@ export class DashboardComponent implements OnInit {
 
   }
 
+  
+
   onSelectorg() {
     this.sharedService.getallwinOrgwise(this.SelectOrg).subscribe(res => {
+
+      
+      (<HTMLCanvasElement>document.getElementById("barchart")).remove();
+
+      if(this.cnt >= 1)
+      {
+        (<HTMLCanvasElement>document.getElementById("barcharts")).remove();
+        this.cnt = 0
+      }
+      this.cnt  = 1
+      
 
       console.log(res)
        //converting api values into list
@@ -295,8 +309,9 @@ export class DashboardComponent implements OnInit {
        console.log("Awards :",this.awdcnt)
 
        //Creating Charts
-       new Chart('barchart', {
-        type: 'bar',
+       this.cnt += 1
+       new Chart('barcharts', {
+        type: 'pie',
         data: {
           labels: award,
           datasets: [{
