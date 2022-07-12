@@ -16,6 +16,7 @@ export class CardPostComponent implements OnInit {
   totalLength: any;
   page: number = 1;
   pageId=1;
+  searchValue:any;
   employeeId=AuthenticationService.GetData("User");
   isReadMore =true;
   constructor(private awardService:AwardService,private router:ActivatedRoute){ }
