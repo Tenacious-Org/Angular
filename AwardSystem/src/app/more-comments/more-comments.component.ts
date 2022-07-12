@@ -14,6 +14,7 @@ export class MoreCommentsComponent implements OnInit {
   employeeId=AuthenticationService.GetData('User');
   commentList:any;
   isReadMore =true;
+  isAuthorize:any;
   constructor(private awardService:AwardService, private route:ActivatedRoute,private routing:Router) { }
   Comments :any ={
     id :  0,
@@ -23,6 +24,7 @@ export class MoreCommentsComponent implements OnInit {
   }
   
   ngOnInit(): void {
+    this.isAuthorize=AuthenticationService.GetData("token") 
     this.route.params.subscribe(params => {
       this.Id = params['id'];
      this.awardService.getAwardById(this.Id).subscribe((result) => {
