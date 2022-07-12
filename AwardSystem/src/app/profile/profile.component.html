@@ -1,4 +1,4 @@
-<!-- <app-layout></app-layout>
+<app-layout></app-layout>
 <app-sidebar></app-sidebar>
 <div class="container d-flex justify-content-center ">
 
@@ -66,87 +66,4 @@
             </div>
         </div>
     </div>
-</div> -->
-
-<app-layout></app-layout>
-<app-sidebar></app-sidebar>
-
-<div class="container d-flex justify-content-center ">
-
-    <!-- Write your contents here -->
-    <div class="card">
-        <div class="card-body">
-            <div class="text-center" *ngIf="data.image==null || data.image=='' ; else elseimage">
-                <img *ngIf="data.gender=='Male';else elsegender " src='assets/images/male.jpg' class="rounded-circle img-fluid" />  
-                <ng-template #elsegender> <img  src='assets/images/female.jpg' style=width:10rem; class="rounded-circle img-fluid" style="width: 100px;" /></ng-template>     
-            </div>
-            <ng-template  #elseimage><div class="mt-3 mb-4 text-center"><img [src]="'data:image/jpg;base64,'+ data.image" class="rounded-circle img-fluid" /></div></ng-template>
-            <div class="row">
-                <div class="col-sm-6">
-                    <h2 class="mb-0">First Name</h2>
-
-                    <h3 class="text-muted mb-0">{{data.firstName}}</h3>
-                </div>
-                <div class="col-sm-6">
-                    <h2 class="mb-0">Last Name</h2>
-
-                    <h3 class="text-muted mb-0">{{data.lastName}}</h3>
-                </div>
-            </div>
-            <hr>
-            <div class="row">
-                <div class="col-sm-6">
-                    <h2 class="mb-0">Date of Birth : </h2>
-
-                    <h3 class="text-muted mb-0">{{data.dob | date:'dd-MM-YYYY'}}</h3>
-                    
-                </div>
-
-
-                <div class="col-sm-6">
-                    <h2 class="mb-0">ACE ID</h2>
-
-                    <h3 class="text-muted mb-0">{{data.aceid}}</h3>
-                </div>
-            </div>
-            <hr>
-            <div class="row">
-                <div class="col-sm-6">
-                    <h2 class="mb-0">Email</h2>
-
-                    <h3 class="text-muted mb-0">{{data.email}}</h3>
-                </div>
-
-                <div class="col-sm-6">
-                    <h2 class="mb-0">Organisation</h2>
-                    <h3 class="text-muted mb-0">{{data.organisationName}}</h3>
-                </div>
-            </div>
-            <hr>
-            <div class="row">
-                <div class="col-sm-6">
-                    <h2 class="mb-0">Department</h2>
-
-                    <h3 class="text-muted mb-0">{{data.departmentName}}</h3>
-                </div>
-
-                <div class="col-sm-6">
-                    <h2 class="mb-0">Designation</h2>
-
-                    <h3 class="text-muted mb-0">{{data.designationName}}</h3>
-                </div>
-            </div>
-
-            <hr>
-            <div class="row">
-                <div class="col-sm-6">
-                    <h2 class="mb-0">HR Name</h2>
-
-                    <h3 class="text-muted mb-0">{{data.hRName}}</h3>
-                </div>
-            </div>
-            <br>
-            <div class="button-group text-center">
-                <button [routerLink]="['/employee']" class="btn btn-primary pull-left btn btn-info ">Back </button>
-            </div>
-
+</div>

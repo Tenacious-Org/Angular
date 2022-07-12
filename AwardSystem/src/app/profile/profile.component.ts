@@ -19,11 +19,17 @@ export class ProfileComponent implements OnInit {
   constructor(private sharedService: SharedService,private http:HttpClient , private router:ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.router.params.subscribe(params => {
-      this.id = params['id'];
-    
-    });
-    //this.id=AuthenticationService.GetData("User");
+    // this.router.params.subscribe(params => {
+    //   this.Id = params['id'];
+    // this.http
+    //   .get<any>(`https://localhost:7275/api/Employee/GetById?id=${this.Id}`)
+    //   .subscribe((data) => {
+    //     this.data = data;
+    //     console.log(this.Id)
+    //     console.log(data);
+    //   });
+    // });
+    this.id=AuthenticationService.GetData("User");
     this.sharedService.getById(this.endpoint,this.id)
       .subscribe((data) => {
         this.data = data;

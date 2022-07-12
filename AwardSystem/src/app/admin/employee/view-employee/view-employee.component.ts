@@ -18,9 +18,9 @@ export class ViewEmployeeComponent implements OnInit {
   constructor(private sharedService: SharedService,private http:HttpClient , private router:ActivatedRoute,private routing:Router) { }
 
   ngOnInit(): void {
-    // if(!AuthenticationService.GetData("Admin")){
-    //   this.routing.navigateByUrl("")
-    // }
+    if(!AuthenticationService.GetData("Admin")){
+      this.routing.navigateByUrl("")
+    }
     this.router.params.subscribe(params => {
       this.Id = params['id'];
     this.sharedService.getById(this.endpoint,this.Id)

@@ -52,7 +52,7 @@ const routes: Routes = [
   {path:'layout' , component:LayoutComponent},
   {path:'', component:LoginComponent},
   {path:'sidebar', component:SidebarComponent},
-  {path:'profile/:id' , component:ProfileComponent},
+  {path:'profile' , component:ProfileComponent},
   {path:'forgot-password' , component:ForgotPasswordComponent},
 
 
