@@ -3,8 +3,8 @@
 }
 
 #bargraph{
-    height: 50%;
-    width: 50%;
+    height: 40% !important;
+    width: 40% !important;
     margin-left: 25%;
 }
 .input-group{
@@ -13,3 +13,4 @@
 .form-control{
     width:180px;
 }
+
