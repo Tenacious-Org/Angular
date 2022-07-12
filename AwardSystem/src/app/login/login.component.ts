@@ -72,7 +72,7 @@ showErrorMessage=false;
           this.route.navigateByUrl("/dashboard");  
         }
         else {
-          this.route.navigateByUrl("/homecard");
+          this.route.navigateByUrl("");
 
         }
         console.log(data)

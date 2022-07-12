@@ -21,8 +21,7 @@ user:any;
 
   onLogout(){
     AuthenticationService.Logout();
-    this.route.navigateByUrl("")
-
+    this.route.navigateByUrl('')
   }
 
 }

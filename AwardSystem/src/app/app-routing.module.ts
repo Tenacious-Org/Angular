@@ -48,7 +48,7 @@ import { DialogboxComponent } from './dialogbox/dialogbox.component';
 const routes: Routes = [
 
   {path:'layout' , component:LayoutComponent},
-  {path:'', component:LoginComponent},
+  {path:'login', component:LoginComponent},
   {path:'sidebar', component:SidebarComponent},
   {path:'profile/:id' , component:ProfileComponent},
   {path:'forgot-password' , component:ForgotPasswordComponent},
@@ -84,7 +84,7 @@ const routes: Routes = [
   {path:'footer' , component:FooterComponent},
   {path:'morecomments/:id' , component:MoreCommentsComponent},
   {path:'cardpost' , component:CardPostComponent},
-  {path:'homecard' , component:HomeCardComponent},
+  {path:'' , component:HomeCardComponent},
 
  
 
