@@ -13,6 +13,7 @@ export class LayoutComponent implements OnInit {
 user:any;
   ngOnInit(): void {
     this.user=AuthenticationService.GetData("token");
+    console.log(this.user)
   }
   onLogin(){
     this.route.navigateByUrl("/login")

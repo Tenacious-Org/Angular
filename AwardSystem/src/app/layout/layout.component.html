@@ -31,15 +31,10 @@
         <div  class=" align-items-center">
             <div class="navbar-brand">
                 
-            <a  title="Logout" routerLinkActive="active" id='logout'(click)="onLogout()"><i class="fa-solid fa-right-from-bracket"></i></a>
+            <a *ngIf="user!=null;else elseblock" title="Logout" routerLinkActive="active" id='logout'(click)="onLogout()"><i class="fa-solid fa-right-from-bracket"></i></a>
 
             </div>
-            <!-- Notifications -->
-        <!-- <div *ngif="user!=null;else elseblock">
-            <a routerLinkActive="active" id='logout'(click)="onLogout()">Logout</a>
-           
-        </div>
             <ng-template #elseblock> <a routerLinkActive="active" id='logout'(click)="onLogin()">Login</a>
-        </ng-template> -->
+        </ng-template> 
         </div>
 </nav>

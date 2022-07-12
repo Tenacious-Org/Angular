@@ -140,7 +140,6 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
  DashboardComponent,
 
  AppComponent,
-   AddDialogComponent,
    ForgotPasswordComponent,
 
 

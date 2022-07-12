@@ -50,19 +50,19 @@
       <div class="col-auto" id="datepicker">
         <label class="col-form-label" for="fromdate">From Date:</label>
         <div class="input-group col-auto ">
-          <input class="form-control " type="date" id="fromdate" name="fromdate">
+          <input class="form-control " [(ngModel)]="FromDate" type="date" id="fromdate" name="fromdate">
         </div>
       </div>
 
       <div class="col-auto" id="datepicker">
         <label class="col-form-label" for="todate">To Date:</label>
         <div class="input-group col-auto">
-          <input class="form-control " type="date" id="fromdate" name="todate">
+          <input class="form-control "  [(ngModel)]="ToDate"  type="date" id="fromdate" name="todate">
         </div>
       </div>
       <div class="applybutton">
         <button id="applybutton"
-          (click)="samplefun(searchOrganisation,searchDepartment,searchAwardType,FromDate,ToDate)">Apply</button>
+          (click)="awardFilter(searchOrganisation,searchDepartment,searchAwardType,FromDate,ToDate)">Apply</button>
       </div>
     </form>
     <div class="row">

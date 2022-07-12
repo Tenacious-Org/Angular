@@ -1,11 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AwardService } from '../award.service';
-import { Awards } from 'Models/Awards';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthenticationService } from '../authentication.service';
-import { Token } from '@angular/compiler';
 import { SharedService } from '../shared.service';
+import { formatDate } from '@angular/common';
 @Component({
   selector: 'app-home-card',
   templateUrl: './home-card.component.html',
@@ -27,10 +25,11 @@ export class HomeCardComponent implements OnInit {
 	organisations: any;
 	endpoint1="Organisation";
 	departments: any;
-	constructor(private awardService:AwardService,private sharedService:SharedService,private router:ActivatedRoute,private http:HttpClient){ }
+	date: any;
+	constructor(private awardService:AwardService,private sharedService:SharedService,private router:ActivatedRoute){ }
 
   ngOnInit(): void {
-	this.isValidUser=AuthenticationService.GetData("User");
+	this.isValidUser=AuthenticationService.GetData("token");
     this.router.params.subscribe(params => {
       this.AwardId = params['id'];
     this.awardService.getAwardsList(this.pageId,this.employeeId).subscribe(data=>{
@@ -66,10 +65,10 @@ export class HomeCardComponent implements OnInit {
 	public data:any[] = [];
 	public filteredData: any[] = [];
 
-	samplefun(searchOrganisation: any, searchDepartment: any,searchAwardType:any, FromDate: any, ToDate: any) {
-
+	awardFilter(searchOrganisation: any, searchDepartment: any,searchAwardType:any, FromDate: any, ToDate: any) {
+ 
+		console.log(this.FromDate)
 		if (searchOrganisation == 0 && searchDepartment == 0 && searchAwardType == 0 && FromDate == new Date("0001-01-01").toString() && ToDate == new Date("0001-01-01").toString()) this.data = this.filteredData
-
 
 		//1.Search by awardType
 		console.log(searchAwardType)
@@ -96,13 +95,50 @@ export class HomeCardComponent implements OnInit {
 		}
 		 //5.Search by FromDate
 		else if (searchOrganisation == 0 && searchDepartment == 0 && searchAwardType == 0 && FromDate != new Date("0001-01-01").toString() && ToDate == new Date("0001-01-01").toString()) {
-			this.awardData = this.filteredData.filter(item => new Date(item.updatedOn) >= new Date(FromDate));
+			this.awardData = this.filteredData.filter(item => new Date(item.updatedOn)>= new Date(FromDate));
+			console.log(this.awardData)
 		}
 
 		//6.Search by ToDate
 		else if (searchOrganisation == 0 && searchDepartment == 0 && searchAwardType == 0  && FromDate == new Date("0001-01-01").toString() && ToDate != new Date("0001-01-01").toString()) {
 			this.awardData = this.filteredData.filter(item => new Date(item.updatedOn) <= new Date(ToDate));
 		}
+		//7.Search by department and FromDate
+		else if (searchOrganisation != 0 && searchDepartment != 0 && searchAwardType == 0 && FromDate != new Date("0001-01-01").toString() && ToDate == new Date("0001-01-01").toString()) {
+			this.awardData = this.filteredData.filter(item => new Date(item.updatedOn)>= new Date(FromDate) && item.organisationId==searchOrganisation && item.departmentId==searchDepartment );
+			console.log(this.awardData)
+		}
+
+		//8.Search by department and ToDate
+		else if (searchOrganisation != 0 && searchDepartment != 0 && searchAwardType == 0  && FromDate == new Date("0001-01-01").toString() && ToDate != new Date("0001-01-01").toString()) {
+			this.awardData = this.filteredData.filter(item => new Date(item.updatedOn) <= new Date(ToDate)&& item.organisationId==searchOrganisation && item.departmentId==searchDepartment );
+		}
+
+		
+		//9.Search by FromDate and ToDate
+		else if (searchOrganisation == 0 && searchDepartment == 0 && searchAwardType == 0  && FromDate != new Date("0001-01-01").toString() && ToDate != new Date("0001-01-01").toString()) {
+			this.awardData = this.filteredData.filter(item => new Date(item.updatedOn)>= new Date(FromDate) && new Date(item.updatedOn) <= new Date(ToDate));
+		}
+		//10.Search by award type and FromDate
+		else if (searchOrganisation == 0 && searchDepartment == 0 && searchAwardType != 0 && FromDate != new Date("0001-01-01").toString() && ToDate == new Date("0001-01-01").toString()) {
+			this.awardData = this.filteredData.filter(item => new Date(item.updatedOn)>= new Date(FromDate)&& item.awardTypeId==searchAwardType);
+			console.log(this.awardData)
+		}
+		//11.Search by award type and ToDate
+		else if (searchOrganisation == 0 && searchDepartment == 0 && searchAwardType != 0  && FromDate == new Date("0001-01-01").toString() && ToDate != new Date("0001-01-01").toString()) {
+			this.awardData = this.filteredData.filter(item => new Date(item.updatedOn) <= new Date(ToDate)&& item.awardTypeId==searchAwardType);
+		}
+		//12.Search by award type and FromDate and ToDate
+		else if (searchOrganisation == 0 && searchDepartment == 0 && searchAwardType != 0  && FromDate != new Date("0001-01-01").toString() && ToDate != new Date("0001-01-01").toString()) {
+			this.awardData = this.filteredData.filter(item => new Date(item.updatedOn)>= new Date(FromDate) && new Date(item.updatedOn) <= new Date(ToDate) && item.awardTypeId==searchAwardType);
+		}
+		//13.Search by department and award type and FromDate and ToDate
+		else if (searchOrganisation != 0 && searchDepartment != 0 && searchAwardType != 0  && FromDate != new Date("0001-01-01").toString() && ToDate != new Date("0001-01-01").toString()) {
+			console.log("true")
+			this.awardData = this.filteredData.filter(item => item.organisationId==searchOrganisation && item.departmentId==searchDepartment && item.awardTypeId==searchAwardType && new Date(item.updatedOn)>= new Date(FromDate) && new Date(item.updatedOn) <= new Date(ToDate));
+		}
+
+
 		
 	}
 }
