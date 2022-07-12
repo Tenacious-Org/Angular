@@ -15,10 +15,11 @@ export class ApproverApprovalComponent implements OnInit {
   totalLength: any;
   page: number = 1;
   data:any;
-  filtervalue:any;
   val:any;
   status : any;
   showstatus :any[] = [];
+  options:string[]=["All","Pending","Approved","Rejected","Published"]
+  filtervalue = "All";
   
   constructor(private awardService:AwardService,private router:Router) { }
 
