@@ -19,3 +19,6 @@ img{
 .container{
     padding-top:5px;
 }
+.card-body{
+ text-align: center;
+}

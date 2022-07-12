@@ -8,6 +8,7 @@ import { trigger,
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../authentication.service';
+import { SharedService } from '../shared.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -42,13 +43,20 @@ import { AuthenticationService } from '../authentication.service';
 export class SidebarComponent implements OnInit {
 
   role:any;
-  userName:any;
-  constructor() { }
+  id: any;
+  data: any;
+  endpoint="Employee";
+  constructor(private sharedService: SharedService) { }
 
   ngOnInit(): void {
     this.role=AuthenticationService.GetData("Role");
-    this.userName=AuthenticationService.GetData("UserName");
-  }
+    this.id=AuthenticationService.GetData("User");
+    this.sharedService.getById(this.endpoint,this.id)
+      .subscribe((data) => {
+        this.data = data;
+        console.log(this.data);
+      });  }
+ 
   isShowDivIf = false;
   
   toggleDisplayDivIf() {

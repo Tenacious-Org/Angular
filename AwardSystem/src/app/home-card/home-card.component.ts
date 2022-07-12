@@ -96,12 +96,12 @@ export class HomeCardComponent implements OnInit {
 		}
 		 //5.Search by FromDate
 		else if (searchOrganisation == 0 && searchDepartment == 0 && searchAwardType == 0 && FromDate != new Date("0001-01-01").toString() && ToDate == new Date("0001-01-01").toString()) {
-			this.awardData = this.filteredData.filter(item => new Date(item.updatedOn.toString()) >= new Date(FromDate));
+			this.awardData = this.filteredData.filter(item => new Date(item.updatedOn) >= new Date(FromDate));
 		}
 
 		//6.Search by ToDate
 		else if (searchOrganisation == 0 && searchDepartment == 0 && searchAwardType == 0  && FromDate == new Date("0001-01-01").toString() && ToDate != new Date("0001-01-01").toString()) {
-			this.awardData = this.filteredData.filter(item => new Date(item.updatedOn.toString()) <= new Date(ToDate));
+			this.awardData = this.filteredData.filter(item => new Date(item.updatedOn) <= new Date(ToDate));
 		}
 		
 	}
