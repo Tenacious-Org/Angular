@@ -14,8 +14,9 @@ export class RequestComponent implements OnInit {
   totalLength: any;
   page: number = 1;
   data: any;
-  filtervalue: any;
   val: any;
+  options:string[]=["All","Pending","Approved","Rejected","Published"]
+  filtervalue = "All";
   constructor(private awardService: AwardService,private router:Router) {}
 
   ngOnInit(): void {

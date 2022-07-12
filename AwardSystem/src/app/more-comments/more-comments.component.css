@@ -104,3 +104,16 @@
 .form-outline{
   margin-bottom:1px;
 }
+.backbutton{
+  float: left;
+  padding-top: 90px;
+
+}
+.button-group{
+  width:30px;
+}
+#back{
+  padding:3px;
+  padding-right: 12px;
+  padding-left:12px;
+}

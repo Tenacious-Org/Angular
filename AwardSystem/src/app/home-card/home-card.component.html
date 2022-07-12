@@ -28,8 +28,7 @@
       <div class="col-auto">
         <label class="col-form-label" for="exampleFormControlSelect1">Department</label>
         <div class="input-group">
-          <select name="departmentId" name="SelectDep" [(ngModel)]="searchDepartment" class="custom-select">
-            <!-- <option selected>Choose...</option> -->
+          <select name="departmentId"  [(ngModel)]="searchDepartment" class="custom-select">
             <option *ngFor="let items of departments" ngValue={{items.id}}>{{items.departmentName}}</option>
           </select>
         </div>
