@@ -17,7 +17,6 @@ import { ApproverApprovalComponent } from './approver/approver-approval/approver
 import { ApproverComponent } from './approver/approver.component';
 import { CardPostComponent } from './card-post/card-post.component';
 import { FooterComponent } from './footer/footer.component';
-import { HomePageComponent } from './home-page/home-page.component';
 import { LayoutComponent } from './layout/layout.component';
 import { LoginComponent } from './login/login.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component'
@@ -38,7 +37,6 @@ import { EmployeeComponent } from './admin/employee/employee.component';
 import { AddEmployeeComponent } from './admin/employee/add-employee/add-employee.component';
 import { ApproverARComponent } from './approver/approver-acceptreject/approver-ar.component';
 import { RejectionReasonComponent } from './approver/rejection-reason/rejection-reason.component';
-import { ViewEmployeeComponent } from './admin/employee/view-employee/view-employee.component';
 import { EditEmployeeComponent } from './admin/employee/edit-employee/edit-employee.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { HomeCardComponent } from './home-card/home-card.component';
@@ -59,7 +57,6 @@ const routes: Routes = [
   {path:'employee', component:EmployeeComponent},
   {path:'add-employee', component:AddEmployeeComponent},
   {path:'edit-employee/:id', component:EditEmployeeComponent},
-  {path:'employee/:id', component:ViewEmployeeComponent},
 
 
   {path:'awards', component:AwardsComponent},
@@ -85,7 +82,6 @@ const routes: Routes = [
   {path:'rejection-reason/:id' , component:RejectionReasonComponent},
 
   {path:'footer' , component:FooterComponent},
-  {path:'homepage' , component:HomePageComponent},
   {path:'morecomments/:id' , component:MoreCommentsComponent},
   {path:'cardpost' , component:CardPostComponent},
   {path:'homecard' , component:HomeCardComponent},

@@ -16,7 +16,6 @@ import {MatSelectModule} from '@angular/material/select';
 
 import { LayoutComponent } from './layout/layout.component';
 import { FooterComponent } from './footer/footer.component';
-import { HomePageComponent } from './home-page/home-page.component';
 import { MoreCommentsComponent } from './more-comments/more-comments.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { CardPostComponent } from './card-post/card-post.component';
@@ -43,7 +42,6 @@ import { ViewAwardComponent } from './admin/awards/view-award/view-award.compone
 import { EmployeeComponent } from './admin/employee/employee.component';
 import { AddEmployeeComponent } from './admin/employee/add-employee/add-employee.component';
 import { EditEmployeeComponent } from './admin/employee/edit-employee/edit-employee.component';
-import { ViewEmployeeComponent } from './admin/employee/view-employee/view-employee.component';
 import { ApproverComponent } from './approver/approver.component';
 import { ApproverApprovalComponent } from './approver/approver-approval/approver-approval.component';
 import { LoginComponent } from './login/login.component';
@@ -66,7 +64,6 @@ import { HomeCardComponent } from './home-card/home-card.component';
 import { DialogboxComponent } from './dialogbox/dialogbox.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NgChartsModule } from 'ng2-charts';
-import { AddDialogComponent } from './add-dialog/add-dialog.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { HotToastModule } from '@ngneat/hot-toast';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
@@ -83,7 +80,6 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     AppComponent,
     LayoutComponent,
     FooterComponent,
-    HomePageComponent,
     MoreCommentsComponent,
     CardPostComponent,
 
@@ -116,7 +112,6 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     EmployeeComponent,
     AddEmployeeComponent,
     EditEmployeeComponent,
-    ViewEmployeeComponent,
     ApproverComponent,
     ApproverApprovalComponent,
 
