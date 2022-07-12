@@ -95,7 +95,7 @@
     margin-right:20px;
     cursor: pointer;
     padding:8px;
-    border-radius: 20%;
-    background-color: #6749b9;
-    color:#fff;
+    border-radius: 25%;
+    /* background-color: #6749b9; */
+    color:#6749b9;
   }
