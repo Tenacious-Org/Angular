@@ -10,7 +10,7 @@
                 <img *ngIf="data.gender=='Male';else elsegender " src='assets/images/male.jpg' class="rounded-circle img-fluid" />  
                 <ng-template #elsegender> <img  src='assets/images/female.jpg' style=width:10rem; class="rounded-circle img-fluid" style="width: 100px;" /></ng-template>     
             </div>
-            <ng-template  #elseimage><div class="mt-3 mb-4 text-center"><img [src]="'data:image/jpg;base64,'+ data.image" class="rounded-circle img-fluid" /></div></ng-template>
+            <ng-template  #elseimage><div class=" text-center"><img [src]="'data:image/jpg;base64,'+ data.image" class="rounded-circle img-fluid" /></div></ng-template>
             <hr>
             <div class="row">
                 <div class="col-sm-6">
