@@ -21,7 +21,6 @@
           <div *ngIf="awardName.touched && awardName.errors?.['required']" class="alert alert-danger">
             Award Name is Required!
           </div>
-          <option selected>Choose...</option>
           <option *ngFor="let items of data" value={{items.id}}>{{items.awardName}}</option>
         </select>
       </div>
