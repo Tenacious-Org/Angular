@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+
 import { DialogboxComponent } from './dialogbox.component';
 
 describe('DialogboxComponent', () => {
@@ -7,9 +8,9 @@ describe('DialogboxComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [DialogboxComponent]
+      declarations: [ DialogboxComponent ]
     })
-      .compileComponents();
+    .compileComponents();
   });
 
   beforeEach(() => {

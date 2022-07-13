@@ -1,7 +1,7 @@
 <app-layout></app-layout>
 <app-sidebar></app-sidebar>
-
 <!-- Requester request container contains request details table -->
+
 <div class="container d-flex justify-content-center">
     <div class="container container-fluid ">
         <div>
@@ -14,10 +14,11 @@
                     aria-label="Search" aria-describedby="search-addon" />
             </div>
             <div class="w3-right dropdown me-4 mb-4">
-                <select name="filtervalue" class="form-select" [(ngModel)]="filtervalue" style="width:auto">
-                    <option *ngFor="let option of options" [value]="option">{{option}}</option>
+                <select name="filtervalue" class="form-select" [(ngModel)]="filtervalue"  style="width:auto">
+                    <option *ngFor="let option of options" [value]="option" >{{option}}</option>
                 </select>
             </div>
+
         </div>
         <br>
         <table class="datatable table table-striped table-bordered">
@@ -36,13 +37,13 @@
                     <td>{{ 5*(page-1)+i + 1}}</td>
                     <td>{{item.awardeeName}}</td>
                     <td>{{item.awardName}}</td>
-                    <td><span *ngIf="item.statusId===1"
+                    <td><span *ngIf="item.statusId==1"
                             class="badge badge-warning rounded-pill d-inline">{{item.status}}</span>
-                        <span *ngIf="item.statusId===2"
+                        <span *ngIf="item.statusId==2"
                             class="badge badge-success rounded-pill d-inline">{{item.status}}</span>
-                        <span *ngIf="item.statusId===3"
+                        <span *ngIf="item.statusId==3"
                             class="badge badge-danger rounded-pill d-inline">{{item.status}}</span>
-                        <span *ngIf="item.statusId===4"
+                        <span *ngIf="item.statusId==4"
                             class="badge badge-primary rounded-pill d-inline">{{item.status}}</span>
                     </td>
                     <td>
@@ -53,7 +54,7 @@
             </tbody>
         </table>
 
-        <!-- pagination -->
+<!-- pagination -->
         <pagination-controls class="pagination" (pageChange)="page = $event"></pagination-controls>
     </div>
 </div>

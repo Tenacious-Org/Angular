@@ -1,63 +1,101 @@
 .dropbtn {
 
-  background-color: none;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-  margin-right: 20px;
-}
+    background-color:none;
+  
+  
+    font-size: 16px;
+  
+    border: none;
+  
+    cursor: pointer;
 
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
+    margin-right: 20px;
+    
+  
+  }
+  
+  
+  
+  .dropdown {
+  
+    position: relative;
+  
+    display: inline-block;
+  
+    
+  }
+  
+  
+  
+  .dropdown-content {
+  
+    display: none;
+  
+    position: fixed;
+  
+    background-color:black;
+  
+    min-width: 70px;
 
-.dropdown-content {
-  display: none;
-  position: fixed;
-  background-color: black;
-  min-width: 70px;
-}
 
-.dropdown-content a {
-  color: white;
-  text-decoration: none;
-  display: block;
-  text-align: center;
-}
+     
+  
+  }
+  
+  
+  
+  
+  .dropdown-content a {
+  
+    color: white;
+  
+    text-decoration: none;
+  
+    display: block;
 
-.dropdown-content a:hover {
-  background-color: mediumpurple;
-  color: white;
-}
+    text-align: center;
 
-.dropdown:hover .dropdown-content {
-  display: block;
-  background-color: black;
-}
+  
+  }
+  
+  
+  
+  .dropdown-content a:hover {
+  
+    background-color: mediumpurple;
+    color:white;
+  
+  }
+  
+  
+  
+  .dropdown:hover .dropdown-content {
+  
+    display: block;
+    background-color:black;
+  
+  }
+  #imgdrop{
+    background-color: white;
+  }
+  
+  #profilelogo{
+    margin-top: 20px;
+    width:50px;
+    height: 50px;
 
-#imgdrop {
-  background-color: white;
-}
-
-#profilelogo {
-  margin-top: 20px;
-  width: 50px;
-  height: 50px;
-}
-
-#nav-logo {
-  margin-top: 20px;
-  margin-left: 20px;
-  font-size: x-large;
-}
-
-#logout {
-  font-size: large;
-  margin-right: 20px;
-  cursor: pointer;
-  padding: 8px;
-  border-radius: 25%;
-  /* background-color: #6749b9; */
-  color: #6749b9;
-}
+  }
+  #nav-logo{
+    margin-top:20px;
+    margin-left: 20px;
+    font-size: x-large;
+  }
+  #logout{
+    font-size:large;
+    margin-right:20px;
+    cursor: pointer;
+    padding:8px;
+    border-radius: 25%;
+    /* background-color: #6749b9; */
+    color:#6749b9;
+  }

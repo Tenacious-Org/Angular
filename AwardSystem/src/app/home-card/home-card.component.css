@@ -5,165 +5,134 @@
   text-align: center;
   transition: transform 0.6s;
   transform-style: preserve-3d;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
-
 .flip-card-front {
   background-color: #bbb;
   color: black;
 }
-
 .flip-card-back {
   background-color: #2980b9;
   color: white;
   transform: rotateY(180deg);
 }
-
-#image {
-  width: 200px;
-  height: 200px;
+#image{
+  width:200px;
+height:200px;
 }
-
-#text {
-  text-align: justify;
+#text{
+  text-align:justify;
 }
-
-#curvetext {
+#curvetext{
   font-size: 50px;
   font-weight: 300;
   font-style: italic;
 
-  font-family: 'Qwitcher Grypen', 'cursive';
+  font-family:'Qwitcher Grypen', 'cursive';
 }
-
-.card-title {
-  float: left;
+.card-title{
+  float:left;
 }
-
 .limitTextHeight {
   height: 20px;
   overflow: hidden;
 }
 
-#cardflip {
+#cardflip{
   padding: 0;
 
 }
-
 .flip-card {
   background-color: transparent;
   width: 500px;
 
   perspective: 1000px;
-  margin-top: 50px !important;
+  margin-top:50px !important;
   text-align: justify;
 }
-
-p {
+p{
   line-height: normal;
-
+  
 }
-
-.card-img-overlay {
-  height: 60%;
+.card-img-overlay{
+  height:60%;
 }
-
-.row {
-  margin-left: 15%
+.row{
+  margin-left:15%
 }
-
 /* corrected css */
 
-#applybutton {
+#applybutton{
   padding: 0.5rem;
 }
-
-.applybutton {
-  width: 20px;
-  margin-top: 2.3rem;
-  border: 20px;
+.applybutton{
+  width:20px;
+  margin-top:2.3rem;
+  border:20px;
 }
-
-#datepicker {
-  width: auto;
+#datepicker{
+  width:auto;
 }
-
-#awardfilter {
-  width: 180px;
+#awardfilter{
+  width:180px;
 }
 
 .form-control{
   top:15%;
-  width:180px;
+  width:150px;
 }
-
-.input-group {
-  max-width: 150px;
-  padding: 1.5px;
+.input-group{
+  max-width:150px;
+  padding:1.5px;
 }
-
-.form-inline {
-  float: left;
+.form-inline{
+  float:left;
 }
-
-.homepagefilter {
-  margin-left: 30px;
-  padding-top: 90px;
+.homepagefilter{
+  margin-left:30px;
+  padding-top:90px;
   justify-content: space-between;
 }
-
-.card-img-top {
-  height: 150px;
+.card-img-top{
+  height:150px;
 }
-
 .card-img-left {
   position: absolute;
   left: 10px;
-  width: 80px;
-  height: 100px;
+  width:80px;
+  height:100px;
 }
-
 .card-img-right {
   position: absolute;
   right: 10px;
-  width: 80px;
-  height: 100px;
+  width:80px;
+  height:100px;
 }
-
 .card {
   background-color: transparent;
-  margin-top: 50px !important;
-  padding: 0;
-  perspective: 1000px;
-  width: 300px;
+  margin-top:50px !important;
+  padding:0;
+  perspective: 1000px; 
+  width:300px;
 }
-
-.paginate {
+.paginate{
   text-align: center;
-  margin-top: 20px;
-  right: 30%;
+  margin-top:20px;
+  right:30%;
 
 }
-
-.filterform {
+.filterform{
   justify-content: left;
-  margin-top:5px;
 }
-
-#searchfilter {
-  margin-top: 20px;
+#searchfilter{
+  margin-top:20px;
 }
-
-.homepage {
+.homepage{
   overflow-x: hidden;
 }
-
-.container {
-  max-width: 1000px;
+.container{
+  max-width:1000px;
 }
 .card-body{
   padding:10px;
-}
-#readmorebutton{
-  margin-bottom: 3px;
 }

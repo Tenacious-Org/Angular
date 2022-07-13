@@ -17,24 +17,22 @@ export class HrPublishComponent implements OnInit {
   data: any;
   val: any;
 
-  options: string[] = ["All", "Approved", "Published"]
-  filtervalue = "All";
-
-  constructor(private awardService: AwardService, private router: Router) { }
+  options:string[]=["All","Approved","Published"]
+  filtervalue="All";
+  
+  constructor(private awardService: AwardService,private router:Router) {}
 
   ngOnInit(): void {
-    if (!AuthenticationService.GetData("Publisher")) {
+    if(!AuthenticationService.GetData("Publisher")){
       this.router.navigateByUrl("")
     }
     this.getAll();
   }
-
   onSubmit() {
     if (this.filtervalue == '') {
       this.getAll();
     }
   }
-
   getAll() {
     this.awardService
       .getAwardsList(this.pageId, this.employeeId)

@@ -3,62 +3,54 @@
 
 <!-- Add awards container contains award name, award description, award image -->
 
-<div class="container table-box">
+<div class="container d-flex justify-content-center table-box">
 
-    <form class="border-box" #myForm="ngForm" (ngSubmit)="OnSubmit()">
+    <form class="border-box position-relative" #myForm="ngForm" (ngSubmit)="OnSubmit()">
 
         <span class="border-box-tip"><b>Add Awards</b></span>
 
-        <div class="award row">
+        <div class="award row mb-3">
             <div class="col-auto p-1.5">
-                <label class="col-form-label">Award Name</label>
-                <input type="text" #name="ngModel" required pattern="^[a-zA-Z][a-zA-Z\s]{0,20}[a-zA-Z]$"
-                    class="form-control" name="awardName" [(ngModel)]="AwardType.awardName">
-                <div *ngIf="name.touched && name.errors?.['required']" class="alert alert-danger">
+                <label  class="col-form-label">Award Name</label>
+                <input type="text" #name="ngModel" required pattern="^[a-zA-Z][a-zA-Z\s]{0,20}[a-zA-Z]$" class="form-control" name="awardName" [(ngModel)]="AwardType.awardName">
+                <div *ngIf ="name.touched && name.errors?.['required']" class="alert alert-danger">
                     Award Name is Required!
                 </div>
-                <div *ngIf="name.touched && name.errors?.['pattern']" class="alert alert-danger">
+                <div *ngIf ="name.touched && name.errors?.['pattern']" class="alert alert-danger" >
                     Award Name is invalid!
                 </div>
-                <div>
-                    <h3 class="text-center text-danger">{{error}}</h3>
+                <div >
+                    <h3 class="text-center text-danger" >{{error}}</h3>
                 </div>
             </div>
         </div>
-
-
-        <div class="award row">
-            <div class="col-auto">
-
+        <div class="award row mb-3">
+            <div class="col-auto p-1.5">
                 <label  class="col-form-label">Award Description</label>
-                <input type="text" #description="ngModel" required pattern="/\w*\s*|\w|\D/gm" class="form-control" name="awardDescription" [(ngModel)]="AwardType.awardDescription">
+                <input type="text" #description="ngModel" required pattern="^[a-zA-Z][a-zA-Z\s]{0,1000}[a-zA-Z]$" class="form-control" name="awardDescription" [(ngModel)]="AwardType.awardDescription">
                 <div *ngIf ="description.touched && description.errors?.['required']" class="alert alert-danger">
-
-                <label class="col-form-label">Award Description</label>
-                <input type="text" #description="ngModel" required pattern="^[a-zA-Z][a-zA-Z\s]{0,1000}[a-zA-Z]$"
-                    class="form-control" name="awardDescription" [(ngModel)]="AwardType.awardDescription">
-                <div *ngIf="description.touched && description.errors?.['required']" class="alert alert-danger">
-
                     Description is Required!
                 </div>
-                <div *ngIf="description.touched && description.errors?.['pattern']" class="alert alert-danger">
+                <div *ngIf ="description.touched && description.errors?.['pattern']" class="alert alert-danger" >
                     Description is invalid!
                 </div>
             </div>
         </div>
         <div class="award row">
-        <div class="col-auto">
+        <div class="col-auto p-1.5">
             <label class="col-form-label">Award Image</label>
             <input type="file" #image="ngModel" accept=".jpeg,.jpg,.png" required (change)="ImageConversion($event)" id="image" class="fileInputProfile" name="image"  [ngModel]="AwardType.Image" >
             <div *ngIf ="image.touched && image.errors?.['required']" class="alert alert-danger">
                 Image is Required!
             </div>
+            <img [src]="imgsrc" id="img">
+            <label class="text-danger"> {{imageError}}</label>
         </div>
     </div>
-        </div>
-        <div class="award row button-group">
+        <div class="award row mt-5 button-group">
             <button type="submit"  class="btn btn-primary col-lg-2" [disabled]="!myForm.form.valid">Create</button>
             <button  [routerLink]="['../awards']" class="btn btn-danger col-lg-2">Cancel</button>
         </div>
     </form>
 </div>
+

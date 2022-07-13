@@ -74,6 +74,7 @@ export class EditEmployeeComponent implements OnInit {
           this.selectedDesignation=this.data.designationId;
           this.selectedReportingPerson=this.data.reportingPersonId;
           this.selectedHr=this.data.hrId;
+          this.Dob=formatDate(this.data.dob,'YYYY-MM-dd','en')
           console.log(this.SelectOrg);
           console.log(this.selectedHr);
           console.log(this.selectedReportingPerson);
@@ -125,8 +126,6 @@ export class EditEmployeeComponent implements OnInit {
 
    OnSubmit(){
      console.log(this.data)
-     this.data.dob=this.Dob;
-     console.log(this.data.dob)
      if(this.data.imageString==null && this.data.image!=null ){
       this.data.imageString=this.data.image;
       

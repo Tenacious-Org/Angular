@@ -1,8 +1,7 @@
-#img {
-    height: 100px;
-    width: 100px;
+#img{
+    height:100px;
+    width:100px;
 }
-
-.employee {
+.employee{
     justify-content: center;
 }

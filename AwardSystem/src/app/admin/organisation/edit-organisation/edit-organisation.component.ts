@@ -7,12 +7,16 @@ import { HotToastService } from '@ngneat/hot-toast';
 import { Organisation } from 'Models/Organisation';
 import { AuthenticationService } from 'src/app/authentication.service';
 
+
 @Component({
   selector: 'app-edit-organisation',
   templateUrl: './edit-organisation.component.html',
   styleUrls: ['./edit-organisation.component.css']
+
 })
 export class EditOrganisationComponent implements OnInit {
+
+
   endpoint = "Organisation";
   id: any;
   data: any;
@@ -25,7 +29,7 @@ export class EditOrganisationComponent implements OnInit {
   constructor(private sharedService: SharedService, private route: ActivatedRoute, private location: Location, private router: Router, private routing: Router, private toastService: HotToastService) { }
 
   ngOnInit(): void {
-    if (!AuthenticationService.GetData("Admin")) {
+    if(!AuthenticationService.GetData("Admin")){
       this.router.navigateByUrl("")
     }
     this.route.params.subscribe(params => {
@@ -45,7 +49,6 @@ export class EditOrganisationComponent implements OnInit {
       error: (error) => this.error = error.error.message
     });
   }
-
   showToast() {
     this.toastService.success('Organisation updated Successfully!',
       {

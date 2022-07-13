@@ -1,18 +1,8 @@
-#img {
-    height: 100px;
-    width: 100px;
+#img{
+    height:100px;
+    width:100px;
 }
 .award{
-    margin-bottom:10px;
+    margin-bottom:3px;
     justify-content: center;
-}
-.container{
-    display: flex;
-    justify-content: center;
-}
-.border-box{
-    position:relative;
-}
-.button-group{
-    margin-top: 40px;
 }

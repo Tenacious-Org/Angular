@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+
 import { AddAwardsComponent } from './add-awards.component';
 
 describe('AddAwardsComponent', () => {
@@ -7,9 +8,9 @@ describe('AddAwardsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [AddAwardsComponent]
+      declarations: [ AddAwardsComponent ]
     })
-      .compileComponents();
+    .compileComponents();
   });
 
   beforeEach(() => {
@@ -17,7 +18,7 @@ describe('AddAwardsComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
-  
+
   it('should create', () => {
     expect(component).toBeTruthy();
   });

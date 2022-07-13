@@ -47,65 +47,69 @@ import { DialogboxComponent } from './dialogbox/dialogbox.component';
 
 const routes: Routes = [
 
-  { path: 'layout', component: LayoutComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'sidebar', component: SidebarComponent },
-  { path: 'profile/:id', component: ProfileComponent },
-  { path: 'forgot-password', component: ForgotPasswordComponent },
+  {path:'layout' , component:LayoutComponent},
+  {path:'login', component:LoginComponent},
+  {path:'sidebar', component:SidebarComponent},
+  {path:'profile/:id' , component:ProfileComponent},
+  {path:'forgot-password' , component:ForgotPasswordComponent},
 
 
-  { path: 'employee', component: EmployeeComponent },
-  { path: 'add-employee', component: AddEmployeeComponent },
-  { path: 'edit-employee/:id', component: EditEmployeeComponent },
+  {path:'employee', component:EmployeeComponent},
+  {path:'add-employee', component:AddEmployeeComponent},
+  {path:'edit-employee/:id', component:EditEmployeeComponent},
 
 
-  { path: 'awards', component: AwardsComponent },
-  { path: 'add-awards', component: AddAwardsComponent },
-  { path: 'edit-award/:id', component: EditAwardComponent },
-  { path: 'awards/:id', component: ViewAwardComponent },
+  {path:'awards', component:AwardsComponent},
+  {path:'add-awards', component:AddAwardsComponent},
+  {path:'edit-award/:id', component:EditAwardComponent},
+  {path:'awards/:id', component:ViewAwardComponent},
 
-  { path: 'department', component: DepartmentComponent },
-  { path: 'add-department', component: AddDepartmentComponent },
-  { path: 'edit-department/:id', component: EditDepartmentComponent },
+  {path:'department', component:DepartmentComponent},
+  {path:'add-department', component:AddDepartmentComponent},
+  {path:'edit-department/:id', component:EditDepartmentComponent},
 
-  { path: 'designation', component: DesignationComponent },
-  { path: 'add-designation', component: AddDesignationComponent },
-  { path: 'edit-designation/:id', component: EditDesignationComponent },
+  {path:'designation', component:DesignationComponent},
+  {path:'add-designation', component:AddDesignationComponent},
+  {path:'edit-designation/:id', component:EditDesignationComponent},
 
-  { path: 'organisation', component: OrganisationComponent },
-  { path: 'add-organisation', component: AddOrganisationComponent },
-  { path: 'edit-organisation/:id', component: EditOrganisationComponent },
+  {path:'organisation', component:OrganisationComponent},
+  {path:'add-organisation', component:AddOrganisationComponent},
+  {path:'edit-organisation/:id', component:EditOrganisationComponent},
 
-  { path: 'approver', component: ApproverComponent },
-  { path: 'approver-approval', component: ApproverApprovalComponent },
-  { path: 'approver-acceptreject/:id', component: ApproverARComponent },
-  { path: 'rejection-reason/:id', component: RejectionReasonComponent },
+  {path:'approver', component:ApproverComponent},
+  {path:'approver-approval', component:ApproverApprovalComponent},
+  {path:'approver-acceptreject/:id', component:ApproverARComponent},
+  {path:'rejection-reason/:id' , component:RejectionReasonComponent},
 
-  { path: 'footer', component: FooterComponent },
-  { path: 'morecomments/:id', component: MoreCommentsComponent },
-  { path: 'cardpost', component: CardPostComponent },
-  { path: '', component: HomeCardComponent },
+  {path:'footer' , component:FooterComponent},
+  {path:'morecomments/:id' , component:MoreCommentsComponent},
+  {path:'cardpost' , component:CardPostComponent},
+  {path:'' , component:HomeCardComponent},
 
-  { path: 'requester-request', component: RequestComponent },
-  { path: 'requester-add-request', component: RequesterAddRequestComponent },
-  { path: 'requester-view', component: RequesterViewComponent },
-  { path: 'requester-view/:id', component: RequesterViewComponent },
+ 
 
-  { path: 'hr', component: HrComponent },
-  { path: 'hr-publish', component: HrPublishComponent },
-  { path: 'hr-yettopublish/:id', component: HrYettopublishComponent },
+  {path:'requester-request' , component:RequestComponent},
+  {path:'requester-add-request' , component:RequesterAddRequestComponent},
 
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'dialogbox', component: DialogboxComponent },
+  {path:'requester-view' , component:RequesterViewComponent},
+  {path:'requester-view/:id' , component:RequesterViewComponent},
+  {path:'hr' , component:HrComponent},
+  {path:'hr-publish' , component:HrPublishComponent},
+  {path:'hr-yettopublish/:id' , component:HrYettopublishComponent},
+
+  {path: 'dashboard', component:DashboardComponent},
+  {path: 'dialogbox', component:DialogboxComponent},
 
 
-  { path: 'ApproverApproval', component: ApproverApprovalComponent },
+  {path:'ApproverApproval', component:ApproverApprovalComponent},
 
 ];
 
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
+
+   
   exports: [RouterModule]
 })
 

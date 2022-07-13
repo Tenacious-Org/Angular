@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+
 import { MoreCommentsComponent } from './more-comments.component';
 
 describe('MoreCommentsComponent', () => {
@@ -7,9 +8,9 @@ describe('MoreCommentsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [MoreCommentsComponent]
+      declarations: [ MoreCommentsComponent ]
     })
-      .compileComponents();
+    .compileComponents();
   });
 
   beforeEach(() => {

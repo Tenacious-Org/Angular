@@ -12,42 +12,45 @@ import { AuthenticationService } from 'src/app/authentication.service';
   styleUrls: ['./employee.component.css']
 })
 export class EmployeeComponent implements OnInit {
-  endpoint = "Employee";
+
+  endpoint="Employee";
   totalLength: any;
   page: number = 1;
-  val: any;
+  val:any;
   employeename: any;
-  constructor(private sharedService: SharedService, private dialog: MatDialog, private router: Router) { }
+
+  constructor(private sharedService: SharedService,private dialog: MatDialog,private router:Router) { }
 
   ngOnInit(): void {
-    if (!AuthenticationService.GetData("Admin")) {
+    if(!AuthenticationService.GetData("Admin")){
       this.router.navigateByUrl("")
     }
-    this.sharedService
-      .getAll(this.endpoint).subscribe((data) => {
-        this.data = data;
-        this.totalLength = data.length;
-        console.log(data)
+      this.sharedService
+        .getAll(this.endpoint).subscribe((data) => {
+          this.data = data;
+          this.totalLength = data.length;
+          console.log(data)
+
+        });
+      }
+      Disable(Id:any){
+        console.log(Id);
+        this.sharedService.getById(this.endpoint,Id).subscribe((data) => {
+          this.employeename=data.firstName +" "+ data.lastName;
+          console.log(this.employeename);
+        this.sharedService.disable(this.endpoint,Id).subscribe((result) => {
+          console.log(result);
+          this.openDialog(result);
+          this.ngOnInit()
+        });
       });
-  }
+      }
+      openDialog(count:any){
 
-  Disable(Id: any) {
-    console.log(Id);
-    this.sharedService.getById(this.endpoint, Id).subscribe((data) => {
-      this.employeename = data.firstName + " " + data.lastName;
-      console.log(this.employeename);
-      this.sharedService.disable(this.endpoint, Id).subscribe((result) => {
-        console.log(result);
-        this.openDialog(result);
-        this.ngOnInit()
-      });
-    });
-  }
+        this.dialog.open(DialogboxComponent,{data:{name:this.employeename,count:count,value:"Employee"}});
 
-  openDialog(count: any) {
+      }
 
-    this.dialog.open(DialogboxComponent, { data: { name: this.employeename, count: count, value: "Employee" } });
-  }
+      public data: Employee[] = [];
 
-  public data: Employee[] = [];
 }

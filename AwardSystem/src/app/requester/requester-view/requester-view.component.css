@@ -1,45 +1,39 @@
-p {
-    line-height: 20px;
+p{
+    line-height:20px;
     font-weight: 800;
 }
-
-h2 {
+h2{
     font-weight: bold;
 
 }
-
-img {
-    width: 100px;
-    height: 100px;
-    min-height: 100px;
+img{
+    width:100px;
+    height:100px;
+    min-height:100px;
 }
 
+
 /* correccted css */
-.card {
+.card{
     border-radius: 15px;
     width: 100%;
     margin-top: 30px;
 }
-
-.card-body {
-    width: 100%;
+.card-body{
+    width:100%;
 }
-
-.img-fluid {
+.img-fluid{
     width: 100px;
     height: 100px;
 }
-
-.reason {
+.reason{
     height: 4rem;
     width: 100%;
     text-align: center;
 }
-
-#reason {
+#reason{
     text-align: center;
 }
-
-#requestdetails {
+#requestdetails{
     text-align: center;
 }
