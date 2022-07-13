@@ -21,3 +21,9 @@ h2{
     font-size: medium;
     line-height:40px;
 }
+@media (max-width:1020px)
+{
+    .card{
+        width:360px;
+    }
+}

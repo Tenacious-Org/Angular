@@ -1,8 +1,58 @@
-#img{
-    height:100px;
-    width:100px;
+#img {
+    height: 100px;
+    width: 100px;
 }
-.award{
-    margin-bottom:3px;
+
+.award {
+    margin-bottom: 3px;
     justify-content: center;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.border-box {
+    position: relative;
+}
+
+@media(max-width:1920px) {
+    .addAwardbutton {
+        margin-top: 40px;
+        justify-content: center;
+    }
+}
+
+@media (max-width:1200px) {
+    .addAwardbutton {
+        margin-top: 40px;
+        justify-content: center;
+    }
+
+    .addAwardbutton button {
+        max-width: 130px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .addAwardbutton button {
+        margin: 5px;
+    }
+}
+@media(max-width:280px) {
+
+    .input-group,
+    .form-control {
+        width: 180px;
+
+    }
+}
+@media(max-width:800px) {
+
+    .chooseImage {
+        padding:15px;
+
+    }
 }

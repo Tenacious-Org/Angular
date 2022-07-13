@@ -9,3 +9,24 @@
     width:30rem;
     overflow:hidden;
   }
+  @media (max-width:620px)
+{
+    .form-inline,.form-control{
+        width:160px;
+    }
+}
+@media (max-width:380px)
+{
+    .form-inline{
+        width:160px;
+        float:left;
+        margin-top: 5px;
+        margin-bottom:5px;
+    }
+}
+@media (max-width:200px)
+{
+    .btn{
+      size: 10ch;
+    }
+}

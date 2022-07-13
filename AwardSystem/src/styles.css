@@ -12127,7 +12127,7 @@ button {
 
     .input-group,
     .form-control {
-        width: 180px !important;
+        width: 180px;
     }
 }
 
@@ -12135,7 +12135,7 @@ button {
 
     .input-group,
     .form-control {
-        width: 260px !important;
+        width: 240px ;
     }
 }
 
@@ -12184,7 +12184,7 @@ button {
 
     .input-group,
     .form-control {
-        width: 260px;
+        width: 240px;
 
     }
 }
