@@ -68,14 +68,16 @@
               <div class="row text-center">
                   <h2 class="mb-0">Coupon</h2>
                   <div *ngIf="data.statusId===2">
-                    <input type="text" name="coupon" #coupon="ngModel" [(ngModel)]="data.couponCode" required pattern="/\w*\s*|\w|\D/gm" minlength="6" maxlength="12">
+                    <input type="text" name="coupon" #coupon="ngModel" [(ngModel)]="data.couponCode"required pattern="/\w*\s*|\w|\D/gm" minlength="10" maxlength="50">
+                    <div *ngIf ="coupon.touched && coupon.errors?.['required']" class="alert alert-danger">
+                        Coupon is Required!
+                    </div>
+                    <div *ngIf ="coupon.touched && coupon.errors?.['pattern']" class="alert alert-danger" >
+                        Coupon is invalid!
+                    </div>
                 </div>
                 <div *ngIf="data.statusId===4">
                     <h3 class="text-muted mb-0">{{data.couponCode}}</h3>
-                    <div class="text-danger" [class.d-none]="coupon.valid || coupon.untouched"
-                        *ngIf="coupon.errors?.['required']">
-                         required.
-                    </div>
                 </div>
 
             </div>
