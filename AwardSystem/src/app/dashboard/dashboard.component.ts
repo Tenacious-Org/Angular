@@ -58,13 +58,6 @@ export class DashboardComponent implements OnInit {
   orgcnt:any=[]
   awdcnt:any=[]
     
-  // ngchart: ChartData<'pie'> = {
-  //   labels: this.award,
-  //   datasets:[
-  //     label: this,
-  //     data:this.awdcnt
-  //   ]
-  // };
 
 
 
@@ -232,8 +225,11 @@ export class DashboardComponent implements OnInit {
               display: true,
             },
           },
-        }
-      });
+          
+      }
+    });
+
+      
 
 
       }
@@ -254,6 +250,7 @@ export class DashboardComponent implements OnInit {
   onSelectorg() {
     this.sharedService.getallwinOrgwise(this.SelectOrg).subscribe(res => {
 
+      
       (<HTMLCanvasElement>document.getElementById("barchart")).remove();
 
       if(this.cnt >= 1)
