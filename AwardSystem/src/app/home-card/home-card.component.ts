@@ -26,11 +26,7 @@ export class HomeCardComponent implements OnInit {
 	endpoint1 = "Organisation";
 	departments: any;
 	date: any;
-<<<<<<< Updated upstream
 	isShow=true;
-
-	constructor(private awardService:AwardService,private sharedService:SharedService,private router:ActivatedRoute ,private route:Router){ }
-=======
 	constructor(private awardService: AwardService, private sharedService: SharedService, private router: ActivatedRoute, private route: Router) { }
 
 	ngOnInit(): void {
@@ -46,7 +42,6 @@ export class HomeCardComponent implements OnInit {
 		this.sharedService.getAll(this.endpoint).subscribe(res => {
 			this.awardTypes = res;
 		});
->>>>>>> Stashed changes
 
 		this.sharedService.getAll(this.endpoint1).subscribe(data => {
 			this.organisations = data;
@@ -54,6 +49,9 @@ export class HomeCardComponent implements OnInit {
 		});
 
 	}
+	advanced(){
+		this.isShow=!this.isShow;
+	  }
 
 	onSelectDep() {
 		this.sharedService.getDepartmentByOrganisation(this.searchOrganisation).subscribe(data => {
@@ -62,31 +60,11 @@ export class HomeCardComponent implements OnInit {
 		});
 	}
 
-<<<<<<< Updated upstream
-  }
-  advanced(){
-	this.isShow=!this.isShow;
-  }
-
-  onSelectDep(){
-    this.sharedService.getDepartmentByOrganisation(this.searchOrganisation).subscribe(data=>{
-      this.departments = data;
-      console.log(this.departments);
-    });
-   }
-  
-  @Input() ShowStatus:boolean =true;
-  	isApplied=false;
-  	searchOrganisation=0;
-  	searchDepartment=0;
-	searchAwardType =0;
-=======
 	@Input() ShowStatus: boolean = true;
 	isApplied = false;
 	searchOrganisation = 0;
 	searchDepartment = 0;
 	searchAwardType = 0;
->>>>>>> Stashed changes
 	searchAwardee = "";
 	FromDate = new Date("0001-01-01");
 	ToDate = new Date("0001-01-01");

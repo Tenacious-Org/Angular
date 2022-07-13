@@ -92,15 +92,9 @@ p {
   width: 180px;
 }
 
-<<<<<<< Updated upstream
 .form-control{
   top:15%;
   width:180px;
-=======
-.form-control {
-  top: 15%;
-  width: 150px;
->>>>>>> Stashed changes
 }
 
 .input-group {
@@ -167,15 +161,9 @@ p {
 .container {
   max-width: 1000px;
 }
-<<<<<<< Updated upstream
 .card-body{
   padding:10px;
 }
 #readmorebutton{
   margin-bottom: 3px;
-=======
-
-.card-body {
-  padding: 10px;
->>>>>>> Stashed changes
 }
