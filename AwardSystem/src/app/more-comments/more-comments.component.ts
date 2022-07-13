@@ -3,14 +3,17 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { timer } from 'rxjs';
 import { AuthenticationService } from '../authentication.service';
 import { AwardService } from '../award.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-more-comments',
   templateUrl: './more-comments.component.html',
-  styleUrls: ['./more-comments.component.css']
+  styleUrls: ['./more-comments.component.css'],
+  providers:[DatePipe]
 })
 export class MoreCommentsComponent implements OnInit {
   data: any;
+
   Id: any;
   employeeId = AuthenticationService.GetData('User');
   commentList: any;
@@ -23,12 +26,9 @@ export class MoreCommentsComponent implements OnInit {
     employeeId: 0,
     awardId: 0,
   }
-<<<<<<< Updated upstream
   dateTime:Date | undefined
   
-=======
 
->>>>>>> Stashed changes
   ngOnInit(): void {
     this.isAuthorize = AuthenticationService.GetData("token")
     this.route.params.subscribe(params => {
@@ -38,9 +38,6 @@ export class MoreCommentsComponent implements OnInit {
         console.log(this.data);
       });
     });
-
-
-<<<<<<< Updated upstream
       this.awardService.getComments(this.Id).subscribe(result=>{
         this.commentList=result;
         console.log(this.commentList);
@@ -48,13 +45,6 @@ export class MoreCommentsComponent implements OnInit {
      timer(0,1000).subscribe(()=>{
       this.dateTime=new Date();
      })
-=======
-    this.awardService.getComments(this.Id).subscribe(result => {
-      this.commentList = result;
-      console.log(this.commentList);
-    })
->>>>>>> Stashed changes
-
   }
   OnSubmit() {
     if (AuthenticationService.GetData("token") == null) this.routing.navigateByUrl("/login")

@@ -1,8 +1,8 @@
 <app-layout></app-layout>
 <app-sidebar></app-sidebar>
 
-<!-- awards container contains award details table -->
-<div class="container d-flex justify-content-center ">
+<div class="container" id="main-container">
+
     <div class="container container-fluid ">
         <div>
             <div class="btn-group">
@@ -17,7 +17,7 @@
         <br>
         <table class="datatable table table-striped table-bordered ">
             <thead>
-                <tr class="text-center">
+                <tr class="tablerow">
                     <th>S.NO</th>
                     <th>Award Name</th>
                     <th id="description">Award Description</th>
@@ -25,8 +25,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr class="text-center"
-                    *ngFor="let item of data | filter:val | paginate: { itemsPerPage: 5, currentPage: page };let i = index">
+                <tr class="tablerow" *ngFor="let item of data | filter:val | paginate: { itemsPerPage: 5, currentPage: page };let i = index">
                     <td>{{5*(page-1)+i + 1}}</td>
                     <td>{{item.awardName}}</td>
                     <td id="description">{{item.awardDescription}}</td>
@@ -42,6 +41,6 @@
                 </tr>
             </tbody>
         </table>
-        <pagination-controls class="text-center" (pageChange)="page = $event"></pagination-controls>
+        <pagination-controls class="pagination" (pageChange)="page = $event"></pagination-controls>
     </div>
 </div>

@@ -2,8 +2,17 @@
     height: 100px;
     width: 100px;
 }
-
-.award {
-    margin-bottom: 3px;
+.award{
+    margin-bottom:10px;
     justify-content: center;
+}
+.container{
+    display: flex;
+    justify-content: center;
+}
+.border-box{
+    position:relative;
+}
+.button-group{
+    margin-top: 40px;
 }

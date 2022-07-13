@@ -2,15 +2,17 @@
 <app-sidebar></app-sidebar>
 
 <!-- edit awards container contains awardname, award description,award image -->
-<div class="container d-flex justify-content-center table-box">
-    <form class="border-box position-relative" #ngForm (ngSubmit)="OnSubmit()">
+<div class="container table-box">
+
+    <form class="border-box" #ngForm (ngSubmit)="OnSubmit()" >
+
         <span class="border-box-tip"><b>Edit Awards</b></span>
-        <div class="award row g-3 mb-3">
-            <div class="col-auto p-1.5">
-                <label class="col-form-label">Award Name</label>
-                <input type="text" #name="ngModel" required pattern="^[a-zA-Z][a-zA-Z\s]{0,20}[a-zA-Z]$"
-                    class="form-control" name="awardName" value={{data.awardName}} [(ngModel)]="data.awardName">
-                <div *ngIf="name.touched && name.errors?.['required']" class="alert alert-danger">
+
+        <div class="award row">
+            <div class="col-auto">
+                <label  class="col-form-label">Award Name</label>
+                <input type="text" #name="ngModel"  required pattern="^[a-zA-Z][a-zA-Z\s]{0,20}[a-zA-Z]$" class="form-control" name="awardName" value={{data.awardName}} [(ngModel)]="data.awardName" >
+                <div *ngIf ="name.touched && name.errors?.['required']" class="alert alert-danger">
                     Award Name is Required!
                 </div>
                 <div *ngIf="name.touched && name.errors?.['pattern']" class="alert alert-danger">
@@ -18,19 +20,19 @@
                 </div>
             </div>
         </div>
-        <div class="award row g-3 mb-3">
-            <div class="col-auto p-1.5">
-<<<<<<< Updated upstream
+
+        <div class="award row">
+            <div class="col-auto">
                 <label  class="col-form-label">Award Description</label>
                 <input type="text" #description="ngModel"  required pattern="/\w*\s*|\w|\D/gm" class="form-control" name="awardDescription" value={{data.awardDescription}} [(ngModel)]="data.awardDescription">
                 <div *ngIf ="description.touched && description.errors?.['required']" class="alert alert-danger">
-=======
+
                 <label class="col-form-label">Award Description</label>
                 <input type="text" #description="ngModel" required pattern="^[a-zA-Z][a-zA-Z\s]{0,20}[a-zA-Z]$"
                     class="form-control" name="awardDescription" value={{data.awardDescription}}
                     [(ngModel)]="data.awardDescription">
                 <div *ngIf="description.touched && description.errors?.['required']" class="alert alert-danger">
->>>>>>> Stashed changes
+
                     Description is Required!
                 </div>
                 <div *ngIf="description.touched && description.errors?.['pattern']" class="alert alert-danger">
@@ -38,20 +40,19 @@
                 </div>
             </div>
         </div>
-        <div class="award row g-3">
-            <div class="col-auto p-1.5">
-                <label class="col-form-label">Award Image</label>
-                <input type="file" #image="ngModel" accept=".jpeg,.jpg,.png" required (change)="ImageConversion($event)"
-                    id="image" class="fileInputProfile" name="image" [ngModel]="data.Image">
-                <div *ngIf="image.touched && image.errors?.['required']" class="alert alert-danger">
-                    Image is Required!
-                </div>
-                <img [src]="imgsrc" id="img">
-                <label class="text-danger"> {{imageError}}</label>
+        <div class="award row">
+        <div class="col-auto">
+            <label class="col-form-label">Award Image</label>
+            <input type="file" #image="ngModel" accept=".jpeg,.jpg,.png" required (change)="ImageConversion($event)" id="image" class="fileInputProfile" name="image"  [ngModel]="data.Image" >
+            <div *ngIf ="image.touched && image.errors?.['required']" class="alert alert-danger">
+                Image is Required!
             </div>
         </div>
-        <div class="award row mt-5 button-group">
-            <button type="submit" class="btn btn-primary col-lg-2">Update</button>
+    </div>
+
+
+        <div class="award row button-group">
+             <button  type="submit"  class="btn btn-primary col-lg-2">Update</button>
             <button [routerLink]="['/awards']" class="btn btn-danger col-lg-2">Cancel</button>
         </div>
     </form>

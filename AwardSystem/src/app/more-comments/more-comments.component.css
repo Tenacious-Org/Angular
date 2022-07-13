@@ -46,7 +46,6 @@ p {
   margin-bottom: 2%;
 }
 
-<<<<<<< Updated upstream
   .flip-card-front {
     background-color: #bbb;
     color: black;
@@ -97,15 +96,6 @@ p {
 }
 #morecommentspage{
   height:auto;
-=======
-.input-group,
-.form-control {
-  width: 360px;
-}
-
-#morecommentspage {
-  height: auto;
->>>>>>> Stashed changes
   max-height: 560px;
   overflow: hidden;
 }
@@ -119,38 +109,23 @@ p {
 }
 
 /* corrected css */
-<<<<<<< Updated upstream
 
 .card-img-top{
   height:200px;
-=======
-.card-img-top {
-  height: 300px;
->>>>>>> Stashed changes
 }
 
 .card-img-left {
   position: absolute;
   left: 20px;
-<<<<<<< Updated upstream
   width:100px;
   height:150px;
-=======
-  width: 140px;
-  height: 250px;
->>>>>>> Stashed changes
 }
 
 .card-img-right {
   position: absolute;
   right: 20px;
-<<<<<<< Updated upstream
   width:100px;
   height:150px;
-=======
-  width: 140px;
-  height: 250px;
->>>>>>> Stashed changes
 }
 
 .img-fluid {
@@ -167,16 +142,9 @@ p {
   margin-top: 3px;
   margin-bottom: 4px;
 }
-<<<<<<< Updated upstream
 .commentername{
   margin-bottom:0px;
   margin-left:17px;
-=======
-
-.commentername {
-  margin-bottom: 0px;
-  margin-left: 2px;
->>>>>>> Stashed changes
 }
 
 .card {
@@ -206,13 +174,9 @@ p {
 #back {
   padding: 3px;
   padding-right: 12px;
-<<<<<<< Updated upstream
   padding-left:12px;
 }
 p{
   margin-top:12px;
   margin-left:20px;
-=======
-  padding-left: 12px;
->>>>>>> Stashed changes
 }
