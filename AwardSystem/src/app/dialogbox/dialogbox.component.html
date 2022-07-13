@@ -1,4 +1,4 @@
-<div class="form-group shadow-textarea"  *ngIf="data.count==true && dataType=='boolean'  " >
+<div class="form-group shadow-textarea"  *ngIf="data.count===true && dataType==='boolean'  " >
   <mat-dialog-content>
       <h5>{{data.name}} was successfully disabled</h5>
   </mat-dialog-content>
@@ -6,7 +6,7 @@
           <button (click)="close()" class="btnak btn-danger">Ok</button>
       </div>
 </div>
-<div class="form-group shadow-textarea"  *ngIf="data.count==false ">
+<div class="form-group shadow-textarea"  *ngIf="data.count===false ">
   <mat-dialog-content>
       <h5>{{data.name}} was not disabled</h5>
   </mat-dialog-content>
@@ -16,7 +16,7 @@
 </div>
 
 <!--add-->
-<div class="form-group shadow-textarea"  *ngIf="data.isvalid==true " >
+<div class="form-group shadow-textarea"  *ngIf="data.isvalid===true " >
     <mat-dialog-content>
         <h5>{{data.name}} {{data.value}} was successfully added</h5>
     </mat-dialog-content>
@@ -29,7 +29,7 @@
 
 
 
-<div class="form-group shadow-textarea" *ngIf="data.count>=1 && dataType=='number'   ">
+<div class="form-group shadow-textarea" *ngIf="data.count>=1 && dataType==='number'   ">
   <mat-dialog-content>
       <h5> There are {{data.count}} Employees assigned to {{data.name}} .<br>
          Kindly map them to other {{data.value}} to disable this {{data.value}} {{data.name}}.</h5>

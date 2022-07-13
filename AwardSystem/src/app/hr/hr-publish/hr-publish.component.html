@@ -33,16 +33,16 @@
                   <!-- <td>{{item.awardeeName}}</td> -->
                   <td>{{item.awardeeName}}</td>
                   <!-- <td>{{item.AddedOn}}</td> -->
-                            <td ><span *ngIf="item.statusId==2;else elseblock" class="badge badge-success rounded-pill d-inline">{{item.status}}</span>
+                            <td ><span *ngIf="item.statusId===2;else elseblock" class="badge badge-success rounded-pill d-inline">{{item.status}}</span>
                               <ng-template #elseblock><span class="badge badge-primary rounded-pill d-inline">{{item.status}}</span></ng-template>
                             </td>                       
                             <td>
-                              <div *ngIf="item.statusId==2">
+                              <div *ngIf="item.statusId===2">
                                 <a  [routerLink]="['../hr-yettopublish',item.id]" type="button" class="btn btn-link btn-sm btn-rounded">
                                   Publish
                                 </a>
                               </div>
-                              <div *ngIf="item.statusId==4">
+                              <div *ngIf="item.statusId===4">
                                 <a  [routerLink]="['../hr-yettopublish',item.id]" type="button" class="btn btn-link btn-sm btn-rounded">
                                   View
                                 </a>
