@@ -29,12 +29,12 @@
             <div class="card-body">
                 <div class="row d-flex ">
                     <div  class="form-outline">
-                        <form #myForm="ngForm" (ngSubmit)="OnSubmit()">
+                        <form class="row" #myForm="ngForm" (ngSubmit)="OnSubmit()">
                             <input type="text" [disabled]="isAuthorize===null" titile="Login to comment" #comments="ngModel" name="comments" [(ngModel)]="Comments.comments"
-                                class="form-control" placeholder="Type comment..." />
+                                class="col-auto form-control" placeholder="Type comment..." />
                             <label class="form-label" for="addANote">+ Add comments</label>
-                            <button type="submit" class="btn btn-danger col-lg-2"><i
-                                    class="fa-solid fa-plus"></i></button>
+                            <button type="submit" class="btn btn-primary col-lg-1"><i
+                                    class="col-auto fa-solid fa-plus"></i></button>
                         </form>
                     </div>
                     <div class="allcomments">
@@ -52,6 +52,7 @@
                                             [src]="'data:image/jpg;base64,'+ item.employeeImage" class="rounded-circle img-fluid"/></div>
                                 </ng-template>
                                 <h3 class="commentername">{{item.employeeName}}</h3>
+                                <h3  class="commentername">{{dateTime | date:'h:mm a'}}</h3>
 
                             </div>
                             <h4 id="heading">{{item.comments}}</h4>
