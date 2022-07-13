@@ -1,4 +1,52 @@
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+}
 
+.card-img-bottom {
+  position: absolute;
+  right: 0;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.card-img-overlay {
+  align-items: center;
+  bottom: 0
+}
+
+.allcomments {
+  width: 500px;
+  max-height: 380px;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+}
+
+#scrollable {
+  z-index: 1;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+p {
+  line-height: 5;
+}
+
+#heading {
+  margin-left: 12%;
+  color: gray;
+  max-width: 85%;
+}
+
+.btn {
+  box-shadow: none;
+  padding: 3px;
+  margin-bottom: 2%;
+}
+
+<<<<<<< Updated upstream
   .flip-card-front {
     background-color: #bbb;
     color: black;
@@ -49,75 +97,122 @@
 }
 #morecommentspage{
   height:auto;
+=======
+.input-group,
+.form-control {
+  width: 360px;
+}
+
+#morecommentspage {
+  height: auto;
+>>>>>>> Stashed changes
   max-height: 560px;
-  overflow:hidden;
+  overflow: hidden;
 }
-#contain{
-  padding-top:35px;
+
+#contain {
+  padding-top: 35px;
 }
-.col-lg-2{
-  width:10%;
+
+.col-lg-2 {
+  width: 10%;
 }
 
 /* corrected css */
+<<<<<<< Updated upstream
 
 .card-img-top{
   height:200px;
+=======
+.card-img-top {
+  height: 300px;
+>>>>>>> Stashed changes
 }
+
 .card-img-left {
   position: absolute;
   left: 20px;
+<<<<<<< Updated upstream
   width:100px;
   height:150px;
+=======
+  width: 140px;
+  height: 250px;
+>>>>>>> Stashed changes
 }
+
 .card-img-right {
   position: absolute;
   right: 20px;
+<<<<<<< Updated upstream
   width:100px;
   height:150px;
+=======
+  width: 140px;
+  height: 250px;
+>>>>>>> Stashed changes
 }
-.img-fluid{
-  width:40px;
-  height:40px;
+
+.img-fluid {
+  width: 40px;
+  height: 40px;
 }
-#img-fluid{
-  width:40;
-  height:40;
+
+#img-fluid {
+  width: 40;
+  height: 40;
 }
-.commenterimage{
-  margin-top:3px;
-  margin-bottom:4px;
+
+.commenterimage {
+  margin-top: 3px;
+  margin-bottom: 4px;
 }
+<<<<<<< Updated upstream
 .commentername{
   margin-bottom:0px;
   margin-left:17px;
+=======
+
+.commentername {
+  margin-bottom: 0px;
+  margin-left: 2px;
+>>>>>>> Stashed changes
 }
+
 .card {
   background-color: transparent;
-  margin-top:50px !important;
+  margin-top: 50px !important;
   text-align: justify;
-  padding:0;
+  padding: 0;
   max-height: 550px;
-  perspective: 1000px; 
+  perspective: 1000px;
   margin-bottom: 6px;
 }
-.form-outline{
-  margin-bottom:1px;
+
+.form-outline {
+  margin-bottom: 1px;
 }
-.backbutton{
+
+.backbutton {
   float: left;
   padding-top: 90px;
 
 }
-.button-group{
-  width:30px;
+
+.button-group {
+  width: 30px;
 }
-#back{
-  padding:3px;
+
+#back {
+  padding: 3px;
   padding-right: 12px;
+<<<<<<< Updated upstream
   padding-left:12px;
 }
 p{
   margin-top:12px;
   margin-left:20px;
+=======
+  padding-left: 12px;
+>>>>>>> Stashed changes
 }

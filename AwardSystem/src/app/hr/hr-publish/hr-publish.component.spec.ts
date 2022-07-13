@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { HrPublishComponent } from './hr-publish.component';
 
 describe('HrPublishComponent', () => {
@@ -8,9 +7,9 @@ describe('HrPublishComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HrPublishComponent ]
+      declarations: [HrPublishComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

@@ -10,19 +10,19 @@ import { AuthenticationService } from '../authentication.service';
 export class LayoutComponent implements OnInit {
   user: any;
 
-  constructor(private route:Router) { }
-token:any;
+  constructor(private route: Router) { }
+  token: any;
   ngOnInit(): void {
-    this.token=AuthenticationService.GetData("token");
-    this.user=AuthenticationService.GetData("Role");
+    this.token = AuthenticationService.GetData("token");
+    this.user = AuthenticationService.GetData("Role");
 
     console.log(this.token)
   }
-  onLogin(){
+  onLogin() {
     this.route.navigateByUrl("/login")
   }
 
-  onLogout(){
+  onLogout() {
     AuthenticationService.Logout();
     this.route.navigateByUrl('')
   }

@@ -7,54 +7,47 @@ import { DialogboxComponent } from 'src/app/dialogbox/dialogbox.component';
 import { HotToastService } from '@ngneat/hot-toast';
 import { AuthenticationService } from 'src/app/authentication.service';
 
-
 @Component({
   selector: 'app-add-organisation',
   templateUrl: './add-organisation.component.html',
   styleUrls: ['./add-organisation.component.css']
 })
 export class AddOrganisationComponent implements OnInit {
-  error:any='';
+  error: any = '';
 
-endpoint="Organisation";
-  constructor(private sharedService:SharedService, private location: Location, private router:Router,private toastService: HotToastService,private dialog: MatDialog) { }
-  Organisation : any = {
-    id : 0,
-    organisationName : '',
-    addedBy : 1,
-    addedOn : Date.now,
-  
- 
+  endpoint = "Organisation";
+  constructor(private sharedService: SharedService, private location: Location, private router: Router, private toastService: HotToastService, private dialog: MatDialog) { }
+  Organisation: any = {
+    id: 0,
+    organisationName: '',
+    addedBy: 1,
+    addedOn: Date.now,
   }
 
   ngOnInit(): void {
-    if(!AuthenticationService.GetData("Admin")){
+    if (!AuthenticationService.GetData("Admin")) {
       this.router.navigateByUrl("")
     }
-   
   }
 
-  OnSubmit(){
+  OnSubmit() {
     console.log(this.Organisation)
-    this.sharedService.add(this.endpoint,this.Organisation).subscribe({
+    this.sharedService.add(this.endpoint, this.Organisation).subscribe({
       // console.log(res);
       // this.showToast();
       next: (res) => { console.log(res), this.showToast() },
       error: (error) => this.error = error.error.message
     })
-    
   }
+
   showToast() {
     this.toastService.success('Organisation added Successfully!',
-    {
-      autoClose: true,
-      dismissible: true,
-    })
+      {
+        autoClose: true,
+        dismissible: true,
+      })
     this.router.navigate(['/organisation']);
-
   }
-
-
 }
 
 

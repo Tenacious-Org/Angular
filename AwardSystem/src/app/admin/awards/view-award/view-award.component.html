@@ -1,14 +1,15 @@
 <app-layout></app-layout>
 <app-sidebar></app-sidebar>
 <div class="container d-flex justify-content-center ">
-
     <!--  view awards container contains awardname, award description,award image-->
     <div class="card">
         <div class="card-body">
-          <div class="awardimage" *ngIf="data.image===null ; else elseimage">
-            <img src='assets/images/award.png' class="rounded-circle img-fluid"  />
-        </div>
-        <ng-template  #elseimage><div class="awardimage"><img [src]="'data:image/jpg;base64,'+ data.image" class=" img-fluid"  /></div></ng-template>
+            <div class="awardimage" *ngIf="data.image===null ; else elseimage">
+                <img src='assets/images/award.png' class="rounded-circle img-fluid" />
+            </div>
+            <ng-template #elseimage>
+                <div class="awardimage"><img [src]="'data:image/jpg;base64,'+ data.image" class=" img-fluid" /></div>
+            </ng-template>
             <div class="row text-center">
                 <div class="col-sm-6">
                     <h2 class="mb-0">Award</h2>
@@ -29,5 +30,5 @@
             <hr>
             <br>
             <div class="button-group text-center mt-3">
-                <button  [routerLink]="['/awards']" class="btn btn-primary pull-left btn btn-info ">Back</button>
+                <button [routerLink]="['/awards']" class="btn btn-primary pull-left btn btn-info ">Back</button>
             </div>

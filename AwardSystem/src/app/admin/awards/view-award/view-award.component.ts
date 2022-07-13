@@ -10,25 +10,23 @@ import { SharedService } from 'src/app/shared.service';
   styleUrls: ['./view-award.component.css']
 })
 export class ViewAwardComponent implements OnInit {
-  data :any;
-  Id=0;
-  endpoint="AwardType"
-  constructor(private sharedService: SharedService,private http:HttpClient , private router:ActivatedRoute,private route:Router) { }
+  data: any;
+  Id = 0;
+  endpoint = "AwardType"
+  constructor(private sharedService: SharedService, private http: HttpClient, private router: ActivatedRoute, private route: Router) { }
 
   ngOnInit(): void {
-    if(!AuthenticationService.GetData("Admin")){
+    if (!AuthenticationService.GetData("Admin")) {
       this.route.navigateByUrl("")
-      
     }
     this.router.params.subscribe(params => {
       this.Id = params['id'];
-    this.http
-    this.sharedService.getById(this.endpoint,this.Id).subscribe((result) => {
-      this.data = result;
+      this.http
+      this.sharedService.getById(this.endpoint, this.Id).subscribe((result) => {
+        this.data = result;
         console.log(this.Id)
         console.log(this.data);
       });
     });
   }
-
 }

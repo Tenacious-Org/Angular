@@ -3,6 +3,7 @@
     top: 5px;
     right: 8px;
 }
+
 #sidebar .custom-menu {
     display: inline-block;
     position: absolute;
@@ -13,16 +14,19 @@
     -o-transition: 0.8s;
     transition: 1.0s;
 }
+
 @media (max-width: 991.98px) {
     #sidebar {
         margin-left: 0px;
     }
+
     #sidebar .custom-menu {
         margin-right: -20px !important;
         top: 10px !important;
     }
 }
-.active{
-    background:violet;
-    color:white;
+
+.active {
+    background: violet;
+    color: white;
 }

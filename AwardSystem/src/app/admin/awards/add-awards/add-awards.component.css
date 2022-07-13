@@ -1,8 +1,9 @@
-#img{
-    height:100px;
-    width:100px;
+#img {
+    height: 100px;
+    width: 100px;
 }
-.award{
-    margin-bottom:3px;
+
+.award {
+    margin-bottom: 3px;
     justify-content: center;
 }

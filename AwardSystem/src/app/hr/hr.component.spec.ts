@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { HrComponent } from './hr.component';
 
 describe('HrComponent', () => {
@@ -8,9 +7,9 @@ describe('HrComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HrComponent ]
+      declarations: [HrComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

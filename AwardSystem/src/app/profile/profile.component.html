@@ -2,15 +2,19 @@
 <app-sidebar></app-sidebar>
 
 <div class="container d-flex justify-content-center ">
-
     <!-- Write your contents here -->
     <div class="card">
         <div class="card-body">
             <div class="text-center" *ngIf="data.image===null || data.image==='' ; else elseimage">
-                <img *ngIf="data.gender==='Male';else elsegender " src='assets/images/male.jpg' class="rounded-circle img-fluid" />  
-                <ng-template #elsegender> <img  src='assets/images/female.jpg' style=width:10rem; class="rounded-circle img-fluid" style="width: 100px;" /></ng-template>     
+                <img *ngIf="data.gender==='Male';else elsegender " src='assets/images/male.jpg'
+                    class="rounded-circle img-fluid" />
+                <ng-template #elsegender> <img src='assets/images/female.jpg' style=width:10rem;
+                        class="rounded-circle img-fluid" style="width: 100px;" /></ng-template>
             </div>
-            <ng-template  #elseimage><div class=" text-center"><img [src]="'data:image/jpg;base64,'+ data.image" class="rounded-circle img-fluid" /></div></ng-template>
+            <ng-template #elseimage>
+                <div class=" text-center"><img [src]="'data:image/jpg;base64,'+ data.image"
+                        class="rounded-circle img-fluid" /></div>
+            </ng-template>
             <hr>
             <div class="row">
                 <div class="col-sm-6">
@@ -30,10 +34,8 @@
                     <h2 class="mb-0">Date of Birth : </h2>
 
                     <h3 class="text-muted mb-0">{{data.dob | date:'dd-MM-YYYY'}}</h3>
-                    
+
                 </div>
-
-
                 <div class="col-sm-6">
                     <h2 class="mb-0">ACE ID</h2>
 
@@ -67,7 +69,6 @@
                     <h3 class="text-muted mb-0">{{data.designationName}}</h3>
                 </div>
             </div>
-
             <hr>
             <div class="row">
                 <div class="col-sm-6" *ngIf="data.hrId!==null">
@@ -75,10 +76,9 @@
 
                     <h3 class="text-muted mb-0">{{data.hRName}}</h3>
                 </div>
-            
+
                 <div class="col-sm-6" *ngIf="data.reportingPersonId!==null">
                     <h2 class="mb-0">Reporting Person Name</h2>
-
                     <h3 class="text-muted mb-0">{{data.reportingPersonName}}</h3>
                 </div>
             </div>
@@ -86,5 +86,3 @@
             <div *ngIf="role===5" class="button-group text-center">
                 <button [routerLink]="['/employee']" class="btn btn-primary pull-left btn btn-info ">Back </button>
             </div>
-            
-

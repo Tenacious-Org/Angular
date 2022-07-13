@@ -6,15 +6,15 @@
       <div class="col-auto p-1.5" style="display:inline;">
         <label for="org" class="col-form-label">Organisation</label>
         <div class="input-group">
-          <select name="organisationId" name="SelectOrg" [(ngModel)]="SelectOrg" onclick="changeid()" (change)="onSelectorg()"
-            class="custom-select">
+          <select name="organisationId" name="SelectOrg" [(ngModel)]="SelectOrg" onclick="changeid()"
+            (change)="onSelectorg()" class="custom-select">
             <option selected>Choose...</option>
             <option *ngFor="let items of organisations" ngValue={{items.id}}>{{items.organisationName}}</option>
           </select>
         </div>
       </div>
       <div style="display:inline;float:left;width:auto">
-        <label  class="col-form-label" for="exampleFormControlSelect1">Award</label>
+        <label class="col-form-label" for="exampleFormControlSelect1">Award</label>
         <div class="input-group">
           <select name="awardTypeId" #awardName="ngModel" required [(ngModel)]="Awards.awardTypeId"
             class="custom-select">
@@ -27,13 +27,13 @@
         </div>
       </div>
       <div style="float:left;width:auto">
-        <label  class="col-form-label ml-3" for="fromdate">From Date:</label>
+        <label class="col-form-label ml-3" for="fromdate">From Date:</label>
         <div class="input-group col-auto p-1.5">
           <input class="form-control " type="date" id="fromdate" name="fromdate">
         </div>
       </div>
       <div style="float:left;width:auto">
-        <label  class="col-form-label ml-3" for="todate">To Date:</label>
+        <label class="col-form-label ml-3" for="todate">To Date:</label>
         <div class="input-group col-auto p-1.5">
           <input class="form-control" type="date" id="fromdate" name="todate">
         </div>
@@ -41,22 +41,17 @@
       <div style="float:left; width:auto;margin-top:3.5rem">
         <button style="padding:0.5rem;" type="submit">Apply</button>
       </div>
-
-
     </div>
     <!-- <div style="height:50%;width:75%;position:absolute; left:15%;bottom:5%">
       <canvas baseChart [data]="salesData" [type]="'bar'" [options]="chartOptions">
       </canvas>
     </div> -->
   </div>
-  </div>
-
-  <!-- </div> -->
-  
-
-  <div id="bargraph" class="wrapper">
-    <canvas id="barchart" ></canvas>
-  </div>
-  <div id="bargraph" class="wrapper">
-    <canvas id="barcharts" ></canvas>
-  </div>
+</div>
+<!-- </div> -->
+<div id="bargraph" class="wrapper">
+  <canvas id="barchart"></canvas>
+</div>
+<div id="bargraph" class="wrapper">
+  <canvas id="barcharts"></canvas>
+</div>

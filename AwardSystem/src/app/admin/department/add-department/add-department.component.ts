@@ -11,64 +11,65 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   templateUrl: './add-department.component.html',
   styleUrls: ['./add-department.component.css']
 })
+
 export class AddDepartmentComponent implements OnInit {
-organisationName:any='';
-error:any='';
-Id:any;
-  constructor(private toastService: HotToastService,private sharedService:SharedService, private router:Router) {}
+  organisationName: any = '';
+  error: any = '';
+  Id: any;
+  constructor(private toastService: HotToastService, private sharedService: SharedService, private router: Router) { }
 
-    response="success";
-    Department : any = {
-    id :0,
-    departmentName : '',
-    organisationId :0,
-    addedBy : 1,
-    addedOn : Date.now ,
-    updatedBy : 1,
-    updatedOn : Date.now, 
+  response = "success";
+  Department: any = {
+    id: 0,
+    departmentName: '',
+    organisationId: 0,
+    addedBy: 1,
+    addedOn: Date.now,
+    updatedBy: 1,
+    updatedOn: Date.now,
   }
+
   public data: Organisation[] = [];
+  endpoint = "Department";
+  endpoint1 = "Organisation";
 
-endpoint="Department";
-endpoint1="Organisation";
   ngOnInit(): void {
-
-    if(!AuthenticationService.GetData("Admin")){
+    if (!AuthenticationService.GetData("Admin")) {
       this.router.navigateByUrl("")
     }
-    
-    this.sharedService.getAll(this.endpoint1).subscribe(data=>{
-      this.data=data;
-    });  
+
+    this.sharedService.getAll(this.endpoint1).subscribe(data => {
+      this.data = data;
+    });
   }
-  OnSubmit(){
+
+  OnSubmit() {
     console.log(this.Department)
-    this.sharedService.add(this.endpoint,this.Department).subscribe({
+    this.sharedService.add(this.endpoint, this.Department).subscribe({
       // console.log(res);
       // this.showToast();
       next: (res) => { console.log(res), this.showToast() },
-        error: (error) => this.error = error.error.message
+      error: (error) => this.error = error.error.message
     });
-  
   }
+
   showToast() {
     this.toastService.success('Department added Successfully !',
-    {
-      autoClose: true,
-      dismissible: true,
-      
-    })
+      {
+        autoClose: true,
+        dismissible: true,
+      })
     this.router.navigate(['/department']);
   }
-  CheckName(OrganisationId: any)
-  {
-    this.Id=OrganisationId;
-  }
-  }
 
-  
-    
+  CheckName(OrganisationId: any) {
+    this.Id = OrganisationId;
+  }
+}
 
-  
+
+
+
+
 
 
