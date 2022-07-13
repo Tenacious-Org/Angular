@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { Chart, ChartData, ChartOptions } from 'chart.js';
+import { Chart, ChartData, ChartOptions, ChartType } from 'chart.js';
 import { Department } from 'Models/Department';
 import { Organisation } from 'Models/Organisation';
 import { SharedService } from 'src/app/shared.service';
@@ -8,6 +8,8 @@ import { Employee } from 'Models/Employee';
 import { AwardType } from 'Models/AwardType';
 import { AwardService } from '../award.service';
 import { dashboard } from 'Models/Dashboard';
+import { BaseChartDirective } from 'ng2-charts';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -15,7 +17,22 @@ import { dashboard } from 'Models/Dashboard';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  chart: any
+  
+  
+  @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;
+
+  public pieChartOptions: ChartOptions = {
+    responsive: true,
+  };
+  public pieChartLabels = [['SciFi'], ['Drama'], 'Comedy'];
+   pieChartData = [
+    {data: [65, 59, 80, 81, 56, 55, 40]}
+  ];
+  public pieChartType: ChartType = 'pie';
+  public pieChartLegend = true;
+  public pieChartPlugins = [];
+  
+  
   constructor(private sharedService: SharedService, private awardService: AwardService, private router: Router) { }
   awardData: any;
   isAward = 0;
@@ -34,10 +51,21 @@ export class DashboardComponent implements OnInit {
       statusId: 0,
       isActive: true,
     }
-  org: any = []
-  award: any = []
-  orgcnt: any = []
-  awdcnt: any = []
+
+    org:any=[]
+  award:any=[]
+  orgcnt:any=[]
+  awdcnt:any=[]
+    
+  // ngchart: ChartData<'pie'> = {
+  //   labels: this.award,
+  //   datasets:[
+  //     label: this,
+  //     data:this.awdcnt
+  //   ]
+  // };
+
+
 
   salesData: ChartData<'bar'> = {
     labels: ['Development', 'Testing', 'Facility', 'Security', 'Management'],
@@ -145,44 +173,57 @@ export class DashboardComponent implements OnInit {
           }
         }
         this.awdcnt = awdcnt
-        console.log("Awards :", this.awdcnt)
+        console.log("Awards :",this.awdcnt)
 
 
-        //create a chart data
-        // this.chart = new Chart('canvas',{
-        //   type: 'line',
-        //   data: {
-        //     labels: this.award,
-        //     datasets: [
-        //       {
-        //         data: this.awdcnt,
-        //         borderColor: '#3cba9f',
-        //         fill: false
-        //       }
-        //     ]
-        //   },
-        //   options: {
-        //     responsive:true
-        //   }
-        // })
+      //create a chart data
+      // this.chart = new Chart('canvas',{
+      //   type: 'line',
+      //   data: {
+      //     labels: this.award,
+      //     datasets: [
+      //       {
+      //         data: this.awdcnt,
+      //         borderColor: '#3cba9f',
+      //         fill: false
+      //       }
+      //     ]
+      //   },
+      //   options: {
+      //     responsive:true
+      //   }
+      // })
 
-        new Chart('barchart', {
-          type: 'pie',
-          data: {
-            labels: award,
-            datasets: [{
-              data: awdcnt,
-            }]
-          },
-          options: {
-            plugins: {
-              legend: {
-                position: 'top',
-                display: true,
-              },
+      this.pieChartLabels = this.award
+      this.pieChartLegend = this.award
+
+      console.log("piechartlegend: ", this.pieChartLabels)
+      this.pieChartData = dict
+
+      this.chart?.update()
+
+
+
+       new Chart('barchart', {
+        type: 'pie',
+        data: {
+          labels: award,
+          datasets: [{
+            data: awdcnt,
+          }]
+        },
+        options: {
+          plugins: {
+            legend: {
+              position: 'top',
+              display: true,
             },
-          }
-        });
+          },
+          
+      }
+    });
+
+      
 
 
       }
@@ -201,7 +242,6 @@ export class DashboardComponent implements OnInit {
   onSelectorg() {
     this.sharedService.getallwinOrgwise(this.SelectOrg).subscribe(res => {
 
-
       (<HTMLCanvasElement>document.getElementById("barchart")).remove();
 
       if (this.cnt >= 1) {
@@ -211,103 +251,111 @@ export class DashboardComponent implements OnInit {
       this.cnt = 1
 
       console.log(res)
-      //converting api values into list
-      let d = []
-      let d1: string[][] = []
-      for (var i of res) {
-        for (let key in i) {
-          let value = i[key];
-          d.push(value)
-        }
-        d1.push(d)
-        d = []
-      }
-      console.log(d1)
+       //converting api values into list
+       let d = []
+       let d1:string[][] = []
+       for(var i of res){
+         for(let key in i){
+           let value = i[key];
+           d.push(value)
+         }
+         d1.push(d)
+         d = []          
+       }
+       console.log(d1)
 
-      //setting into calculate a total count in dictionary
-      var dict: any = {}
-      for (var a of d1) {
-        for (var b of a) {
-          var new_item = b
-          dict[new_item] = dict.hasOwnProperty(new_item) ? ++dict[new_item] : 1;
-        }
-      }
-      console.log(dict)
+       //setting into calculate a total count in dictionary
+       var dict:any = {}
+       for(var a of d1){
+         for(var b of a){
+           var new_item = b
+           dict[new_item] = dict.hasOwnProperty(new_item)? ++dict[new_item] : 1;
+         }
+       }
+       console.log(dict)
 
-      //Setting Organisation into a list
-      var org: any = []
-      const search = (targetElement: string) => (arrElement: string) => arrElement === targetElement;
-      for (var x of d1) {
-        if (org.some(search(x[0]))) {
-          continue
-        }
-        else {
-          org.push(x[0])
-        }
-      }
-      this.org = org
-      console.log(this.org)
+       //Setting Organisation into a list
+       var org:any = []
+       const search = (targetElement : string) => (arrElement : string) => arrElement === targetElement;
+       for(var x of d1){
+           if(org.some(search(x[0]))){
+             continue
+           }
+           else{
+             org.push(x[0])
+           }
+       }
+       this.org = org
+       console.log(this.org)
 
-      //Setting Awards into a list
-      var award: any = []
-      for (var x of d1) {
-        if (award.some(search(x[2]))) {
-          continue
-        }
-        else {
-          award.push(x[2])
-        }
-      }
-      this.award = award
-      console.log(this.award)
+       //Setting Awards into a list
+       var award:any = []
+       for(var x of d1){
+           if(award.some(search(x[2]))){
+             continue
+           }
+           else{
+             award.push(x[2])
+           }
+       }
+       this.award = award
+       console.log(this.award)
 
-      //setting award values into a list
-      var orgcnt: any = []
-      for (var j of org) {
-        for (var h of Object.keys(dict)) {
-          if (j == h) {
-            orgcnt.push(dict[h])
-          }
-        }
-      }
-      this.orgcnt = orgcnt
-      console.log("Organisation :", this.orgcnt)
+       //setting award values into a list
+       var orgcnt:any = []
+       for(var j of org){
+         for(var h of Object.keys(dict)){
+           if(j == h){
+             orgcnt.push(dict[h])
+           }
+         }
+       }
+       this.orgcnt = orgcnt
+       console.log("Organisation :",this.orgcnt)
 
-      //setting award values into a list
-      var awdcnt: any = []
-      for (var j of award) {
-        for (var k of Object.keys(dict)) {
-          if (j == k) {
-            awdcnt.push(dict[k])
-          }
-        }
-      }
-      this.awdcnt = awdcnt
-      console.log("Awards :", this.awdcnt)
+       //setting award values into a list
+       var awdcnt:any = []
+       for(var j of award){
+         for(var k of Object.keys(dict)){
+           if(j == k){
+             awdcnt.push(dict[k])
+           }
+         }
+       }
+       this.awdcnt = awdcnt
+       console.log("Awards :",this.awdcnt)
 
-      //Creating Charts
-      this.cnt += 1
-      new Chart('barcharts', {
-        type: 'pie',
-        data: {
-          labels: award,
-          datasets: [{
-            data: awdcnt,
-          }]
-        },
-        options: {
-          plugins: {
-            legend: {
-              position: 'top',
-              display: true,
-            },
-          },
-        }
-      });
+
+
+       
+
+      
+       
+
+       //Creating Charts
+      //  this.cnt += 1
+
+      //  var ng = new Chart('barcharts', {
+      //   type: 'pie',
+      //   data: {
+      //     labels: award,
+      //     datasets: [{
+      //       data: awdcnt,
+      //     }]
+      //   },
+      //   options: {
+      //     plugins: {
+      //       legend: {
+      //         position: 'top',
+      //         display: true,
+      //       },
+      //     },
+      //   }
+      // });
 
     });
   }
   public win: dashboard[] = [];
 
-
+  
 }

@@ -47,11 +47,27 @@
       </canvas>
     </div> -->
   </div>
-</div>
-<!-- </div> -->
-<div id="bargraph" class="wrapper">
-  <canvas id="barchart"></canvas>
-</div>
-<div id="bargraph" class="wrapper">
-  <canvas id="barcharts"></canvas>
-</div>
+  </div>
+
+  <!-- </div> -->
+
+  <div>
+    <div style="display: block">
+      <canvas baseChart
+              [datasets]="pieChartData"
+              [labels]="pieChartLabels"
+              [legend]="pieChartLegend"
+              [type] = "'pie'">
+      </canvas>
+    </div>
+  </div>
+
+  
+  
+
+  <div id="bargraph" class="wrapper">
+    <canvas baseChart id="barchart" ></canvas>
+  </div>
+  <div id="bargraph" class="wrapper">
+    <canvas id="barcharts" ></canvas>
+  </div>

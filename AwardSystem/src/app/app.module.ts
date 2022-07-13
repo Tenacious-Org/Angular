@@ -115,6 +115,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     AppRoutingModule,
     NgxPaginationModule,
     HttpClientModule,
+    NgChartsModule,
     FormsModule,
     BrowserAnimationsModule,
     MatDialogModule,
@@ -127,6 +128,12 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     MatPaginatorModule,
     HotToastModule.forRoot(),
     MatSelectModule,
+    NgChartsModule,
+    
+    
+
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]
