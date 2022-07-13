@@ -26,6 +26,8 @@ export class HomeCardComponent implements OnInit {
 	endpoint1="Organisation";
 	departments: any;
 	date: any;
+	isShow=true;
+
 	constructor(private awardService:AwardService,private sharedService:SharedService,private router:ActivatedRoute ,private route:Router){ }
 
   ngOnInit(): void {
@@ -47,6 +49,10 @@ export class HomeCardComponent implements OnInit {
 	  });
 
   }
+  advanced(){
+	this.isShow=!this.isShow;
+  }
+
   onSelectDep(){
     this.sharedService.getDepartmentByOrganisation(this.searchOrganisation).subscribe(data=>{
       this.departments = data;

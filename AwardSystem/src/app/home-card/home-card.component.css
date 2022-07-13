@@ -79,7 +79,7 @@ p{
 
 .form-control{
   top:15%;
-  width:150px;
+  width:180px;
 }
 .input-group{
   max-width:150px;
@@ -123,6 +123,7 @@ p{
 }
 .filterform{
   justify-content: left;
+  margin-top:5px;
 }
 #searchfilter{
   margin-top:20px;
@@ -135,4 +136,7 @@ p{
 }
 .card-body{
   padding:10px;
+}
+#readmorebutton{
+  margin-bottom: 3px;
 }

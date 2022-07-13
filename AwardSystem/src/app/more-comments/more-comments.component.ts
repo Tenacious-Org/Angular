@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { timer } from 'rxjs';
 import { AuthenticationService } from '../authentication.service';
 import { AwardService } from '../award.service';
 
@@ -22,6 +23,7 @@ export class MoreCommentsComponent implements OnInit {
     employeeId : 0,
     awardId : 0,
   }
+  dateTime:Date | undefined
   
   ngOnInit(): void {
     this.isAuthorize=AuthenticationService.GetData("token") 
@@ -38,6 +40,9 @@ export class MoreCommentsComponent implements OnInit {
         this.commentList=result;
         console.log(this.commentList);
       })
+     timer(0,1000).subscribe(()=>{
+      this.dateTime=new Date();
+     })
 
   }
   OnSubmit(){
