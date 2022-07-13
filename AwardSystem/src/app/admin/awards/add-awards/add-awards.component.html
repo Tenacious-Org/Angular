@@ -27,7 +27,7 @@
         <div class="award row mb-3">
             <div class="col-auto p-1.5">
                 <label  class="col-form-label">Award Description</label>
-                <input type="text" #description="ngModel" required pattern="^[a-zA-Z][a-zA-Z\s]{0,1000}[a-zA-Z]$" class="form-control" name="awardDescription" [(ngModel)]="AwardType.awardDescription">
+                <input type="text" #description="ngModel" required pattern="/\w*\s*|\w|\D/gm" class="form-control" name="awardDescription" [(ngModel)]="AwardType.awardDescription">
                 <div *ngIf ="description.touched && description.errors?.['required']" class="alert alert-danger">
                     Description is Required!
                 </div>

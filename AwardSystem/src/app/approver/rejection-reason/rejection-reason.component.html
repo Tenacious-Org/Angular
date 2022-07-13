@@ -3,7 +3,13 @@
     <form >
         <mat-dialog-content>
         <h2>Enter Rejection Reason</h2>
-        <textarea matInput class="form-control" name="reason" [(ngModel)]="data.reason"  placeholder="Write something here..."></textarea>
+        <textarea matInput class="form-control" name="reason" [(ngModel)]="data.reason" #reason="ngModel" required pattern="/\w*\s*|\w|\D/gm"  placeholder="Write something here..."></textarea>
+        <div *ngIf="reason.touched && reason.errors?.['required']" class="alert alert-danger">
+            Reason is Required!
+          </div>
+          <div *ngIf="reason.touched && reason.errors?.['pattern']" class="alert alert-danger">
+            Reason is invalid!
+          </div>
     </mat-dialog-content>
         <div class="text-center mt-4">
             <!-- <button type="submit" class="btn btn-success">Submit</button> -->
