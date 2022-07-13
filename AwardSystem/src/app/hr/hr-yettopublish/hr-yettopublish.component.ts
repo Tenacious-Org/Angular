@@ -11,69 +11,72 @@ import { Router } from '@angular/router';
   styleUrls: ['./hr-yettopublish.component.css']
 })
 export class HrYettopublishComponent implements OnInit {
-  employeeId = AuthenticationService.GetData("User");
+  employeeId=AuthenticationService.GetData("User");
   data: any;
-  Id: any;
-  coupon: any;
-  publishedId = 4;
+   Id:any;
+   coupon:any;
+   publishedId=4;
+   
+   awards:any={
+    id :0,
+    requesterId : 0,
+    awardeeId : 0,
+    awardTypeId : 0,
+    approverId : 0,
+    reason : '',
+    rejectReason : '',
+    hRId : 0,
+    couponCode : '',
+    statusId :0,
+    addedBy :0,
+    addedOn :Date.now,
+    updatedBy : 0,
+    updatedOn : Date.now,
+    isActive : true,
+   }
 
-  awards: any = {
-    id: 0,
-    requesterId: 0,
-    awardeeId: 0,
-    awardTypeId: 0,
-    approverId: 0,
-    reason: '',
-    rejectReason: '',
-    hRId: 0,
-    couponCode: '',
-    statusId: 0,
-    addedBy: 0,
-    addedOn: Date.now,
-    updatedBy: 0,
-    updatedOn: Date.now,
-    isActive: true,
-  }
 
-  constructor(private awardService: AwardService,
-    private route: ActivatedRoute, private toastService: HotToastService, private router: Router) { }
+  constructor(private awardService:AwardService,
+    private route:ActivatedRoute,private toastService: HotToastService,private router:Router) { }
   ngOnInit(): void {
-    if (!AuthenticationService.GetData("Publisher")) {
+    if(!AuthenticationService.GetData("Publisher")){
       this.router.navigateByUrl("")
     }
     this.route.params.subscribe(params => {
       this.Id = params['id'];
-      this.awardService.getAwardById(this.Id).subscribe((result) => {
-        this.data = result;
-        this.awards.id = this.data.id;
-        this.awards.requesterId = this.data.requesterId;
-        this.awards.awardeeId = this.data.awardeeId;
-        this.awards.awardTypeId = this.data.awardTypeId;
-        this.awards.approverId = this.data.approverId;
-        this.awards.reason = this.data.reason;
-        this.awards.hRId = this.data.hRId;
-        this.awards.addedBy = this.data.addedBy;
-        this.awards.addedOn = this.data.addedOn;
-        console.log(this.Id)
-        console.log(this.data.couponCode);
+     this.awardService.getAwardById(this.Id).subscribe((result) => {
+            this.data = result;
+            this.awards.id  = this.data.id;
+            this.awards.requesterId  = this.data.requesterId;
+            this.awards.awardeeId  = this.data.awardeeId;
+            this.awards.awardTypeId  = this.data.awardTypeId;
+            this.awards.approverId  = this.data.approverId;
+            this.awards.reason  = this.data.reason;
+            this.awards.hRId  = this.data.hRId;
+            this.awards.addedBy=this.data.addedBy;
+            this.awards.addedOn=this.data.addedOn;
+            console.log(this.Id)
+            console.log(this.data.couponCode);
+        });
       });
-    });
   }
-  OnSubmit() {
+  OnSubmit(){
     console.log(this.data.couponCode);
-    this.awards.couponCode = this.data.couponCode;
-    this.awards.statusId = this.publishedId;
-    this.awardService.approval(this.awards, this.employeeId).subscribe(data => {
+    this.awards.couponCode=this.data.couponCode;
+    this.awards.statusId=this.publishedId;
+    this.awardService.approval(this.awards,this.employeeId).subscribe(data=>{
       console.log(data);
       this.showToast();
     });
   }
   showToast() {
     this.toastService.success('Published Successfully!',
-      {
-        autoClose: true,
-        dismissible: true,
-      })
+    {
+      autoClose: true,
+      dismissible: true,
+    })
     this.router.navigate(['/hr-publish']);
   }
+
+
 }

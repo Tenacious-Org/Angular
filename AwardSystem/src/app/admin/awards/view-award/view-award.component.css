@@ -1,26 +1,23 @@
-.img-fluid {
-    width: 80px;
-    height: 100px;
+.img-fluid{
+    width:80px;
+    height:100px;
+}
+.card{
+    border-radius:15px;
+    width:40%;
+    margin-top:60px;
 }
 
-.card {
-    border-radius: 15px;
-    width: 40%;
-    margin-top: 60px;
-}
-
-.awardimage {
+.awardimage{
     text-align: center;
     line-height: 150px;
 }
-
-h3 {
-    line-height: 40px;
+h3{
+    line-height:40px;
     font-weight: 800;
 }
-
-h2 {
+h2{
     font-weight: bold;
     font-size: medium;
-    line-height: 40px;
+    line-height:40px;
 }

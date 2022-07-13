@@ -3,44 +3,54 @@
 
 <!-- add department container contains department name, organisation name -->
 <div class="container d-flex justify-content-center table-box">
-    <form class="border-box position-relative" #myForm="ngForm" (ngSubmit)="OnSubmit()">
+
+  <form class="border-box position-relative" #myForm="ngForm" (ngSubmit)="OnSubmit()">
+
         <span class="border-box-tip"><b>Add Department</b></span>
 
         <div class="department row mb-3">
             <div class="col-auto p-1.5 ">
                 <label for="org" class="col-form-label">Organisation</label>
+
                 <div class="input-group">
-                    <select name="organisationId" #organisationId="ngModel" [(ngModel)]="Department.organisationId"
-                        class="custom-select" id="organisationId" required>
-                        <!-- <option  selected >Choose...</option> -->
-                        <option *ngFor="let items of data" ngValue={{items.id}}>{{items.organisationName}}</option>
-                    </select>
+                    <select name="organisationId" #organisationId="ngModel" [(ngModel)]="Department.organisationId" class="custom-select" id="organisationId" required>
+                        
+                              <!-- <option  selected >Choose...</option> -->
+                              <option *ngFor="let items of data"  ngValue={{items.id}} >{{items.organisationName}}</option>
+                            </select>
+
+                           
                 </div>
             </div>
         </div>
-        <!-- <div *ngIf ="Department.organisationId.touched && Department.organisationId.errors?.['required']" class="alert alert-danger">Organisation Name is required</div> -->
-        <div *ngIf="Id===''" class="alert alert-danger cust-al">Organisation name should not be empty! </div>
-        <div class="department row mb-3">
+            <!-- <div *ngIf ="Department.organisationId.touched && Department.organisationId.errors?.['required']" class="alert alert-danger">Organisation Name is required</div> -->
+            <div *ngIf="Id==''" class="alert alert-danger cust-al">Organisation name should not be empty! </div>
+            <div class="department row mb-3">
             <div class="col-auto p-1.5">
                 <label for="firstName" class="col-form-label">Department Name</label>
-                <input type="text" id="firstName" #departmentName="ngModel" required
-                    pattern="^[a-zA-Z][a-zA-Z\s]{0,20}[a-zA-Z]$" class="form-control" name="departmentName"
-                    [(ngModel)]="Department.departmentName">
-                <div *ngIf="departmentName.touched && departmentName.errors?.['required']" class="alert alert-danger">
+                <input type="text" id="firstName" #departmentName="ngModel" required pattern="^[a-zA-Z][a-zA-Z\s]{0,20}[a-zA-Z]$" class="form-control" name="departmentName" [(ngModel)]="Department.departmentName" >
+                <div *ngIf ="departmentName.touched && departmentName.errors?.['required']" class="alert alert-danger">
                     Department Name is Required!
                 </div>
-                <div class="text-left text-danger">
+                <div class="text-left text-danger"  >
                     {{error}}
                 </div>
-                <div *ngIf="departmentName.touched && departmentName.errors?.['pattern']" class="alert alert-danger">
+                <div *ngIf ="departmentName.touched && departmentName.errors?.['pattern']" class="alert alert-danger" >
                     Department Name is invalid!
                 </div>
-            </div>
+               
+            </div> 
         </div>
+ 
+        
+
+
+
         <div class="department row mt-5 button-group">
-            <button (click)="CheckName(Department.organisationId)" type="submit" class="btn btn-primary col-lg-2"
-                [disabled]="!myForm.form.valid">Create</button>
+            <button  (click)="CheckName(Department.organisationId)" type="submit" class="btn btn-primary col-lg-2" [disabled]="!myForm.form.valid">Create</button>
             <button [routerLink]="['../department']" class="btn btn-danger col-lg-2">Back</button>
+
         </div>
+        
     </form>
 </div>

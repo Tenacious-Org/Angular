@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+
 import { EditOrganisationComponent } from './edit-organisation.component';
 
 describe('EditOrganisationComponent', () => {
@@ -7,9 +8,9 @@ describe('EditOrganisationComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [EditOrganisationComponent]
+      declarations: [ EditOrganisationComponent ]
     })
-      .compileComponents();
+    .compileComponents();
   });
 
   beforeEach(() => {

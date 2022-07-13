@@ -5,142 +5,118 @@
     text-align: center;
     transition: transform 0.6s;
     transform-style: preserve-3d;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   }
-
   .flip-card-front {
     background-color: #bbb;
-    color: black;
+    color: black;   
   }
-
   .flip-card-back {
     background-color: #2980b9;
     color: white;
     transform: rotateY(180deg);
-  }
-
-  #image {
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 50%;
-  }
-
-  #text {
-    text-align: justify;
-  }
-
-  #curvetext {
+  } 
+#image{
+    width:200px;
+  height:200px;
+  object-fit:cover;
+  border-radius:50%;
+}
+#text{
+    text-align:justify;
+}
+#curvetext{
     font-size: 50px;
     font-weight: 300;
-    font-style: italic;
-    font-family: 'Qwitcher Grypen', 'cursive';
-  }
-
-  .card-title {
-    float: left;
-  }
-
-  .limitTextHeight {
+    font-style: italic; 
+    font-family:'Qwitcher Grypen', 'cursive';
+}  
+.card-title{
+   float:left;
+}
+.limitTextHeight {
     height: 20px;
     overflow: hidden;
-  }
-
-  .input-group {
-    max-width: 200px
-  }
-
-  #cardflip {
+}
+.input-group{
+    max-width:200px
+} 
+#cardflip{
     padding: 0;
-  }
-
-  .flip-card {
+} 
+.flip-card {
     background-color: transparent;
-    width: 500px;
+    width: 500px; 
     perspective: 1000px;
-    margin-top: 50px !important;
+    margin-top:50px !important;
     text-align: justify;
-  }
-
-  p {
+}
+p{
     line-height: normal;
+    
+}  
+.card-img-overlay{
+    height:60%;
+}
+.row{
+    margin-left:15%;
+}
+  
+/* corrected css */
 
-  }
-
-  .card-img-overlay {
-    height: 60%;
-  }
-
-  .row {
-    margin-left: 15%;
-  }
-
-  /* corrected css */
-
-  .card {
-    background-color: transparent;
-    margin-top: 50px !important;
-    padding: 0;
-    perspective: 1000px;
-    width: 300px;
-    justify-content: center;
-  }
-
-  .myawards {
-    margin-left: 30px;
-    padding-top: 90px;
+.card {
+  background-color: transparent;
+  margin-top:50px !important;
+  padding:0;
+  perspective: 1000px; 
+  width:300px;
+ justify-content: center ;
+}
+.myawards{
+    margin-left:30px;
+    padding-top:90px;
     justify-content: space-between;
-  }
-
-  .awardfilter {
-    align-items: center;
-  }
-
-  #applybutton {
-    padding: 0.5rem;
-  }
-
-  .applybutton {
-    width: auto;
-    margin-top: 3.5rem;
-  }
-
-  #awardfilter {
-    display: inline;
-    width: auto;
-  }
-
-  #datepicker {
-    width: auto;
-  }
-
-  .applybutton {
-    width: auto;
-    margin-top: 3.5rem;
-  }
-
-  #applybutton {
-    padding: 0.5rem;
-  }
-
-  .card-img-top {
-    height: 200px;
-  }
-
-  .card-img-left {
-    position: absolute;
-    left: 10px;
-    width: 80px;
-    height: 100px;
-  }
-
-  .card-img-right {
-    position: absolute;
-    right: 10px;
-    width: 80px;
-    height: 100px;
-  }
-
-  #searchfilter {
-    margin-top: 60px;
-  }
+}
+.awardfilter{
+  align-items: center;
+}
+#applybutton{
+  padding: 0.5rem;
+}
+.applybutton{
+  width:auto;
+  margin-top:3.5rem;
+}
+#awardfilter{
+  display:inline;
+  width:auto;
+}
+#datepicker{
+  width:auto;
+}
+.applybutton{
+  width:auto;
+  margin-top:3.5rem;
+}
+#applybutton{
+  padding: 0.5rem;
+}
+.card-img-top{
+  height:200px;
+}
+.card-img-left {
+  position: absolute;
+  left: 10px;
+  width:80px;
+  height:100px;
+}
+.card-img-right {
+  position: absolute;
+  right: 10px;
+  width:80px;
+  height:100px;
+}
+#searchfilter{
+  margin-top:60px;
+}
+  

@@ -43,7 +43,7 @@
 
             <div class="col-auto p-1.5">
                 <label for="datetime" class="col-form-label">Date of Birth </label>
-                <input type="date" #dob="ngModel" required name="dob" (click)="changeDate()" [ngModel]="data.dob | date:'YYYY-MM-dd'"   id="dob" class="form-control" aria-describedby="dobHelpInline">
+                <input type="date" #dob="ngModel" required name="dob" (click)="changeDate()"  [ngModel]="data.dob | date:'YYYY-MM-dd'"   id="dob" class="form-control" aria-describedby="dobHelpInline">
                 <div *ngIf ="dob.touched && dob.errors?.['required']" class="alert alert-danger">
                     Date of Birth is Require
                 </div>
@@ -94,10 +94,10 @@
                 <div class="input-group">
                     <select name="organisationId" [(ngModel)]="data.organisationId" name="SelectOrg" [(ngModel)]="SelectOrg" (change)="onSelectOrg()" class="custom-select"   >
                         <option selected>Choose...</option>
-                        <option *ngFor="let items of organisations" [selected]="items.id===SelectOrg"  value={{items.id}} >{{items.organisationName}}</option>
+                        <option *ngFor="let items of organisations" [selected]="items.id==SelectOrg"  value={{items.id}} >{{items.organisationName}}</option>
                     </select>
                 </div>
-                <div *ngIf="organisationID===''" class="alert alert-danger">Organisation  should not be empty! </div>
+                <div *ngIf="organisationID==''" class="alert alert-danger">Organisation  should not be empty! </div>
 
             </div>
 
@@ -108,10 +108,10 @@
                 <div class="input-group">
                     <select name="departmentId" [(ngModel)]="data.departmentId" name="SelectDep" [(ngModel)]="SelectDep" (change)="onSelectDep()" class="custom-select"   >
                               <option selected>Choose...</option>
-                              <option *ngFor="let items of departments" [selected]="items.id===SelectDep"  value={{items.id}} >{{items.departmentName}}</option>
+                              <option *ngFor="let items of departments" [selected]="items.id==SelectDep"  value={{items.id}} >{{items.departmentName}}</option>
                     </select>
                 </div>
-                <div *ngIf="departmentID===''" class="alert alert-danger">Department  should not be empty! </div>
+                <div *ngIf="departmentID==''" class="alert alert-danger">Department  should not be empty! </div>
 
             </div>
         </div>
@@ -124,39 +124,39 @@
                 <div class="input-group">
                     <select name="designationId" [(ngModel)]="data.designationId" class="custom-select"   >
                               <option selected>Choose...</option>
-                              <option *ngFor="let items of designations" [selected]="items.id===selectedDesignation" value={{items.id}} >{{items.designationName}}</option>
+                              <option *ngFor="let items of designations" [selected]="items.id==selectedDesignation" value={{items.id}} >{{items.designationName}}</option>
                     </select>
                 </div>
-                <div *ngIf="designationID===''" class="alert alert-danger">Designation  should not be empty! </div>
+                <div *ngIf="designationID==''" class="alert alert-danger">Designation  should not be empty! </div>
 
             </div>
 
 
-            <div class="col-auto p-1.5" *ngIf="selectedReportingPerson!==3" >
+            <div class="col-auto p-1.5" *ngIf="selectedReportingPerson!=3" >
 
                 <label  class="col-form-label">Reporting Person Name</label>
 
                 <div class="input-group" >
                     <select name="reportingPersonId" [(ngModel)]="data.reportingPersonId" class="custom-select"   >
                               <option selected>Choose...</option>
-                              <option *ngFor="let items of reportingPersonList" [selected]="items.id===selectedReportingPerson" value={{items.id}} >{{items.firstName}} {{items.lastName}}</option>
+                              <option *ngFor="let items of reportingPersonList" [selected]="items.id==selectedReportingPerson" value={{items.id}} >{{items.firstName}} {{items.lastName}}</option>
                     </select>
                 </div>
-                <div *ngIf="reportingPersonID===''" class="alert alert-danger">Reporting Person  should not be empty! </div>
+                <div *ngIf="reportingPersonID==''" class="alert alert-danger">Reporting Person  should not be empty! </div>
 
             </div>
 
             </div>
         <div class="employee row mb-3">
-            <div class="col-auto p-1.5" *ngIf="selectedHr!==2">
+            <div class="col-auto p-1.5" *ngIf="selectedHr!=2">
                 <label  class="col-form-label">HR Name</label>
                 <div class="input-group">
-                    <select name="hrID" [(ngModel)]="data.hrID" class="custom-select"   >
+                    <select name="hrID" [(ngModel)]="data.hrId" class="custom-select"   >
                               <option selected>Choose...</option>
-                              <option *ngFor="let items of hrList" [selected]="items.id===selectedHr" value={{items.id}} >{{items.firstName}} {{items.lastName}}</option>
+                              <option *ngFor="let items of hrList" [selected]="items.id==selectedHr" value={{items.id}} >{{items.firstName}} {{items.lastName}}</option>
                     </select>
                 </div>
-                <div *ngIf="HRId===''" class="alert alert-danger">HR should not be empty! </div>
+                <div *ngIf="HRId==''" class="alert alert-danger">HR should not be empty! </div>
 
             </div>
             <div class="col-auto p-1.5">

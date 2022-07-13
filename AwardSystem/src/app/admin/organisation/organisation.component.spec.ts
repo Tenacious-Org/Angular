@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+
 import { OrganisationComponent } from './organisation.component';
 
 describe('OrganisationComponent', () => {
@@ -7,9 +8,9 @@ describe('OrganisationComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [OrganisationComponent]
+      declarations: [ OrganisationComponent ]
     })
-      .compileComponents();
+    .compileComponents();
   });
 
   beforeEach(() => {

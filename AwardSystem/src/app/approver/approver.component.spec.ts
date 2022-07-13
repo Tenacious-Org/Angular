@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+
 import { ApproverComponent } from './approver.component';
 
 describe('ApproverComponent', () => {
@@ -7,9 +8,9 @@ describe('ApproverComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ApproverComponent]
+      declarations: [ ApproverComponent ]
     })
-      .compileComponents();
+    .compileComponents();
   });
 
   beforeEach(() => {

@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+
 import { RequesterViewComponent } from './requester-view.component';
 
 describe('RequesterViewComponent', () => {
@@ -7,9 +8,9 @@ describe('RequesterViewComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [RequesterViewComponent]
+      declarations: [ RequesterViewComponent ]
     })
-      .compileComponents();
+    .compileComponents();
   });
 
   beforeEach(() => {

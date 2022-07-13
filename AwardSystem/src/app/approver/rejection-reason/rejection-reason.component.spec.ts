@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+
 import { RejectionReasonComponent } from './rejection-reason.component';
 
 describe('RejectionReasonComponent', () => {
@@ -7,9 +8,9 @@ describe('RejectionReasonComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [RejectionReasonComponent]
+      declarations: [ RejectionReasonComponent ]
     })
-      .compileComponents();
+    .compileComponents();
   });
 
   beforeEach(() => {

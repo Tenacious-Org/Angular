@@ -2,24 +2,30 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { MatDialogModule } from '@angular/material/dialog';
-import { MatInputModule } from '@angular/material/input';
-import { MatAutocompleteModule } from '@angular/material/autocomplete';
-import { ReactiveFormsModule } from '@angular/forms';
+import {MatInputModule} from'@angular/material/input';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {ReactiveFormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { ActivatedRoute, Routes } from '@angular/router';
-import { MatSelectModule } from '@angular/material/select';
+import {MatSelectModule} from '@angular/material/select';
+
+
+
+
 import { LayoutComponent } from './layout/layout.component';
 import { FooterComponent } from './footer/footer.component';
 import { MoreCommentsComponent } from './more-comments/more-comments.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { CardPostComponent } from './card-post/card-post.component';
+
 import { AdminComponent } from './admin/admin.component';
 
 import { OrganisationComponent } from './admin/organisation/organisation.component';
 import { EditOrganisationComponent } from './admin/organisation/edit-organisation/edit-organisation.component';
 import { AddOrganisationComponent } from './admin/organisation/add-organisation/add-organisation.component';
+
 
 import { DepartmentComponent } from './admin/department/department.component';
 import { AddDepartmentComponent } from './admin/department/add-department/add-department.component';
@@ -31,12 +37,11 @@ import { EditDesignationComponent } from './admin/designation/edit-designation/e
 import { AwardsComponent } from './admin/awards/awards.component';
 import { AddAwardsComponent } from './admin/awards/add-awards/add-awards.component';
 import { EditAwardComponent } from './admin/awards/edit-award/edit-award.component';
-import { ViewAwardComponent } from './admin/awards/view-award/view-award.component';
 
+import { ViewAwardComponent } from './admin/awards/view-award/view-award.component';
 import { EmployeeComponent } from './admin/employee/employee.component';
 import { AddEmployeeComponent } from './admin/employee/add-employee/add-employee.component';
 import { EditEmployeeComponent } from './admin/employee/edit-employee/edit-employee.component';
-
 import { ApproverComponent } from './approver/approver.component';
 import { ApproverApprovalComponent } from './approver/approver-approval/approver-approval.component';
 import { LoginComponent } from './login/login.component';
@@ -44,12 +49,11 @@ import { LoginComponent } from './login/login.component';
 import { RequesterComponent } from './requester/requester.component';
 import { RequesterAddRequestComponent } from './requester/requester-add-request/requester-add-request.component';
 import { RequesterViewComponent } from './requester/requester-view/requester-view.component';
-
 import { HrComponent } from './hr/hr.component';
 import { HrPublishComponent } from './hr/hr-publish/hr-publish.component';
 import { HrYettopublishComponent } from './hr/hr-yettopublish/hr-yettopublish.component';
 
-import { FormsModule } from '@angular/forms';
+import{FormsModule} from '@angular/forms';
 import { RequestComponent } from './requester/request/request.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ApproverARComponent } from './approver/approver-acceptreject/approver-ar.component';
@@ -60,11 +64,17 @@ import { HomeCardComponent } from './home-card/home-card.component';
 import { DialogboxComponent } from './dialogbox/dialogbox.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NgChartsModule } from 'ng2-charts';
-import { MatPaginatorModule } from '@angular/material/paginator';
+import {MatPaginatorModule} from '@angular/material/paginator';
 import { HotToastModule } from '@ngneat/hot-toast';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
-
 //import { TooltipModule } from 'ng2-tooltip-directive';
+
+
+
+
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,44 +82,68 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     FooterComponent,
     MoreCommentsComponent,
     CardPostComponent,
+
     LoginComponent,
+
+
     AdminComponent,
+    
+
+
     OrganisationComponent,
     AddOrganisationComponent,
     EditOrganisationComponent,
+
+
     DepartmentComponent,
     AddDepartmentComponent,
     EditDepartmentComponent,
+
     DesignationComponent,
     AddDesignationComponent,
     EditDesignationComponent,
+
     AwardsComponent,
     AddAwardsComponent,
     EditAwardComponent,
     ViewAwardComponent,
+
+
     EmployeeComponent,
     AddEmployeeComponent,
     EditEmployeeComponent,
     ApproverComponent,
     ApproverApprovalComponent,
-    RequesterComponent,
-    RequesterAddRequestComponent,
-    RequesterViewComponent,
-    HrComponent,
-    HrPublishComponent,
-    HrYettopublishComponent,
-    RequestComponent,
-    ProfileComponent,
-    ApproverARComponent,
-    RejectionReasonComponent,
-    SidebarComponent,
-    HomeCardComponent,
-    DialogboxComponent,
-    DashboardComponent,
-    AppComponent,
-    ForgotPasswordComponent,
-  ],
 
+
+
+
+
+ RequesterComponent,
+ RequesterAddRequestComponent,
+ RequesterViewComponent,
+ HrComponent,
+ HrPublishComponent,
+ HrYettopublishComponent,
+ RequestComponent,
+ ProfileComponent,
+ ApproverARComponent,
+ RejectionReasonComponent,
+ SidebarComponent,
+ HomeCardComponent,
+ DialogboxComponent,
+ DashboardComponent,
+
+ AppComponent,
+   ForgotPasswordComponent,
+
+
+
+
+
+
+
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -127,6 +161,9 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     MatPaginatorModule,
     HotToastModule.forRoot(),
     MatSelectModule,
+
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]

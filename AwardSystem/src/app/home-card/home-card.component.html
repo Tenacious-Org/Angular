@@ -1,30 +1,20 @@
 <app-layout></app-layout>
-
-<div *ngIf="isValidUser!==null">
+<div *ngIf="isValidUser!=null">
   <app-sidebar></app-sidebar>
 </div>
+
 <link href="https://fonts.googleapis.com/css?family=Schoolbell&v1" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Qwitcher+Grypen:wght@700&family=Splash&display=swap"
   rel="stylesheet">
 
+
 <!-- Filter Container  contains Search,award dropdown,date picker-->
 <div class="homepage">
-  <div class="homepagefilter">
-    <div class="align-items-center">
-      <div class="row">
-        <div class="col-auto" id="searchfilter">
-          <div class="form-inline btn-group search">
-            <input type="search" [(ngModel)]="searchValue" class="form-control" placeholder="Search by Name"
-              aria-label="Search" aria-describedby="search-addon" />
-          </div>
-        </div>
-        <div class="col-auto" id="searchfilter">
-          <button (click)="advanced()" class="btn btn-primary">Advanced</button>
-        </div>
-      </div>
-    </div>
-    <form class="row filterform" *ngIf="!isShow">
+<div class="homepagefilter">
+  <div class="align-items-center">
+
+    <form class="row filterform">
       <div class="col-auto">
         <label class="col-form-label" for="exampleFormControlSelect1">Organisation</label>
         <div class="col input-group">
@@ -38,68 +28,88 @@
       <div class="col-auto">
         <label class="col-form-label" for="exampleFormControlSelect1">Department</label>
         <div class="input-group">
-          <select name="departmentId" [(ngModel)]="searchDepartment" class="form-select">
+          <select name="departmentId"  [(ngModel)]="searchDepartment" class="form-select">
             <option *ngFor="let items of departments" ngValue={{items.id}}>{{items.departmentName}}</option>
           </select>
         </div>
-        <div class="col-auto" id="awardfilter">
-          <label class="col-form-label" for="exampleFormControlSelect1">Award Type</label>
-          <div class="input-group">
-            <select name="searchAwardType" [(ngModel)]="searchAwardType" required class="form-select">
-              <div class="alert alert-danger">
-                Award Name is Required!
-              </div>
-              <option selected>Choose...</option>
-              <option *ngFor="let items of awardTypes" value={{items.id}}>{{items.awardName}}</option>
-            </select>
-          </div>
+      </div>
+      <div class="col-auto" id="awardfilter">
+        <label class="col-form-label" for="exampleFormControlSelect1">Award Type</label>
+        <div class="input-group">
+          <select name="searchAwardType" [(ngModel)]="searchAwardType" required class="form-select">
+            <div class="alert alert-danger">
+              Award Name is Required!
+            </div>
+            <option selected>Choose...</option>
+            <option *ngFor="let items of awardTypes" value={{items.id}}>{{items.awardName}}</option>
+          </select>
         </div>
       </div>
+
+
       <div class="col-auto" id="datepicker">
         <label class="col-form-label" for="fromdate">From Date:</label>
         <div class="input-group col-auto ">
           <input class="form-control " [(ngModel)]="FromDate" type="date" id="fromdate" name="fromdate">
         </div>
       </div>
+
       <div class="col-auto" id="datepicker">
         <label class="col-form-label" for="todate">To Date:</label>
         <div class="input-group col-auto">
-          <input class="form-control " [(ngModel)]="ToDate" type="date" id="fromdate" name="todate">
+          <input class="form-control "  [(ngModel)]="ToDate"  type="date" id="fromdate" name="todate">
         </div>
       </div>
       <div class="applybutton">
         <button id="applybutton"
           (click)="awardFilter(searchOrganisation,searchDepartment,searchAwardType,FromDate,ToDate)">Apply</button>
       </div>
-      <!-- <div *ngIf="isApplied==true">
-        <button id="applybutton" (click)="Reset()">Reset</button>
-      </div> -->
+      <div *ngIf="isApplied==true" >
+        <button id="applybutton"
+          (click)="Reset()">Reset</button>
+      </div>
     </form>
-  </div>
-</div>
+    <div class="row">
 
-  <!-- Home page Card Container contains award image, awardee image,award name-->
-  <div class=" container row" id="cardflip">
-    <div class="card"
-      *ngFor="let item of awardData | filter:searchValue| paginate: { itemsPerPage: 6, currentPage: page }">
-      <div class="flip-card-inner">
-        <div class="flip-card-front">
-          <img src="./assets/images/cardback.png" class="card-img-top" alt="Fissure in Sandstone" />
-          <div class="card-img-overlay">
-            <img class="card-img-left" [src]="'data:image/jpg;base64,'+ item.awardImage" alt="Avatar">
-          </div>
-          <div class="card-img-overlay">
-            <img class="card-img-right" [src]="'data:image/jpg;base64,'+ item.awardeeImage" alt="Avatar">
-          </div>
+
+      <div class="col-auto" id="searchfilter">
+        <div class="form-inline btn-group search">
+          <input type="search" [(ngModel)]="searchValue" class="form-control" placeholder="Search by Name"
+            aria-label="Search" aria-describedby="search-addon" />
         </div>
-        <div class="card-body">
-          <p id="text"><b>Congrats {{item.awardeeName}} for getting {{item.awardName}}</b></p>
-          <h4 [ngClass]="{'limitTextHeight': isReadMore}">{{item.reason}}</h4>
-        </div>
-        <button id="readbutton" [routerLink]="['/morecomments',item.id]">
-          Read More...
-        </button>
       </div>
     </div>
-    <pagination-controls class="paginate" (pageChange)="page = $event"></pagination-controls>
   </div>
+
+</div>
+
+<!-- Home page Card Container contains award image, awardee image,award name-->
+
+<div class=" container row" id="cardflip">
+  <div class="card" *ngFor="let item of awardData | filter:searchValue| paginate: { itemsPerPage: 6, currentPage: page }">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <img src="./assets/images/cardback.png" class="card-img-top" alt="Fissure in Sandstone" />
+        <div class="card-img-overlay">
+
+          <img class="card-img-left" [src]="'data:image/jpg;base64,'+ item.awardImage" alt="Avatar">
+        </div>
+        <div class="card-img-overlay">
+
+          <img class="card-img-right" [src]="'data:image/jpg;base64,'+ item.awardeeImage" alt="Avatar">
+        </div>
+
+      </div>
+      <div class="card-body">
+        <p id="text"><b>Congrats {{item.awardeeName}} for getting {{item.awardName}}</b></p>
+        <h4 [ngClass]="{'limitTextHeight': isReadMore}">{{item.reason}}</h4>
+      </div>
+      <button id="readbutton" [routerLink]="['/morecomments',item.id]">
+        Read More...
+      </button>
+    </div>
+  </div>
+  <pagination-controls class="paginate" (pageChange)="page = $event"></pagination-controls>
+
+</div>
+</div>

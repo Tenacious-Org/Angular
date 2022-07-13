@@ -1,17 +1,16 @@
-#outer {
+#outer{
     overflow-x: hidden;
 }
 
-#bargraph {
+#bargraph{
     height: 40% !important;
     width: 40% !important;
     margin-left: 25%;
 }
-
-.input-group {
-    width: 180px;
+.input-group{
+    width:180px;
+}
+.form-control{
+    width:180px;
 }
 
-.form-control {
-    width: 180px;
-}
