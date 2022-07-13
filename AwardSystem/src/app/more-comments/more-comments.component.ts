@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { timer } from 'rxjs';
 import { AuthenticationService } from '../authentication.service';
 import { AwardService } from '../award.service';
 
@@ -15,6 +16,7 @@ export class MoreCommentsComponent implements OnInit {
   commentList:any;
   isReadMore =true;
   isAuthorize:any;
+  dateTime:Date | undefined
   constructor(private awardService:AwardService, private route:ActivatedRoute,private routing:Router) { }
   Comments :any ={
     id :  0,
@@ -32,6 +34,9 @@ export class MoreCommentsComponent implements OnInit {
           console.log(this.data);
         });
       });
+      timer(0,1000).subscribe(()=>{
+        this.dateTime=new Date();
+       })
 
 
       this.awardService.getComments(this.Id).subscribe(result=>{

@@ -22,6 +22,12 @@ export class DashboardComponent implements OnInit {
   
   @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;
 
+
+  org:any=[]
+  award:any=[]
+  orgcnt:any=[]
+  awdcnt:any=[]
+
   public pieChartOptions: ChartOptions = {
     responsive: true,
   };
@@ -53,10 +59,7 @@ export class DashboardComponent implements OnInit {
       statusId: 0,
       isActive: true,
     }
-    org:any=[]
-  award:any=[]
-  orgcnt:any=[]
-  awdcnt:any=[]
+    
     
 
 
