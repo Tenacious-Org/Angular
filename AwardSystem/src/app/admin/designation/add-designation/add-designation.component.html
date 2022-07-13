@@ -35,7 +35,7 @@
             <div class="col-auto p-1.5">
                 <label for="firstName" class="col-form-label">Designation Name</label>
 
-                <input type="text"  class="form-control" #designationName="ngModel" required pattern="^[a-zA-Z][a-zA-Z\s]{0,20}[a-zA-Z]$" name="designationName" [(ngModel)]="Designation.designationName" >
+                <input type="text"  class="form-control" #designationName="ngModel" required pattern="[a-zA-Z\s]{0,20}[a-zA-Z\s]{0,20}[a-zA-Z]$" name="designationName" [(ngModel)]="Designation.designationName" >
                 <div *ngIf ="designationName.touched && designationName.errors?.['required']" class="alert alert-danger">
                     Designation Name is Required!
                 </div>   
