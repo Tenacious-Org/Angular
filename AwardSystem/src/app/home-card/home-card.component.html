@@ -1,5 +1,5 @@
 <app-layout></app-layout>
-<div *ngIf="isValidUser!=null">
+<div *ngIf="isValidUser!==null">
   <app-sidebar></app-sidebar>
 </div>
 
@@ -64,7 +64,7 @@
         <button id="applybutton"
           (click)="awardFilter(searchOrganisation,searchDepartment,searchAwardType,FromDate,ToDate)">Apply</button>
       </div>
-      <div *ngIf="isApplied==true" >
+      <div *ngIf="isApplied===true" >
         <button id="applybutton"
           (click)="Reset()">Reset</button>
       </div>

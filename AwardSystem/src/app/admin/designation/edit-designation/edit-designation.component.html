@@ -15,10 +15,10 @@
                     <label for="dept" class="col-form-label">Department</label>
                 <div class="input-group">
                     <select name="departmentId" [(ngModel)]="data.departmentId " class="custom-select"   >
-                              <option *ngFor="let items of departments" [selected]="items.id==selectedDepartment" value={{items.id}}> {{items.departmentName}}</option>
+                              <option *ngFor="let items of departments" [selected]="items.id===selectedDepartment" value={{items.id}}> {{items.departmentName}}</option>
                     </select>
                 </div>
-                <div *ngIf="departmentID==''" class="alert alert-danger">Department name should not be empty! </div>
+                <div *ngIf="departmentID===''" class="alert alert-danger">Department name should not be empty! </div>
 
             </div>
         </div>
@@ -27,10 +27,10 @@
                 <label for="dept" class="col-form-label">Role</label>
                 <div class="input-group">
                     <select name="roleId" [(ngModel)]="data.roleId"   class="custom-select"   >
-                              <option *ngFor="let items of roles"  [selected]="items.id==selectedRole" value={{items.id}} >{{items.roleName}}</option>                         
+                              <option *ngFor="let items of roles"  [selected]="items.id===selectedRole" value={{items.id}} >{{items.roleName}}</option>                         
                     </select>
                 </div>
-                <div *ngIf="roleID==''" class="alert alert-danger">Role  should not be empty! </div>
+                <div *ngIf="roleID===''" class="alert alert-danger">Role  should not be empty! </div>
 
             </div>
         </div>

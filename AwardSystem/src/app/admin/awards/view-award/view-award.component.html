@@ -5,7 +5,7 @@
     <!--  view awards container contains awardname, award description,award image-->
     <div class="card">
         <div class="card-body">
-          <div class="awardimage" *ngIf="data.image==null ; else elseimage">
+          <div class="awardimage" *ngIf="data.image===null ; else elseimage">
             <img src='assets/images/award.png' class="rounded-circle img-fluid"  />
         </div>
         <ng-template  #elseimage><div class="awardimage"><img [src]="'data:image/jpg;base64,'+ data.image" class=" img-fluid"  /></div></ng-template>

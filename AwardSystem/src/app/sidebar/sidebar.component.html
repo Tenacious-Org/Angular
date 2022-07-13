@@ -8,15 +8,15 @@
     </div>
 
     <div *ngIf="!isShowDivIf" @ngIfAnimation  @easeInOut class="p-4 pt-5">
-        <div class="text-center" *ngIf="data.image==null || data.image=='' ; else elseimage">
-            <img *ngIf="data.gender=='Male';else elsegender " src='assets/images/male.jpg' class="rounded-circle img-fluid" style="margin-left:0.8rem;width:8rem;height:8rem" />  
+        <div class="text-center" *ngIf="data.image===null || data.image==='' ; else elseimage">
+            <img *ngIf="data.gender==='Male';else elsegender " src='assets/images/male.jpg' class="rounded-circle img-fluid" style="margin-left:0.8rem;width:8rem;height:8rem" />  
             <ng-template #elsegender> <img  src='assets/images/female.jpg'  class="rounded-circle img-fluid" style="margin-left:0.8rem;width:8rem;height:8rem" /></ng-template>     
         </div>
         <ng-template  #elseimage><div class="mt-3 mb-4 text-center"><img [src]="'data:image/jpg;base64,'+ data.image" class="rounded-circle img-fluid" style="margin-left:0.8rem;width:8rem;height:8rem"/></div></ng-template>
 
             <h4 class="text-light mt-4 text-center">{{data.firstName}} {{data.lastName}}</h4>
         <!-- Admin Sidebar -->
-        <div *ngIf="role==5; else userSidebar">
+        <div *ngIf="role===5; else userSidebar">
            
         <ul class="list-unstyled components mt-4 mb-5 sidebar-items">
             <li>
@@ -53,16 +53,16 @@
                 <li>
                     <a [routerLink]="['/profile/',+id]"><i class="fa-solid fa-address-card ml-4 mr-3"></i>Profile</a>
                 </li>
-                <li *ngIf="role==2 || role==3 || role==4">
+                <li *ngIf="role===2 || role===3 || role===4">
                     <a [routerLink]="['/requester-request']"><i class="fa-solid fa-paper-plane  ml-4 mr-3"></i>Request</a>
                 </li>
-                <li *ngIf="role==3 || role==4">
+                <li *ngIf="role===3 || role===4">
                     <a [routerLink]="['/approver-approval']" ><i class="fa-solid fa-circle-check ml-4 mr-3"></i>Approval</a>
                 </li>
-                <li *ngIf="role==4">
+                <li *ngIf="role===4">
                     <a [routerLink]="['/hr-publish']"><i class="fa-solid fa-upload ml-4 mr-3"></i>Publish</a>
                 </li>
-                <li *ngIf=" role==4">
+                <li *ngIf=" role===4">
                     <a [routerLink]="['/dashboard']"><i class="fa-regular fa-chart-bar ml-4 mr-3"></i>Dashboard</a>
                 </li>
             </ul>

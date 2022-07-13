@@ -17,7 +17,7 @@
                               <option *ngFor="let items of departments"  ngValue={{items.id}} >{{items.departmentName}}</option>
                     </select>
                 </div>
-                <div *ngIf="departmentID==''" class="alert alert-danger">Department name should not be empty! </div>
+                <div *ngIf="departmentID===''" class="alert alert-danger">Department name should not be empty! </div>
             </div>
         </div>
         <div class="designation row mb-3" >
@@ -28,7 +28,7 @@
                 <option *ngFor="let items of roles"  ngValue={{items.id}} >{{items.roleName}}</option>                         
                   </select>
               </div>
-              <div *ngIf="roleID==''" class="alert alert-danger">Role  should not be empty! </div>
+              <div *ngIf="roleID===''" class="alert alert-danger">Role  should not be empty! </div>
           </div>
         </div>
         <div class="designation row mb-3" >

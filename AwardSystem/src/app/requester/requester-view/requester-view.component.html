@@ -8,9 +8,9 @@
             <div class="row">
                 <div class="col">
                     <div class=" rounded-circle text-center">
-                        <div class="mt-3 mb-4 text-center" *ngIf="data.awardeeImage==null ; else elseimage">
+                        <div class="mt-3 mb-4 text-center" *ngIf="data.awardeeImage===null ; else elseimage">
 
-                            <img *ngIf="data.gender=='Male';else elsegender " src='assets/images/male.jpg'
+                            <img *ngIf="data.gender==='Male';else elsegender " src='assets/images/male.jpg'
                                 class="rounded-circle img-fluid" />
                             <ng-template #elsegender> <img src='assets/images/female.jpg'
                                     class="rounded-circle img-fluid" /></ng-template>
@@ -24,7 +24,7 @@
                 </div>
                 <div class="col">
                     <div class=" rounded-circle text-center">
-                        <div class="mt-3 mb-4 text-center" *ngIf="data.awardImage==null ; else elseawardimage">
+                        <div class="mt-3 mb-4 text-center" *ngIf="data.awardImage===null ; else elseawardimage">
                             <img src='assets/images/award.png' class="rounded-circle img-fluid" />
                         </div>
                         <ng-template #elseawardimage>
@@ -72,7 +72,7 @@
                     <h2 id="reason">Reason</h2>
                     <textarea disabled class="reason text-muted ">{{data.reason}}</textarea>
                 </div>
-                <div class="col-sm-12" *ngIf="data.statusId==3">
+                <div class="col-sm-12" *ngIf="data.statusId===3">
                     <h2 id="reason"> Rejected Reason</h2>
                     <textarea disabled class="reason text-muted">{{data.rejectedReason}}</textarea>
                 </div>
