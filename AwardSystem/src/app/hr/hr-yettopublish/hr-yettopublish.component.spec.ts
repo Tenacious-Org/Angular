@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { HrYettopublishComponent } from './hr-yettopublish.component';
 
 describe('HrYettopublishComponent', () => {
@@ -8,9 +7,9 @@ describe('HrYettopublishComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HrYettopublishComponent ]
+      declarations: [HrYettopublishComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {

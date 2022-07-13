@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { ApproverARComponent } from './approver-ar.component';
 
 describe('ApproverARComponent', () => {
@@ -8,9 +7,9 @@ describe('ApproverARComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ApproverARComponent ]
+      declarations: [ApproverARComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
@@ -18,7 +17,7 @@ describe('ApproverARComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
-
+  
   it('should create', () => {
     expect(component).toBeTruthy();
   });

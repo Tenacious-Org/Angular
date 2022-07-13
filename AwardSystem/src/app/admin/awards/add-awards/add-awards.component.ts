@@ -14,78 +14,65 @@ import { AuthenticationService } from 'src/app/authentication.service';
   styleUrls: ['./add-awards.component.css']
 })
 export class AddAwardsComponent implements OnInit {
-  imgsrc="";
-  endpoint ="AwardType";
+  imgsrc = "";
+  endpoint = "AwardType";
   imageError = "";
   isImageSaved: boolean = false;
   cardImageBase64 = "";
   error: any;
-  
-  
-  constructor(private toastService: HotToastService,private sharedService:SharedService,private router: Router) { }
-
-  response="success"; 
-  AwardType : any ={
-  id : 0,
-  awardName : '',
-  awardDescription :'',
-  image: null,
-  imageName:'',
-  imageString : this.cardImageBase64,
-  addedBy : 1,
-  addedOn : Date.now
+  constructor(private toastService: HotToastService, private sharedService: SharedService, private router: Router) { }
+  response = "success";
+  AwardType: any = {
+    id: 0,
+    awardName: '',
+    awardDescription: '',
+    image: null,
+    imageName: '',
+    imageString: this.cardImageBase64,
+    addedBy: 1,
+    addedOn: Date.now
   }
-
   ngOnInit(): void {
-    if(!AuthenticationService.GetData("Admin")){
+    if (!AuthenticationService.GetData("Admin")) {
       this.router.navigateByUrl("")
     }
   }
-
-  OnSubmit(){
+  OnSubmit() {
     console.log(this.AwardType);
-    this.sharedService.add(this.endpoint,this.AwardType).subscribe({
+    this.sharedService.add(this.endpoint, this.AwardType).subscribe({
       // console.log(res);
       // this.showToast();
-      next:(res) => { console.log(res), this.showToast() },
-        error: (error) => this.error = error.error.message
+      next: (res) => { console.log(res), this.showToast() },
+      error: (error) => this.error = error.error.message
     });
-
   }
-  
+
   showToast() {
     this.toastService.success('Award added Successfully !',
-    {
-      autoClose: true,
-      dismissible: true,
-      
-    })
+      {
+        autoClose: true,
+        dismissible: true,
+      })
     this.router.navigate(['/awards']);
-
   }
-  
 
-  ImageConversion(fileInput:any){
-    var x:any=document.getElementById("image");
-    var file=x.files[0];
-    if('name' in file){
-      this.AwardType.imageName=file.name;
+  ImageConversion(fileInput: any) {
+    var x: any = document.getElementById("image");
+    var file = x.files[0];
+    if ('name' in file) {
+      this.AwardType.imageName = file.name;
       console.log(this.AwardType.imageName);
     }
     this.imageError = "";
     if (fileInput.target.files && fileInput.target.files[0]) {
-
       const max_size = 20971520;
       const allowed_types = ['image/png', 'image/jpeg'];
-
       if (fileInput.target.files[0].size > max_size) {
         this.imageError =
           'Maximum size allowed is ' + max_size / 1000 + 'Mb';
-
         return false;
       }
       console.log(fileInput.target.files[0].type)
-
       if (!allowed_types.includes(fileInput.target.files[0].type)) {
         this.imageError = 'Only Images are allowed ( JPG | PNG )';
         return false;
@@ -95,17 +82,16 @@ export class AddAwardsComponent implements OnInit {
         const image = new Image();
         image.src = e.target.result;
         image.onload = rs => {
-          this.imgsrc=e.target.result;
+          this.imgsrc = e.target.result;
           const imgBase64Path = e.target.result;
           this.cardImageBase64 = imgBase64Path;
-          this.cardImageBase64= this.cardImageBase64.replace("data:image/png;base64,", "");
-          this.cardImageBase64= this.cardImageBase64.replace("data:image/jpg;base64,", "");
-          this.cardImageBase64= this.cardImageBase64.replace("data:image/jpeg;base64,", "");
-          this.AwardType.imageString=this.cardImageBase64;
+          this.cardImageBase64 = this.cardImageBase64.replace("data:image/png;base64,", "");
+          this.cardImageBase64 = this.cardImageBase64.replace("data:image/jpg;base64,", "");
+          this.cardImageBase64 = this.cardImageBase64.replace("data:image/jpeg;base64,", "");
+          this.AwardType.imageString = this.cardImageBase64;
           this.isImageSaved = true;
         }
       };
-
       reader.readAsDataURL(fileInput.target.files[0]);
     } return false
   }

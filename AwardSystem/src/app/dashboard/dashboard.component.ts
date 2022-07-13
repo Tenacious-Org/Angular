@@ -9,18 +9,14 @@ import { AwardType } from 'Models/AwardType';
 import { AwardService } from '../award.service';
 import { dashboard } from 'Models/Dashboard';
 
-
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  
-  chart:any
-  
+  chart: any
   constructor(private sharedService: SharedService, private awardService: AwardService, private router: Router) { }
-
   awardData: any;
   isAward = 0;
   cnt = 0;
@@ -38,13 +34,10 @@ export class DashboardComponent implements OnInit {
       statusId: 0,
       isActive: true,
     }
-    org:any=[]
-  award:any=[]
-  orgcnt:any=[]
-  awdcnt:any=[]
-    
-
-
+  org: any = []
+  award: any = []
+  orgcnt: any = []
+  awdcnt: any = []
 
   salesData: ChartData<'bar'> = {
     labels: ['Development', 'Testing', 'Facility', 'Security', 'Management'],
@@ -64,10 +57,6 @@ export class DashboardComponent implements OnInit {
       },
     },
   };
-  
-
-
-
 
   organisations: Organisation[] = [];
   departments: Department[] = [];
@@ -77,131 +66,123 @@ export class DashboardComponent implements OnInit {
   SelectOrg: any = 0;
   SelectDep: any = 0;
   data: AwardType[] = [];
-
-
   endpoint = "Organisation";
   endpoint1 = "AwardType";
 
-  
-
-  
-
-  
-
   ngOnInit(): void {
     this.sharedService.getallwinner().subscribe(
-      (res) =>{
+      (res) => {
 
         //converting api values into list
         let d = []
-        let d1:string[][] = []
-        for(var i of res){
-          for(let key in i){
+        let d1: string[][] = []
+        for (var i of res) {
+          for (let key in i) {
             let value = i[key];
             d.push(value)
           }
           d1.push(d)
-          d = []          
+          d = []
         }
         console.log(d1)
 
         //setting into calculate a total count in dictionary
-        var dict:any = {}
-        for(var a of d1){
-          for(var b of a){
+        var dict: any = {}
+        for (var a of d1) {
+          for (var b of a) {
             var new_item = b
-            dict[new_item] = dict.hasOwnProperty(new_item)? ++dict[new_item] : 1;
+            dict[new_item] = dict.hasOwnProperty(new_item) ? ++dict[new_item] : 1;
           }
         }
         console.log(dict)
 
         //Setting Organisation into a list
-        var org:any = []
-        const search = (targetElement : string) => (arrElement : string) => arrElement === targetElement;
-        for(var x of d1){
-            if(org.some(search(x[0]))){
-              continue
-            }
-            else{
-              org.push(x[0])
-            }
+        var org: any = []
+        const search = (targetElement: string) => (arrElement: string) => arrElement === targetElement;
+        for (var x of d1) {
+          if (org.some(search(x[0]))) {
+            continue
+          }
+          else {
+            org.push(x[0])
+          }
         }
         this.org = org
         console.log(this.org)
 
         //Setting Awards into a list
-        var award:any = []
-        for(var x of d1){
-            if(award.some(search(x[2]))){
-              continue
-            }
-            else{
-              award.push(x[2])
-            }
+        var award: any = []
+        for (var x of d1) {
+          if (award.some(search(x[2]))) {
+            continue
+          }
+          else {
+            award.push(x[2])
+          }
         }
         this.award = award
         console.log(this.award)
 
         //setting award values into a list
-        var orgcnt:any = []
-        for(var j of org){
-          for(var h of Object.keys(dict)){
-            if(j == h){
+        var orgcnt: any = []
+        for (var j of org) {
+          for (var h of Object.keys(dict)) {
+            if (j == h) {
               orgcnt.push(dict[h])
             }
           }
         }
         this.orgcnt = orgcnt
-        console.log("Organisation :",this.orgcnt)
+        console.log("Organisation :", this.orgcnt)
 
         //setting award values into a list
-        var awdcnt:any = []
-        for(var j of award){
-          for(var k of Object.keys(dict)){
-            if(j == k){
+        var awdcnt: any = []
+        for (var j of award) {
+          for (var k of Object.keys(dict)) {
+            if (j == k) {
               awdcnt.push(dict[k])
             }
           }
         }
         this.awdcnt = awdcnt
-        console.log("Awards :",this.awdcnt)
+        console.log("Awards :", this.awdcnt)
 
 
-      //create a chart data
-      // this.chart = new Chart('canvas',{
-      //   type: 'line',
-      //   data: {
-      //     labels: this.award,
-      //     datasets: [
-      //       {
-      //         data: this.awdcnt,
-      //         borderColor: '#3cba9f',
-      //         fill: false
-      //       }
-      //     ]
-      //   },
-      //   options: {
-      //     responsive:true
-      //   }
-      // })
+        //create a chart data
+        // this.chart = new Chart('canvas',{
+        //   type: 'line',
+        //   data: {
+        //     labels: this.award,
+        //     datasets: [
+        //       {
+        //         data: this.awdcnt,
+        //         borderColor: '#3cba9f',
+        //         fill: false
+        //       }
+        //     ]
+        //   },
+        //   options: {
+        //     responsive:true
+        //   }
+        // })
 
-      new Chart('barchart', {
-        type: 'pie',
-        data: {
-          labels: award,
-          datasets: [{
-            data: awdcnt,
-          }]
-        },
-        options: {
-          plugins: {
-            legend: {
-              position: 'top',
-              display: true,
-            },
+        new Chart('barchart', {
+          type: 'pie',
+          data: {
+            labels: award,
+            datasets: [{
+              data: awdcnt,
+            }]
           },
-        }
-      });
+          options: {
+            plugins: {
+              legend: {
+                position: 'top',
+                display: true,
+              },
+            },
+          }
+        });
 
 
       }
@@ -217,100 +198,96 @@ export class DashboardComponent implements OnInit {
 
   }
 
-  
-
   onSelectorg() {
     this.sharedService.getallwinOrgwise(this.SelectOrg).subscribe(res => {
 
-      
+
       (<HTMLCanvasElement>document.getElementById("barchart")).remove();
 
-      if(this.cnt >= 1)
-      {
+      if (this.cnt >= 1) {
         (<HTMLCanvasElement>document.getElementById("barcharts")).remove();
         this.cnt = 0
       }
-      this.cnt  = 1
-      
+      this.cnt = 1
 
       console.log(res)
-       //converting api values into list
-       let d = []
-       let d1:string[][] = []
-       for(var i of res){
-         for(let key in i){
-           let value = i[key];
-           d.push(value)
-         }
-         d1.push(d)
-         d = []          
-       }
-       console.log(d1)
+      //converting api values into list
+      let d = []
+      let d1: string[][] = []
+      for (var i of res) {
+        for (let key in i) {
+          let value = i[key];
+          d.push(value)
+        }
+        d1.push(d)
+        d = []
+      }
+      console.log(d1)
 
-       //setting into calculate a total count in dictionary
-       var dict:any = {}
-       for(var a of d1){
-         for(var b of a){
-           var new_item = b
-           dict[new_item] = dict.hasOwnProperty(new_item)? ++dict[new_item] : 1;
-         }
-       }
-       console.log(dict)
+      //setting into calculate a total count in dictionary
+      var dict: any = {}
+      for (var a of d1) {
+        for (var b of a) {
+          var new_item = b
+          dict[new_item] = dict.hasOwnProperty(new_item) ? ++dict[new_item] : 1;
+        }
+      }
+      console.log(dict)
 
-       //Setting Organisation into a list
-       var org:any = []
-       const search = (targetElement : string) => (arrElement : string) => arrElement === targetElement;
-       for(var x of d1){
-           if(org.some(search(x[0]))){
-             continue
-           }
-           else{
-             org.push(x[0])
-           }
-       }
-       this.org = org
-       console.log(this.org)
+      //Setting Organisation into a list
+      var org: any = []
+      const search = (targetElement: string) => (arrElement: string) => arrElement === targetElement;
+      for (var x of d1) {
+        if (org.some(search(x[0]))) {
+          continue
+        }
+        else {
+          org.push(x[0])
+        }
+      }
+      this.org = org
+      console.log(this.org)
 
-       //Setting Awards into a list
-       var award:any = []
-       for(var x of d1){
-           if(award.some(search(x[2]))){
-             continue
-           }
-           else{
-             award.push(x[2])
-           }
-       }
-       this.award = award
-       console.log(this.award)
+      //Setting Awards into a list
+      var award: any = []
+      for (var x of d1) {
+        if (award.some(search(x[2]))) {
+          continue
+        }
+        else {
+          award.push(x[2])
+        }
+      }
+      this.award = award
+      console.log(this.award)
 
-       //setting award values into a list
-       var orgcnt:any = []
-       for(var j of org){
-         for(var h of Object.keys(dict)){
-           if(j == h){
-             orgcnt.push(dict[h])
-           }
-         }
-       }
-       this.orgcnt = orgcnt
-       console.log("Organisation :",this.orgcnt)
+      //setting award values into a list
+      var orgcnt: any = []
+      for (var j of org) {
+        for (var h of Object.keys(dict)) {
+          if (j == h) {
+            orgcnt.push(dict[h])
+          }
+        }
+      }
+      this.orgcnt = orgcnt
+      console.log("Organisation :", this.orgcnt)
 
-       //setting award values into a list
-       var awdcnt:any = []
-       for(var j of award){
-         for(var k of Object.keys(dict)){
-           if(j == k){
-             awdcnt.push(dict[k])
-           }
-         }
-       }
-       this.awdcnt = awdcnt
-       console.log("Awards :",this.awdcnt)
+      //setting award values into a list
+      var awdcnt: any = []
+      for (var j of award) {
+        for (var k of Object.keys(dict)) {
+          if (j == k) {
+            awdcnt.push(dict[k])
+          }
+        }
+      }
+      this.awdcnt = awdcnt
+      console.log("Awards :", this.awdcnt)
 
-       //Creating Charts
-       this.cnt += 1
-       new Chart('barcharts', {
+      //Creating Charts
+      this.cnt += 1
+      new Chart('barcharts', {
         type: 'pie',
         data: {
           labels: award,
@@ -330,8 +307,7 @@ export class DashboardComponent implements OnInit {
 
     });
   }
+  public win: dashboard[] = [];
 
-  public win:dashboard[] =[];
 
-  
 }

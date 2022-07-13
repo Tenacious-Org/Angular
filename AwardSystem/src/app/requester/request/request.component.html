@@ -1,7 +1,7 @@
 <app-layout></app-layout>
 <app-sidebar></app-sidebar>
-<!-- Requester request container contains request details table -->
 
+<!-- Requester request container contains request details table -->
 <div class="container d-flex justify-content-center">
     <div class="container container-fluid ">
         <div>
@@ -14,11 +14,10 @@
                     aria-label="Search" aria-describedby="search-addon" />
             </div>
             <div class="w3-right dropdown me-4 mb-4">
-                <select name="filtervalue" class="form-select" [(ngModel)]="filtervalue"  style="width:auto">
-                    <option *ngFor="let option of options" [value]="option" >{{option}}</option>
+                <select name="filtervalue" class="form-select" [(ngModel)]="filtervalue" style="width:auto">
+                    <option *ngFor="let option of options" [value]="option">{{option}}</option>
                 </select>
             </div>
-
         </div>
         <br>
         <table class="datatable table table-striped table-bordered">
@@ -54,7 +53,7 @@
             </tbody>
         </table>
 
-<!-- pagination -->
+        <!-- pagination -->
         <pagination-controls class="pagination" (pageChange)="page = $event"></pagination-controls>
     </div>
 </div>

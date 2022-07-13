@@ -5,40 +5,42 @@ import { ActivatedRoute } from '@angular/router';
 import { AuthenticationService } from '../authentication.service';
 import { HttpClient } from '@angular/common/http';
 import { Awards } from 'Models/Awards';
+
 @Component({
-  selector: 'app-card-post',
-  templateUrl: './card-post.component.html',
-  styleUrls: ['./card-post.component.css']
+	selector: 'app-card-post',
+	templateUrl: './card-post.component.html',
+	styleUrls: ['./card-post.component.css']
 })
+
 export class CardPostComponent implements OnInit {
-  AwardId:any;
-  awardData: any;
-  totalLength: any;
-  page: number = 1;
-  pageId=1;
-  searchValue:any;
-  employeeId=AuthenticationService.GetData("User");
-  isReadMore =true;
-  constructor(private awardService:AwardService,private router:ActivatedRoute){ }
+	AwardId: any;
+	awardData: any;
+	totalLength: any;
+	page: number = 1;
+	pageId = 1;
+	searchValue: any;
+	employeeId = AuthenticationService.GetData("User");
+	isReadMore = true;
+	constructor(private awardService: AwardService, private router: ActivatedRoute) { }
 
-  ngOnInit(): void {
-	
-    this.router.params.subscribe(params => {
-      this.AwardId = params['id'];
-    this.awardService.getAwardsList(this.pageId,this.employeeId).subscribe(data=>{
-      this.awardData=data;
-    });
-  });
+	ngOnInit(): void {
 
-  }
-  
-  @Input() ShowStatus:boolean =true;
+		this.router.params.subscribe(params => {
+			this.AwardId = params['id'];
+			this.awardService.getAwardsList(this.pageId, this.employeeId).subscribe(data => {
+				this.awardData = data;
+			});
+		});
+
+	}
+
+	@Input() ShowStatus: boolean = true;
 	searchAward = "";
 	searchAwardee = "";
 	FromDate = new Date("0001-01-01");
 	ToDate = new Date("0001-01-01");
-	public data:Awards [] = [];
-  
+	public data: Awards[] = [];
+
 	public filteredData: Awards[] = [];
 	samplefun(searchAward: string, searchAwardee: string, FromDate: any, ToDate: any) {
 
@@ -113,7 +115,7 @@ export class CardPostComponent implements OnInit {
 		//14.search by award,Fromdate and Todate
 		else if (searchAward.length != 0 && searchAwardee == '' && FromDate != new Date("0001-01-01").toString() && ToDate != new Date("0001-01-01").toString()) {
 			console.log("award,fromdate,Todate")
-			this.data = this.filteredData.filter(item => { return( item.awardTypeId ) && new Date(item.updatedOn.toString()) >= new Date(FromDate) && new Date(item.updatedOn.toString()) <= new Date(ToDate) });
+			this.data = this.filteredData.filter(item => { return (item.awardTypeId) && new Date(item.updatedOn.toString()) >= new Date(FromDate) && new Date(item.updatedOn.toString()) <= new Date(ToDate) });
 		}
 		//14.search by award,awardee,Fromdate and Todate
 		else if (searchAward.length != 0 && searchAwardee.length != 0 && FromDate != new Date("0001-01-01").toString() && ToDate != new Date("0001-01-01").toString()) {

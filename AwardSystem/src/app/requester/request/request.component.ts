@@ -15,12 +15,12 @@ export class RequestComponent implements OnInit {
   page: number = 1;
   data: any;
   val: any;
-  options:string[]=["All","Pending","Approved","Rejected","Published"]
+  options: string[] = ["All", "Pending", "Approved", "Rejected", "Published"]
   filtervalue = "All";
-  constructor(private awardService: AwardService,private router:Router) {}
+  constructor(private awardService: AwardService, private router: Router) { }
 
   ngOnInit(): void {
-    if(!AuthenticationService.GetData("Requester") && !AuthenticationService.GetData("Approver") && !AuthenticationService.GetData("Publisher")){
+    if (!AuthenticationService.GetData("Requester") && !AuthenticationService.GetData("Approver") && !AuthenticationService.GetData("Publisher")) {
       this.router.navigateByUrl("")
     }
     this.getAll();

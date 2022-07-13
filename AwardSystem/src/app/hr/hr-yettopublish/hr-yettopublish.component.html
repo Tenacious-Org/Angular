@@ -3,107 +3,102 @@
 
 
 <div class="container d-flex justify-content-center ">
-
-  <!-- Write your contents here -->
-
-
-  <div class="card">
-      <div class="card-body">
-          <div class=" rounded-circle text-center" *ngIf="data.image===null ; else elseimage">
-              <img *ngIf="data.gender==='Male';else elsegender " src='assets/images/male.jpg' class="rounded-circle img-fluid" style="width: 100px;" />  
-              <ng-template #elsegender> <img  src='assets/images/female.jpg' class="rounded-circle img-fluid" style="width: 100px;" /></ng-template>     
+    <!-- Write your contents here -->
+    <div class="card">
+        <div class="card-body">
+            <div class=" rounded-circle text-center" *ngIf="data.image===null ; else elseimage">
+                <img *ngIf="data.gender==='Male';else elsegender " src='assets/images/male.jpg'
+                    class="rounded-circle img-fluid" style="width: 100px;" />
+                <ng-template #elsegender> <img src='assets/images/female.jpg' class="rounded-circle img-fluid"
+                        style="width: 100px;" /></ng-template>
             </div>
-            <ng-template  #elseimage><div class="text-center"><img [src]="'data:image/jpg;base64,'+ data.image" style=width:10rem; class="rounded-circle img-fluid" style="width: 100px;" /></div></ng-template>
-          <hr>
-          <form #yetToPublish="ngForm" (ngSubmit)="OnSubmit()" autocomplete="off">
+            <ng-template #elseimage>
+                <div class="text-center"><img [src]="'data:image/jpg;base64,'+ data.image" style=width:10rem;
+                        class="rounded-circle img-fluid" style="width: 100px;" /></div>
+            </ng-template>
+            <hr>
+            <form #yetToPublish="ngForm" (ngSubmit)="OnSubmit()" autocomplete="off">
+                <div class="row text-center">
+                    <h2>Employee Details</h2>
+                    <div class="col-sm-6">
+                        <h2 class="mb-0">ACE ID</h2>
 
-          <div class="row text-center">
-            <h2>Employee Details</h2>
-              <div class="col-sm-6">
-                  <h2 class="mb-0">ACE ID</h2>
+                        <h3 class="text-muted mb-0">{{data.aceId}}</h3>
+                    </div>
+                    <div class="col-sm-6">
+                        <h2 class="mb-0">Name</h2>
+                        <h3 class="text-muted mb-0">{{data.awardeeName}}</h3>
+                    </div>
+                </div>
+                <hr>
+                <div class="row text-center">
+                    <div class="col-sm-6">
+                        <h2 class="mb-0">Department</h2>
 
-                  <h3 class="text-muted mb-0">{{data.aceId}}</h3>
-              </div>
-              <div class="col-sm-6">
-                  <h2 class="mb-0">Name</h2>
-                  <h3 class="text-muted mb-0">{{data.awardeeName}}</h3>
-              </div>
-          </div>
-          <hr>
+                        <h3 class="text-muted mb-0">{{data.department}}</h3>
+                    </div>
 
-          <div class="row text-center">
-              <div class="col-sm-6">
-                  <h2 class="mb-0">Department</h2>
+                    <div class="col-sm-6">
+                        <h2 class="mb-0">Designation</h2>
 
-                  <h3 class="text-muted mb-0">{{data.department}}</h3>
-              </div>
+                        <h3 class="text-muted mb-0">{{data.designation}}</h3>
+                    </div>
+                </div>
 
-              <div class="col-sm-6">
-                  <h2 class="mb-0">Designation</h2>
+                <hr>
+                <div class="row text-center">
+                    <h2>Award Details</h2>
+                    <div class="col-sm-6">
+                        <h2 class="mb-0">Requester</h2>
 
-                  <h3 class="text-muted mb-0">{{data.designation}}</h3>
-              </div>
-          </div>
+                        <h3 class="text-muted mb-0">{{data.requesterName}}</h3>
+                    </div>
+                    <div class="col-sm-6">
+                        <h2 class="mb-0">Award</h2>
+                        <h3 class="text-muted mb-0">{{data.award}}</h3>
+                    </div>
+                </div>
+                <hr>
+                <div class="row text-center">
+                    <h2>REASON</h2>
+                    <div class="col-sm-13">
+                        <textarea disabled style="width: 100%;height:4rem"
+                            class="text-muted ">{{ data.reason }}</textarea>
+                    </div>
+                    <div class="row text-center">
+                        <h2 class="mb-0">Coupon</h2>
+                        <div *ngIf="data.statusId===2">
+                            <input type="text" name="coupon" #coupon="ngModel" [(ngModel)]="data.couponCode" required
+                                pattern="^[a-zA-Z][a-zA-Z\s][0-9]{0,20}[a-zA-Z]$" minlength="6" maxlength="12">
+                        </div>
+                        <div *ngIf="data.statusId===4">
+                            <h3 class="text-muted mb-0">{{data.couponCode}}</h3>
+                            <div class="text-danger" [class.d-none]="coupon.valid || coupon.untouched"
+                                *ngIf="coupon.errors?.['required']">
+                                required.
+                            </div>
+                        </div>
 
-          <hr>
-          <div class="row text-center">
-            <h2>Award Details</h2>
-              <div class="col-sm-6">
-                  <h2 class="mb-0">Requester</h2>
-
-                  <h3 class="text-muted mb-0">{{data.requesterName}}</h3>
-              </div>
-              <div class="col-sm-6">
-                  <h2 class="mb-0">Award</h2>
-                  <h3 class="text-muted mb-0">{{data.award}}</h3>
-              </div>
-          </div>
-          <hr>
-          <div class="row text-center">
-            <h2>REASON</h2>
-            <div class="col-sm-13">
-              <textarea disabled style="width: 100%;height:4rem" class="text-muted ">{{ data.reason }}</textarea>
-            </div>
-
+<<<<<<< Updated upstream
               <div class="row text-center">
                   <h2 class="mb-0">Coupon</h2>
                   <div *ngIf="data.statusId===2">
                     <input type="text" name="coupon" #coupon="ngModel" [(ngModel)]="data.couponCode" required pattern="/\w*\s*|\w|\D/gm" minlength="6" maxlength="12">
+=======
+                    </div>
+>>>>>>> Stashed changes
                 </div>
-                <div *ngIf="data.statusId===4">
-                    <h3 class="text-muted mb-0">{{data.couponCode}}</h3>
-                    <div class="text-danger" [class.d-none]="coupon.valid || coupon.untouched"
-                        *ngIf="coupon.errors?.['required']">
-                         required.
+                <br>
+                <div class="modal-footer justify-content-center">
+                    <div *ngIf="data.statusId===2">
+                        <button type="submit" class="btn btn-primary" data-dismiss="modal"
+                            [disabled]="!yetToPublish.valid">Publish</button>
+                    </div>
+                    <div>
+                        <button [routerLink]="['/hr-publish']" class="btn btn-danger" data-dismiss="modal">back</button>
                     </div>
                 </div>
-
-            </div>
+            </form>
         </div>
-
-        <br>
-        <div class="modal-footer justify-content-center">
-            <div *ngIf="data.statusId===2">
-                <button type="submit" class="btn btn-primary"
-                    data-dismiss="modal" [disabled]="!yetToPublish.valid">Publish</button>
-            </div>
-            <div>
-                <button [routerLink]="['/hr-publish']" class="btn btn-danger" data-dismiss="modal">back</button>
-            </div>
-        </div>
-    </form>
+    </div>
 </div>
-</div>
-</div>
-
-
-
-
-
-    
-
-
-
-
-
-                 
