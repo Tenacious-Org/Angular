@@ -28,14 +28,14 @@ export class DashboardComponent implements OnInit {
   orgcnt:any=[]
   awdcnt:any=[]
 
-  public pieChartOptions: ChartOptions = {
-    responsive: true,
+  // Pie
+  public pieChartOptions: ChartOptions<'doughnut'> = {
+    responsive: false,
   };
-  public pieChartLabels = [['SciFi'], ['Drama'], 'Comedy'];
-   pieChartData = [
-    {data: [65, 59, 80, 81, 56, 55, 40]}
-  ];
-  public pieChartType: ChartType = 'pie';
+  public pieChartLabels = [ [ 'Download', 'Sales' ], [ 'In', 'Store', 'Sales' ], 'Mail Sales' ];
+  public pieChartDatasets = [ {
+    data: [ 300, 500, 100 ]
+  } ];
   public pieChartLegend = true;
   public pieChartPlugins = [];
   
@@ -107,9 +107,8 @@ export class DashboardComponent implements OnInit {
   
 
   ngOnInit(): void {
-    this.sharedService.getallwinner().subscribe(
-      (res) =>{
-
+    this.sharedService.getallwinner().subscribe( (res) =>
+    {
         //converting api values into list
         let d = []
         let d1:string[][] = []
@@ -184,59 +183,7 @@ export class DashboardComponent implements OnInit {
         this.awdcnt = awdcnt
         console.log("Awards :",this.awdcnt)
 
-
-      //create a chart data
-      // this.chart = new Chart('canvas',{
-      //   type: 'line',
-      //   data: {
-      //     labels: this.award,
-      //     datasets: [
-      //       {
-      //         data: this.awdcnt,
-      //         borderColor: '#3cba9f',
-      //         fill: false
-      //       }
-      //     ]
-      //   },
-      //   options: {
-      //     responsive:true
-      //   }
-      // })
-
-      this.pieChartLabels = this.award
-      this.pieChartLegend = this.award
-
-      console.log("piechartlegend: ", this.pieChartLabels)
-      this.pieChartData = dict
-
-      this.chart?.update()
-
-
-
-       new Chart('barchart', {
-        type: 'pie',
-        data: {
-          labels: award,
-          datasets: [{
-            data: awdcnt,
-          }]
-        },
-        options: {
-          plugins: {
-            legend: {
-              position: 'top',
-              display: true,
-            },
-          },
-          
-      }
     });
-
-      
-
-
-      }
-    );
 
 
     this.sharedService.getAll(this.endpoint).subscribe(data => {
