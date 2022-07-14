@@ -143,3 +143,17 @@ p{
 .advanced{
   margin-left:40px;
 }
+
+@media(max-width:700px)
+{
+  .form-control{
+    top:15%;
+    width:130px;
+
+  }
+  
+  .advanced ,.form-inline{
+    margin-top: 30px;
+  }
+
+}
