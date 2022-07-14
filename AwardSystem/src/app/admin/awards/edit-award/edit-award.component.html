@@ -12,10 +12,10 @@
             <div class="col-auto ">
                 <label  class="col-form-label">Award Name</label>
                 <input type="text" #name="ngModel"  required pattern="^[a-zA-Z][a-zA-Z\s]{0,20}[a-zA-Z]$" class="form-control" name="awardName" value={{data.awardName}} [(ngModel)]="data.awardName" >
-                <div *ngIf ="name.touched && name.errors?.['required']" class="alert alert-danger">
+                <div *ngIf ="name.touched && name.errors?.['required']" class="text-left text-danger">
                     Award Name is Required!
                 </div>
-                <div *ngIf ="name.touched && name.errors?.['pattern']" class="alert alert-danger" >
+                <div *ngIf ="name.touched && name.errors?.['pattern']" class="text-left text-danger" >
                     Award Name is invalid!
                 </div>
             </div>
@@ -24,10 +24,10 @@
             <div class="col-auto p-1.5">
                 <label  class="col-form-label">Award Description</label>
                 <textarea type="text" #description="ngModel"  required pattern="/\w*\s*|\w|\D/gm" class="form-control" name="awardDescription" value={{data.awardDescription}} [(ngModel)]="data.awardDescription"></textarea>
-                <div *ngIf ="description.touched && description.errors?.['required']" class="alert alert-danger">
+                <div *ngIf ="description.touched && description.errors?.['required']" class="text-left text-danger">
                     Description is Required!
                 </div>
-                <div *ngIf ="description.touched && description.errors?.['pattern']" class="alert alert-danger" >
+                <div *ngIf ="description.touched && description.errors?.['pattern']" class="text-left text-danger" >
                     Description is invalid!
                 </div>
             </div>
@@ -36,7 +36,7 @@
         <div class="choose col-auto">
             <label class="col-form-label">Award Image</label>
             <input type="file" #image="ngModel" accept=".jpeg,.jpg,.png" required (change)="ImageConversion($event)" id="image" class="fileInputProfile" name="image"  [ngModel]="data.Image" >
-            <div *ngIf ="image.touched && image.errors?.['required']" class="alert alert-danger">
+            <div *ngIf ="image.touched && image.errors?.['required']" class="text-left text-danger">
                 Image is Required!
             </div>
             <img [src]="imgsrc" id="img">
