@@ -28,7 +28,7 @@ export class AwardService {
   //Approval of the request
   approval(data:any,id:any): Observable<any>
   {
-    return this.http.put<any>(this.apiurl+`Approval?id=${id}`,data,{ headers: this.headers });
+    return this.http.put<any>(this.apiurl+`Approval?employeeId=${id}`,data,{ headers: this.headers });
   }
 
   // Add comments - Awardservices
