@@ -53,4 +53,8 @@ export class AwardsComponent implements OnInit {
 
   }
 
+  dialogDisable(){
+    this.dialog.open(DialogboxComponent,{data:{value:"disable"}})
+  }
+
 }
