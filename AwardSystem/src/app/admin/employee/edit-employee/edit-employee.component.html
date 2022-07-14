@@ -3,37 +3,37 @@
 <!-- edit employee container contains employee required details -->
 
 
-<div class="container d-flex justify-content-center table-box">
+<div class="container table-box">
 
-    <form class="border-box position-relative" #myForm="ngForm" (ngSubmit)="OnSubmit()">
+    <form class="border-box" #myForm="ngForm" (ngSubmit)="OnSubmit()">
 
         <span class="border-box-tip"><b>Edit Employee</b></span>
 
-        <div class="employee row mb-3">
+        <div class="employee row">
 
-            <div class="col-auto p-1.5">
+            <div class="col-auto">
                 <label for="firstName" class="col-form-label">First Name</label>
 
                 <input type="text" name="firstName" #firstname="ngModel" [(ngModel)]="data.firstName"
                     class="form-control" aria-describedby="firstNameHelpInline">
-                <div *ngIf="firstname.touched && firstname.errors?.['required']" class="text-left text-danger">
+                <div *ngIf="firstname.touched && firstname.errors?.['required']" class="text-danger">
                     Firstname is Required!
                 </div>
-                <div *ngIf="firstname.touched && firstname.errors?.['pattern']" class="text-left text-danger">
+                <div *ngIf="firstname.touched && firstname.errors?.['pattern']" class="text-danger">
                     Firstname is invalid!
                 </div>
 
             </div>
 
-            <div class="col-auto p-1.5">
+            <div class="col-auto">
                 <label for="lastName" class="col-form-label">Last Name</label>
 
                 <input type="text" name="lastName" #lastname="ngModel" [(ngModel)]="data.lastName" class="form-control"
                     aria-describedby="lastNameHelpInline">
-                <div *ngIf="lastname.touched && lastname.errors?.['required']" class="text-left text-danger">
+                <div *ngIf="lastname.touched && lastname.errors?.['required']" class="text-danger">
                     Lastname is Required!
                 </div>
-                <div *ngIf="lastname.touched && lastname.errors?.['pattern']" class="text-left text-danger">
+                <div *ngIf="lastname.touched && lastname.errors?.['pattern']" class="text-danger">
                     Lastname is invalid!
                 </div>
             </div>
@@ -41,18 +41,18 @@
         </div>
 
 
-        <div class="employee row mb-3">
+        <div class="employee row">
 
-            <div class="col-auto p-1.5">
+            <div class="col-auto">
                 <label for="datetime" class="col-form-label">Date of Birth </label>
                 <input type="date" #dob="ngModel" required name="Dob" (click)="changeDate()" [(ngModel)]="Dob"
                     [ngModel]="data.dob | date:'YYYY-MM-dd'" id="dob" class="form-control"
                     aria-describedby="dobHelpInline">
-                <div *ngIf="dob.touched && dob.errors?.['required']" class="text-left text-danger">
+                <div *ngIf="dob.touched && dob.errors?.['required']" class="text-danger">
                     Date of Birth is Require
                 </div>
             </div>
-            <div class="col-auto p-1.5">
+            <div class="col-auto">
                 <label for="dept" class="col-form-label">Gender</label>
                 <div class="input-group">
                     <select name="gender" [(ngModel)]="data.gender" class="custom-select">
@@ -65,28 +65,28 @@
         </div>
 
 
-        <div class="employee row mb-3">
-            <div class="col-auto p-1.5">
+        <div class="employee row">
+            <div class="col-auto">
                 <label for="aceid" class="col-form-label">AceID</label>
                 <input type="text" name="aceid" #aceid="ngModel" required pattern="ACE\d{3,}$" [(ngModel)]="data.aceid"
                     id="aceid" class="form-control" aria-describedby="aceidHelpInline">
-                <div *ngIf="aceid.touched && aceid.errors?.['required']" class="text-left text-danger">
+                <div *ngIf="aceid.touched && aceid.errors?.['required']" class="text-danger">
                     ACEID is Required!
                 </div>
-                <div *ngIf="aceid.touched && aceid.errors?.['pattern']" class="text-left text-danger">
+                <div *ngIf="aceid.touched && aceid.errors?.['pattern']" class="text-danger">
                     ACEID is invalid!
                 </div>
             </div>
 
-            <div class="col-auto p-1.5">
+            <div class="col-auto">
                 <label for="email" class="col-form-label">Email</label>
                 <input type="email" name="email" #email="ngModel" required
                     pattern="[a-zA-Z0-9_\-\.]+[@][a-z]+[\.][a-z]{2,3}$" [(ngModel)]="data.email" id="email"
                     class="form-control" aria-describedby="emailHelpInline">
-                <div *ngIf="email.touched && email.errors?.['required']" class="text-left text-danger">
+                <div *ngIf="email.touched && email.errors?.['required']" class="text-danger">
                     Email is Required!
                 </div>
-                <div *ngIf="email.touched && email.errors?.['pattern']" class="text-left text-danger">
+                <div *ngIf="email.touched && email.errors?.['pattern']" class="text-danger">
                     Email is invalid!
                 </div>
             </div>
@@ -94,8 +94,8 @@
         </div>
 
 
-        <div class="employee row mb-3">
-            <div class="col-auto p-1.5">
+        <div class="employee row">
+            <div class="col-auto">
                 <label for="org" class="col-form-label">Organisation</label>
 
                 <div class="input-group">
@@ -106,11 +106,11 @@
                             value={{items.id}}>{{items.organisationName}}</option>
                     </select>
                 </div>
-                <div *ngIf="organisationID===''" class="text-left text-danger">Organisation should not be empty! </div>
+                <div *ngIf="organisationID===''" class="text-danger">Organisation should not be empty! </div>
 
             </div>
 
-            <div class="col-auto p-1.5">
+            <div class="col-auto">
 
                 <label for="dept" class="col-form-label">Department</label>
 
@@ -122,13 +122,13 @@
                             {{items.departmentName}}</option>
                     </select>
                 </div>
-                <div *ngIf="departmentID===''" class="text-left text-danger">Department should not be empty! </div>
+                <div *ngIf="departmentID===''" class="text-danger">Department should not be empty! </div>
 
             </div>
         </div>
-        <div class="employee row mb-3">
+        <div class="employee row">
 
-            <div class="col-auto p-1.5">
+            <div class="col-auto">
 
                 <label for="designation" class="col-form-label">Designation</label>
 
@@ -139,12 +139,12 @@
                             value={{items.id}}>{{items.designationName}}</option>
                     </select>
                 </div>
-                <div *ngIf="designationID===''" class="text-left text-danger">Designation should not be empty! </div>
+                <div *ngIf="designationID===''" class="text-danger">Designation should not be empty! </div>
 
             </div>
 
 
-            <div class="col-auto p-1.5" >
+            <div class="col-auto" >
 
                 <label class="col-form-label">Reporting Person Name</label>
 
@@ -156,14 +156,14 @@
                             {{items.lastName}}</option>
                     </select>
                 </div>
-                <div *ngIf="reportingPersonID===''" class="text-left text-danger">Reporting Person should not be empty!
+                <div *ngIf="reportingPersonID===''" class="text-danger">Reporting Person should not be empty!
                 </div>
 
             </div>
 
         </div>
-        <div class="employee row mb-3">
-            <div class="col-sm-auto p-1.5">
+        <div class="employee row">
+            <div class="col-sm-auto">
                 <label class="col-form-label">HR Name</label>
                 <div class="input-group">
                     <select name="hrID" [(ngModel)]="data.hrId" class="custom-select">
@@ -172,20 +172,20 @@
                             {{items.firstName}} {{items.lastName}}</option>
                     </select>
                 </div>
-                <div *ngIf="HRId===''" class="text-left text-danger">HR should not be empty! </div>
+                <div *ngIf="HRId===''" class="text-danger">HR should not be empty! </div>
 
             </div>
-            <div class="col-sm-auto p-1.5">
+            <div class="col-sm-auto">
 
                 <label class="col-form-label">Employee Image</label>
                 <div class="input-group">
                     <input type="file" #image="ngModel" accept=".jpeg,.jpg,.png" required
                         (change)="ImageConversion($event)" id="image" class="fileInputProfile" name="image"
                         [ngModel]="data.Image">
-                    <div *ngIf="image.touched && image.errors?.['required']" class="text-left text-danger">
+                    <div *ngIf="image.touched && image.errors?.['required']" class="text-danger">
                         Image is Required!
                     </div>
-                    <img class="row-auto p-1.5 rounded" [src]="imgsrc " width="100" height="100" id="img">
+                    <img [src]="imgsrc" id="img">
                 </div>
             </div>
 
@@ -194,7 +194,7 @@
         </div>
 
 
-        <div class="employee row mt-5 button-group">
+        <div class="addbutton row button-group">
             <button
                 (click)="CheckName(data.organisationId,data.departmentId,data.designationId,data.reportingPersonId,data.hrID)"
                 type="submit" class="btn btn-primary col-lg-2">Update</button>
