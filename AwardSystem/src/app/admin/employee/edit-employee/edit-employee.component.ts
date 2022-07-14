@@ -125,11 +125,8 @@ export class EditEmployeeComponent implements OnInit {
    }
 
    OnSubmit(){
-<<<<<<< Updated upstream
-=======
     console.log(this.Dob)
      this.data.dob=this.Dob;
->>>>>>> Stashed changes
      console.log(this.data)
      if(this.data.imageString==null && this.data.image!=null ){
       this.data.imageString=this.data.image;
