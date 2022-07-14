@@ -38,9 +38,9 @@
                             </td>                       
                             <td>
                               <div *ngIf="item.statusId===2">
-                                <a  [routerLink]="['../hr-yettopublish',item.id]" type="button" class="btn btn-link btn-sm btn-rounded">
-                                  Publish
-                                </a>
+                                <button [routerLink]="['../hr-yettopublish',item.id]" type="button" class="btn btn-link btn-sm btn-rounded"><i class="fa-solid fa-upload" title="Publish"></i></button>
+                                 
+                                
                               </div>
                               <div *ngIf="item.statusId===4">
                                 <a  [routerLink]="['../hr-yettopublish',item.id]" type="button" class="btn btn-link btn-sm btn-rounded">
