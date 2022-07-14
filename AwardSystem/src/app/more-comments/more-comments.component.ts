@@ -61,7 +61,7 @@ export class MoreCommentsComponent implements OnInit {
   }
   LogintoComment(){
     if (AuthenticationService.GetData("token") == null)
-       this.dialog.open(DialogboxComponent,{data:{value:this.Id}});
+       this.dialog.open(DialogboxComponent,{data:{value:"notValid"}});
   }
 
   showToast() {
