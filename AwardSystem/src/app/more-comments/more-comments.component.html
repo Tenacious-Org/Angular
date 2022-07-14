@@ -34,8 +34,8 @@
                                 class="col-auto form-control" required placeholder="Type comment..." />
                             <label class="form-label" for="addANote">+ Add comments</label>
                             
-                            <button type="submit" (click)="showToast()" [disabled]="!myForm.form.valid" class="btn btn-primary col-lg-1"><i
-                                    class="col-auto fa-solid fa-plus"></i></button>
+                            <button type="submit" [disabled]="!myForm.form.valid" class="btn btn-primary col-lg-1">
+                                <i class="fa-solid fa-paper-plane"></i></button>
                         </form>
                     </div>
                     <div class="allcomments">
