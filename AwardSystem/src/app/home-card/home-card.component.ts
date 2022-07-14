@@ -11,7 +11,7 @@ import { formatDate } from '@angular/common';
 })
 export class HomeCardComponent implements OnInit {
 
-  AwardId:any;
+  myAwards:any;
   awardData: any;
   totalLength: any;
   page: number = 1;
@@ -32,7 +32,17 @@ export class HomeCardComponent implements OnInit {
   ngOnInit(): void {
 	this.isValidUser=AuthenticationService.GetData("token");
     this.router.params.subscribe(params => {
-      this.AwardId = params['id'];
+      this.myAwards= params['id'];
+	  console.log(this.myAwards)
+		if(this.myAwards!=null){
+			this.pageId=1;
+			this.employeeId=this.myAwards
+			this.awardService.getAwardsList(this.pageId,this.employeeId).subscribe(data=>{
+				this.awardData=data;
+				this.filteredData=data;
+				console.log(this.filteredData)
+			  });
+		}
     this.awardService.getAwardsList(this.pageId,this.employeeId).subscribe(data=>{
       this.awardData=data;
 	  this.filteredData=data;
@@ -142,11 +152,11 @@ export class HomeCardComponent implements OnInit {
 		this.isApplied=true;
 		
 	}
-	Reset(){
-		this.isApplied=false;
-		this.route.navigateByUrl("");
+	// Reset(){
+	// 	this.isApplied=false;
+	// 	this.route.navigateByUrl("");
 		
-	}
+	// }
 }
 
 
