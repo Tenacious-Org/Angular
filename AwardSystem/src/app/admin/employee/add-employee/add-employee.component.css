@@ -1,6 +1,7 @@
 #img{
-    height:100px;
-    width:100px;
+    height:90px;
+    width:120px;
+    margin-top: 1rem;
 }
 .employee{
     justify-content: center;
