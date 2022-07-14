@@ -55,21 +55,24 @@
 
   <div>
     <div style="display: block">
-      <canvas baseChart
-              [datasets]="pieChartData"
-              [labels]="pieChartLabels"
-              [legend]="pieChartLegend"
-              [type] = "'pie'">
-      </canvas>
+     <canvas baseChart
+  [type]="'doughnut'"
+  [datasets]="pieChartDatasets"
+  [labels]="pieChartLabels"
+  [options]="pieChartOptions"
+  [plugins]="pieChartPlugins"
+  [legend]="pieChartLegend"
+  >
+</canvas>
     </div>
   </div>
 
   
   
 
-  <div id="bargraph" class="wrapper">
+  <!-- <div id="bargraph" class="wrapper">
     <canvas baseChart id="barchart" ></canvas>
   </div>
   <div id="bargraph" class="wrapper">
     <canvas id="barcharts" ></canvas>
-  </div>
+  </div> -->
