@@ -106,6 +106,9 @@ export class RequesterAddRequestComponent implements OnInit {
   OnSubmit(){
     console.log(this.Awards);
     this.Awards.awardeeId=this.selectedAwardee;
+    console.log("awardeeid: ", this.Awards.awardeeId)
+    console.log("awardtypeid: ", this.Awards.awardTypeId)
+    console.log("employeeid: ", this.employeeId)
     this.awardService.addRequest(this.Awards,this.employeeId).subscribe({
       next: (res) => { console.log(res), this.showToast() },
       error: (error) => this.error = error.error.message
