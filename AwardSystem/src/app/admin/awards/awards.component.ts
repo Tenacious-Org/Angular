@@ -34,6 +34,7 @@ export class AwardsComponent implements OnInit {
 
   }
 
+
   Disable(Id:any){
     console.log(Id);
     this.sharedService.getById(this.endpoint,Id).subscribe((data) => {
