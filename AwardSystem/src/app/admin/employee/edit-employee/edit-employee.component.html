@@ -43,7 +43,11 @@
 
             <div class="col-auto p-1.5">
                 <label for="datetime" class="col-form-label">Date of Birth </label>
+<<<<<<< Updated upstream
                 <input type="date" #dob="ngModel" required name="dob" (click)="changeDate()"  [ngModel]="data.dob | date:'YYYY-MM-dd'"   id="dob" class="form-control" aria-describedby="dobHelpInline">
+=======
+                <input type="date" #dob="ngModel" required name="Dob" (click)="changeDate()" [(ngModel)]="Dob" [ngModel]="data.dob | date:'YYYY-MM-dd'"   id="dob" class="form-control" aria-describedby="dobHelpInline">
+>>>>>>> Stashed changes
                 <div *ngIf ="dob.touched && dob.errors?.['required']" class="alert alert-danger">
                     Date of Birth is Require
                 </div>
