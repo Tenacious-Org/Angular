@@ -45,7 +45,7 @@ export class EditOrganisationComponent implements OnInit {
   OnSubmit() {
     console.log(this.data);
     this.sharedService.edit(this.endpoint, this.data).subscribe({
-      next: (data) => { console.log(data), this.showToast() },
+      next: (data) => { console.log(data), data?this.showToast():null },
       error: (error) => this.error = error.error.message
     });
   }

@@ -115,7 +115,7 @@ export class AddEmployeeComponent implements OnInit {
     this.sharedService.add(this.endpoint1,this.Employee).subscribe({
       // console.log(data);
       // this.showToast();
-      next:(res) => { console.log(res), this.showToast() },
+      next:(res) => { console.log(res),res?this.showToast():null },
       error: (error) => this.error = error.error.message
     })
 

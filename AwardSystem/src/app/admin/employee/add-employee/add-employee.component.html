@@ -72,6 +72,9 @@
                 <div *ngIf="aceid.touched && aceid.errors?.['pattern']" class="text-danger">
                     ACEID is invalid!
                 </div>
+                <div >
+                    <h3 class="text-danger" >{{error}}</h3>
+                </div>
             </div>
 
             <div class="col-auto">
@@ -84,6 +87,9 @@
                 </div>
                 <div *ngIf="email.touched && email.errors?.['pattern']" class="text-danger">
                     Email is invalid!
+                </div>
+                <div >
+                    <h3 class="text-danger" >{{error}}</h3>
                 </div>
             </div>
 

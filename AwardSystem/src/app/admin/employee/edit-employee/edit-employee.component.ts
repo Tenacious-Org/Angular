@@ -54,6 +54,7 @@ export class EditEmployeeComponent implements OnInit {
   reportingPersonID: any;
   HRId: any;
   Dob: any;
+  error: any;
   constructor(private sharedService:SharedService, private router:ActivatedRoute, private routing:Router,private toastService: HotToastService) { }
 
   ngOnInit(): void {
@@ -132,10 +133,10 @@ export class EditEmployeeComponent implements OnInit {
       this.data.imageString=this.data.image;
       
     }
-    this.sharedService.edit(this.endpoint1,this.data).subscribe(data=>{
-      console.log(data);
-      this.showToast();
-    });
+    this.sharedService.edit(this.endpoint1,this.data).subscribe({
+      next:(res) => { console.log(res), res?this.showToast():null },
+      error: (error) => this.error = error.error.message
+    })
 }
 showToast() {
   this.toastService.success('Employee updated Successfully!',
