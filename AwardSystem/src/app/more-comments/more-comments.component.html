@@ -29,13 +29,13 @@
             <div class="card-body">
                 <div class="row d-flex ">
                     <div  class="form-outline">
-                        <form class="row" #myForm="ngForm" (ngSubmit)="OnSubmit()">
+                        <form class="row" #myForm="ngForm" >
                             <input type="text" (click)="LogintoComment()" titile="Login to comment" #comments="ngModel" name="comments" [(ngModel)]="Comments.comments"
                                 class="col-auto form-control" required placeholder="Type comment..." />
                             <label class="form-label" for="addANote">+ Add comments</label>
                             
-                            <button type="submit" [disabled]="!myForm.form.valid" class="btn btn-primary col-lg-1">
-                                <i class="fa-solid fa-paper-plane"></i></button>
+                            <a (click)="OnSubmit()"  class=" col-lg-1">
+                                <i class="fa-solid fa-paper-plane"></i></a>
                         </form>
                     </div>
                     <div class="allcomments">
