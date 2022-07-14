@@ -9,24 +9,62 @@
     width:30rem;
     overflow:hidden;
   }
-  @media (max-width:620px)
-{
-    .form-inline,.form-control{
-        width:160px;
-    }
-}
-@media (max-width:380px)
-{
-    .form-inline{
-        width:160px;
-        float:left;
-        margin-top: 5px;
-        margin-bottom:5px;
-    }
-}
+
 @media (max-width:200px)
 {
     .btn{
       size: 10ch;
     }
 }
+.tablecontainer{
+  display: flex;
+  justify-content: center;
+}
+.tenacioustable{
+  text-align: center;
+}
+.paginate{
+  text-align: center;
+  
+}
+.ngx-pagination{
+  margin-top: 16px;
+}
+@media(max-width:580px) {
+
+  .input-group,
+  .form-control {
+      width: 140px;
+
+  }
+}
+@media(max-width:370px) {
+
+  .form-inline{
+      width: 140px;
+      float:left;
+      margin-top:5px;
+  }
+}
+
+@media (max-width:770px)
+{
+  .tableclass{
+    overflow-x: auto;
+    margin-bottom: 16px;
+  }
+  th,td{
+    min-width:180px;
+  }
+}
+@media(max-width:370px) {
+
+  .tableclass{
+    margin-top:40px;
+  }
+  th,td{
+    min-width:100px;
+  }
+}
+
+

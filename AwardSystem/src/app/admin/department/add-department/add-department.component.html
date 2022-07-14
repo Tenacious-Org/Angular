@@ -29,13 +29,13 @@
             <div class="col-auto p-1.5">
                 <label for="firstName" class="col-form-label">Department Name</label>
                 <input type="text" id="firstName" #departmentName="ngModel" required pattern="^[a-zA-Z][a-zA-Z\s]{0,20}[a-zA-Z]$" class="form-control" name="departmentName" [(ngModel)]="Department.departmentName" >
-                <div *ngIf ="departmentName.touched && departmentName.errors?.['required']" class="alert alert-danger">
+                <div *ngIf ="departmentName.touched && departmentName.errors?.['required']" class="text-left text-danger">
                     Department Name is Required!
                 </div>
                 <div class="text-left text-danger"  >
                     {{error}}
                 </div>
-                <div *ngIf ="departmentName.touched && departmentName.errors?.['pattern']" class="alert alert-danger" >
+                <div *ngIf ="departmentName.touched && departmentName.errors?.['pattern']" class="text-left text-danger" >
                     Department Name is invalid!
                 </div>
                

@@ -12,12 +12,12 @@
         <div class="award row">
             <div class="col-auto ">
                 <label class="col-form-label">Award Name</label>
-                <input type="text" #name="ngModel" required pattern="^[a-zA-Z][a-zA-Z\s]{0,20}[a-zA-Z]$"
+                <input type="text" #name="ngModel" required pattern="[a-zA-Z\s]{0,20}[a-zA-Z\s]{0,20}[a-zA-Z\s]$"
                     class="form-control" name="awardName" [(ngModel)]="AwardType.awardName">
-                <div *ngIf="name.touched && name.errors?.['required']" class="alert alert-danger">
+                <div *ngIf="name.touched && name.errors?.['required']" class="text-left text-danger">
                     Award Name is Required!
                 </div>
-                <div *ngIf="name.touched && name.errors?.['pattern']" class="alert alert-danger">
+                <div *ngIf="name.touched && name.errors?.['pattern']" class="text-left text-danger">
                     Award Name is invalid!
                 </div>
                 <div>
@@ -28,12 +28,12 @@
         <div class="award row">
             <div class="col-auto">
                 <label class="col-form-label">Award Description</label>
-                <input type="text" #description="ngModel" required pattern="/\w*\s*|\w|\D/gm" class="form-control"
+                <input type="text" #description="ngModel" required pattern="/\w*\s*|\w|\D/gm" minlength="10" maxlength="200" class="form-control"
                     name="awardDescription" [(ngModel)]="AwardType.awardDescription">
-                <div *ngIf="description.touched && description.errors?.['required']" class="alert alert-danger">
+                <div *ngIf="description.touched && description.errors?.['required']" class="text-left text-danger">
                     Description is Required!
                 </div>
-                <div *ngIf="description.touched && description.errors?.['pattern']" class="alert alert-danger">
+                <div *ngIf="description.touched && description.errors?.['pattern']" class="text-left text-danger">
                     Description is invalid!
                 </div>
             </div>
@@ -43,7 +43,7 @@
                 <label class="col-form-label">Award Image</label>
                 <input type="file" #image="ngModel" accept=".jpeg,.jpg,.png" required (change)="ImageConversion($event)"
                     id="image" class="fileInputProfile" name="image" [ngModel]="AwardType.Image">
-                <div *ngIf="image.touched && image.errors?.['required']" class="alert alert-danger">
+                <div *ngIf="image.touched && image.errors?.['required']" class="text-left text-danger">
                     Image is Required!
                 </div>
                 <img [src]="imgsrc" id="img">

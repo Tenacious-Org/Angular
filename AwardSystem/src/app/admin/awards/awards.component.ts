@@ -34,6 +34,7 @@ export class AwardsComponent implements OnInit {
 
   }
 
+
   Disable(Id:any){
     console.log(Id);
     this.sharedService.getById(this.endpoint,Id).subscribe((data) => {
@@ -51,6 +52,10 @@ export class AwardsComponent implements OnInit {
 
     this.dialog.open(DialogboxComponent,{data:{name:this.awardname,count:count,value:"Awardtype"}});
 
+  }
+
+  dialogDisable(){
+    this.dialog.open(DialogboxComponent,{data:{value:"disable"}})
   }
 
 }

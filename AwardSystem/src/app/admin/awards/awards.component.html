@@ -2,7 +2,7 @@
 <app-sidebar></app-sidebar>
 <!-- awards container contains award details table -->
 
-<div class="container d-flex justify-content-center ">
+<div class="container tablecontainer">
 
     <div class="container container-fluid ">
         <div>
@@ -14,28 +14,29 @@
               </div>
         </div>
         <br>
-
-        <table class="datatable table table-striped table-bordered ">
+        <div class="tableclass">
+        <table class="table table-striped table-bordered">
             <thead>
-                <tr class="text-center">
-                    <th>S.NO</th>
+                <tr class="tenacioustable">
+                    <th id="serialnumber">S.NO</th>
                     <th>Award Name</th>
-                    <th id="description">Award Description</th>
+                    <th>Award Description</th>
                     <th>Action</th>
                 </tr>
             </thead>
             <tbody>
-                <tr class="text-center" *ngFor="let item of data | filter:val | paginate: { itemsPerPage: 5, currentPage: page };let i = index">
-                    <td>{{5*(page-1)+i + 1}}</td>
+                <tr class="tenacioustable" *ngFor="let item of data | filter:val | paginate: { itemsPerPage: 5, currentPage: page };let i = index">
+                    <td >{{5*(page-1)+i + 1}}</td>
                     <td>{{item.awardName}}</td>
-                    <td id="description" >{{item.awardDescription}}</td>
-                    <td> <button [routerLink]="['../edit-award',item.id]"  class="btn btn-primary" ><i class="fa-solid fa-pen-to-square" title="Edit"></i></button><div class="space"></div>
+                    <td>{{item.awardDescription}}</td>
+                    <td > <button [routerLink]="['../edit-award',item.id]"  class="btn btn-primary" ><i class="fa-solid fa-pen-to-square" title="Edit"></i></button><div class="space"></div>
                         <button routerLink={{item.id}} class="btn btn-success" ><i class="fa-solid fa-circle-info" title="Details"></i></button><div class="space"></div>
-                        <button class="btn btn-danger" (click)="Disable(item.id)" ><i class="fa-solid fa-user-slash" data-toggle="modal" data-target="#Mymodal"title="Disable"></i></button></td>
+                        <button class="btn btn-danger" (click)="dialogDisable()" ><i class="fa-solid fa-user-slash" data-toggle="modal" data-target="#Mymodal"title="Disable"></i></button><div class="space"></div></td>
                 </tr>
             </tbody>
         </table>
-        <pagination-controls class="text-center" (pageChange)="page = $event"></pagination-controls>
+    </div>
+        <pagination-controls class="paginate" (pageChange)="page = $event"></pagination-controls>
     </div>
 </div>
 

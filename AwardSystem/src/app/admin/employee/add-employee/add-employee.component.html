@@ -10,24 +10,24 @@
         <div class="employee row mb-3">
             <div class="col-auto p-1.5">
                 <label class="col-form-label">Firstname</label>
-                <input type="text" #firstname="ngModel" required pattern="^[a-zA-Z][a-zA-Z\s]{0,20}[a-zA-Z]$"
+                <input type="text" #firstname="ngModel" required pattern="^[a-zA-Z][a-zA-Z\s]{0,20}[a-zA-Z\s]$"
                     class="form-control" name="firstName" [(ngModel)]="Employee.Firstname">
-                <div *ngIf="firstname.touched && firstname.errors?.['required']" class="alert alert-danger">
+                <div *ngIf="firstname.touched && firstname.errors?.['required']" class="text-left text-danger">
                     Firstname is Required!
                 </div>
-                <div *ngIf="firstname.touched && firstname.errors?.['pattern']" class="alert alert-danger">
+                <div *ngIf="firstname.touched && firstname.errors?.['pattern']" class="text-left text-danger">
                     Firstname is invalid!
                 </div>
             </div>
 
             <div class="col-auto p-1.5">
                 <label class="col-form-label">Lastname</label>
-                <input type="text" #lastname="ngModel" required pattern="[A-Za-z]+$" class="form-control"
+                <input type="text" #lastname="ngModel" required pattern="[A-Za-z\s]+$" class="form-control"
                     name="Lastname" [(ngModel)]="Employee.Lastname">
-                <div *ngIf="lastname.touched && lastname.errors?.['required']" class="alert alert-danger">
+                <div *ngIf="lastname.touched && lastname.errors?.['required']" class="text-left text-danger">
                     Lastname is Required!
                 </div>
-                <div *ngIf="lastname.touched && lastname.errors?.['pattern']" class="alert alert-danger">
+                <div *ngIf="lastname.touched && lastname.errors?.['pattern']" class="text-left text-danger">
                     Lastname is invalid!
                 </div>
             </div>
@@ -40,7 +40,7 @@
                 <label for="datetime" class="col-form-label">Date of Birth</label>
                 <input type="date" #dob="ngModel" required name="dob" (click)="changeDate()" [(ngModel)]="Employee.dob "
                     id="dob" class="form-control" aria-describedby="dobHelpInline">
-                <div *ngIf="dob.touched && dob.errors?.['required']" class="alert alert-danger">
+                <div *ngIf="dob.touched && dob.errors?.['required']" class="text-left text-danger">
                     Date of Birth is Required!
                 </div>
             </div>
@@ -66,10 +66,10 @@
                 <!-- <input type="text" name="aceid" [(ngModel)]="Employee.aceid" id="aceid" class="form-control" aria-describedby="aceidHelpInline"> -->
                 <input type="text" #aceid="ngModel" required pattern="ACE\d{3,}$" class="form-control" name="aceid"
                     [(ngModel)]="Employee.aceid">
-                <div *ngIf="aceid.touched && aceid.errors?.['required']" class="alert alert-danger">
+                <div *ngIf="aceid.touched && aceid.errors?.['required']" class="text-left text-danger">
                     ACEID is Required!
                 </div>
-                <div *ngIf="aceid.touched && aceid.errors?.['pattern']" class="alert alert-danger">
+                <div *ngIf="aceid.touched && aceid.errors?.['pattern']" class="text-left text-danger">
                     ACEID is invalid!
                 </div>
             </div>
@@ -77,12 +77,12 @@
             <div class="col-auto p-1.5">
                 <label for="email" class="col-form-label">Email</label>
                 <!-- <input type="email" name="email" [(ngModel)]="Employee.email" id="email" class="form-control" aria-describedby="emailHelpInline"> -->
-                <input type="text" #email="ngModel" required pattern="[a-zA-Z0-9_\-\.]+[@][a-z]+[\.][a-z]{2,3}$"
+                <input type="text" #email="ngModel" required pattern="[a-zA-Z0-9_\-\.]+[@][a-z]+[\.][a-z\s]{2,4}$"
                     class="form-control" name="Email" [(ngModel)]="Employee.email">
-                <div *ngIf="email.touched && email.errors?.['required']" class="alert alert-danger">
+                <div *ngIf="email.touched && email.errors?.['required']" class="text-left text-danger">
                     Email is Required!
                 </div>
-                <div *ngIf="email.touched && email.errors?.['pattern']" class="alert alert-danger">
+                <div *ngIf="email.touched && email.errors?.['pattern']" class="text-left text-danger">
                     Email is invalid!
                 </div>
             </div>
@@ -104,7 +104,7 @@
                         </option>
                     </select>
                 </div>
-                <div *ngIf="organisationID===''" class="alert alert-danger">Organisation should not be empty! </div>
+                <div *ngIf="organisationID===''" class="text-left text-danger">Organisation should not be empty! </div>
 
             </div>
 
@@ -119,7 +119,7 @@
                         <option *ngFor="let items of departments" ngValue={{items.id}}>{{items.departmentName}}</option>
                     </select>
                 </div>
-                <div *ngIf="departmentID===''" class="alert alert-danger">Department should not be empty! </div>
+                <div *ngIf="departmentID===''" class="text-left text-danger">Department should not be empty! </div>
 
 
             </div>
@@ -133,12 +133,11 @@
 
                 <div class="input-group">
                     <select name="designationId" [(ngModel)]="Employee.designationId" class="custom-select">
-                        <option selected>Choose...</option>
                         <option *ngFor="let items of designations" ngValue={{items.id}}>{{items.designationName}}
                         </option>
                     </select>
                 </div>
-                <div *ngIf="designationID===''" class="alert alert-danger">Designation should not be empty! </div>
+                <div *ngIf="designationID===''" class="text-left text-danger">Designation should not be empty! </div>
 
             </div>
 
@@ -149,12 +148,11 @@
 
                 <div class="input-group">
                     <select name="reportingPersonId" [(ngModel)]="Employee.reportingPersonId" class="custom-select">
-                        <option selected>Choose...</option>
                         <option *ngFor="let items of reportingPersonList" ngValue={{items.id}}>{{items.firstName}}
                             {{items.lastName}}</option>
                     </select>
                 </div>
-                <div *ngIf="reportingPersonID===''" class="alert alert-danger">Reporting Person should not be empty!
+                <div *ngIf="reportingPersonID===''" class="text-left text-danger">Reporting Person should not be empty!
                 </div>
 
             </div>
@@ -167,12 +165,11 @@
 
                 <div class="input-group">
                     <select name="hrID" [(ngModel)]="Employee.hrID" class="custom-select">
-                        <option selected>Choose...</option>
                         <option *ngFor="let items of hrList" ngValue={{items.id}}>{{items.firstName}} {{items.lastName}}
                         </option>
                     </select>
                 </div>
-                <div *ngIf="HRId===''" class="alert alert-danger">HR should not be empty! </div>
+                <div *ngIf="HRId===''" class="text-left text-danger">HR should not be empty! </div>
 
             </div>
 
@@ -183,10 +180,10 @@
                     <input type="file" #image="ngModel" accept=".jpeg,.jpg,.png" required
                         (change)="ImageConversion($event)" id="image" class="fileInputProfile" name="image"
                         [ngModel]="Employee.Image">
-                    <div *ngIf="image.touched && image.errors?.['required']" class="alert alert-danger">
+                    <div *ngIf="image.touched && image.errors?.['required']" class="text-left text-danger">
                         Image is Required!
                     </div>
-                    <img class="row-auto p-1.5" [src]="imgsrc" width="100px" height="100px" id="img">
+                    <img class="row-auto p-1.5 rounded" [src]="imgsrc" width="100px" height="100px" id="img">
                 </div>
             </div>
 

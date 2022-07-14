@@ -15,6 +15,9 @@
 .border-box {
     position: relative;
 }
+textarea{
+    height:8rem;
+}
 
 @media(max-width:1920px) {
     .editAwardbutton {

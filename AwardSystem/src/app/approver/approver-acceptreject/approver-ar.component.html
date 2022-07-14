@@ -83,6 +83,10 @@
         <div class="space"></div>
         <button class="btn btn-danger" mat-raised-button (click)="openDialog()">Reject </button>
       </div>
+      <div class="button-group text-center mt-3" *ngIf="data.statusId !== 1" >
+        <a [routerLink]="['/approver-approval']" routerLinkActive="router-link-active"
+            class="btn btn-primary">Back</a>
+    </div>
     </div>
   </div>
 </div>

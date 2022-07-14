@@ -53,7 +53,7 @@ export class EditDesignationComponent implements OnInit {
     this.sharedService.edit(this.endpoint1,this.data).subscribe({
       // console.log(data);
       // this.showToast();
-      next: (res) => { console.log(res), this.showToast() },
+      next: (res) => { console.log(res),res?this.showToast():null },
       error: (error) => this.error = error.error.message
     });
 }

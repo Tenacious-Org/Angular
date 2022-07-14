@@ -4,6 +4,8 @@ import { AuthenticationService } from 'src/app/authentication.service';
 import { AwardService } from 'src/app/award.service';
 import { HotToastService } from '@ngneat/hot-toast';
 import { Router } from '@angular/router';
+import { FormGroup, FormControl, Validators} from '@angular/forms';
+
 
 @Component({
   selector: 'app-hr-yettopublish',
@@ -11,11 +13,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./hr-yettopublish.component.css']
 })
 export class HrYettopublishComponent implements OnInit {
+  
+
+ 
   employeeId=AuthenticationService.GetData("User");
   data: any;
-   Id:any;
-   coupon:any;
-   publishedId=4;
+  Id:any;
+  coupon:any;
+  publishedId=4;
+    
    
    awards:any={
     id :0,
@@ -60,6 +66,7 @@ export class HrYettopublishComponent implements OnInit {
         });
       });
   }
+
   OnSubmit(){
     console.log(this.data.couponCode);
     this.awards.couponCode=this.data.couponCode;
@@ -77,6 +84,5 @@ export class HrYettopublishComponent implements OnInit {
     })
     this.router.navigate(['/hr-publish']);
   }
-
 
 }

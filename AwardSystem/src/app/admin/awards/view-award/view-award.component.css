@@ -1,6 +1,6 @@
 .img-fluid{
-    width:80px;
-    height:100px;
+    width:120px;
+    height:90px;
 }
 .card{
     border-radius:15px;
@@ -26,4 +26,7 @@ h2{
     .card{
         width:360px;
     }
+}
+textarea{
+    width:17rem !important;
 }

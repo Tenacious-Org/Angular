@@ -9,10 +9,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./dialogbox.component.css']
 })
 export class DialogboxComponent implements OnInit {
-  value:any;
+  value:string='';
   
   dataType:any;
-  
+   
   constructor(public dialogRef: MatDialogRef<DialogboxComponent>,private router: Router,
     @Inject(MAT_DIALOG_DATA) public data:any) {
 
@@ -29,5 +29,6 @@ export class DialogboxComponent implements OnInit {
     this.dialogRef.close();
     this.router.navigate(this.data.class)
   }
+  
 
 }
