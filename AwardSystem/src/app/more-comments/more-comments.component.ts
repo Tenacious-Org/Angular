@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { timer } from 'rxjs';
 import { AuthenticationService } from '../authentication.service';
 import { AwardService } from '../award.service';
+import { DialogboxComponent } from '../dialogbox/dialogbox.component';
+import { HotToastService } from '@ngneat/hot-toast';
 
 @Component({
   selector: 'app-more-comments',
@@ -17,7 +20,7 @@ export class MoreCommentsComponent implements OnInit {
   isReadMore =true;
   isAuthorize:any;
   dateTime:Date | undefined
-  constructor(private awardService:AwardService, private route:ActivatedRoute,private routing:Router) { }
+  constructor(private awardService:AwardService, private route:ActivatedRoute,private routing:Router, private dialog: MatDialog,private toastService: HotToastService) { }
   Comments :any ={
     id :  0,
     comments : '',
@@ -56,5 +59,18 @@ export class MoreCommentsComponent implements OnInit {
       this.Comments.comments=''
     });
   }
+  LogintoComment(){
+    if (AuthenticationService.GetData("token") == null)
+       this.dialog.open(DialogboxComponent,{data:{value:this.Id}});
+  }
 
+  showToast() {
+    if (AuthenticationService.GetData("token") == null)
+      this.toastService.success('You Should Login to Comment this Post!',
+      {
+          autoClose: true,
+          dismissible: true,
+      })
+  }
+  
 }
