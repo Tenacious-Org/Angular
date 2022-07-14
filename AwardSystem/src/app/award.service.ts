@@ -38,7 +38,7 @@ export class AwardService {
   }
   addRequest(data:any,id:any): Observable<any>
   {
-    return this.http.post<any>(this.apiurl +`RaiseRequest?id=${id}`, data,{ headers: this.headers })
+    return this.http.post<any>(this.apiurl +`RaiseRequest?employeeId=${id}`, data,{ headers: this.headers })
   }
 
   getComments(awardId:any):Observable<any>
