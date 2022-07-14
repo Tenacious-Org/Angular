@@ -12,7 +12,7 @@ export class DialogboxComponent implements OnInit {
   value:string='';
   
   dataType:any;
-  
+   
   constructor(public dialogRef: MatDialogRef<DialogboxComponent>,private router: Router,
     @Inject(MAT_DIALOG_DATA) public data:any) {
 
