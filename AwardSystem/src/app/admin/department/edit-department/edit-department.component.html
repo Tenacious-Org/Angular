@@ -3,14 +3,14 @@
 <!-- edit department container contains department name, organisation name -->
 
 
-<div class="container d-flex justify-content-center table-box">
+<div class="container table-box">
 
-    <form class="border-box position-relative"  #ngForm (ngSubmit)="OnSubmit()">
+    <form class="border-box"  #ngForm (ngSubmit)="OnSubmit()">
 
         <span class="border-box-tip"><b>Edit Department</b></span>
 
-        <div class="department row mb-3">
-            <div class="col-auto p-1.5">
+        <div class="department row">
+            <div class="col-auto">
                 <label for="org" class="col-form-label">Organisation Name</label>
 
                 <div class="input-group">
@@ -24,15 +24,15 @@
             </div>
             <div *ngIf="OrganisationId===''"class="alert alert-danger">Department name should not be empty!</div>
 
-            <div class="department row mb-3">
-                <div class="col-auto p-1.5">
+            <div class="department row">
+                <div class="col-auto">
                 <label class="col-form-label">Department Name</label>
                 <input type="text" #departmentName="ngModel" required pattern="^[a-zA-Z][a-zA-Z\s]{0,20}[a-zA-Z]$" class="form-control" name="departmentName" value={{data.departmentName}} [(ngModel)]="data.departmentName" >
                 <div *ngIf ="departmentName.touched && departmentName.errors?.['required']" class="alert alert-danger">
                     Department Name is Required!
                 </div>
                 <div >
-                    <h3 class="text-left text-danger" >{{error}}</h3>
+                    <h3 class="text-danger" >{{error}}</h3>
                 </div>
                 <div *ngIf ="departmentName.touched && departmentName.errors?.['pattern']" class="alert alert-danger" >
                     Department Name is invalid!
@@ -44,7 +44,7 @@
         
 
 
-            <div class="department row mt-5 button-group">
+            <div class="addbutton row button-group">
                 <button (click)="CheckName(data.organisationId)" type="submit" class="btn btn-primary col-lg-2">Update</button>
                 <a [routerLink]="['/department']" class="btn btn-danger col-lg-2">Cancel</a>
             </div>

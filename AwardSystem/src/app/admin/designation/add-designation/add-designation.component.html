@@ -2,37 +2,37 @@
 <app-sidebar></app-sidebar>
 <!-- add designation container contains designation name,department name,role -->
 
-<div class="container d-flex justify-content-center table-box" >
+<div class="container table-box" >
 
-    <form class="border-box position-relative" #myForm="ngForm" (ngSubmit)="OnSubmit()">
+    <form class="border-box" #myForm="ngForm" (ngSubmit)="OnSubmit()">
 
         <span class="border-box-tip"><b>Add Designation</b></span>
     
-        <div class="designation row mb-3" >
+        <div class="designation row">
 
-            <div class="col-auto p-1.5 " >
+            <div class="col-auto">
                     <label for="dept" class="col-form-label">Department</label>
                 <div class="input-group" >
                     <select name="departmentID" [(ngModel)]="Designation.departmentId" class="custom-select"   >
                               <option *ngFor="let items of departments"  ngValue={{items.id}} >{{items.departmentName}}</option>
                     </select>
                 </div>
-                <div *ngIf="departmentID==''" class=" text-left text-danger">Department name should not be empty! </div>
+                <div *ngIf="departmentID==''" class="text-danger">Department name should not be empty! </div>
             </div>
         </div>
-        <div class="designation row mb-3" >
-            <div class="col-auto p-1.5"  >
+        <div class="designation row" >
+            <div class="col-auto "  >
               <label for="dept" class="col-form-label">Role</label>
               <div class="input-group" >
                   <select name="roleId" [(ngModel)]="Designation.roleId"   class="custom-select"   >
                 <option *ngFor="let items of roles"  ngValue={{items.id}} >{{items.roleName}}</option>                         
                   </select>
               </div>
-              <div *ngIf="roleID==''" class=" text-left text-danger">Role  should not be empty! </div>
+              <div *ngIf="roleID==''" class=" text-danger">Role  should not be empty! </div>
           </div>
         </div>
-        <div class="designation row mb-3" >
-            <div class="col-auto p-1.5">
+        <div class="designation row " >
+            <div class="col-auto">
                 <label for="firstName" class="col-form-label">Designation Name</label>
 
                 <input type="text"  class="form-control" #designationName="ngModel" required pattern="[a-zA-Z\s]{0,20}[a-zA-Z\s]{0,20}[a-zA-Z]$" name="designationName" [(ngModel)]="Designation.designationName" >
@@ -42,14 +42,14 @@
                 <div *ngIf ="designationName.touched && designationName.errors?.['pattern']" class=" text-danger" >
                     Designation Name is invalid!
                 </div>                           
-            <div class="text-left text-danger"  >
+            <div class="text-danger"  >
                 {{error}}
             </div>
            
         </div>
         </div>
 
-        <div class="designation row mt-5 button-group">
+        <div class="addbutton row button-group">
             <button (click)="CheckName(Designation.departmentId,Designation.roleId)" type="submit" class="btn btn-primary col-lg-2" [disabled]="!myForm.form.valid"> Create </button>
             <button [routerLink]="['/designation']" class="btn btn-danger col-lg-2">Back</button>
 
