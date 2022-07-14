@@ -48,7 +48,7 @@ selectedOrganisation:any;
       this.sharedService.edit(this.endpoint,this.data).subscribe({
         // console.log(res);
         // this.showToast();
-        next: (res) => { console.log(res), this.showToast() },
+        next: (res) => { console.log(res), res?this.showToast():null },
         error: (error) => this.error = error.error.message
       });
     }

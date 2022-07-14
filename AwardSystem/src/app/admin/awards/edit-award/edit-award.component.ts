@@ -59,7 +59,7 @@ export class EditAwardComponent implements OnInit {
     this.sharedService.edit(this.endpoint,this.data).subscribe({
       // console.log(data);
       // this.showToast();
-      next:(res) => { console.log(res), this.showToast() },
+      next:(res) => { console.log(res), res?this.showToast():null },
       error: (error) => this.error = error.error.message
     });
     
@@ -69,7 +69,7 @@ export class EditAwardComponent implements OnInit {
     {
       autoClose: true,
       dismissible: true,
-      icon: '❎',
+      
     })
     this.routing.navigate(['/awards']);
   }
