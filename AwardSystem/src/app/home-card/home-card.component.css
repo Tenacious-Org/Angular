@@ -70,11 +70,15 @@ p{
   margin-top:2.3rem;
   border:20px;
 }
+
+.col-auto{
+  padding:0px;
+}
 #datepicker{
   width:auto;
 }
 #awardfilter{
-  width:180px;
+  width:160px;
 }
 
 .form-control{
@@ -157,3 +161,7 @@ p{
   }
 
 }
+.row>*{
+  padding-left: 0px;
+}
+ 
