@@ -6,8 +6,7 @@
       <div class="col-auto p-1.5" style="display:inline;">
         <label for="org" class="col-form-label">Organisation</label>
         <div class="input-group">
-          <select name="organisationId"  [value] = "0" name="SelectOrg" [(ngModel)]="SelectOrg" onclick="changeid()" (change)="onSelectorg()"
-            class="custom-select">
+          <select name="organisationId"  [value] = "0" name="SelectOrg" [(ngModel)]="SelectOrg" onclick="changeid()" (change)="onSelectorg()" class="custom-select">
             <option value = 0 selected>Choose...</option>
             <option *ngFor="let items of organisations" ngValue={{items.id}}>{{items.organisationName}}</option>
           </select>
@@ -16,10 +15,9 @@
       <div class="col-auto p-1.5" style="display:inline;">
         <label for="org" class="col-form-label">Department</label>
         <div class="input-group">
-          <select name="organisationId" [value] = "0" name="SelectOrg" [(ngModel)]="SelectOrg" onclick="changeid()" (change)="onSelectorg()"
-            class="custom-select">
+          <select name="departmentId"  [value] = "0" name="SelectDep" [(ngModel)]="SelectDep" onclick="changeid()" (change)="onSelectDep()" class="custom-select">
             <option value = 0 selected>Choose...</option>
-            <option *ngFor="let items of organisations" ngValue={{items.id}}>{{items.organisationName}}</option>
+            <option *ngFor="let items of departments" ngValue={{items.id}}>{{items.departmentName}}</option>
           </select>
         </div>
       </div>
@@ -64,7 +62,7 @@
   
       
       <div style="float:left; width:auto;margin-top:3.5rem">
-        <button style="padding:0.5rem;" (click)="Apply(SelectOrg, SelectAward, fromdate, todate)" type="submit">Apply</button>
+        <button style="padding:0.5rem;" (click)="Apply(SelectOrg, SelectDep, SelectAward, fromdate, todate)" type="submit">Apply</button>
       </div>
       <div *ngIf="res" style="float:left; width:auto;margin-top:3.5rem">
         <button style="padding:0.5rem;" (click)="Pie()" type="submit">Reset</button>
@@ -81,7 +79,8 @@
   
     <div style="height:50%;width:50%;position:absolute; left:20%;bottom:5%">
         <canvas baseChart
-              [type]="'pie'"
+              id="myChart"
+              [type]="'bar'"
               [datasets]="pieChartDatasets"
               [labels]="pieChartLabels"
               [options]="pieChartOptions"
