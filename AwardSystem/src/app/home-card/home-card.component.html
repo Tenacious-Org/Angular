@@ -27,7 +27,7 @@
         <div class="col-auto">
           <label class="col-form-label" for="exampleFormControlSelect1">Organisation</label>
           <div class="col input-group">
-            <select name="organisationId" name="SelectOrg" [(ngModel)]="searchOrganisation" (change)="onSelectDep()"
+            <select name="organisationId" [value]="" name="SelectOrg" [(ngModel)]="searchOrganisation" (change)="onSelectDep()" required
               class="form-select">
               <option *ngFor="let items of organisations" ngValue={{items.id}}>{{items.organisationName}}
               </option>
@@ -70,11 +70,11 @@
           </div>
         </div>
         <div class="applybutton">
-          <button id="applybutton"
+          <button id="applybutton"  [disabled]="searchOrganisation == 0 && searchDepartment == 0 && searchAwardType === 0" 
             (click)="awardFilter(searchOrganisation,searchDepartment,searchAwardType,FromDate,ToDate)">Apply</button>
         </div>
         <div *ngIf="isApplied===true">
-          <button id="applybutton" (click)="Reset(filterForm)">Reset</button>
+          <button id="applybutton"(click)="Reset(filterForm)">Reset</button>
         </div>
       </form>
 

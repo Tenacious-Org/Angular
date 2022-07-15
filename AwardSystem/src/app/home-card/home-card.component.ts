@@ -28,6 +28,7 @@ export class HomeCardComponent implements OnInit {
 	departments: any;
 	date: any;
 	isShow=true;
+
 	constructor(private awardService:AwardService,private sharedService:SharedService,private router:ActivatedRoute ,private route:Router){ }
 
   ngOnInit(): void {
