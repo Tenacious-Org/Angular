@@ -20,3 +20,22 @@ img{
 .card-body{
  text-align: center;
 }
+
+@media(max-width:1280px){
+    .card{
+        width: 60%;
+    }
+}
+@media(max-width:912px){
+    .card{
+        margin-top: 100px;
+        margin-left: 0;
+    }
+}
+@media(max-width:500px){
+    .card{
+        
+        width:250px;
+    }
+
+}
