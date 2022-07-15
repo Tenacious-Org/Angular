@@ -6,6 +6,7 @@ import { AuthenticationService } from '../authentication.service';
 import { HttpClient } from '@angular/common/http';
 import { Awards } from 'Models/Awards';
 import { SharedService } from '../shared.service';
+import { NgForm } from '@angular/forms';
 @Component({
   selector: 'app-card-post',
   templateUrl: './card-post.component.html',
@@ -21,27 +22,27 @@ export class CardPostComponent implements OnInit {
   employeeId=AuthenticationService.GetData("User");
   isReadMore =true;
   isShow=true;
-	endpoint="AwardType";
-	awardTypes: any;
-
+  endpoint="AwardType";
+  awardTypes: any;
   constructor(private awardService:AwardService,private sharedService:SharedService,private router:ActivatedRoute){ }
 
   ngOnInit(): void {
-	
-    this.router.params.subscribe(params => {
-      this.AwardId = params['id'];
-    this.awardService.getAwardsList(this.pageId,this.employeeId).subscribe(data=>{
-      this.awardData=data;
-	  this.filteredData=data;
-    });
-  });
-  this.sharedService.getAll(this.endpoint).subscribe(res=>{
-	this.awardTypes=res;});
-
+	this.awardList()
+	this.sharedService.getAll(this.endpoint).subscribe(res=>{
+		this.awardTypes=res;});
   }
   advanced()
   {
 	this.isShow=!this.isShow;
+  }
+  awardList(){
+	this.router.params.subscribe(params => {
+		this.AwardId = params['id'];
+	  this.awardService.getAwardsList(this.pageId,this.employeeId).subscribe(data=>{
+		this.awardData=data;
+		this.filteredData=data;
+	  });
+	});
   }
  
   
@@ -92,11 +93,12 @@ awardFilter(searchAwardType:any, FromDate: any, ToDate: any) {
 	else if ( searchAwardType != 0  && FromDate != new Date("0001-01-01").toString() && ToDate != new Date("0001-01-01").toString()) {
 		this.awardData = this.filteredData.filter(item => new Date(item.updatedOn)>= new Date(FromDate) && new Date(item.updatedOn) <= new Date(ToDate) && item.awardTypeId==searchAwardType);
 	}
+	this.isApplied=true;
+}
+Reset(formValue:NgForm){
+	formValue.reset();
+	this.awardList();
+	this.isApplied=false;
 	
 }
-// Reset(){
-// 	this.isApplied=false;
-// 	this.route.navigateByUrl("");
-	
-// }
 }

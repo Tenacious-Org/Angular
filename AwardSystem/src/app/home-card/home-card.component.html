@@ -23,7 +23,7 @@
         </div>
       
       </div>
-      <form class="row filterform" *ngIf="!isShow">
+      <form class="row filterform" #filterForm="ngForm" *ngIf="!isShow">
         <div class="col-auto">
           <label class="col-form-label" for="exampleFormControlSelect1">Organisation</label>
           <div class="col input-group">
@@ -73,9 +73,9 @@
           <button id="applybutton"
             (click)="awardFilter(searchOrganisation,searchDepartment,searchAwardType,FromDate,ToDate)">Apply</button>
         </div>
-        <!-- <div *ngIf="isApplied===true">
-          <button id="applybutton" (click)="Reset()">Reset</button>
-        </div> -->
+        <div *ngIf="isApplied===true">
+          <button id="applybutton" (click)="Reset(filterForm)">Reset</button>
+        </div>
       </form>
 
     </div>

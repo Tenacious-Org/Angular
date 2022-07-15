@@ -4,6 +4,7 @@ import { AwardService } from '../award.service';
 import { AuthenticationService } from '../authentication.service';
 import { SharedService } from '../shared.service';
 import { formatDate } from '@angular/common';
+import { NgForm } from '@angular/forms';
 @Component({
   selector: 'app-home-card',
   templateUrl: './home-card.component.html',
@@ -31,24 +32,7 @@ export class HomeCardComponent implements OnInit {
 
   ngOnInit(): void {
 	this.isValidUser=AuthenticationService.GetData("token");
-    this.router.params.subscribe(params => {
-      this.myAwards= params['id'];
-	  console.log(this.myAwards)
-		if(this.myAwards!=null){
-			this.pageId=1;
-			this.employeeId=this.myAwards
-			this.awardService.getAwardsList(this.pageId,this.employeeId).subscribe(data=>{
-				this.awardData=data;
-				this.filteredData=data;
-				console.log(this.filteredData)
-			  });
-		}
-    this.awardService.getAwardsList(this.pageId,this.employeeId).subscribe(data=>{
-      this.awardData=data;
-	  this.filteredData=data;
-	  console.log(this.filteredData)
-    });
-  });
+    this.awardList()
   this.sharedService.getAll(this.endpoint).subscribe(res=>{
 	this.awardTypes=res;});
 
@@ -57,6 +41,26 @@ export class HomeCardComponent implements OnInit {
 		console.log(this.organisations);
 	  });
 
+  }
+  awardList(){
+	this.router.params.subscribe(params => {
+		this.myAwards= params['id'];
+		console.log(this.myAwards)
+		  if(this.myAwards!=null){
+			  this.pageId=1;
+			  this.employeeId=this.myAwards
+			  this.awardService.getAwardsList(this.pageId,this.employeeId).subscribe(data=>{
+				  this.awardData=data;
+				  this.filteredData=data;
+				  console.log(this.filteredData)
+				});
+		  }
+	  this.awardService.getAwardsList(this.pageId,this.employeeId).subscribe(data=>{
+		this.awardData=data;
+		this.filteredData=data;
+		console.log(this.filteredData)
+	  });
+	});
   }
   advanced()
   {
@@ -152,11 +156,12 @@ export class HomeCardComponent implements OnInit {
 		this.isApplied=true;
 		
 	}
-	// Reset(){
-	// 	this.isApplied=false;
-	// 	this.route.navigateByUrl("");
+	Reset(formValue: NgForm){
 		
-	// }
+		formValue.reset();
+		this.awardList();
+		this.isApplied=false;
+	}
 }
 
 
