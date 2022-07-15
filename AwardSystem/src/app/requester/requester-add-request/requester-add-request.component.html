@@ -1,11 +1,11 @@
 <app-layout></app-layout>
 <app-sidebar></app-sidebar>
 <!-- Requester add request container contains awardee name, award name, reason for the award -->
-<div class="container d-flex justify-content-center table-box">
+<div class="container table-box">
   <form class="border-box position-relative" #myForm="ngForm" (ngSubmit)="OnSubmit()">
     <span class="border-box-tip"><b>Raise request</b></span>
     <div class="addrequest row g-3 mb-3">
-      <div class="col-auto p-1.5">
+      <div class="awardName col-auto p-1.5">
         <label class="labels">Awardee Name &nbsp; </label>
         <input [formControl]="searchAwardee" matInput type="text" required [matAutocomplete]="auto" name="awardeeId"
           class="form-control" [(ngModel)]="Awards.AwardeeName">
@@ -14,7 +14,7 @@
             {{item.firstName}} </mat-option>
         </mat-autocomplete>
       </div>
-      <div class="col-auto p-1.5">
+      <div class="Award col-auto p-1.5">
         <label for="exampleFormControlSelect1">Award</label>
         <select name="awardTypeId" #awardName="ngModel" required [(ngModel)]="Awards.awardTypeId" class="custom-select"
           (change)="onSelectAward()">
@@ -41,7 +41,7 @@
 
     <div class="row g-3 mb-3">
       <div class="col-md-5 " *ngIf="isAwardee===1">
-        <div class="card py-4">
+        <div class=" card py-4">
           <div class="text-center" *ngIf="awardeeData.image===null ; else elseimage">
             <img *ngIf="awardeeData.gender==='Male';else elsegender " src='assets/images/male.jpg'
               class="rounded-circle img-fluid" />
@@ -59,8 +59,8 @@
           </div>
         </div>
       </div>
-      <div class="col-md-5" *ngIf="isAward===1">
-        <div class="card py-4">
+      <div class=" col-md-5" *ngIf="isAward===1">
+        <div class="card awardimage   py-4">
           <div class="text-center" *ngIf="awardData.image===null ; else elseimage">
             <img src='assets/images/award.png' class="rounded-circle img-fluid" />
           </div>
@@ -76,9 +76,9 @@
       </div>
     </div>
     <div class="addrequest row mt-5 button-group">
-      <button (click)="CheckName(Awards.AwardeeName)" type="submit" class="btn btn-primary col-lg-2"
+      <button (click)="CheckName(Awards.AwardeeName)" type="submit" class="btn addbutton btn-primary col-lg-2"
         [disabled]="!myForm.form.valid">Submit</button>
-      <a [routerLink]="['/requester-request']" routerLinkActive="router-link-active" class="btn btn-danger col-lg-2"
+      <a [routerLink]="['/requester-request']" routerLinkActive="router-link-active" class="btn closeButton btn-danger col-lg-2"
         type="button">Cancel</a>
     </div>
   </form>
