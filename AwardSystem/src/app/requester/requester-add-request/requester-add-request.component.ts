@@ -87,7 +87,6 @@ export class RequesterAddRequestComponent implements OnInit {
   onSelectAwardee(event:any){
     this.selectedAwardee = event.option.id;
     console.log(this.selectedAwardee);
-
     this.sharedService.getById(this.endpoint,this.selectedAwardee).subscribe(data=>{
     this.awardeeData=data;
     this.isAwardee=1;
@@ -109,7 +108,7 @@ export class RequesterAddRequestComponent implements OnInit {
     console.log("awardeeid: ", this.Awards.awardeeId)
     console.log("awardtypeid: ", this.Awards.awardTypeId)
     console.log("employeeid: ", this.employeeId)
-    this.awardService.addRequest(this.Awards,this.employeeId).subscribe({
+    this.awardService.addRequest(this.Awards).subscribe({
       next: (res) => { console.log(res), this.showToast() },
       error: (error) => this.error = error.error.message
     });

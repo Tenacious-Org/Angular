@@ -37,7 +37,7 @@ onSubmit(){
   }
 }
  getAll(){
-  this.awardService.getAwardsList(this.pageId,this.employeeId).subscribe(data=>
+  this.awardService.getAwardsList(this.pageId).subscribe(data=>
     {
         this.data = data;
         this.totalLength=data;

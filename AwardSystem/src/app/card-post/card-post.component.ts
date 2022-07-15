@@ -38,7 +38,7 @@ export class CardPostComponent implements OnInit {
   awardList(){
 	this.router.params.subscribe(params => {
 		this.AwardId = params['id'];
-	  this.awardService.getAwardsList(this.pageId,this.employeeId).subscribe(data=>{
+	  this.awardService.getAwardsList(this.pageId).subscribe(data=>{
 		this.awardData=data;
 		this.filteredData=data;
 	  });

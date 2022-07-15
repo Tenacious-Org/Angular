@@ -32,7 +32,7 @@ export class RequestComponent implements OnInit {
   }
   getAll() {
     this.awardService
-      .getAwardsList(this.pageId, this.employeeId)
+      .getAwardsList(this.pageId)
       .subscribe((data) => {
         this.data = data;
         this.totalLength = data;

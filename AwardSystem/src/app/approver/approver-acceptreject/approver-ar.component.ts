@@ -68,7 +68,7 @@ export class ApproverARComponent implements OnInit {
   OnSubmit(){
     console.log(this.awards);
     this.awards.statusId=this.approvedId;
-    this.awardService.approval(this.awards,this.employeeId).subscribe(data=>{
+    this.awardService.approval(this.awards).subscribe(data=>{
       console.log(res);
       this.showToast();
 
@@ -90,7 +90,7 @@ export class ApproverARComponent implements OnInit {
       this.awards.rejectedReason=value;
       if(value!=undefined){
         this.awards.statusId=this.rejectedId;
-        this.awardService.approval(this.awards,this.employeeId).subscribe(data=>{
+        this.awardService.approval(this.awards).subscribe(data=>{
           console.log(this.awards);
           this.ShowToast();
 

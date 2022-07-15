@@ -76,9 +76,9 @@
                     <div *ngIf ="coupon.touched && coupon.errors?.['pattern']" class="text-danger" >
                         Coupon is invalid! eg:Awesome20
                     </div>
-                   
-                    
-                    
+                    <div >
+                        <h3 class="text-danger" >{{error}}</h3>
+                    </div>                   
                 </div>
                 <div *ngIf="data.statusId===4">
                     <h3 class="text-muted mb-0">{{data.couponCode}}</h3>
