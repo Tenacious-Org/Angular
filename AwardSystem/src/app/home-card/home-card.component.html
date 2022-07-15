@@ -27,8 +27,9 @@
         <div class="col-auto">
           <label class="col-form-label" for="exampleFormControlSelect1">Organisation</label>
           <div class="col input-group">
-            <select name="organisationId" [value]="" name="SelectOrg" [(ngModel)]="searchOrganisation" (change)="onSelectDep()" required
+            <select name="organisationId" [value]="0" name="SelectOrg" [(ngModel)]="searchOrganisation" (change)="onSelectDep()" required
               class="form-select">
+              <option value=0 selected>Choose..</option>
               <option *ngFor="let items of organisations" ngValue={{items.id}}>{{items.organisationName}}
               </option>
             </select>
@@ -37,7 +38,9 @@
         <div class="col-auto">
           <label class="col-form-label" for="exampleFormControlSelect1">Department</label>
           <div class="input-group">
-            <select name="departmentId" [(ngModel)]="searchDepartment" class="form-select">
+            <select name="departmentId" [value]="0" [(ngModel)]="searchDepartment" class="form-select">
+              <option value=0 selected>Choose..</option>
+
               <option *ngFor="let items of departments" ngValue={{items.id}}>{{items.departmentName}}</option>
             </select>
           </div>
@@ -45,11 +48,11 @@
         <div class="col-auto" id="awardfilter">
           <label class="col-form-label" for="exampleFormControlSelect1">Award Type</label>
           <div class="input-group">
-            <select name="searchAwardType" [(ngModel)]="searchAwardType" required class="form-select">
+            <select name="searchAwardType" [value]="0" [(ngModel)]="searchAwardType" required class="form-select">
               <div class="alert alert-danger">
                 Award Name is Required!
               </div>
-              <option selected>Choose...</option>
+              <option  value=0 selected>Choose...</option>
               <option *ngFor="let items of awardTypes" value={{items.id}}>{{items.awardName}}</option>
             </select>
           </div>
