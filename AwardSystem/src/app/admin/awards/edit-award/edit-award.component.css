@@ -15,8 +15,27 @@
 .border-box {
     position: relative;
 }
+/* textarea {
+    overflow: auto;
+    resize: both;
+} */
 textarea{
     height:8rem;
+    width: 28rem;
+}
+.award-description{
+    padding: 10px;
+}
+
+.form-control{
+    width: 28rem;
+}
+
+.choose-box{
+    margin-left:-5rem; 
+}
+.img-danger-text{
+    margin-left:-5rem;
 }
 
 @media(max-width:1920px) {

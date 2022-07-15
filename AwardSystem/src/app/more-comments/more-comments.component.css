@@ -45,13 +45,15 @@
     margin-bottom:2%;
   }
 .input-group,.form-control{
-  /* width:360px; */
-  width:auto;
+  width:260px;
+  /* width:auto; */
   display: inline-block;
 }
+
 .morecomment{
-  border: 1px solid #333;
+  outline:1px solid #333; 
 }
+
 #morecommentspage{
   height:auto;
   max-height: 560px;
@@ -130,4 +132,8 @@ p{
 .fa-solid{
   margin-top: 10px;
 
+}
+textarea{
+  height:4rem;
+  width: 22rem;
 }
