@@ -19,7 +19,6 @@ export class MoreCommentsComponent implements OnInit {
   commentList:any;
   isReadMore =true;
   isAuthorize:any;
-  dateTime:Date | undefined
   constructor(private awardService:AwardService, private route:ActivatedRoute,private routing:Router, private dialog: MatDialog,private toastService: HotToastService) { }
   Comments :any ={
     id :  0,
@@ -37,14 +36,12 @@ export class MoreCommentsComponent implements OnInit {
           console.log(this.data);
         });
       });
-      timer(0,1000).subscribe(()=>{
-        this.dateTime=new Date();
-       })
+    
 
 
       this.awardService.getComments(this.Id).subscribe(result=>{
         this.commentList=result;
-        console.log(this.commentList);
+        console.log(this.commentList.commentedOn);
       })
 
   }

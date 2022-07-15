@@ -54,7 +54,7 @@
                                             [src]="'data:image/jpg;base64,'+ item.employeeImage" class="rounded-circle img-fluid"/></div>
                                 </ng-template>
                                 <h3 class="commentername">{{item.employeeName}}</h3>
-                                <h3  class="commentername">{{dateTime | date:'h:mm a'}}</h3>
+                                <h3  class="commentername">{{item.commentedOn | date:'MMM d, y - h:mm a'}}</h3>
 
                             </div>
                             <h4 id="heading">{{item.comments}}</h4>
