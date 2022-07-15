@@ -97,6 +97,12 @@ disable(endpoint:any,id:any):Observable<string>{
     return this.http.get<any>(this.apiurl + `Dashboard/GetAllOrgWise?id=${id}`,{ headers: this.headers })
   }
 
+  //get All Winners Org Wise
+  getallwinDeptwise(id:any):Observable<any>
+  {
+    return this.http.get<any>(this.apiurl + `Dashboard/GetAllDeptWise?id=${id}`,{ headers: this.headers })
+  }
+
   //get All Winners Award Wise
   getallAwardwise(id:any):Observable<any>
   {
@@ -109,8 +115,8 @@ disable(endpoint:any,id:any):Observable<string>{
   }
 
   //get by Date Range
-  getDateWise(orgid: number, awdid: number, fdate:Date, tdate:Date){
-    return this.http.get<any>(this.apiurl + `Dashboard/GetAllDateWise?orgid=${orgid}&awdid=${awdid}&start=${fdate}&end=${tdate}`,{ headers: this.headers })
+  getDateWise(orgid: number, deptid: number, awdid: number, fdate:Date, tdate:Date){
+    return this.http.get<any>(this.apiurl + `Dashboard/GetAllDateWise?orgid=${orgid}&deptid=${deptid}&awdid=${awdid}&start=${fdate}&end=${tdate}`,{ headers: this.headers })
   }
 
 }
