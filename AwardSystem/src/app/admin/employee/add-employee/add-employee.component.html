@@ -64,7 +64,7 @@
             <div class="col-auto">
                 <label for="aceid" class="col-form-label">ACEID</label>
                 <!-- <input type="text" name="aceid" [(ngModel)]="Employee.aceid" id="aceid" class="form-control" aria-describedby="aceidHelpInline"> -->
-                <input type="text" #aceid="ngModel" required pattern="ACE\d{3,}$" class="form-control" name="aceid"
+                <input type="text" #aceid="ngModel" required pattern="ACE\d{3,5}$" class="form-control" name="aceid"
                     [(ngModel)]="Employee.aceid">
                 <div *ngIf="aceid.touched && aceid.errors?.['required']" class="text-danger">
                     ACEID is Required!
