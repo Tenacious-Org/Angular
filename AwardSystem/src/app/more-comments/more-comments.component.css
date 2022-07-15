@@ -54,6 +54,11 @@
   outline:1px solid #333; 
 }
 
+a:not([href]):not([tabindex]) {
+  color: white;
+  text-decoration: none;
+}
+
 #morecommentspage{
   height:auto;
   max-height: 560px;
