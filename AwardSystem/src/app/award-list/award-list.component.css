@@ -1,0 +1,16 @@
+@media (min-width: 1024px) {
+    .form-select{
+        display:flex;
+    }
+}
+.form-select{
+    width:auto;
+}
+
+/* Corrected css */
+.pagination{
+    justify-content: center;
+}
+.tabledata{
+    text-align: center;
+}

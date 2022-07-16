@@ -43,6 +43,7 @@ import { HomeCardComponent } from './home-card/home-card.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DialogboxComponent } from './dialogbox/dialogbox.component';
 import { AwardViewComponent } from './award-view/award-view.component';
+import { AwardListComponent } from './award-list/award-list.component';
 // import { HotToastModule } from '@ngneat/hot-toast';
 
 
@@ -104,6 +105,7 @@ const routes: Routes = [
 
   {path:'ApproverApproval', component:ApproverApprovalComponent},
   {path:'AwardView',component:AwardViewComponent},
+  {path:'awardlist/:id',component:AwardListComponent}
 
 ];
 
