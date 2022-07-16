@@ -47,10 +47,10 @@
                                                 <button class="nav-link active" role="tab"  aria-selected="true">About</button>
                                             </li>
                                             <li class="nav-item">
-                                                <button class="nav-link" (click)="toggle()" aria-selected="false">Reason</button>
+                                                <button class="nav-link" (click)="toggleDisplayDiv()" aria-selected="false">Reason</button>
                                             </li>
                                             <li class="nav-item" *ngIf="data.statusId===3">
-                                                <button class="nav-link" (click)="toggle()" aria-selected="false">Rejection Reason</button>
+                                                <button class="nav-link"  aria-selected="false">Rejection Reason</button>
                                             </li>
                                         </ul>
                                     
@@ -104,7 +104,7 @@
                                                 <label>{{data.approverName}}</label>
                                             </div>
                                           </div>
-                                          <div class="row">
+                                          <div class="row" *ngIf="data.statusId===2 || data.statusId==4">
                                             <div class="col-md-6">
                                                 <label>Coupon Code</label>
                                             </div>
@@ -144,10 +144,10 @@
                         
                     </div>
 
-                    <div class="reason fade" id="Reason" *ngIf="hide">
+                    <div class="reason fade" id="Reason" [hidden]="isShowDiv">
                         <p>{{data.reason}}</p>
                     </div>
-                    <div class="rejectionreason fade" id="rejectedReason" *ngIf="hide">
+                    <div class="rejectionreason fade" id="rejectedReason" >
                         <p>{{data.rejectedReason}}</p>
                     </div>
         </div>
