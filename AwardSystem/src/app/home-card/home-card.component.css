@@ -66,9 +66,12 @@ p{
   padding: 0.5rem;
 }
 .applybutton{
-  width:20px;
   margin-top:2.3rem;
   border:20px;
+  margin-right:10px;
+}
+.btn-group{
+  box-shadow: none;
 }
 
 .col-auto{
@@ -93,7 +96,7 @@ p{
   float:left;
 }
 .homepagefilter{
-  margin-left:30px;
+  margin-left:38px;
   padding-top:90px;
   justify-content: space-between;
 }

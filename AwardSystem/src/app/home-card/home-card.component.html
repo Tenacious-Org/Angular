@@ -60,23 +60,23 @@
 
 
         <div class="col-auto" id="datepicker">
-          <label class="col-form-label" for="fromdate">From Date:</label>
+          <label class="col-form-label" for="fromdate">From Date</label>
           <div class="input-group col-auto ">
             <input class="form-control " [(ngModel)]="FromDate" type="date" id="fromdate" name="fromdate">
           </div>
         </div>
 
         <div class="col-auto" id="datepicker">
-          <label class="col-form-label" for="todate">To Date:</label>
+          <label class="col-form-label" for="todate">To Date</label>
           <div class="input-group col-auto">
             <input class="form-control " [(ngModel)]="ToDate" type="date" id="fromdate" name="todate">
           </div>
         </div>
-        <div class="applybutton">
+        <div class="applybutton col-auto">
           <button id="applybutton"  [disabled]="searchOrganisation == 0 && searchDepartment == 0 && searchAwardType === 0" 
             (click)="awardFilter(searchOrganisation,searchDepartment,searchAwardType,FromDate,ToDate)">Apply</button>
         </div>
-        <div *ngIf="isApplied===true">
+        <div class="applybutton col-auto" *ngIf="isApplied===true">
           <button id="applybutton"(click)="Reset(filterForm)">Reset</button>
         </div>
       </form>
