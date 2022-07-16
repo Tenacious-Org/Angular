@@ -31,12 +31,9 @@ showErrorMessage=false;
   }
 
   OnSubmit(){
-
     this.IsLoading=true;
-
-   this.showErrorMessage=false;
+    this.showErrorMessage=false;
     const headers = { 'content-type': 'application/json'}
-
     console.log(this.user)  
     this.http.post<any>(`https://localhost:7275/Token`,this.user)
       .subscribe({

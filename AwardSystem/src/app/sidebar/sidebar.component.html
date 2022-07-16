@@ -55,15 +55,18 @@
                 <li>
                     <a [routerLink]="['/profile/',+id]"><i class="fa-solid fa-address-card ml-4 mr-3"></i>Profile</a>
                 </li>
+                <div *ngIf="id!=3">
                 <li *ngIf="role===2 || role===3 || role===4">
-                    <a [routerLink]="['/requester-request']"><i class="fa-solid fa-paper-plane  ml-4 mr-3"></i>Request</a>
-                </li>
+                    <a [routerLink]="['/request/2']"><i class="fa-solid fa-paper-plane  ml-4 mr-3"></i>Request</a>
+                </li></div>
                 <li *ngIf="role===3 || role===4">
-                    <a [routerLink]="['/approver-approval']" ><i class="fa-solid fa-circle-check ml-4 mr-3"></i>Approval</a>
+                    <a [routerLink]="['/request/3']" ><i class="fa-solid fa-circle-check ml-4 mr-3"></i>Approval</a>
                 </li>
+                <div *ngIf="id!=3">
                 <li *ngIf="role===4">
-                    <a [routerLink]="['/hr-publish']"><i class="fa-solid fa-upload ml-4 mr-3"></i>Publish</a>
+                    <a [routerLink]="['/request/4']"><i class="fa-solid fa-upload ml-4 mr-3"></i>Publish</a>
                 </li>
+                </div>
                 <li *ngIf=" role===4">
                     <a [routerLink]="['/dashboard']"><i class="fa-regular fa-chart-bar ml-4 mr-3"></i>Dashboard</a>
                 </li>

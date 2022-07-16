@@ -11,7 +11,6 @@ import { Router } from '@angular/router';
 })
 export class ApproverApprovalComponent implements OnInit {
   pageId=3;
-  employeeId=AuthenticationService.GetData("User");
   totalLength: any;
   page: number = 1;
   data:any;
@@ -25,9 +24,9 @@ export class ApproverApprovalComponent implements OnInit {
 
 
   ngOnInit(): void {
-    if(!AuthenticationService.GetData("Approver") && !AuthenticationService.GetData("Publisher")){
-      this.router.navigateByUrl("")
-    }
+    // if(!AuthenticationService.GetData("Approver") && !AuthenticationService.GetData("Publisher")){
+    //   this.router.navigateByUrl("")
+    // }
     this.getAll();
   }
 onSubmit(){

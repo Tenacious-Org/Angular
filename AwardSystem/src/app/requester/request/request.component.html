@@ -19,9 +19,9 @@
                 </select> -->
                 <select class="form-select" [value]="0" [(ngModel)]="filtervalue"  aria-label="Default select example"  style="width:auto">
                     <option value=0 selected>All</option>
-                    <option ng-value="1">Pending</option>
-                    <option ng-value="2">Approved</option>
-                    <option ng-value="3">Rejected</option>
+                    <option *ngIf="pageId!=4" ng-value="1">Pending</option>
+                    <option  ng-value="2">Approved</option>
+                    <option *ngIf="pageId!=4" ng-value="3">Rejected</option>
                     <option ng-value="4">Published</option>
 
                 </select>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/authentication.service';
 import { AwardService } from 'src/app/award.service';
 
@@ -9,33 +9,35 @@ import { AwardService } from 'src/app/award.service';
   styleUrls: ['./request.component.css'],
 })
 export class RequestComponent implements OnInit {
-  pageId = 2;
-  employeeId = AuthenticationService.GetData('User');
+  pageId :any;
   totalLength: any;
   page: number = 1;
   data: any;
   val: any;
   options:string[]=["All","Pending","Approved","Rejected","Published"]
   filtervalue = "All";
-  constructor(private awardService: AwardService,private router:Router) {}
+  constructor(private awardService: AwardService,private router:Router,private activatedRoute:ActivatedRoute) {}
 
   ngOnInit(): void {
     if(!AuthenticationService.GetData("Requester") && !AuthenticationService.GetData("Approver") && !AuthenticationService.GetData("Publisher")){
       this.router.navigateByUrl("")
     }
-    this.getAll();
+    this.activatedRoute.params.subscribe(params => {
+      this.pageId = params['id'];
+    });
+    console.log(this.pageId)
+    this.getAll(this.pageId);
   }
   onSubmit() {
     if (this.filtervalue == '') {
-      this.getAll();
+      this.getAll(this.pageId);
     }
   }
-  getAll() {
+  getAll(pageId:any) {
     this.awardService
-      .getAwardsList(this.pageId)
+      .getAwardsList(pageId)
       .subscribe((data) => {
         this.data = data;
-        this.totalLength = data;
         console.log(this.data);
       });
   }

@@ -89,7 +89,7 @@ const routes: Routes = [
 
  
 
-  {path:'requester-request' , component:RequestComponent},
+  {path:'request/:id' , component:RequestComponent},
   {path:'requester-add-request' , component:RequesterAddRequestComponent},
 
   {path:'requester-view' , component:RequesterViewComponent},

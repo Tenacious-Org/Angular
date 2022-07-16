@@ -152,11 +152,10 @@ export class HomeCardComponent implements OnInit {
 			console.log("true")
 			this.awardData = this.filteredData.filter(item => item.organisationId==searchOrganisation && item.departmentId==searchDepartment && item.awardTypeId==searchAwardType && new Date(item.updatedOn)>= new Date(FromDate) && new Date(item.updatedOn) <= new Date(ToDate));
 		}
-		this.isApplied=true;
-		
+		this.isApplied=true;		
 	}
+	
 	Reset(formValue: NgForm){
-		
 		formValue.reset();
 		this.awardList();
 		this.isApplied=false;
