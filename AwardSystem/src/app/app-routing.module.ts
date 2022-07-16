@@ -15,7 +15,6 @@ import { EditOrganisationComponent } from './admin/organisation/edit-organisatio
 import { OrganisationComponent } from './admin/organisation/organisation.component';
 import { ApproverApprovalComponent } from './approver/approver-approval/approver-approval.component';
 import { ApproverComponent } from './approver/approver.component';
-import { CardPostComponent } from './card-post/card-post.component';
 import { FooterComponent } from './footer/footer.component';
 import { LayoutComponent } from './layout/layout.component';
 import { LoginComponent } from './login/login.component';
@@ -85,8 +84,7 @@ const routes: Routes = [
 
   {path:'footer' , component:FooterComponent},
   {path:'morecomments/:id' , component:MoreCommentsComponent},
-  {path:'cardpost' , component:CardPostComponent},
-  {path:'' , component:HomeCardComponent},
+  {path:'homecard/:id' , component:HomeCardComponent},
 
  
 
@@ -105,8 +103,8 @@ const routes: Routes = [
 
   {path:'ApproverApproval', component:ApproverApprovalComponent},
   {path:'AwardView',component:AwardViewComponent},
-  {path:'awardlist/:id',component:AwardListComponent}
-
+  {path:'awardlist/:id',component:AwardListComponent},
+  {path:'',redirectTo:'homecard/0', pathMatch: 'full' },
 ];
 
 

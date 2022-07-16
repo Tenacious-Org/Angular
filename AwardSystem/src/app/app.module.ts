@@ -18,7 +18,6 @@ import { LayoutComponent } from './layout/layout.component';
 import { FooterComponent } from './footer/footer.component';
 import { MoreCommentsComponent } from './more-comments/more-comments.component';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { CardPostComponent } from './card-post/card-post.component';
 
 import { AdminComponent } from './admin/admin.component';
 
@@ -85,7 +84,6 @@ import { AwardListComponent } from './award-list/award-list.component';
     LayoutComponent,
     FooterComponent,
     MoreCommentsComponent,
-    CardPostComponent,
 
     LoginComponent,
 

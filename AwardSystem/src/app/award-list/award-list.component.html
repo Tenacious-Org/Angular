@@ -18,10 +18,11 @@
                 <!-- <select name="filtervalue" class="form-select" [(ngModel)]="filtervalue"  style="width:auto">
                     <option *ngFor="let option of options" [value]="option" >{{option}}</option>
                 </select> -->
-                <select class="form-select" [value]="0" [(ngModel)]="filtervalue"  aria-label="Default select example"  style="width:auto">
+                <select class="form-select" [value]="0" [(ngModel)]="filtervalue" aria-label="Default select example"
+                    style="width:auto">
                     <option value=0 selected>All</option>
                     <option *ngIf="pageId!=4" ng-value="1">Pending</option>
-                    <option  ng-value="2">Approved</option>
+                    <option ng-value="2">Approved</option>
                     <option *ngIf="pageId!=4" ng-value="3">Rejected</option>
                     <option ng-value="4">Published</option>
 
@@ -56,14 +57,20 @@
                             class="badge badge-primary rounded-pill d-inline">{{item.status}}</span>
                     </td>
                     <td>
-                        <a [routerLink]="['../requester-view', item.id]" routerLinkActive="router-link-active"
+                        <a *ngIf="pageId==2" [routerLink]="['/requester-view', item.id]" routerLinkActive="router-link-active"
+                            class="btn btn-success" target="_self"><i class="fa-solid fa-circle-info"
+                                title="Details"></i></a>
+                        <a *ngIf="pageId==3" [routerLink]="['/approver-acceptreject', item.id]" routerLinkActive="router-link-active"
+                            class="btn btn-success" target="_self"><i class="fa-solid fa-circle-info"
+                                title="Details"></i></a>
+                        <a *ngIf="pageId==4" [routerLink]="['/hr-yettopublish',item.id]" routerLinkActive="router-link-active"
                             class="btn btn-success" target="_self"><i class="fa-solid fa-circle-info"
                                 title="Details"></i></a>
                 </tr>
             </tbody>
         </table>
 
-<!-- pagination -->
+        <!-- pagination -->
         <pagination-controls class="pagination" (pageChange)="page = $event"></pagination-controls>
     </div>
 </div>
