@@ -35,7 +35,7 @@
                             <label class="form-label" for="addANote">+ Add comments</label>
                             
                             <a (click)="OnSubmit()"  class="col-lg-1">
-                                <i class="fa-solid fa-paper-plane fa-2xl post-icon"></i>
+                                <i class="fa-solid fa-paper-plane fa-2xl "></i>
                             </a>
                         </form>
                         <br><br>
@@ -43,13 +43,12 @@
                     <div class="col-md-12 col-sm-12">
                         <div class="comment-wrapper">
                             <div class="panel panel-info">
-                                <div class="panel-body">
-                                    <textarea type="text" (click)="LogintoComment()" titile="Login to comment" #comments="ngModel" name="comments" [(ngModel)]="Comments.comments"  placeholder="write a comment..." rows="3"></textarea>
+                                <form class="panel-body" #myForm="ngForm">
+                                    <textarea type="text" (click)="LogintoComment()" titile="Login to comment" #comments="ngModel" name="comments" [(ngModel)]="Comments.comments"  placeholder="write a comment..." rows="3" ></textarea>
                                     <br>
-                                    <a type="button" (click)="OnSubmit()" class="btn btn-primary">Post</a>
-                                    <div class="clearfix"></div>  
+                                    <a (click)="OnSubmit()" class="btn btn-primary" >Post</a>
                                     <br>
-                                </div>  
+                                </form>  
                             </div>
                         </div>
                     </div>
