@@ -1,11 +1,11 @@
-@media (min-width: 1024px) {
+ @media (max-width: 1024px) {
     .form-select{
         display:flex;
     }
-}
-.form-select{
+} 
+ .form-select{
     width:auto;
-}
+} 
 
 /* Corrected css */
 .pagination{
@@ -13,4 +13,35 @@
 }
 .tabledata{
     text-align: center;
+}
+@media(max-width:580px) {
+
+    .form-control {
+        width: 145px;
+    }
+  }
+  @media(max-width:360px) {
+    .form-control{
+        width: 140px;
+    }
+}
+  @media(max-width:912px){
+    .container{
+        padding-top: 80px;
+    }
+  }
+@media(min-width:540px){
+    .filterbox{
+        margin:0px;
+    }
+}
+@media(max-width:280px)
+{
+    .searchfilter{
+        float: left;
+        margin-top: 20px;
+    }
+    .filterbox{
+        padding-right: 35%;
+    }
 }
