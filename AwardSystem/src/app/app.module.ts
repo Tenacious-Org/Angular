@@ -67,7 +67,7 @@ import { NgChartsModule } from 'ng2-charts';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { HotToastModule } from '@ngneat/hot-toast';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
-import { ViewComponent } from './view/view.component';
+import { AwardViewComponent } from './award-view/award-view.component';
 
 
 //import { TooltipModule } from 'ng2-tooltip-directive';
@@ -139,7 +139,7 @@ import { ViewComponent } from './view/view.component';
 
  AppComponent,
    ForgotPasswordComponent,
-   ViewComponent,
+   AwardViewComponent,
 
 
 

@@ -42,7 +42,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { HomeCardComponent } from './home-card/home-card.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DialogboxComponent } from './dialogbox/dialogbox.component';
-import { ViewComponent } from './view/view.component';
+import { AwardViewComponent } from './award-view/award-view.component';
 // import { HotToastModule } from '@ngneat/hot-toast';
 
 
@@ -100,10 +100,10 @@ const routes: Routes = [
 
   {path: 'dashboard', component:DashboardComponent},
   {path: 'dialogbox', component:DialogboxComponent},
-  {path: 'view', component:ViewComponent},
 
 
   {path:'ApproverApproval', component:ApproverApprovalComponent},
+  {path:'AwardView',component:AwardViewComponent},
 
 ];
 
