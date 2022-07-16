@@ -50,14 +50,12 @@
   display: inline-block;
 }
 
-.morecomment{
-  outline:1px solid #333; 
-}
 
-a:not([href]):not([tabindex]) {
+
+/* a:not([href]):not([tabindex]) {
   color: white;
   text-decoration: none;
-}
+} */
 
 #morecommentspage{
   height:auto;
@@ -142,3 +140,5 @@ textarea{
   height:4rem;
   width: 22rem;
 }
+
+

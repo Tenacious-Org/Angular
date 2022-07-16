@@ -32,7 +32,6 @@ export class AwardViewComponent implements OnInit {
     updatedOn: Date.now,
     isActive: true,
   }
-
   data: any;
   Id: any;
   Reason: any;
@@ -41,6 +40,7 @@ export class AwardViewComponent implements OnInit {
   publishedId = 4;
   response = "success";
   error: any;
+  isShowDiv = false;
 
   constructor(private awardService: AwardService,
     private activatedRoute: ActivatedRoute, private dialog: MatDialog, private toastService: HotToastService, private router: Router) { }
@@ -127,4 +127,7 @@ export class AwardViewComponent implements OnInit {
     this.router.navigate(['/approver-approval']);
 
   }
+  toggleDisplayDiv() {  
+    this.isShowDiv = !this.isShowDiv;  
+  }  
 }
