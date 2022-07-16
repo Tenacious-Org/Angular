@@ -103,7 +103,7 @@ const routes: Routes = [
 
 
   {path:'ApproverApproval', component:ApproverApprovalComponent},
-  {path:'AwardView',component:AwardViewComponent},
+  {path:'AwardView/:id',component:AwardViewComponent},
   {path:'awardlist/:id',component:AwardListComponent},
   {path:'',redirectTo:'homecard/0', pathMatch: 'full' },
 ];

@@ -44,13 +44,13 @@
                                     </h2>
                                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                                             <li class="nav-item">
-                                                <a class="nav-link active" id="about-tab" data-toggle="tab" href="#about" role="tab" aria-controls="home" aria-selected="true">About</a>
+                                                <button class="nav-link active" role="tab"  aria-selected="true">About</button>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" id="reason-tab" data-toggle="tab" href="#Reason" role="tab" aria-controls="profile" aria-selected="false">Reason</a>
+                                                <button class="nav-link" (click)="toggle()" aria-selected="false">Reason</button>
                                             </li>
                                             <li class="nav-item" *ngIf="data.statusId===3">
-                                                <a class="nav-link" id="rejectionreason-tab" data-toggle="tab" href="#rejectedReason" role="tab" aria-controls="profile" aria-selected="false">Rejection Reason</a>
+                                                <button class="nav-link" (click)="toggle()" aria-selected="false">Rejection Reason</button>
                                             </li>
                                         </ul>
                                     
@@ -104,19 +104,50 @@
                                                 <label>{{data.approverName}}</label>
                                             </div>
                                           </div>
+                                          <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Coupon Code</label>
+                                            </div>
+                                            <div class="col-md-6" *ngIf="data.statusId===2">
+                                                <input type="text" name="coupon" #coupon="ngModel" [(ngModel)]="data.couponCode" required pattern="^[a-zA-Z0-9]+$"  minlength="10" maxlength="50">
+                    
+                                                 <div *ngIf ="coupon.touched && coupon.errors?.['required']" class="text-danger">
+                                                       Coupon is Required!
+                                                 </div>
+                                                 <div *ngIf ="coupon.touched && coupon.errors?.['pattern']" class="text-danger" >
+                                                           Coupon is invalid! eg:Awesome20
+                                                 </div>
+                                             <div >
+                                                 <h3 class="text-danger" >{{error}}</h3>
+                                             </div>         
+                                            </div>
+                                            <div class="col-md-6" *ngIf="data.statusId===4">
+                                                <label>{{data.couponCode}}</label>
+                                            </div>
+                                          </div>
                                      </div>
                                    </div>
                                 </div> 
+                                <div class="text-center" *ngIf="data.statusId==4 || data.statusId==3">
+                                    <button class="btn btn-primary">Back</button>
+                                </div>
+                                <div class="text-center" *ngIf="data.statusId==1" >
+                                    <button class="btn btn-success" (click)="OnSubmit()">Accept</button>
+                                    <button class="btn btn-danger" (click)="openDialog()" >Reject</button>
+                                </div>
+                                <div class="text-center" *ngIf="data.statusId==2">
+                                    <button class="btn btn-primary">Publish</button>
+                                </div>
                             </div>
                            
-                            
+                        
                         
                     </div>
 
-                    <div class="reason fade" id="Reason">
+                    <div class="reason fade" id="Reason" *ngIf="hide">
                         <p>{{data.reason}}</p>
                     </div>
-                    <div class="rejectionreason fade" id="rejectedReason" *ngIf="data.statusId===3">
+                    <div class="rejectionreason fade" id="rejectedReason" *ngIf="hide">
                         <p>{{data.rejectedReason}}</p>
                     </div>
         </div>

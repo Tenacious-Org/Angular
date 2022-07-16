@@ -32,7 +32,7 @@ export class AwardViewComponent implements OnInit {
     updatedOn: Date.now,
     isActive: true,
   }
-
+  hide : boolean = true;
   data: any;
   Id: any;
   Reason: any;
@@ -126,5 +126,8 @@ export class AwardViewComponent implements OnInit {
       })
     this.router.navigate(['/approver-approval']);
 
+  }
+  toggle(){
+    this.hide=!this.hide;
   }
 }
