@@ -43,6 +43,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { DialogboxComponent } from './dialogbox/dialogbox.component';
 import { AwardViewComponent } from './award-view/award-view.component';
 import { AwardListComponent } from './award-list/award-list.component';
+import { CommentsPageComponent } from './comments-page/comments-page.component';
 // import { HotToastModule } from '@ngneat/hot-toast';
 
 
@@ -53,7 +54,7 @@ const routes: Routes = [
   {path:'sidebar', component:SidebarComponent},
   {path:'profile/:id' , component:ProfileComponent},
   {path:'forgot-password' , component:ForgotPasswordComponent},
-
+  {path:'comments/:id',component:CommentsPageComponent},
 
   {path:'employee', component:EmployeeComponent},
   {path:'add-employee', component:AddEmployeeComponent},

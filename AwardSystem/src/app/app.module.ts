@@ -68,6 +68,7 @@ import { HotToastModule } from '@ngneat/hot-toast';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { AwardViewComponent } from './award-view/award-view.component';
 import { AwardListComponent } from './award-list/award-list.component';
+import { CommentsPageComponent } from './comments-page/comments-page.component';
 
 
 //import { TooltipModule } from 'ng2-tooltip-directive';
@@ -86,7 +87,7 @@ import { AwardListComponent } from './award-list/award-list.component';
     MoreCommentsComponent,
 
     LoginComponent,
-
+    CommentsPageComponent,
 
     AdminComponent,
     
