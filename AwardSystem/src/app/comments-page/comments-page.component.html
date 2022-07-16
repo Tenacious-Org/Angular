@@ -1,3 +1,4 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <app-layout></app-layout>
 <div class=" container">
     <!-- <div class="card">
@@ -43,17 +44,51 @@
                 <h4>{{data.reason}}</h4>
             </div>
         </div>
-        <label for="card_comments" class="button">
+        <input type="checkbox" #checkBox name="comments" id="card_comments">
+        <label for="card_comments">
             <i class="fa-solid fa-angle-up "></i>
-            <h3>View Comments</h3>
+            <h3>View Comments </h3>
         </label>
-        <input type="checkbox" name="comments" id="card_comments">
         <div class="card-comments">
-            <span>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti, accusantium ipsa? Maiores optio
-                aliquid soluta et architecto, provident assumenda. Corrupti, provident! Laudantium sint similique
-                exercitationem voluptates eveniet deleniti aperiam soluta!
-            </span>
+            <div class="row">
+                <div class="col-auto">
+                    <input type="text" placeholder="Type comments" class="form-control" name="comments"
+                     [(ngModel)]="Comments.comments">
+                </div>
+                <div class="sendButton col-auto">
+                    <button><i  (click)="OnSubmit()" class="sendicon fa-solid fa-paper-plane"></i></button>
+                </div>
+                <!-- <textarea type="text" (click)="LogintoComment()" titile="Login to comment"
+                                #comments="ngModel" name="comments" [(ngModel)]="Comments.comments"
+                                placeholder="write a comment..." rows="3"></textarea>
+                            <a type="button" (click)="OnSubmit()" class="btn btn-primary">Post</a>
+                            <div class="clearfix"></div>
+                            <br> -->
+            </div>
+
+            <div class="allcomments">
+                <div class="d-flex row justify-content-between" *ngFor="let item of commentList">
+                    <div class="d-flex flex-row ">
+                        <div *ngIf="item.employeeImage===null ; else elseimage">
+                            <img *ngIf="item.gender==='Male';else elsegender " src='assets/images/male.jpg'
+                                class="rounded-circle img-fluid" />
+                            <ng-template #elsegender> <img src='assets/images/female.jpg'
+                                    class="rounded-circle img-fluid" />
+                            </ng-template>
+                        </div>
+                        <ng-template #elseimage>
+                            <div class="commenterimage text-center"><img
+                                    [src]="'data:image/jpg;base64,'+ item.employeeImage"
+                                    class="rounded-circle img-fluid" /></div>
+                        </ng-template>
+                        <h3 class="commentername">{{item.employeeName}}</h3>
+                        <h3 class="commentername">{{item.commentedOn | date:'MMM d, y - h:mm a'}}</h3>
+
+                    </div>
+                    <h4 id="heading">{{item.comments}}</h4>
+                </div>
+
+            </div>
         </div>
     </div>
 
