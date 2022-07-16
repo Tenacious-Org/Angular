@@ -15,7 +15,7 @@
             </div>
             <ng-template  #elseimage><div class="text-center"><img [src]="'data:image/jpg;base64,'+ data.image" style=width:10rem; class="rounded-circle img-fluid" style="width: 100px;" /></div></ng-template>
           <hr>
-          <form #yetToPublish="ngForm" (ngSubmit)="OnSubmit()" autocomplete="off">
+          <form #yetToPublish="ngForm" (ngSubmit)="onPublish()" autocomplete="off">
 
           <div class="row text-center">
             <h2>Employee Details</h2>

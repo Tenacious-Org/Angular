@@ -16,7 +16,6 @@ export class HrYettopublishComponent implements OnInit {
   
 
  
- employeeId=AuthenticationService.GetData("User");
   data: any;
   Id:any;
   coupon:any;
@@ -66,16 +65,16 @@ export class HrYettopublishComponent implements OnInit {
       });
   }
 
-  OnSubmit(){
+  onPublish(){
     console.log(this.data.couponCode);
     this.awards.couponCode=this.data.couponCode;
     this.awards.statusId=this.publishedId;
     this.awardService.approval(this.awards).subscribe({
-      next:(res) => { console.log(res), res?this.showToast():null },
+      next:(res) => { console.log(res), res?this.publishedToast():null },
       error: (error) => this.error = error.error.message
     });
   }
-  showToast() {
+  publishedToast() {
     this.toastService.success('Published Successfully!',
     {
       autoClose: true,
