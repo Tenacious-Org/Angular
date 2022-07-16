@@ -1,0 +1,23 @@
+.card{
+    height:400px;
+    max-width: 250px;
+    margin-left: 15%;
+}
+.right-card{
+    height:400px;
+    max-width: 1000px;
+    width: 200px;
+}
+.about-content{
+ 
+  padding-top: 40px;
+}
+ 
+.about-content label{
+   float: left;
+}
+
+.right-card .nav-tabs{
+   padding-top: 10px;
+}
+
