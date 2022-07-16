@@ -80,26 +80,13 @@ p{
 .awardfilter{
   align-items: center;
 }
-#applybutton{
-  padding: 0.5rem;
-}
-.applybutton{
-  width:auto;
-  margin-top:3.5rem;
-}
+
 #awardfilter{
   display:inline;
   width:auto;
 }
 #datepicker{
   width:auto;
-}
-.applybutton{
-  width:auto;
-  margin-top:3.5rem;
-}
-#applybutton{
-  padding: 0.5rem;
 }
 .card-img-top{
   height:200px;
@@ -182,15 +169,14 @@ p{
   margin-left:15%
 }
 /* corrected css */
-
 #applybutton{
   padding: 0.5rem;
 }
 .applybutton{
-  width:20px;
+  width:auto;
   margin-top:2.3rem;
-  border:20px;
 }
+
 #datepicker{
   width:auto;
 }
@@ -278,4 +264,7 @@ p{
   }
 
 } 
+.btn-group{
+  box-shadow: none;
+}
   
