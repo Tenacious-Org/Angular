@@ -15,7 +15,7 @@
       <div class="col-auto p-1.5" style="display:inline;">
         <label for="org" class="col-form-label">Department</label>
         <div class="input-group">
-          <select name="departmentId"  [value] = "0" name="SelectDep" [(ngModel)]="SelectDep" onclick="changeid()" (change)="onSelectDep()" class="custom-select">
+          <select name="departmentId"  [value] = "0" name="SelectDep" [(ngModel)]="SelectDep" onclick="changeid()"  class="custom-select">
             <option value = 0 selected>Choose...</option>
             <option *ngFor="let items of departments" ngValue={{items.id}}>{{items.departmentName}}</option>
           </select>
@@ -24,7 +24,7 @@
       <div style="display:inline;float:left;width:auto">
         <label  class="col-form-label" for="exampleFormControlSelect1">Award</label>
         <div class="input-group">
-          <select name="awardTypeId" [value] = "0" #awardName="ngModel" name="SelectAward" [(ngModel)]="SelectAward" (change)="onSelectAward()" onclick="changeid()" [(ngModel)]="Awards.awardTypeId"
+          <select name="awardTypeId" [value] = "0" #awardName="ngModel" name="SelectAward" [(ngModel)]="SelectAward" (change)="onSelectAward()" onclick="changeid()"
             class="custom-select">
             <div *ngIf="awardName.touched && awardName.errors?.['required']" class="alert alert-danger">
               Award Name is Required!
