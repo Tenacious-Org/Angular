@@ -32,7 +32,6 @@ export class AwardViewComponent implements OnInit {
     updatedOn: Date.now,
     isActive: true,
   }
-
   data: any;
   Id: any;
   Reason: any;
@@ -41,6 +40,7 @@ export class AwardViewComponent implements OnInit {
   publishedId = 4;
   response = "success";
   error: any;
+  show: number = 1;
 
   constructor(private awardService: AwardService,
     private activatedRoute: ActivatedRoute, private dialog: MatDialog, private toastService: HotToastService, private router: Router) { }
@@ -126,5 +126,14 @@ export class AwardViewComponent implements OnInit {
       })
     this.router.navigate(['/approver-approval']);
 
+  }
+  about(){
+    this.show = 1;
+  }
+  reason(){
+    this.show = 2;
+  }
+  rejectionreason(){
+    this.show = 3;
   }
 }

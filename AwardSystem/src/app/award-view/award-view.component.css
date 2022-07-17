@@ -1,23 +1,48 @@
-.card{
-    height:400px;
-    max-width: 250px;
-    margin-left: 15%;
+.container {
+  padding-top: 120px;
+  padding-left: 200px;
+  display: grid;
+  grid-template-columns: 200px 700px; 
+  grid-template-rows: 400px;
+  grid-column-gap: 0px;
+  
 }
-.right-card{
-    height:400px;
-    max-width: 1000px;
-    width: 200px;
+.item-image {
+ border : solid 1px grey;
+}
+.item-content {
+  border: solid 1px black;
+}
+img{
+  width:120px;
+  height:120px;
+  min-height:100px;
+} 
+.img1{
+  padding-top: 35px;
+}
+.img2{
+  padding-top: 60px;
+}
+.item-content h2{
+  padding-top: 10px;
+  padding-right: 200px;
+}
+.button{
+  padding-top: 10px;
+  padding-right: 200px;
 }
 .about-content{
- 
-  padding-top: 40px;
+  padding-left: 50px;
+  padding-top: 30px;
 }
- 
+.about-content input{
+  margin-right: 300px;
+}
 .about-content label{
    float: left;
 }
 
-.right-card .nav-tabs{
-   padding-top: 10px;
-}
+
+
 

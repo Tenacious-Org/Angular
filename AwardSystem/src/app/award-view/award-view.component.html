@@ -1,132 +1,146 @@
-
 <app-layout></app-layout>
 <app-sidebar></app-sidebar>
 
-    <div class="container">
-        <div class="card-group">
-            
-                    <div class="card border-0">
-                        <div class="card-body" >
-                            <div class=" rounded-circle text-center">
-                                <div class="mt-3 mb-4 text-center" *ngIf="data.awardeeImage===null ; else elseimage">
-        
-                                    <img *ngIf="data.gender==='Male';else elsegender " src='assets/images/male.jpg'
-                                        class="rounded-circle img-fluid" />
-                                    <ng-template #elsegender> <img src='assets/images/female.jpg'
-                                            class="rounded-circle img-fluid" /></ng-template>
-                                </div>
-                                <ng-template #elseimage>
-                                    <div class="mt-3 mb-4 text-center"><img [src]="'data:image/jpg;base64,'+ data.awardeeImage"
-                                            class="rounded-circle img-fluid" />
-                                    </div>
-                                </ng-template>
+<div class="container">
+    <div class="item-image">
+        <div class=" rounded-circle text-center img1">
+            <div class=" text-center" *ngIf="data.awardeeImage===null ; else elseimage">
 
-                                <div class=" rounded-circle text-center">
-                                    <div class="mt-3 mb-4 text-center" *ngIf="data.awardImage===null ; else elseawardimage">
-                                        <img src='assets/images/award.png' class="rounded-circle img-fluid" />
-                                    </div>
-                                    <ng-template #elseawardimage>
-                                        <div class="mt-3 mb-4 text-center"><img [src]="'data:image/jpg;base64,'+ data.awardImage"
-                                                class="rounded-circle" /></div>
-                                    </ng-template>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-               
-                
-                    <div class="card right-card border-0">
-                        
-                            <div class="card-body">
-                                <div class="text-center">
-                                    <h2>
-                                       awardeeName
-                                    </h2>
-                                        <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                            <li class="nav-item">
-                                                <a class="nav-link active" id="about-tab" data-toggle="tab" href="#about" role="tab" aria-controls="home" aria-selected="true">About</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" id="reason-tab" data-toggle="tab" href="#Reason" role="tab" aria-controls="profile" aria-selected="false">Reason</a>
-                                            </li>
-                                            <li class="nav-item" *ngIf="data.statusId===3">
-                                                <a class="nav-link" id="rejectionreason-tab" data-toggle="tab" href="#rejectedReason" role="tab" aria-controls="profile" aria-selected="false">Rejection Reason</a>
-                                            </li>
-                                        </ul>
-                                    
-                                   <div class="about-content show active" id="about">
-                                     <div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label>ACEID</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <label>{{data.aceId}}</label>
-                                            </div>
-                                          </div>
-                                          <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Name</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <label>{{data.awardeeName}}</label>
-                                            </div>
-                                          </div>
-                                          <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Designation</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <label>{{data.designation}}</label>
-                                            </div>
-                                          </div>
-                                          <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Department</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <label>{{data.department}}</label>
-                                            </div>
-                                          </div>
-                                          <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Award</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <label>{{data.awardName}}</label>
-                                            </div>
-                                          </div>
-                                          <div class="row">
-                                            <div class="col-md-6">
-                                                <label>Approver</label>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <label>{{data.approverName}}</label>
-                                            </div>
-                                          </div>
-                                     </div>
-                                   </div>
-                                </div> 
-                            </div>
-                           
-                            
-                        
-                    </div>
+                <img *ngIf="data.gender==='Male';else elsegender " src='assets/images/male.jpg'
+                    class="rounded-circle img-fluid" />
+                <ng-template #elsegender> <img src='assets/images/female.jpg' class="rounded-circle img-fluid" />
+                </ng-template>
+            </div>
+            <ng-template #elseimage>
+                <div class=" text-center"><img [src]="'data:image/jpg;base64,'+ data.awardeeImage"
+                        class="rounded-circle img-fluid" />
+                </div>
+            </ng-template>
 
-                    <div class="reason fade" id="Reason">
-                        <p>{{data.reason}}</p>
-                    </div>
-                    <div class="rejectionreason fade" id="rejectedReason" *ngIf="data.statusId===3">
-                        <p>{{data.rejectedReason}}</p>
-                    </div>
+            <div class=" rounded-circle text-center img2">
+                <div class=" text-center" *ngIf="data.awardImage===null ; else elseawardimage">
+                    <img src='assets/images/award.png' class="rounded-circle img-fluid" />
+                </div>
+                <ng-template #elseawardimage>
+                    <div class=" text-center"><img [src]="'data:image/jpg;base64,'+ data.awardImage"
+                            class="rounded-circle" /></div>
+                </ng-template>
+            </div>
         </div>
     </div>
+    <div class="item-content">
+        <div class="text-center">
+            <h2>
+                {{data.awardeeName}}
+            </h2>
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <button class="nav-link active" (click)="about()" role="tab" aria-selected="true">About</button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" (click)="reason()" aria-selected="false">Reason</button>
+                </li>
+                <li class="nav-item" *ngIf="data.statusId===3">
+                    <button class="nav-link" (click)="rejectionreason()"  aria-selected="false">Rejection Reason</button>
+                </li>
+            </ul>
+
+            <div class="about-content show active" id="about">
+                <div class="about" *ngIf="show==1" >
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>ACEID</label>
+                        </div>
+                        <div class="col-md-6">
+                            <label>{{data.aceId}}</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Name</label>
+                        </div>
+                        <div class="col-md-6">
+                            <label>{{data.awardeeName}}</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Designation</label>
+                        </div>
+                        <div class="col-md-6">
+                            <label>{{data.designation}}</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Department</label>
+                        </div>
+                        <div class="col-md-6">
+                            <label>{{data.department}}</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Award</label>
+                        </div>
+                        <div class="col-md-6">
+                            <label>{{data.awardName}}</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Approver</label>
+                        </div>
+                        <div class="col-md-6">
+                            <label>{{data.approverName}}</label>
+                        </div>
+                    </div>
+                    <div class="row" *ngIf="data.statusId===2 || data.statusId==4">
+                        <div class="col-md-6">
+                            <label>Coupon Code</label>
+                        </div>
+                        <div class="col-md-6" *ngIf="data.statusId===2">
+                            <input type="text" name="coupon" #coupon="ngModel" [(ngModel)]="data.couponCode" required
+                                pattern="^[a-zA-Z0-9]+$" minlength="10" maxlength="50">
+
+                            <div *ngIf="coupon.touched && coupon.errors?.['required']" class="text-danger">
+                                Coupon is Required!
+                            </div>
+                            <div *ngIf="coupon.touched && coupon.errors?.['pattern']" class="text-danger">
+                                Coupon is invalid! eg:Awesome20
+                            </div>
+                            <div>
+                                <h3 class="text-danger">{{error}}</h3>
+                            </div>
+                        </div>
+                        <div class="col-md-6" *ngIf="data.statusId===4">
+                            <label>{{data.couponCode}}</label>
+                        </div>
+                    </div>
+
+                    <div class="button">
+                        <div class="text-center" *ngIf="data.statusId==4 || data.statusId==3">
+                            <button class="btn btn-primary">Back</button>
+                        </div>
+                        <div class="text-center grp" *ngIf="data.statusId==1">
+                            <button class="btn btn-success" (click)="OnSubmit()">Accept</button>
+                            <button class="btn btn-danger" (click)="openDialog()">Reject</button>
+                        </div>
+                        <div class="text-center" *ngIf="data.statusId==2">
+                            <button class="btn btn-primary">Publish</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="awardreason" *ngIf="show==2">
+                        <p>{{data.reason}}</p>
+                </div>
+                <div class="rejectreason" *ngIf="show==3"> 
+                    <p>{{data.rejectedReason}}</p>
+                </div>
+            </div>
+        </div>
+        
        
-     
-      
-
-
-
-  
-
-    
+        
+    </div>
+</div>
