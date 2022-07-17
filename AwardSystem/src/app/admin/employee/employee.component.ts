@@ -18,6 +18,7 @@ export class EmployeeComponent implements OnInit {
   page: number = 1;
   val:any;
   employeename: any;
+ 
 
   constructor(private sharedService: SharedService,private dialog: MatDialog,private router:Router) { }
 
@@ -50,7 +51,10 @@ export class EmployeeComponent implements OnInit {
         this.dialog.open(DialogboxComponent,{data:{name:this.employeename,count:count,value:"Employee"}});
 
       }
+     
 
       public data: Employee[] = [];
+
+    
 
 }

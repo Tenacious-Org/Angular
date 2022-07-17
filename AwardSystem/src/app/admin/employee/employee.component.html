@@ -13,10 +13,11 @@
             <div class="form-inline btn-group search">
                 <input type="search" class="form-control rounded" [(ngModel)]="val" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
               </div>
+              
         </div>
         <br>
         <div class="tableclass">
-        <table class="table table-striped table-bordered">
+          <table class="table table-striped table-bordered">
             <thead>
                 <tr class="tenacioustable">
                     <th>S.NO</th>
@@ -46,8 +47,17 @@
                         <button (click)="Disable(item.id)" class="btn btn-danger" ><i class="fa-solid fa-user-slash" data-toggle="modal" data-target="#Mymodal"title="Disable"></i></button> 
                     </td>
                 </tr>
-            </tbody>      
-    </table>
+            </tbody>    
+         </table>
+         <pagination-controls class="paginate" (pageChange)="page = $event">
+          </pagination-controls>
+        </div>
+
+    
+    <ng-container *ngIf="( data | filter : val) as result">
+        <p *ngIf="result.length === 0">No Records found</p>  
+      </ng-container>
+
+      
+      
 </div>
-    <pagination-controls class="paginate" (pageChange)="page = $event"></pagination-controls>
-    </div>

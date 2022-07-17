@@ -50,11 +50,11 @@
         <div class="card-comments">
             <div class="row">
                 <div class="col-auto">
-                    <input type="text" (click)="LogintoComment()" placeholder="Type comments" class="form-control" name="comments"
+                    <input type="text" (click)="LogintoComment()" #comment="ngModel" required placeholder="Type comments" class="form-control" name="comments"
                      [(ngModel)]="Comments.comments">
                 </div>
                 <div class="sendButton col-auto">
-                    <button><i  (click)="OnSubmit()" class="sendicon fa-solid fa-paper-plane"></i></button>
+                    <button ><i  (click)="OnSubmit()" class="sendicon fa-solid fa-paper-plane"></i></button>
                 </div>
             </div>
             <hr>

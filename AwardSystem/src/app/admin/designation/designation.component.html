@@ -43,5 +43,8 @@
         </table>
     </div>
         <pagination-controls class="paginate" (pageChange)="page = $event"></pagination-controls>
+        <ng-container *ngIf="( data | filter : val) as result">
+            <p *ngIf="result.length === 0">No Records found</p>  
+          </ng-container>
     </div>
 </div>
