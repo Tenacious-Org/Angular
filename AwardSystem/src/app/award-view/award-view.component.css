@@ -7,18 +7,6 @@
   grid-column-gap: 0px;
   
 }
-.awardreason{
-  position: absolute;
-  max-height: 0px;
-  width: 100%;
-  height: 210px;
-  z-index: 3;
-}
-
-.rejectreason{
-  width: 648px;
-  height: 210px;
-}
 .item-image {
  border : solid 1px grey;
 }
