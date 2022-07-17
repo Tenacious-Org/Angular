@@ -167,4 +167,6 @@ p{
 .row>*{
   padding-left: 0px;
 }
- 
+button:disabled{
+  display: none;
+}
