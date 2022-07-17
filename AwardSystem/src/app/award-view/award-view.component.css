@@ -7,11 +7,19 @@
   grid-column-gap: 0px;
   
 }
+/* scrollbar */
+
+
+::-webkit-scrollbar {
+  width: 3px;
+  /* margin-right:5px; */
+}
 .item-image {
  border : solid 1px grey;
 }
 .item-content {
   border: solid 1px black;
+  overflow-y:auto;
 }
 img{
   width:120px;
@@ -29,8 +37,12 @@ img{
   padding-right: 200px;
 }
 .button{
-  padding-top: 10px;
+ 
   padding-right: 200px;
+}
+
+.accept{
+  padding-top: 15px;
 }
 .about-content{
   padding-left: 50px;
@@ -41,6 +53,16 @@ img{
 }
 .about-content label{
    float: left;
+}
+.awardreason p{
+  line-height: 40px;
+  text-align: justify;
+  padding-right: 15px;
+}
+.rejectreason p{
+  line-height: 40px;
+  text-align: justify;
+  padding-right: 15px;
 }
 
 

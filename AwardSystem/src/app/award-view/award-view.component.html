@@ -35,13 +35,13 @@
             </h2>
             <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item">
-                    <button class="nav-link active" (click)="about()" role="tab" aria-selected="true">About</button>
+                    <button class="nav-link active" (click)="about()" role="tab" >About</button>
                 </li>
                 <li class="nav-item">
-                    <button class="nav-link" (click)="reason()" aria-selected="false">Reason</button>
+                    <button class="nav-link" (click)="reason()">Reason</button>
                 </li>
                 <li class="nav-item" *ngIf="data.statusId===3">
-                    <button class="nav-link" (click)="rejectionreason()"  aria-selected="false">Rejection Reason</button>
+                    <button class="nav-link" (click)="rejectionreason()">Rejection Reason</button>
                 </li>
             </ul>
 
@@ -122,9 +122,9 @@
                         <div class="text-center" *ngIf="data.statusId==4 || data.statusId==3">
                             <button class="btn btn-primary">Back</button>
                         </div>
-                        <div class="text-center grp" *ngIf="data.statusId==1">
-                            <button class="btn btn-success" (click)="OnSubmit()">Accept</button>
-                            <button class="btn btn-danger" (click)="openDialog()">Reject</button>
+                        <div class="text-center accept button-group" *ngIf="data.statusId==1">
+                            <button class="btn btn-success " (click)="OnSubmit()">Accept</button>
+                            <button class="btn btn-danger " (click)="openDialog()">Reject</button>
                         </div>
                         <div class="text-center" *ngIf="data.statusId==2">
                             <button class="btn btn-primary">Publish</button>
@@ -132,10 +132,14 @@
                     </div>
                 </div>
                 <div class="awardreason" *ngIf="show==2">
-                        <p>{{data.reason}}</p>
+                        <p>{{data.reason}},Artificial intelligence (AI) is intelligence demonstrated by machines, as opposed to the natural intelligence displayed by animals including humans. AI research has been defined as the field of study of intelligent agents, which refers to any system that perceives its environment and takes actions that maximize its chance of achieving its goals.
+                            AI research has been defined as the field of study of intelligent agents, which refers to any system that perceives its environment and takes actions that maximize its chance of achieving its goals
+                        </p>
                 </div>
                 <div class="rejectreason" *ngIf="show==3"> 
-                    <p>{{data.rejectedReason}}</p>
+                    <p>{{data.rejectedReason}},Artificial intelligence (AI) is intelligence demonstrated by machines, as opposed to the natural intelligence displayed by animals including humans. AI research has been defined as the field of study of intelligent agents, which refers to any system that perceives its environment and takes actions that maximize its chance of achieving its goals.
+                        AI research has been defined as the field of study of intelligent agents, which refers to any system that perceives its environment and takes actions that maximize its chance of achieving its goals.
+                    </p>
                 </div>
             </div>
         </div>
