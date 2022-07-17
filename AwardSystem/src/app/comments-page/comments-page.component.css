@@ -1,34 +1,46 @@
 .container {
   max-width: 1000px;
+  max-height:600px;
+  height:580px;
 }
 
 .card {
-  margin-top: 50px;
+  margin-top: 30px;
   padding: 0;
-  max-height: 480px;
+  max-height: 550px;
   height: auto;
   margin-bottom: 6px;
   max-width: 1000px;
   width: 800px;
 }
+.card-body{
+  padding-top:10px;
+  max-height:350px;
+  height:330px;
+  overflow-y:auto;
+}
+.card-message{
+  height:440px;
+}
 
 .card-img-top {
-  height: 150px;
+  height: 130px;
   background: powderblue;
+
 }
 
 .card-img-left {
   position: absolute;
   left: 20px;
-  width: 100px;
-  height: 150px;
+  width: 80px;
+  height: 120px;
 }
 
 .card-img-right {
   position: absolute;
   right: 20px;
-  width: 100px;
-  height: 150px;
+  width: 80px;
+  height: 120px;
 }
 
 .card-title {
@@ -135,11 +147,11 @@
 
 
 .allcomments {
-  width: 500px;
-  max-height:420px;
+  width: 798px;
+  max-height:360px;
   overflow-y: auto;
-  overflow:hidden ;
-  margin-top:20px;
+  overflow-x:hidden ;
+  /* margin-top:20px; */
 }
 .img-fluid{
   width:40px;
@@ -159,4 +171,34 @@
   max-width:85%;
   margin-bottom: 0px;
 }
+hr{
+  margin-bottom:0px;
+}
+hr:not([size]){
+  height:0.5px;
+}
 
+/* scrollbar */
+
+
+::-webkit-scrollbar {
+  width: 3px;
+  /* margin-right:5px; */
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: grey; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: black; 
+}
