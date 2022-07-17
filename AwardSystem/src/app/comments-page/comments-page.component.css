@@ -25,7 +25,7 @@
 
 .card-img-top {
   height: 130px;
-  background: powderblue;
+  background:#6749b9;
 
 }
 
@@ -49,11 +49,20 @@
 }
 
 .bottom {
-  background: powderblue;
+  background: #6749b9;
   color: white;
   border-radius: 4px;
   transition: all;
   bottom: 0%;
+}
+#bottom{
+   color:white;
+}
+.header h2{
+  color:white;
+}
+#iconcolor{
+  color:white;
 }
 
 .btn {
@@ -97,6 +106,7 @@
 
 }
 
+
 .card label {
   width: 100%;
   height: 50px;
@@ -105,7 +115,7 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 0px;
-  background-color: powderblue;
+  background-color: #6749b9;
 }
 
 .card label h3 {
@@ -128,8 +138,8 @@
 /* commentspage */
 
 .form-control{
-  max-width:600px;
-  width:600px;
+  max-width:800px;
+  width:750px;
   border-radius:20px;
 }
  button{
@@ -162,6 +172,8 @@
   margin-bottom:0px;
   margin-left:17px;
   font-size: small;
+  /* font-family:   Averta,sans-serif,sans-serif; */
+  font-family: Arial, Helvetica, sans-serif;
 }
 #heading{
   margin-left:7%;
@@ -179,9 +191,9 @@ hr:not([size]){
 
 .inner-addon{
   position: relative;
-  padding-left: 20px;
+  padding-left: 24px;
   margin-top: 20px;
-  max-width: 610px;
+  max-width: 770px;
 }
 .inner-addon .sendicon{
   position: absolute;
@@ -192,6 +204,9 @@ hr:not([size]){
   right: 0px;
   font-size: 20px;
   color:black;
+}
+.inner-addon button{
+  position: absolute;
 }
 
 /* scrollbar */
