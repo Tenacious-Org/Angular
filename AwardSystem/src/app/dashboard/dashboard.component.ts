@@ -815,9 +815,118 @@ export class DashboardComponent implements OnInit {
     //Filtered By Organisation, Department and Awards
     if(orgid != 0 && deptid != 0 && awdid != 0 && fdate == new Date("0001-04-15").toString() && tdate == new Date("0001-04-29").toString()){
       console.log("Get Data By Organisation, Department and Awards.")
-      this.sharedService.getallorgdeptandawd(this.SelectOrg, this.SelectDep, this.SelectAward).subscribe( res => {
+      this.sharedService.getallorgdeptandawd(this.SelectOrg, this.SelectDep, this.SelectAward).subscribe( res => 
+      {
 
+          //converting api values into list
+          let d = []
+          let d1:string[][] = []
+          for(var i of res){
+            for(let key in i){
+              let value = i[key];
+              d.push(value)
+            }
+            d1.push(d)
+            d = []          
+          }
+          console.log("List: ",d1)
+    
+          //setting into calculate a total count in dictionary
+          var dict:any = {}
+          for(var a of d1){
+            for(var b of a){
+              var new_item = b
+              dict[new_item] = dict.hasOwnProperty(new_item)? ++dict[new_item] : 1;
+            }
+          }
+          console.log("Dict: ",dict)
+    
+          //Setting Organisation into a list
+          var org:any = []
+          const search = (targetElement : string) => (arrElement : string) => arrElement === targetElement;
+          for(var x of d1){
+              if(org.some(search(x[0]))){
+                continue
+              }
+              else{
+                org.push(x[0])
+              }
+          }
+          this.org = org
+          console.log("Organisation: ", this.org)
+    
+          //Setting Department into a list
+          var dept:any = []
+          for(var x of d1){
+              if(dept.some(search(x[1]))){
+                continue
+              }
+              else{
+                dept.push(x[1])
+              }
+          }
+          this.dept = dept
+          console.log("Departent: ",this.dept)
+    
+          //Setting Awards into a list
+          var award:any = []
+          for(var x of d1){
+              if(award.some(search(x[2]))){
+                continue
+              }
+              else{
+                award.push(x[2])
+              }
+          }
+          console.log("Award: ",this.award)
+    
+          //setting Organisation count into a list
+          var orgcnt:any = []
+          for(var j of org){
+            for(var h of Object.keys(dict)){
+              if(j == h){
+                orgcnt.push(dict[h])
+              }
+            }
+          }
+          this.orgcnt = orgcnt
+          console.log("Organisation Count:",this.orgcnt)
+    
+          //setting department values into a list
+          var deptcnt:any = []
+          for(var j of dept){
+            for(var h of Object.keys(dict)){
+              if(j == h){
+                deptcnt.push(dict[h])
+              }
+            }
+          }
+          this.deptcnt = deptcnt
+          console.log("Department Count:",this.deptcnt)
+    
+          //setting award values into a list
+          var awdcnt:any = []
+          for(var j of award){
+            for(var k of Object.keys(dict)){
+              if(j == k){
+                awdcnt.push(dict[k])
+              }
+            }
+          }
+          console.log("Awards Count:",awdcnt)
+    
+          // Dictionary Creation and uploaded it to a list
+          var temp:any = {}
+          temp["data"] = deptcnt
+          console.log("Temp : ",temp)
+          var temp1 = []
+          temp1.push(temp)
+  
         
+          this.pieChartDatasets = temp1
+          this.pieChartLabels = dept
+  
+          console.log("piechartlabels: ",this.pieChartLabels)
 
       });
     }
@@ -825,21 +934,419 @@ export class DashboardComponent implements OnInit {
     //Filtered By Organisation, Department and From Date
     if(orgid != 0 && deptid != 0 && awdid == 0 && fdate != new Date("0001-04-15").toString() && tdate == new Date("0001-04-29").toString()){
       console.log("Get Data By Organisation, Department and From Date.")
+      this.sharedService.getallorgdeptandfdate(this.SelectOrg, this.SelectDep, this.fromdate).subscribe( res =>
+      {
+
+        //converting api values into list
+        let d = []
+        let d1:string[][] = []
+        for(var i of res){
+          for(let key in i){
+            let value = i[key];
+            d.push(value)
+          }
+          d1.push(d)
+          d = []          
+        }
+        console.log(d1)
+
+        //setting into calculate a total count in dictionary
+        var dict:any = {}
+        for(var a of d1){
+          for(var b of a){
+            var new_item = b
+            dict[new_item] = dict.hasOwnProperty(new_item)? ++dict[new_item] : 1;
+          }
+        }
+        console.log(dict)
+
+        //Setting Organisation into a list
+        var org:any = []
+        const search = (targetElement : string) => (arrElement : string) => arrElement === targetElement;
+        for(var x of d1){
+            if(org.some(search(x[0]))){
+              continue
+            }
+            else{
+              org.push(x[0])
+            }
+        }
+        this.org = org
+        console.log(this.org)
+
+        //Setting Awards into a list
+        var award:any = []
+        for(var x of d1){
+            if(award.some(search(x[2]))){
+              continue
+            }
+            else{
+              award.push(x[2])
+            }
+        }
+        this.pieChartLabels = award
+        console.log(this.award)
+
+        //setting award values into a list
+        var orgcnt:any = []
+        for(var j of org){
+          for(var h of Object.keys(dict)){
+            if(j == h){
+              orgcnt.push(dict[h])
+            }
+          }
+        }
+        this.orgcnt = orgcnt
+        console.log("Organisation :",this.orgcnt)
+
+        //setting award values into a list
+        var awdcnt:any = []
+        for(var j of award){
+          for(var k of Object.keys(dict)){
+            if(j == k){
+              awdcnt.push(dict[k])
+            }
+          }
+        }
+        console.log("Awards :",awdcnt)
+
+        // Dictionary Creation and uploaded it to a list
+        var temp:any = {}
+        temp["data"] = awdcnt
+        console.log("Temp : ",temp)
+        var temp1 = []
+        temp1.push(temp)
+        this.pieChartDatasets = temp1
+
+      });
     }
 
     //Filtered By Organisation, Award and From Date
     if(orgid != 0 && deptid == 0 && awdid != 0 && fdate != new Date("0001-04-15").toString() && tdate == new Date("0001-04-29").toString()){
       console.log("Get Data By Organisation, Award and From Date.")
+      this.sharedService.getallorgawdandfdate(this.SelectOrg, this.SelectAward, this.fromdate).subscribe( res =>
+      {
+
+         //converting api values into list
+         let d = []
+         let d1:string[][] = []
+         for(var i of res){
+           for(let key in i){
+             let value = i[key];
+             d.push(value)
+           }
+           d1.push(d)
+           d = []          
+         }
+         console.log("List: ",d1)
+   
+         //setting into calculate a total count in dictionary
+         var dict:any = {}
+         for(var a of d1){
+           for(var b of a){
+             var new_item = b
+             dict[new_item] = dict.hasOwnProperty(new_item)? ++dict[new_item] : 1;
+           }
+         }
+         console.log("Dict: ",dict)
+   
+         //Setting Organisation into a list
+         var org:any = []
+         const search = (targetElement : string) => (arrElement : string) => arrElement === targetElement;
+         for(var x of d1){
+             if(org.some(search(x[0]))){
+               continue
+             }
+             else{
+               org.push(x[0])
+             }
+         }
+         this.org = org
+         console.log("Organisation: ", this.org)
+   
+         //Setting Department into a list
+         var dept:any = []
+         for(var x of d1){
+             if(dept.some(search(x[1]))){
+               continue
+             }
+             else{
+               dept.push(x[1])
+             }
+         }
+         this.dept = dept
+         console.log("Departent: ",this.dept)
+   
+         //Setting Awards into a list
+         var award:any = []
+         for(var x of d1){
+             if(award.some(search(x[2]))){
+               continue
+             }
+             else{
+               award.push(x[2])
+             }
+         }
+         console.log("Award: ",this.award)
+   
+         //setting Organisation count into a list
+         var orgcnt:any = []
+         for(var j of org){
+           for(var h of Object.keys(dict)){
+             if(j == h){
+               orgcnt.push(dict[h])
+             }
+           }
+         }
+         this.orgcnt = orgcnt
+         console.log("Organisation Count:",this.orgcnt)
+   
+         //setting department values into a list
+         var deptcnt:any = []
+         for(var j of dept){
+           for(var h of Object.keys(dict)){
+             if(j == h){
+               deptcnt.push(dict[h])
+             }
+           }
+         }
+         this.deptcnt = deptcnt
+         console.log("Department Count:",this.deptcnt)
+   
+         //setting award values into a list
+         var awdcnt:any = []
+         for(var j of award){
+           for(var k of Object.keys(dict)){
+             if(j == k){
+               awdcnt.push(dict[k])
+             }
+           }
+         }
+         console.log("Awards Count:",awdcnt)
+   
+         // Dictionary Creation and uploaded it to a list
+         var temp:any = {}
+         temp["data"] = deptcnt
+         console.log("Temp : ",temp)
+         var temp1 = []
+         temp1.push(temp)
+ 
+       
+         this.pieChartDatasets = temp1
+         this.pieChartLabels = dept
+ 
+         console.log("piechartlabels: ",this.pieChartLabels)
+  
+      });
     }
 
     //Filtered By Organisation, Department and To Date
     if(orgid != 0 && deptid != 0 && awdid == 0 && fdate == new Date("0001-04-15").toString() && tdate != new Date("0001-04-29").toString()){
       console.log("Get Data By Organisation, Department and To Date.")
+      this.sharedService.getallorgdeptandtdate(this.SelectOrg, this.SelectDep, this.todate).subscribe( res =>
+      {
+
+        //converting api values into list
+        let d = []
+        let d1:string[][] = []
+        for(var i of res){
+          for(let key in i){
+            let value = i[key];
+            d.push(value)
+          }
+          d1.push(d)
+          d = []          
+        }
+        console.log(d1)
+
+        //setting into calculate a total count in dictionary
+        var dict:any = {}
+        for(var a of d1){
+          for(var b of a){
+            var new_item = b
+            dict[new_item] = dict.hasOwnProperty(new_item)? ++dict[new_item] : 1;
+          }
+        }
+        console.log(dict)
+
+        //Setting Organisation into a list
+        var org:any = []
+        const search = (targetElement : string) => (arrElement : string) => arrElement === targetElement;
+        for(var x of d1){
+            if(org.some(search(x[0]))){
+              continue
+            }
+            else{
+              org.push(x[0])
+            }
+        }
+        this.org = org
+        console.log(this.org)
+
+        //Setting Awards into a list
+        var award:any = []
+        for(var x of d1){
+            if(award.some(search(x[2]))){
+              continue
+            }
+            else{
+              award.push(x[2])
+            }
+        }
+        this.pieChartLabels = award
+        console.log(this.award)
+
+        //setting award values into a list
+        var orgcnt:any = []
+        for(var j of org){
+          for(var h of Object.keys(dict)){
+            if(j == h){
+              orgcnt.push(dict[h])
+            }
+          }
+        }
+        this.orgcnt = orgcnt
+        console.log("Organisation :",this.orgcnt)
+
+        //setting award values into a list
+        var awdcnt:any = []
+        for(var j of award){
+          for(var k of Object.keys(dict)){
+            if(j == k){
+              awdcnt.push(dict[k])
+            }
+          }
+        }
+        console.log("Awards :",awdcnt)
+
+        // Dictionary Creation and uploaded it to a list
+        var temp:any = {}
+        temp["data"] = awdcnt
+        console.log("Temp : ",temp)
+        var temp1 = []
+        temp1.push(temp)
+        this.pieChartDatasets = temp1
+
+      });
     }
 
     //Filtered By Organisation, Award and To Date
     if(orgid != 0 && deptid == 0 && awdid != 0 && fdate == new Date("0001-04-15").toString() && tdate != new Date("0001-04-29").toString()){
       console.log("Get Data By Organisation, Award and To Date.")
+      this.sharedService.getallorgawdandtdate(this.SelectOrg, this.SelectAward, this.todate).subscribe( res =>
+        {
+
+           //converting api values into list
+        let d = []
+        let d1:string[][] = []
+        for(var i of res){
+          for(let key in i){
+            let value = i[key];
+            d.push(value)
+          }
+          d1.push(d)
+          d = []          
+        }
+        console.log("List: ",d1)
+  
+        //setting into calculate a total count in dictionary
+        var dict:any = {}
+        for(var a of d1){
+          for(var b of a){
+            var new_item = b
+            dict[new_item] = dict.hasOwnProperty(new_item)? ++dict[new_item] : 1;
+          }
+        }
+        console.log("Dict: ",dict)
+  
+        //Setting Organisation into a list
+        var org:any = []
+        const search = (targetElement : string) => (arrElement : string) => arrElement === targetElement;
+        for(var x of d1){
+            if(org.some(search(x[0]))){
+              continue
+            }
+            else{
+              org.push(x[0])
+            }
+        }
+        this.org = org
+        console.log("Organisation: ", this.org)
+  
+        //Setting Department into a list
+        var dept:any = []
+        for(var x of d1){
+            if(dept.some(search(x[1]))){
+              continue
+            }
+            else{
+              dept.push(x[1])
+            }
+        }
+        this.dept = dept
+        console.log("Departent: ",this.dept)
+  
+        //Setting Awards into a list
+        var award:any = []
+        for(var x of d1){
+            if(award.some(search(x[2]))){
+              continue
+            }
+            else{
+              award.push(x[2])
+            }
+        }
+        console.log("Award: ",this.award)
+  
+        //setting Organisation count into a list
+        var orgcnt:any = []
+        for(var j of org){
+          for(var h of Object.keys(dict)){
+            if(j == h){
+              orgcnt.push(dict[h])
+            }
+          }
+        }
+        this.orgcnt = orgcnt
+        console.log("Organisation Count:",this.orgcnt)
+  
+        //setting department values into a list
+        var deptcnt:any = []
+        for(var j of dept){
+          for(var h of Object.keys(dict)){
+            if(j == h){
+              deptcnt.push(dict[h])
+            }
+          }
+        }
+        this.deptcnt = deptcnt
+        console.log("Department Count:",this.deptcnt)
+  
+        //setting award values into a list
+        var awdcnt:any = []
+        for(var j of award){
+          for(var k of Object.keys(dict)){
+            if(j == k){
+              awdcnt.push(dict[k])
+            }
+          }
+        }
+        console.log("Awards Count:",awdcnt)
+  
+        // Dictionary Creation and uploaded it to a list
+        var temp:any = {}
+        temp["data"] = deptcnt
+        console.log("Temp : ",temp)
+        var temp1 = []
+        temp1.push(temp)
+
+      
+        this.pieChartDatasets = temp1
+        this.pieChartLabels = dept
+
+        console.log("piechartlabels: ",this.pieChartLabels)
+  
+        });
     }
 
     //Filtered By From Date
