@@ -48,14 +48,10 @@
             <h3>View Comments </h3>
         </label>
         <div class="card-comments">
-            <div class="row">
-                <div class="col-auto">
-                    <input type="text" (click)="LogintoComment()" #comment="ngModel" required placeholder="Type comments" class="form-control" name="comments"
-                     [(ngModel)]="Comments.comments">
-                </div>
-                <div class="sendButton col-auto">
-                    <button ><i  (click)="OnSubmit()" class="sendicon fa-solid fa-paper-plane"></i></button>
-                </div>
+                <div class="inner-addon right-addon">
+                    <i (click)="OnSubmit()" class="sendicon fa-solid fa-paper-plane"></i>
+                        <input type="text" (click)="LogintoComment()" #comment="ngModel" required placeholder="Type comments" class="form-control" name="comments"
+                         [(ngModel)]="Comments.comments">             
             </div>
             <hr>
 
@@ -75,7 +71,7 @@
                                     class="rounded-circle img-fluid" /></div>
                         </ng-template>
                         <h3 class="commentername">{{item.employeeName}}</h3>
-                        <h3 class="commentername">{{item.commentedOn | date:'MMM d, y - h:mm a'}}</h3>
+                        <h3 class="dateandtime">{{item.commentedOn | date:'MMM d, y - h:mm a'}}</h3>
 
                     </div>
                     <h4 id="heading">{{item.comments}}</h4>
