@@ -1026,6 +1026,10 @@ export class DashboardComponent implements OnInit {
       console.log("Get Data By Organisation, Award and From Date.")
       this.sharedService.getallorgawdandfdate(this.SelectOrg, this.SelectAward, this.fromdate).subscribe( res =>
       {
+        console.log("Selectorg: ", this.SelectOrg)
+        console.log("SelectDep: ", this.SelectDep)
+        console.log("SelectAward: ", this.SelectAward)
+        console.log("fromdate: ", this.fromdate)
 
          //converting api values into list
          let d = []
