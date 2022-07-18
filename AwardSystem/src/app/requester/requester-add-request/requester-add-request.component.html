@@ -9,6 +9,9 @@
         <label class="labels">Awardee Name &nbsp; </label>
         <input [formControl]="searchAwardee" matInput type="text" required [matAutocomplete]="auto" name="awardeeId"
           class="form-control" [(ngModel)]="Awards.AwardeeName">
+          <div *ngIf="reason.touched && reason.errors?.['required']" class="alert alert-danger">
+            AwardeeName is Required!
+          </div>
         <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onSelectAwardee($event)">
           <mat-option *ngFor="let item of filteredOptions | async" [value]="item.firstName" [id]="item.id">
             {{item.firstName}} </mat-option>
@@ -27,7 +30,7 @@
       <span class="text-danger errorMessage">{{error}}</span>
       <div class="col-auto p-1.5">
         <label class="labels">Reason</label>
-        <textarea type="textarea" name="reason" class="input-group form-control" placeholder="Reason" #reason="ngModel"
+        <textarea type="textarea" name="reason" class="input-group " placeholder="Reason" #reason="ngModel"
           required pattern="/\w*\s*|\w|\D/gm" [(ngModel)]="Awards.reason"></textarea>
         <div *ngIf="reason.touched && reason.errors?.['required']" class="alert alert-danger">
           Reason is Required!
