@@ -105,7 +105,7 @@ export class RequesterAddRequestComponent implements OnInit {
     console.log("awardtypeid: ", this.Awards.awardTypeId)
     console.log("employeeid: ", this.employeeId)
     this.awardService.addRequest(this.Awards).subscribe({
-      next: (res) => { console.log(res), this.showToast() },
+      next: (res) => { console.log(res),  res?this.showToast():null  },
       error: (error) => this.error = error.error.message
     });
   }
@@ -115,7 +115,7 @@ export class RequesterAddRequestComponent implements OnInit {
       autoClose: true,
       dismissible: true,
     })
-    this.router.navigate(['/award-list/2']);
+    this.router.navigate(['/awardlist/2']);
   }
   CheckName(FirstName:any)
   {
