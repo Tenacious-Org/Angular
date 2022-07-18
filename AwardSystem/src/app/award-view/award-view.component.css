@@ -3,9 +3,38 @@
   padding-left: 200px;
   display: grid;
   grid-template-columns: 200px 700px; 
-  grid-template-rows: 400px;
+  grid-template-rows: 450px;
   grid-column-gap: 0px;
   
+}
+@media (max-width:1200px) {
+  .container {
+    padding-top: 120px;
+    padding-left: 200px;
+    display: grid;
+    grid-template-columns: 100px 350px; 
+    grid-template-rows: 225px;
+    grid-column-gap: 0px;
+    
+  }
+  img{
+    width:40px;
+    height:20px;
+  }
+  
+  .error{
+    text-align: center;
+    max-width: 200px;
+    width: 100px;
+  }
+  .about-content input{
+    margin-right: 30px;
+    width:100px;
+   }
+   .coupon{
+    max-width: 150px;
+    width:150px;
+   }
 }
 /* scrollbar */
 
@@ -67,6 +96,14 @@ img{
 
 .button-group .btn {
   margin: 5px 10px;
+}
+.item-content h4{
+  padding-top: 20px;
+}
+.error{
+  text-align: center;
+  max-width: 200px;
+  width: 150px;
 }
 
 

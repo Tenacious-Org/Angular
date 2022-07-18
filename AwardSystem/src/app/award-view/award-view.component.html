@@ -35,7 +35,7 @@
             </h2>
             <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item">
-                    <button class="nav-link active" (click)="about()" role="tab">About</button>
+                    <button class="nav-link " (click)="about()" role="tab">About</button>
                 </li>
                 <li class="nav-item">
                     <button class="nav-link" (click)="reason()">Reason</button>
@@ -48,73 +48,73 @@
             <div class="about-content show active" id="about">
                 <div class="about" *ngIf="show==1">
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col">
                             <label>ACEID</label>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col">
                             <label>{{data.aceId}}</label>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col">
                             <label>Name</label>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col">
                             <label>{{data.awardeeName}}</label>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col">
                             <label>Designation</label>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col">
                             <label>{{data.designation}}</label>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col">
                             <label>Department</label>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col">
                             <label>{{data.department}}</label>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col">
                             <label>Award</label>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col">
                             <label>{{data.awardName}}</label>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col">
                             <label>Approver</label>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col">
                             <label>{{data.approverName}}</label>
                         </div>
                     </div>
                     <div *ngIf="pageId==3">
                         <div class="row" *ngIf="data.statusId===2 || data.statusId==4">
-                            <div class="col-md-6">
+                            <div class="col">
                                 <label>Coupon Code</label>
                             </div>
-                            <div class="col-md-6" *ngIf="data.statusId===2">
+                            <div class="col" *ngIf="data.statusId===2">
                                 <input type="text" name="coupon" #coupon="ngModel" [(ngModel)]="data.couponCode"
                                     required pattern="^[a-zA-Z0-9]+$" minlength="10" maxlength="50">
 
-                                <div *ngIf="coupon.touched && coupon.errors?.['required']" class="text-danger">
+                                <div *ngIf="coupon.touched && coupon.errors?.['required']" class="text-danger error">
                                     Coupon is Required!
                                 </div>
-                                <div *ngIf="coupon.touched && coupon.errors?.['pattern']" class="text-danger">
+                                <div *ngIf="coupon.touched && coupon.errors?.['pattern']" class="text-danger error">
                                     Coupon is invalid! eg:Awesome20
                                 </div>
                                 <div>
                                     <h3 class="text-danger">{{error}}</h3>
                                 </div>
                             </div>
-                            <div class="col-md-6" *ngIf="data.statusId===4">
+                            <div class="col" *ngIf="data.statusId===4">
                                 <label>{{data.couponCode}}</label>
                             </div>
                         </div>
