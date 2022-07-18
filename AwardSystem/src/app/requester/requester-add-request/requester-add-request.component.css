@@ -7,7 +7,7 @@
 
 .input-group{
     height:103px;
-    width:430px;
+    width:660px;
 }
 .img-fluid{
     width:100px;
@@ -24,6 +24,15 @@
 .addrequest{
     justify-content: center;
 }
+.awardImage{
+    margin-left: 33px;
+}
+.form-control{
+    width: 360px;    
+} 
+.Award{
+    width: 300px;
+}
 textarea{
     border-radius: 4px;
     padding: 10px;
@@ -37,6 +46,10 @@ textarea{
     .Award{
      width:330px
     }
+     .awardImage{
+        margin-top: auto;
+        margin-left: auto;
+    } 
     
 }
 @media(max-width:1020px){
@@ -102,3 +115,12 @@ textarea{
 margin-top: 50px;
     } 
    }
+
+   /* @media(min-width:768px){
+    .input-group{
+        width: 610px;
+    }
+    .Award{
+        width: 250px;
+    }
+   } */
