@@ -109,7 +109,7 @@ export class AwardViewComponent implements OnInit {
         autoClose: true,
         dismissible: true,
       })
-    this.router.navigate(['/hr-publish']);
+    this.router.navigate(['/awardlist/4']);
   }
   acceptedToast() {
     this.toastService.success('Request Accepted!',
@@ -117,7 +117,7 @@ export class AwardViewComponent implements OnInit {
         autoClose: true,
         dismissible: true,
       })
-    this.router.navigate(['/approver-approval']);
+    this.router.navigate(['/awardlist/3']);
   }
   rejectedToast() {
     this.toastService.success('Request Rejected!',
@@ -126,7 +126,7 @@ export class AwardViewComponent implements OnInit {
         dismissible: true,
         icon: '❎',
       })
-    this.router.navigate(['/approver-approval']);
+    this.router.navigate(['/awardlist/3']);
 
   }
   about(){
