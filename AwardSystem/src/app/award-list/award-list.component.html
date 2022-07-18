@@ -18,7 +18,7 @@
                 <!-- <select name="filtervalue" class="form-select" [(ngModel)]="filtervalue"  style="width:auto">
                     <option *ngFor="let option of options" [value]="option" >{{option}}</option>
                 </select> -->
-                <select class="form-select" [value]="0" [(ngModel)]="filtervalue" aria-label="Default select example"
+                <!-- <select class="form-select" [value]="0" [(ngModel)]="filtervalue" aria-label="Default select example"
                     style="width:auto">
                     <option value=0 selected>All</option>
                     <option *ngIf="pageId!=4" ng-value="1">Pending</option>
@@ -26,7 +26,14 @@
                     <option *ngIf="pageId!=4" ng-value="3">Rejected</option>
                     <option ng-value="4">Published</option>
 
+                </select> -->
+                <select name="status"  [(ngModel)]="filtervalue" class="form-select" style="width:auto" (change)="changestatus($event)"> 
+                    <option value=0 selected>ALL</option>
+                    <option value={{items.id}} *ngFor="let items of statusList">{{items.statusName}}</option>
+                   
                 </select>
+                
+
             </div>
 
         </div>
@@ -71,8 +78,8 @@
             </tbody>
         </table>
         <ng-container *ngIf="( data | filter : val) as result">
-            <p *ngIf="result.length === 0">No Records found</p>
-            <pagination-controls class="paginate" *ngIf="result.length != 0" (pageChange)="page = $event"></pagination-controls>  
+            <p class="no-records" *ngIf="result.length === 0">No Records found</p>
+            <pagination-controls class="pagination" *ngIf="result.length != 0" (pageChange)="page = $event"></pagination-controls>  
         </ng-container>   
         <!-- pagination -->
         <!-- <pagination-controls class="pagination" (pageChange)="page = $event"></pagination-controls> -->

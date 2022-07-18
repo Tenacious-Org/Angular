@@ -7,6 +7,12 @@
     width:auto;
 } 
 
+.no-records{
+    margin-top:4rem;
+    font-weight: 900;
+    text-align: center;
+  }
+
 /* Corrected css */
 .pagination{
     justify-content: center;

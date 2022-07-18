@@ -9,7 +9,11 @@
     width:30rem;
     overflow:hidden;
   }
-
+  .no-records{
+    margin-top:4rem;
+    font-weight: 900;
+    text-align: center;
+  }
 @media (max-width:200px)
 {
     .btn{

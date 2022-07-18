@@ -19,6 +19,10 @@ export class AwardService {
     return this.http.get<any>(this.apiurl+`GetAwardsList?pageId=${pageId}`,{ headers: this.headers })
   }
 
+  getAwardsByStatusId(id:any):Observable<any>{
+    return this.http.get<any>(this.apiurl+`GetAwardsByStatusId?statusId=${id}`,{ headers: this.headers })
+  }
+
   // Get Award By id
   getAwardById(id:any):Observable<any>
   {

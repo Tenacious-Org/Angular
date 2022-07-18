@@ -4,7 +4,7 @@ import { AwardService } from '../award.service';
 import { AuthenticationService } from '../authentication.service';
 import { SharedService } from '../shared.service';
 import { formatDate } from '@angular/common';
-import { NgForm } from '@angular/forms';
+import { NgForm, NG_ASYNC_VALIDATORS } from '@angular/forms';
 @Component({
 	selector: 'app-home-card',
 	templateUrl: './home-card.component.html',
@@ -21,6 +21,7 @@ export class HomeCardComponent implements OnInit {
 	isReadMore = true;
 	searchValue: any;
 	isValidUser: any;
+	val:any;
 	awardTypes: any;
 	endpoint = "AwardType";
 	organisations: any;

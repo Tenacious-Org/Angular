@@ -114,7 +114,7 @@
     </div>
     <ng-container *ngIf="( awardData | filter : searchValue) as result">
       <h3  class="no-records" *ngIf="result.length === 0">No Records found</h3>
-      <pagination-controls class="paginate" (pageChange)="page = $event"></pagination-controls> 
+      <pagination-controls class="paginate" *ngIf="result.length !== 0" (pageChange)="page = $event"></pagination-controls> 
     </ng-container>    
 
   </div>
