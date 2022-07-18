@@ -69,7 +69,6 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { AwardViewComponent } from './award-view/award-view.component';
 import { AwardListComponent } from './award-list/award-list.component';
 import { CommentsPageComponent } from './comments-page/comments-page.component';
-import { TilesComponent } from './tiles/tiles.component';
 
 
 //import { TooltipModule } from 'ng2-tooltip-directive';
@@ -142,7 +141,6 @@ import { TilesComponent } from './tiles/tiles.component';
    ForgotPasswordComponent,
    AwardViewComponent,
    AwardListComponent,
-   TilesComponent,
 
 
 
