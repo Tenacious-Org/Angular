@@ -171,3 +171,8 @@ p{
 button:disabled{
   display: none;
 }
+.no-records{
+  margin-top:4rem;
+  font-weight: 900;
+  text-align: center;
+}

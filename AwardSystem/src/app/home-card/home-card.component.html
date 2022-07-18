@@ -86,7 +86,7 @@
   </div>
 
   <!-- Home page Card Container contains award image, awardee image,award name-->
-
+  
   <div class=" container row" id="cardflip">
     <div class="card"
       *ngFor="let item of awardData | filter:searchValue| paginate: { itemsPerPage: 6, currentPage: page }">
@@ -112,7 +112,10 @@
         </button>
       </div>
     </div>
-    <pagination-controls class="paginate" (pageChange)="page = $event"></pagination-controls>
+    <ng-container *ngIf="( awardData | filter : searchValue) as result">
+      <h3  class="no-records" *ngIf="result.length === 0">No Records found</h3>
+      <pagination-controls class="paginate" (pageChange)="page = $event"></pagination-controls> 
+    </ng-container>    
 
   </div>
 </div>
