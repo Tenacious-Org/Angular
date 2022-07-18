@@ -7,7 +7,7 @@
     <div class="addrequest row g-3 mb-3">
       <div class="awardName col-auto p-1.5">
         <label class="labels">Awardee Name &nbsp; </label>
-        <input [formControl]="searchAwardee" matInput type="text" required [matAutocomplete]="auto" name="awardeeId"
+        <input [formControl]="searchAwardee" matInput type="text" required [matAutocomplete]="auto" placeholder="Awardee Name" name="awardeeId"
           class="form-control" [(ngModel)]="Awards.AwardeeName">
           <div *ngIf="reason.touched && reason.errors?.['required']" class="alert alert-danger">
             AwardeeName is Required!
@@ -19,7 +19,7 @@
       </div>
       <div class="Award col-auto p-1.5">
         <label for="exampleFormControlSelect1">Award</label>
-        <select name="awardTypeId" #awardName="ngModel" required [(ngModel)]="Awards.awardTypeId" class="custom-select"
+        <select name="awardTypeId" #awardName="ngModel"  required [(ngModel)]="Awards.awardTypeId" class="custom-select"
           (change)="onSelectAward()">
           <div *ngIf="awardName.touched && awardName.errors?.['required']" class="alert alert-danger">
             Award Name is Required!
