@@ -49,7 +49,6 @@ import { RequesterComponent } from './requester/requester.component';
 import { RequesterAddRequestComponent } from './requester/requester-add-request/requester-add-request.component';
 import { RequesterViewComponent } from './requester/requester-view/requester-view.component';
 import { HrComponent } from './hr/hr.component';
-import { HrPublishComponent } from './hr/hr-publish/hr-publish.component';
 import { HrYettopublishComponent } from './hr/hr-yettopublish/hr-yettopublish.component';
 
 import{FormsModule} from '@angular/forms';
@@ -126,7 +125,6 @@ import { CommentsPageComponent } from './comments-page/comments-page.component';
  RequesterAddRequestComponent,
  RequesterViewComponent,
  HrComponent,
- HrPublishComponent,
  HrYettopublishComponent,
  RequestComponent,
  ProfileComponent,
