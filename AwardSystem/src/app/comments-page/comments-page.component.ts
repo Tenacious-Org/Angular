@@ -6,7 +6,6 @@ import { AuthenticationService } from '../authentication.service';
 import { AwardService } from '../award.service';
 import { DialogboxComponent } from '../dialogbox/dialogbox.component';
 import { HotToastService } from '@ngneat/hot-toast';
-
 @Component({
   selector: 'app-comments-page',
   templateUrl: './comments-page.component.html',

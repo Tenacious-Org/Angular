@@ -142,9 +142,9 @@
   width:750px;
   border-radius:20px;
 }
- button{
+ /* button{
   background-color: white;
-}
+} */
 
 
 
@@ -211,6 +211,19 @@ hr:not([size]){
 }
 
 /* Back button */
+.backbutton{
+  float: left;
+  padding-top: 100px;
+  margin-left:40px;
+}
+.button-group{
+  /* width:30px; */
+  text-align: center;
+}
+.button-group i{
+  color: #6749b9;
+  font-size: xx-large;
+}
 
 /* scrollbar */
 
