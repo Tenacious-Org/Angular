@@ -41,6 +41,7 @@ export class AwardViewComponent implements OnInit {
   response = "success";
   error: any;
   show: number = 1;
+  pageId: any;
 
   constructor(private awardService: AwardService,
     private activatedRoute: ActivatedRoute, private dialog: MatDialog, private toastService: HotToastService, private router: Router) { }
@@ -49,7 +50,8 @@ export class AwardViewComponent implements OnInit {
       this.router.navigateByUrl("")
     }
     this.activatedRoute.params.subscribe(params => {
-      this.Id = params['id'];
+      this.Id = params['id1'];
+      this.pageId=params['id']
       this.awardService.getAwardById(this.Id).subscribe((result) => {
         this.data = result;
         this.awards.id = this.data.id;

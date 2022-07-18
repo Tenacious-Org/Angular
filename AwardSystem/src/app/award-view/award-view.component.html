@@ -95,6 +95,7 @@
                             <label>{{data.approverName}}</label>
                         </div>
                     </div>
+                    <div *ngIf="pageId==3"> 
                     <div class="row" *ngIf="data.statusId===2 || data.statusId==4">
                         <div class="col-md-6">
                             <label>Coupon Code</label>
@@ -113,22 +114,22 @@
                                 <h3 class="text-danger">{{error}}</h3>
                             </div>
                         </div>
-                        <div class="col-md-6" *ngIf="data.statusId===4">
+                       <div class="col-md-6" *ngIf="data.statusId===4">
                             <label>{{data.couponCode}}</label>
-                        </div>
+                        </div></div>
                     </div>
 
                     <div class="button">
                         <div class="text-center" *ngIf="data.statusId==4 || data.statusId==3">
                             <button class="btn btn-primary">Back</button>
                         </div>
-                        <div class="text-center accept button-group" *ngIf="data.statusId==1">
-                            <button class="btn btn-success " (click)="OnSubmit()">Accept</button>
-                            <button class="btn btn-danger " (click)="openDialog()">Reject</button>
-                        </div>
-                        <div class="text-center" *ngIf="data.statusId==2">
+                       <div *ngIf="pageId==2"> <div class="text-center accept button-group" *ngIf="data.statusId==1">
+                            <button   class="btn btn-success " (click)="OnSubmit()">Accept</button>
+                            <button  class="btn btn-danger " (click)="openDialog()">Reject</button>
+                        </div></div>
+                        <div *ngIf="pageId==3"><div class="text-center" *ngIf="data.statusId==2">
                             <button class="btn btn-primary">Publish</button>
-                        </div>
+                        </div></div>
                     </div>
                 </div>
                 <div class="awardreason" *ngIf="show==2">

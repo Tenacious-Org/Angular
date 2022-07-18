@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
 
-  constructor() { }
+  constructor(private router:Router) { }
   static GetData(key:string):string|null {
     const itemStr = localStorage.getItem(key)
     if (!itemStr) {
@@ -31,7 +32,6 @@ export class AuthenticationService {
     }
     localStorage.setItem(key, JSON.stringify(item))
   }
-
  
   static IsAdmin():boolean{
  

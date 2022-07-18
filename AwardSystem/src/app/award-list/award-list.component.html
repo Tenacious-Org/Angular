@@ -58,13 +58,13 @@
                             
                     </td>
                     <td>
-                        <a *ngIf="pageId==2" [routerLink]="['/requester-view', item.id]" routerLinkActive="router-link-active"
+                        <a *ngIf="pageId==2" [routerLink]="['/awardview/1/', item.id]" routerLinkActive="router-link-active"
                             class="btn btn-success" target="_self"><i class="fa-solid fa-circle-info"
                                 title="Details"></i></a>
-                        <a *ngIf="pageId==3" [routerLink]="['/approver-acceptreject', item.id]" routerLinkActive="router-link-active"
+                        <a *ngIf="pageId==3" [routerLink]="['/awardview/2/', item.id]" routerLinkActive="router-link-active"
                             class="btn btn-success" target="_self"><i class="fa-solid fa-circle-info"
                                 title="Details"></i></a>
-                        <a *ngIf="pageId==4" [routerLink]="['/hr-yettopublish',item.id]" routerLinkActive="router-link-active"
+                        <a *ngIf="pageId==4" [routerLink]="['/awardview/3/',item.id]" routerLinkActive="router-link-active"
                             class="btn btn-success" target="_self"><i class="fa-solid fa-circle-info"
                                 title="Details"></i></a>
                 </tr>
