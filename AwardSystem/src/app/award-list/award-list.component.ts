@@ -14,6 +14,7 @@ export class AwardListComponent implements OnInit {
   page: number = 1;
   data: any;
   val: any;
+  vale: any;
   options:string[]=["All","Pending","Approved","Rejected","Published"]
   filtervalue = "All";
   constructor(private awardService: AwardService,private router:Router,private activatedRoute:ActivatedRoute) {}
