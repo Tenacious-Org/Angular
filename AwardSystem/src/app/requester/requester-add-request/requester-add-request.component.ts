@@ -1,13 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {Employee} from 'Models/Employee';
-import {Awards} from 'Models/Awards';
 import {SharedService} from 'src/app/shared.service';
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { AwardType } from 'Models/AwardType';
 import { AwardService } from 'src/app/award.service';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import {FormsModule,ReactiveFormsModule} from '@angular/forms';
-import {Observable} from 'rxjs';
+import { FormBuilder, FormControl} from '@angular/forms';
 import {map, startWith} from 'rxjs/operators';
 import { HotToastService } from '@ngneat/hot-toast';
 import { Router } from '@angular/router';
@@ -119,7 +115,7 @@ export class RequesterAddRequestComponent implements OnInit {
       autoClose: true,
       dismissible: true,
     })
-    this.router.navigate(['/requester-request']);
+    this.router.navigate(['/award-list/2']);
   }
   CheckName(FirstName:any)
   {
