@@ -3,7 +3,7 @@
     <form >
         <mat-dialog-content>
         <h2>Enter Rejection Reason</h2>
-        <textarea matInput class="form-control" name="reason" [(ngModel)]="data.reason" #reason="ngModel" required pattern="/\w*\s*|\w|\D/gm"  placeholder="Write something here..."></textarea>
+        <textarea matInput  name="reason" [(ngModel)]="data.reason" #reason="ngModel" required pattern="/\w*\s*|\w|\D/gm"  placeholder="Write something here..."></textarea>
         <div *ngIf="reason.touched && reason.errors?.['required']" class="alert alert-danger">
             Reason is Required!
           </div>
