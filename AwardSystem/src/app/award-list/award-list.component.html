@@ -77,7 +77,7 @@
                 </tr>
             </tbody>
         </table>
-        <ng-container *ngIf="( data | filter : val) as result">
+        <ng-container *ngIf="( data | filter : val | filter:filtervalue) as result">
             <p class="no-records" *ngIf="result.length === 0">No Records found</p>
             <pagination-controls class="pagination" *ngIf="result.length != 0" (pageChange)="page = $event"></pagination-controls>  
         </ng-container>   

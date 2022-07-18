@@ -25,7 +25,6 @@ import { RequesterComponent } from './requester/requester.component';
 import { RequesterAddRequestComponent } from './requester/requester-add-request/requester-add-request.component';
 import { RequesterViewComponent } from './requester/requester-view/requester-view.component';
 import { HrComponent } from './hr/hr.component';
-import { HrPublishComponent } from './hr/hr-publish/hr-publish.component';
 import { HrYettopublishComponent } from './hr/hr-yettopublish/hr-yettopublish.component';
 import { AdminComponent } from './admin/admin.component';
 import { RequestComponent } from './requester/request/request.component';
@@ -95,7 +94,6 @@ const routes: Routes = [
   {path:'requester-view' , component:RequesterViewComponent},
   {path:'requester-view/:id' , component:RequesterViewComponent},
   {path:'hr' , component:HrComponent},
-  {path:'hr-publish' , component:HrPublishComponent},
   {path:'hr-yettopublish/:id' , component:HrYettopublishComponent},
 
   {path: 'dashboard', component:DashboardComponent},
@@ -103,7 +101,7 @@ const routes: Routes = [
 
 
   {path:'ApproverApproval', component:ApproverApprovalComponent},
-  {path:'awardview/:id/:id1',component:AwardViewComponent},
+  {path:'AwardView/:id',component:AwardViewComponent},
   {path:'awardlist/:id',component:AwardListComponent},
   {path:'',redirectTo:'homecard/0', pathMatch: 'full' },
 ];
