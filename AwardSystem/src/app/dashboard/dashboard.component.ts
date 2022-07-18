@@ -354,6 +354,9 @@ export class DashboardComponent implements OnInit {
     console.log("fdate: ", fdate)
     console.log("tdate: ", tdate)
 
+    let tres = true;
+    this.res = tres;
+
     if(fdate == ""){
       console.log("It is cleared value. so assign a from date value.")
       fdate = new Date("0001-04-15").toString()
