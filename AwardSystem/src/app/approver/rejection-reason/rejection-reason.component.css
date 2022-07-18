@@ -1,3 +1,7 @@
 .btn{
     margin-left: 15px;
 }
+textarea {
+    width: 15rem;
+    padding: 10px;
+}
