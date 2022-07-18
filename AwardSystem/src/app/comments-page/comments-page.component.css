@@ -197,6 +197,11 @@ hr:not([size]){
   margin-top: 20px;
   max-width: 770px;
 }
+
+.sendicon{
+  cursor: pointer;
+}
+
 .inner-addon .sendicon{
   position: absolute;
   padding:10px;
