@@ -17,14 +17,15 @@
                 <!-- <select name="filtervalue" class="form-select" [(ngModel)]="filtervalue"  style="width:auto">
                     <option *ngFor="let option of options" [value]="option" >{{option}}</option>
                 </select> -->
-                <select class="form-select" [value]="0" [(ngModel)]="filtervalue"  aria-label="Default select example"  style="width:auto">
+                
+                <!-- <select class="form-select" [value]="0" [(ngModel)]="filtervalue"  aria-label="Default select example"  style="width:auto">
                     <option value=0 selected>All</option>
                     <option *ngIf="pageId!=4" ng-value="1">Pending</option>
                     <option  ng-value="2">Approved</option>
                     <option *ngIf="pageId!=4" ng-value="3">Rejected</option>
                     <option ng-value="4">Published</option>
 
-                </select>
+                </select> -->
             </div>
 
         </div>
@@ -41,7 +42,7 @@
             </thead>
             <tbody>
                 <tr class="tabledata"
-                    *ngFor="let item of data | filter:val| filter: filtervalue |paginate: { itemsPerPage: 5, currentPage: page }; let i=index">
+                    *ngFor="let item of data | filter:val |paginate: { itemsPerPage: 5, currentPage: page }; let i=index">
                     <td>{{ 5*(page-1)+i + 1}}</td>
                     <td>{{item.awardeeName}}</td>
                     <td>{{item.awardName}}</td>

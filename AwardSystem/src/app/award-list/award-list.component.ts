@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/authentication.service';
 import { AwardService } from 'src/app/award.service';
+import { SharedService } from '../shared.service';
 
 @Component({
   selector: 'app-award-list',
@@ -14,10 +15,14 @@ export class AwardListComponent implements OnInit {
   page: number = 1;
   data: any;
   val: any;
-  vale: any;
-  options:string[]=["All","Pending","Approved","Rejected","Published"]
-  filtervalue = "All";
-  constructor(private awardService: AwardService,private router:Router,private activatedRoute:ActivatedRoute) {}
+  filtervalue:any;
+  endpoint ='status';
+  statusList: any;
+  public filteredData: any[] = [];
+
+  
+ 
+  constructor(private awardService: AwardService,private sharedService:SharedService,private router:Router,private activatedRoute:ActivatedRoute) {}
 
   ngOnInit(): void {
     if(!AuthenticationService.GetData("Requester") && !AuthenticationService.GetData("Approver") && !AuthenticationService.GetData("Publisher")){
@@ -28,19 +33,29 @@ export class AwardListComponent implements OnInit {
     });
     console.log(this.pageId)
     this.getAll(this.pageId);
+    this.sharedService.getAll(this.endpoint).subscribe((data:any)=>{
+      this.statusList =  data;
+    })
+
   }
-  onSubmit() {
-    if (this.filtervalue == '') {
-      this.getAll(this.pageId);
-    }
-  }
+ 
   getAll(pageId:any) {
     this.awardService
       .getAwardsList(pageId)
       .subscribe((data) => {
         this.data = data;
+        this.filteredData=data;
         console.log(this.data);
       });
+  }
+  changestatus(e:any){
+    console.log(e.target.value)
+    this.filtervalue=e.target.value;
+    if(this.filtervalue==0){
+      this.getAll(this.pageId);
+    }else{
+    this.data = this.filteredData.filter(item=> item.statusId == this.filtervalue);
+    console.log(this.data)}
   }
 
 }
