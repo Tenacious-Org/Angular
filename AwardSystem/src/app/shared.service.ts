@@ -168,7 +168,12 @@ disable(endpoint:any,id:any):Observable<string>{
     return this.http.get<any>(this.apiurl + `Dashboard/GetAllFilteredOrganisationandFromDateWise?orgid=${orgid}&end=${tdate}`,{ headers: this.headers })
   }
 
-  //get by all Filters Date Range
+  //get by all Filters
+  getAllDateWise(fdate:Date, tdate:Date){
+    return this.http.get<any>(this.apiurl + `Dashboard/GetAllDateWise?start=${fdate}&end=${tdate}`,{ headers: this.headers })
+  }
+
+  //get by all Filters
   getAllFiltersDateWise(orgid: number, deptid: number, awdid: number, fdate:Date, tdate:Date){
     return this.http.get<any>(this.apiurl + `Dashboard/GetAllFilteredDateWise?orgid=${orgid}&deptid=${deptid}&awdid=${awdid}&start=${fdate}&end=${tdate}`,{ headers: this.headers })
   }
