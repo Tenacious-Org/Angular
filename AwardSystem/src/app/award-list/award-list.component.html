@@ -6,8 +6,8 @@
 <div class="container d-flex justify-content-center">
     <div class="container container-fluid ">
         <div>
-            <div class="btn-group">
-                <a [routerLink]="['/requester-add-request']" routerLinkActive="router-link-active"
+            <div class="btn-group" *ngIf="pageId!=3&&pageId!=4">
+                <a [routerLink]="['/requester-add-request']"  routerLinkActive="router-link-active"
                     class="btn btn-primary"><i class="fa-solid fa-user-plus"></i> Add Request</a>
             </div>
             <div class="searchfilter  form-inline btn-group search">
