@@ -39,7 +39,7 @@ export class AddEmployeeComponent implements OnInit {
   imageError = "";
   isImageSaved: boolean = false;
   cardImageBase64 = "";
-  error='any';
+  error:any='';
   
 
   Employee : any = {
