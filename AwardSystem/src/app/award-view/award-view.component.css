@@ -1,19 +1,30 @@
 .container {
-  padding-top: 0px;
-  padding-left: 150px;
+  padding-top: 100px;
+  margin-left: 260px;
   display: grid;
   grid-template-columns: 200px 700px; 
   grid-template-rows: 450px;
   grid-column-gap: 0px;
-  
+  max-width:1200px;
+  width:1000px;
 }
+
 .backbutton{
   float: left;
   padding-top: 100px;
-  margin-left:130px;
+  margin-left:150px;
+}
+.btn.btn-primary:hover{
+  background-color: #fff;
+  border-color: #fff;
+}
+.btn{
+  color: #fff;
+  background-color: white;
+  border-color: white;
 }
 .button-group{
-  width:20px;
+  width:30px;
   text-align: center;
 }
 .button-group i{
@@ -21,7 +32,7 @@
   font-size: xx-large;
 }
 .button-group .btn{
-  margin:0px;
+  margin-right:0px;
 }
 
 @media (max-width:1200px) {

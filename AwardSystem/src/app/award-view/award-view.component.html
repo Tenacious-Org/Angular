@@ -1,13 +1,15 @@
 <app-layout></app-layout>
 <app-sidebar></app-sidebar>
 <!-- <div class="content"> -->
+  
     <div class="backbutton">
         <div class="button-group">
-            <button [routerLink]="['']"   class="btn btn-primary pull-left btn btn-info "><i class="fa fa-arrow-left" aria-hidden="true"></i>
+            <button [routerLink]="['/homecard/0']"   class="btn btn-primary pull-left btn btn-info "><i class="fa fa-arrow-left" aria-hidden="true"></i>
             </button>
         </div>
     </div>
     <div class="container">
+     
         <div class="item-image">
             <div class=" rounded-circle text-center img1">
                 <div class=" text-center" *ngIf="data.awardeeImage===null ; else elseimage">
