@@ -70,8 +70,10 @@ export class AddEmployeeComponent implements OnInit {
   hrList:any;
   SelectOrg: any = 0;
   SelectDep: any = 0;
+  SelectDes:any=0;
   endpoint = "Organisation";
   endpoint1 = "Employee";
+	public filteredData: any[] = [];
 
   ngOnInit(): void {
     if(!AuthenticationService.GetData("Admin")){
@@ -143,7 +145,6 @@ export class AddEmployeeComponent implements OnInit {
   changeDate(){
     document.getElementById("dob")?.setAttribute("max",this.change);
   }
-
 
   ImageConversion(fileInput:any){
     var x:any=document.getElementById("image");

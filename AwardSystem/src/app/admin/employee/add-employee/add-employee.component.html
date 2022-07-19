@@ -131,7 +131,7 @@
 
 
                 <div class="input-group">
-                    <select name="designationId" [(ngModel)]="Employee.designationId" class="custom-select">
+                    <select name="designationId" [(ngModel)]="Employee.designationId"  class="custom-select">
                         <option *ngFor="let items of designations" ngValue={{items.id}}>{{items.designationName}}
                         </option>
                     </select>

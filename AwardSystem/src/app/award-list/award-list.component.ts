@@ -56,6 +56,7 @@ export class AwardListComponent implements OnInit {
     }else{
     this.data = this.filteredData.filter(item=> item.statusId == this.filtervalue);
     console.log(this.data)}
+    this.page=1;
   }
 
 }
