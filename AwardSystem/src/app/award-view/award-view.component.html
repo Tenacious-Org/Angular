@@ -54,7 +54,7 @@
                 </ul>
     
                 <div class="about-content show active" id="about">
-                    <div class="about" *ngIf="show==3">
+                    <div class="about" *ngIf="show===3">
                         <div class="row">
                             <div class="col">
                                 <label>ACEID</label>
@@ -106,7 +106,7 @@
                         
                       
                     </div>
-                    <div class="awardreason" *ngIf="show==1">
+                    <div class="awardreason" *ngIf="show===1">
                         <p>{{data.reason}},Artificial intelligence (AI) is intelligence demonstrated by machines, as opposed
                             to the natural intelligence displayed by animals including humans. AI research has been defined
                             as the field of study of intelligent agents, which refers to any system that perceives its
@@ -116,7 +116,7 @@
                             its goals
                         </p>
                     </div>
-                    <div class="rejectreason" *ngIf="show==2">
+                    <div class="rejectreason" *ngIf="show===2">
                         <p>{{data.rejectedReason}},Artificial intelligence (AI) is intelligence demonstrated by machines, as
                             opposed to the natural intelligence displayed by animals including humans. AI research has been
                             defined as the field of study of intelligent agents, which refers to any system that perceives
@@ -129,15 +129,15 @@
                     
                 </div>
                 <div class="button">
-                    <div *ngIf="pageId==2">
-                        <div class="text-center button-group" *ngIf="data.statusId==1">
+                    <div *ngIf="pageId===2">
+                        <div class="text-center button-group" *ngIf="data.statusId===1">
                             <button class="btn btn-success " (click)="OnSubmit()">Accept</button>
                             <button class="btn btn-danger " (click)="openDialog()">Reject</button>
                         </div>
                     </div>
-                    <div *ngIf="pageId==3">
+                    <div *ngIf="pageId===3">
                         
-                            <div class="row" *ngIf="data.statusId===2 || data.statusId==4">
+                            <div class="row" *ngIf="data.statusId===2 || data.statusId===4">
                                 <div class="col">
                                     <label>Coupon Code</label>
                                 </div>
@@ -158,7 +158,7 @@
                                 <div class="col" *ngIf="data.statusId===4">
                                     <label>{{data.couponCode}}</label>
                                 </div>
-                                <div class="col" *ngIf="data.statusId==2">
+                                <div class="col" *ngIf="data.statusId===2">
                                     <button (click)="onPublish()" class="btn btn-primary">Publish</button>
                                 </div>
                             </div>

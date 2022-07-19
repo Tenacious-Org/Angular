@@ -73,11 +73,11 @@
         </div>
         <div class="applybutton col-auto">
           <button id="applybutton"
-            [disabled]="searchOrganisation == 0 && searchDepartment == 0 && searchAwardType === 0 && FromDate==ToDate && ToDate==FromDate"
+            [disabled]="searchOrganisation === 0 && searchDepartment === 0 && searchAwardType === 0 && FromDate===ToDate && ToDate===FromDate"
             (click)="awardFilter(searchOrganisation,searchDepartment,searchAwardType,FromDate,ToDate)">Apply</button>
         </div>
         <div class="applybutton col-auto">
-          <button id="applybutton" [disabled]="searchOrganisation == 0 && searchDepartment == 0 && searchAwardType === 0  && FromDate==ToDate && ToDate==FromDate " (click)="Reset()">Reset</button>
+          <button id="applybutton" [disabled]="searchOrganisation === 0 && searchDepartment === 0 && searchAwardType === 0  && FromDate===ToDate && ToDate===FromDate " (click)="Reset()">Reset</button>
         </div>
       </form>
     </div>

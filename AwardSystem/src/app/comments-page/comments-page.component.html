@@ -53,8 +53,8 @@
         <input type="checkbox" #checkBox name="comments" (click)="onViewComment()" id="card_comments">
         <label for="card_comments">
             <i id="iconcolor" class="fa-solid fa-angle-down "></i>
-            <h3 *ngIf="isClicked!=true" id="bottom">View Comments </h3>
-            <h3 *ngIf="isClicked==true" id="bottom">Hide Comments </h3>
+            <h3 *ngIf="isClicked!==true" id="bottom">View Comments </h3>
+            <h3 *ngIf="isClicked===true" id="bottom">Hide Comments </h3>
         </label>
         <div class="card-comments">
                 <div class="inner-addon right-addon">
