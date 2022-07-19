@@ -160,8 +160,8 @@ export class HomeCardComponent implements OnInit {
 		this.searchOrganisation = 0;
 		this.searchDepartment = 0;
 		this.searchAwardType = 0;
-		this.FromDate = new Date("0001-01-01").toString()
-		this.ToDate = new Date("0001-01-01").toString()
+		this.FromDate = new Date("0001-01-01").toString();
+		this.ToDate = new Date("0001-01-01").toString();
 		this.ngOnInit();
 		this.isApplied = false;
 	}
