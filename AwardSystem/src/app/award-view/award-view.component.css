@@ -14,21 +14,12 @@
   padding-top: 100px;
   margin-left:150px;
 }
-.btn.btn-primary:hover{
-  background-color: #fff;
-  border-color: #fff;
-}
-.btn{
-  color: #fff;
-  background-color: white;
-  border-color: white;
-}
 .button-group{
   width:30px;
   text-align: center;
 }
 .button-group i{
-  color: #866ec7;
+  color: white;
   font-size: xx-large;
 }
 .button-group .btn{
