@@ -129,13 +129,13 @@ export class AwardViewComponent implements OnInit {
     this.router.navigate(['/awardlist/3']);
 
   }
-  about(){
+  reason(){
     this.show = 1;
   }
-  reason(){
+  rejectionreason(){
     this.show = 2;
   }
-  rejectionreason(){
+  about(){
     this.show = 3;
   }
 }
