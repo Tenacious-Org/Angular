@@ -50,10 +50,11 @@
                 <h4>{{data.reason}} Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum velit fuga odit, debitis voluptatum repudiandae quas, consequuntur provident eaque dolor in quis minus quibusdam earum quo obcaecati magnam animi laudantium? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae sapiente itaque iure nihil aspernatur delectus temporibus hic unde consectetur, at ducimus vero Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate saepe cum id excepturi dicta expedita at minus, molestias et consectetur explicabo modi obcaecati atque iure porro odio officia quam soluta. quasi optio eos possimus! Enim labore architecto temporibus. </h4>
             </div>
         </div>
-        <input type="checkbox" #checkBox name="comments" id="card_comments">
+        <input type="checkbox" #checkBox name="comments" (click)="onViewComment()" id="card_comments">
         <label for="card_comments">
             <i id="iconcolor" class="fa-solid fa-angle-down "></i>
-            <h3 id="bottom">View Comments </h3>
+            <h3 *ngIf="isClicked!=true" id="bottom">View Comments </h3>
+            <h3 *ngIf="isClicked==true" id="bottom">Hide Comments </h3>
         </label>
         <div class="card-comments">
                 <div class="inner-addon right-addon">

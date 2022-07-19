@@ -19,6 +19,7 @@ export class CommentsPageComponent implements OnInit {
   commentList:any;
   isReadMore =true;
   isAuthorize:any;
+  isClicked=false;
   constructor(private awardService:AwardService, private route:ActivatedRoute,private routing:Router, private dialog: MatDialog,private toastService: HotToastService) { }
   Comments :any ={
     id :  0,
@@ -44,6 +45,10 @@ export class CommentsPageComponent implements OnInit {
         console.log(this.commentList.commentedOn);
       })
 
+  }
+  onViewComment(){
+    this.isClicked=!this.isClicked;
+    console.log(this.isClicked)
   }
   OnSubmit(){
   
