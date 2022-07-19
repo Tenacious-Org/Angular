@@ -57,21 +57,21 @@ disable(endpoint:any,id:any):Observable<string>{
   }
 
 //Get Employee By Department ID
-  getEmployeeByDepartment(id:any):Observable<any>
+  getEmployeeByDepartment(departmentId:any):Observable<any>
   {
-    return this.http.get<any>(this.apiurl + `Employee/GetEmployeeByDepartment?id=${id}`,{ headers: this.headers })
+    return this.http.get<any>(this.apiurl + `Employee/GetEmployeeByDepartment?departmentId=${departmentId}`,{ headers: this.headers })
   }
 
   //Get ReportingPerson By Department ID
-  getReportingPersonByDepartment(id:any):Observable<any>
+  getReportingPersonByDepartment(departmentId:any):Observable<any>
   {
-    return this.http.get<any>(this.apiurl + `Employee/GetReportingPersonByDepartment?id=${id}`,{ headers: this.headers })
+    return this.http.get<any>(this.apiurl + `Employee/GetReportingPersonByDepartment?departmentId=${departmentId}`,{ headers: this.headers })
   }
 
   //Get HR By Department ID
-  getHrByDepartment(id:any):Observable<any>
+  getHrByDepartment(departmentId:any):Observable<any>
   {
-    return this.http.get<any>(this.apiurl + `Employee/GetHrByDepartment?id=${id}`,{ headers: this.headers })
+    return this.http.get<any>(this.apiurl + `Employee/GetHrByDepartment?departmentId=${departmentId}`,{ headers: this.headers })
   }
 
 //Get Requested Award List
@@ -79,9 +79,9 @@ disable(endpoint:any,id:any):Observable<string>{
   {
     return this.http.get<any>(this.apiurl +`Award/GetRequestedAwardsList?id=${id}`,{ headers: this.headers })
   }
-  getEmployeeByRequester(id:any):Observable<any>
+  getEmployeeByRequester(requesterId:any):Observable<any>
   {
-    return this.http.get<any>(this.apiurl+`Employee/GetEmployeeByRequesterId?id=${id}`,{ headers: this.headers })
+    return this.http.get<any>(this.apiurl+`Employee/GetEmployeeByRequesterId?requesterId=${requesterId}`,{ headers: this.headers })
 
   }
 
