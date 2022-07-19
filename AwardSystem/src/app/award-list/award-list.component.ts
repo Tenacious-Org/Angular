@@ -15,7 +15,7 @@ export class AwardListComponent implements OnInit {
   page: number = 1;
   data: any;
   val: any;
-  filtervalue:any;
+  filtervalue:any=0;
   endpoint ='status';
   statusList: any;
   public filteredData: any[] = [];

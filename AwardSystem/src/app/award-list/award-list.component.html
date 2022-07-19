@@ -28,7 +28,7 @@
 
                 </select> -->
                 <select name="status"  [(ngModel)]="filtervalue" class="form-select" style="width:auto" (change)="changestatus($event)"> 
-                    <option value=0 selected>ALL</option>
+                    <option value=0 selected="selected">ALL</option>
                     <option value={{items.id}} *ngFor="let items of statusList">{{items.statusName}}</option>
                    
                 </select>
