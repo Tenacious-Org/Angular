@@ -6,11 +6,8 @@
     <!-- Write your contents here -->
     <div class="card">
         <div class="card-body">
-            <div class="text-center" *ngIf="data.image===null || data.image==='' ; else elseimage">
-                <img *ngIf="data.gender==='Male';else elsegender " src='assets/images/male.jpg' class="rounded-circle img-fluid" />  
-                <ng-template #elsegender> <img  src='assets/images/female.jpg' style=width:10rem; class="rounded-circle img-fluid" style="width: 100px;" /></ng-template>     
-            </div>
-            <ng-template  #elseimage><div class=" text-center"><img [src]="'data:image/jpg;base64,'+ data.image" class="rounded-circle img-fluid" /></div></ng-template>
+            
+            <div class=" text-center"><img [src]="'data:image/jpg;base64,'+ data.image" class="rounded-circle img-fluid" /></div>
             <hr>
             <div class="row">
                 <div class="col-sm-6">
