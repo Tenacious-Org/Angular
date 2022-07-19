@@ -1,8 +1,8 @@
 <div id="outer">
   <app-layout></app-layout>
   <app-sidebar></app-sidebar>
-  <div style="margin-left:15%;padding-top: 10%;">
-    <div class="row g-4 align-items-center ml-3 mb-2">
+  <div class="filters ">
+    <div class="row g-4 ml-3 mb-2">
       <div class="col-auto p-1.5" style="display:inline;">
         <label for="org" class="col-form-label">Organisation</label>
         <div class="input-group">
@@ -21,7 +21,7 @@
           </select>
         </div>
       </div>
-      <div style="display:inline;float:left;width:auto">
+      <div class="awardFilter">
         <label  class="col-form-label" for="exampleFormControlSelect1">Award</label>
         <div class="input-group">
           <select name="awardTypeId" [value] = "0" #awardName="ngModel" name="SelectAward" [(ngModel)]="SelectAward" (change)="onSelectAward()" onclick="changeid()"
@@ -35,7 +35,7 @@
         </div>
       </div>
 
-      <div style="float:left;width:auto">
+      <div class="fromdate">
 
         <label  class="col-form-label ml-3" for="fromdate">From Date</label>
 
@@ -47,7 +47,7 @@
 
       </div>
 
-      <div style="float:left;width:auto">
+      <div class="todate">
 
         <label  class="col-form-label ml-3" for="todate">To Date</label>
 
@@ -58,13 +58,11 @@
         </div>
 
       </div>
-
-  
       
-      <div style="float:left; width:auto;margin-top:3.5rem">
+      <div class="apply" >
         <button style="padding:0.5rem;" (click)="Apply(SelectOrg, SelectDep, SelectAward, fromdate, todate)" type="submit">Apply</button>
       </div>
-      <div *ngIf="res" style="float:left; width:auto;margin-top:3.5rem">
+      <div *ngIf="res" class="reset" style="float:left; width:auto;margin-top:3.5rem">
         <button style="padding:0.5rem;" (click)="Pie()" type="submit">Reset</button>
       </div>
 
@@ -77,7 +75,7 @@
   </div> -->
 
   
-    <div style="height:57%;width:50%;position:absolute; left:15%;bottom:5%">
+    <div class="piechart container d-flex justify-content-center">
         <canvas baseChart
               id="myChart"
               [type]="'pie'"
