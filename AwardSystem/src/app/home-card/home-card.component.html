@@ -73,16 +73,14 @@
         </div>
         <div class="applybutton col-auto">
           <button id="applybutton"
-            [disabled]="searchOrganisation == 0 && searchDepartment == 0 && searchAwardType === 0"
+            [disabled]="searchOrganisation === 0 && searchDepartment === 0 && searchAwardType === 0 && FromDate===ToDate && ToDate===FromDate"
             (click)="awardFilter(searchOrganisation,searchDepartment,searchAwardType,FromDate,ToDate)">Apply</button>
         </div>
-        <div class="applybutton col-auto" *ngIf="isApplied===true">
-          <button id="applybutton" (click)="Reset()">Reset</button>
+        <div class="applybutton col-auto">
+          <button id="applybutton" [disabled]="searchOrganisation === 0 && searchDepartment === 0 && searchAwardType === 0  && FromDate===ToDate && ToDate===FromDate " (click)="Reset()">Reset</button>
         </div>
       </form>
-
     </div>
-
   </div>
 
   <!-- Home page Card Container contains award image, awardee image,award name-->
@@ -101,7 +99,6 @@
 
             <img class="card-img-right" [src]="'data:image/jpg;base64,'+ item.awardeeImage" alt="Avatar">
           </div>
-
         </div>
         <div class="card-body">
           <p id="text"><b>Congrats {{item.awardeeName}} for getting {{item.awardName}}</b></p>

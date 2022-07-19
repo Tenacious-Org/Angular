@@ -31,6 +31,7 @@ showErrorMessage=false;
   }
 
   OnSubmit(){
+    
     this.IsLoading=true;
     this.showErrorMessage=false;
     const headers = { 'content-type': 'application/json'}
@@ -81,10 +82,6 @@ showErrorMessage=false;
         this.showErrorMessage=true;
       }
     });
-
-
-
-
        
   }
 

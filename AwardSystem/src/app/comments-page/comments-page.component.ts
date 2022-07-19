@@ -19,6 +19,8 @@ export class CommentsPageComponent implements OnInit {
   commentList:any;
   isReadMore =true;
   isAuthorize:any;
+  
+
   isClicked=false;
   constructor(private awardService:AwardService, private route:ActivatedRoute,private routing:Router, private dialog: MatDialog,private toastService: HotToastService) { }
   Comments :any ={

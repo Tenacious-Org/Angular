@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Data } from '@angular/router';
 import { SharedService } from 'src/app/shared.service';
 import { AuthenticationService } from '../authentication.service';
 
@@ -11,7 +11,7 @@ import { AuthenticationService } from '../authentication.service';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  data :any;
+  data :any| undefined;
   id:any;
   endpoint="Employee";
   role: any;

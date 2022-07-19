@@ -3,14 +3,24 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AwardService } from '../award.service';
 import { AuthenticationService } from '../authentication.service';
 import { SharedService } from '../shared.service';
-import { formatDate } from '@angular/common';
-import { NgForm, NG_ASYNC_VALIDATORS } from '@angular/forms';
+
+
 @Component({
 	selector: 'app-home-card',
 	templateUrl: './home-card.component.html',
 	styleUrls: ['./home-card.component.css']
 })
 export class HomeCardComponent implements OnInit {
+	@Input() ShowStatus: boolean = true;
+	isApplied = false;
+	searchOrganisation = 0;
+	searchDepartment = 0;
+	searchAwardType = 0;
+	searchAwardee = "";
+	FromDate = new Date("0001-01-01").toString();
+	ToDate = new Date("0001-01-01").toString();
+	public data: any[] = [];
+	public filteredData: any[] = [];
 
 	id: any;
 	awardData: any;
@@ -30,7 +40,7 @@ export class HomeCardComponent implements OnInit {
 	date: any;
 	isShow = true;
 
-	constructor(private awardService: AwardService, private sharedService: SharedService, private router: ActivatedRoute, private route: Router) { }
+	constructor(private awardService: AwardService, private sharedService: SharedService, private router: ActivatedRoute, private route: Router ) { }
 
 	ngOnInit(): void {
 		this.isValidUser = AuthenticationService.GetData("token");
@@ -45,6 +55,7 @@ export class HomeCardComponent implements OnInit {
 		});
 
 	}
+	
 	awardList() {
 		this.router.params.subscribe(params => {
 			this.pageId = params['id'];
@@ -68,16 +79,7 @@ export class HomeCardComponent implements OnInit {
 	}
 
 
-	@Input() ShowStatus: boolean = true;
-	isApplied = false;
-	searchOrganisation = 0;
-	searchDepartment = 0;
-	searchAwardType = 0;
-	searchAwardee = "";
-	FromDate = new Date("0001-01-01");
-	ToDate = new Date("0001-01-01");
-	public data: any[] = [];
-	public filteredData: any[] = [];
+	
 
 	awardFilter(searchOrganisation: any, searchDepartment: any, searchAwardType: any, FromDate: any, ToDate: any) {
 
@@ -158,8 +160,8 @@ export class HomeCardComponent implements OnInit {
 		this.searchOrganisation = 0;
 		this.searchDepartment = 0;
 		this.searchAwardType = 0;
-		this.FromDate = new Date("0001-01-01");
-		this.ToDate = new Date("0001-01-01");
+		this.FromDate = new Date("").toString();
+		this.ToDate = new Date("").toString();
 		this.ngOnInit();
 		this.isApplied = false;
 	}

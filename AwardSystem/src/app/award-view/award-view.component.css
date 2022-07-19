@@ -1,19 +1,38 @@
 .container {
-  padding-top: 120px;
-  padding-left: 200px;
+  padding-top: 100px;
+  margin-left: 260px;
   display: grid;
   grid-template-columns: 200px 700px; 
   grid-template-rows: 450px;
   grid-column-gap: 0px;
-  
+  max-width:1200px;
+  width:1000px;
 }
+
+.backbutton{
+  float: left;
+  padding-top: 100px;
+  margin-left:150px;
+}
+.button-group{
+  width:30px;
+  text-align: center;
+}
+.button-group i{
+  color: white;
+  font-size: xx-large;
+}
+.button-group .btn{
+  margin-right:0px;
+}
+
 @media (max-width:1200px) {
   .container {
     padding-top: 120px;
     padding-left: 200px;
     display: grid;
-    grid-template-columns: 100px 350px; 
-    grid-template-rows: 225px;
+    grid-template-columns: 150px 350px; 
+    grid-template-rows: 450px;
     grid-column-gap: 0px;
     
   }
@@ -28,14 +47,30 @@
     width: 100px;
   }
   .about-content input{
-    margin-right: 30px;
     width:100px;
    }
    .coupon{
     max-width: 150px;
     width:150px;
    }
+   .about-content{
+    padding-left: 17px;
+    padding-top: 5px;
+    max-height:200px;
+    height: 150px;
+    overflow: hidden;
+    overflow-y: auto;
+   
+  }
 }
+.content button-group{
+  margin-left: 150px;
+  margin-top: 100px;
+}
+/* .backbutton{
+  margin-left: 150px;
+} */
+
 /* scrollbar */
 
 
@@ -44,11 +79,12 @@
   /* margin-right:5px; */
 }
 .item-image {
- border : solid 1px grey;
+ border : solid 1px black;
+ border-right: solid 0px;
 }
 .item-content {
   border: solid 1px black;
-  overflow-y:auto;
+  
 }
 img{
   width:120px;
@@ -63,40 +99,44 @@ img{
 }
 .item-content h2{
   padding-top: 10px;
-  padding-right: 200px;
-}
-.button{
  
-  padding-right: 200px;
 }
-
-.accept{
-  padding-top: 15px;
+.about{
+  text-align: center;
+  padding-left: 120px;
 }
 .about-content{
-  padding-left: 50px;
-  padding-top: 30px;
-}
-.about-content input{
-  margin-right: 300px;
+  padding-left: 35px;
+  padding-top: 10px;
+  max-height:400px;
+  height: 290px;
+  overflow: hidden;
+  overflow-y: auto;
+ 
 }
 .about-content label{
    float: left;
 }
-.awardreason p{
-  line-height: 40px;
-  text-align: justify;
-  padding-right: 15px;
-}
-.rejectreason p{
-  line-height: 40px;
-  text-align: justify;
-  padding-right: 15px;
+.about-content input{
+  margin-right: 85px;
 }
 
-.button-group .btn {
-  margin: 5px 10px;
+.awardreason p{
+  line-height: 30px;
+  text-align: justify;
+  padding-right: 40px;
+  
 }
+.rejectreason p{
+  line-height: 30px;
+  text-align: justify;
+  padding-right: 40px;
+
+}
+.button{
+  position: relative;
+}
+
 .item-content h4{
   padding-top: 20px;
 }

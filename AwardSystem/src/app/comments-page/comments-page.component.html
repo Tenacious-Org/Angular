@@ -3,7 +3,7 @@
 
 <div class="backbutton">
     <div class="button-group">
-        <button [routerLink]="['/homecard/0']"   class="btn btn-primary pull-left btn btn-info "><i class="fa fa-arrow-left" aria-hidden="true"></i>
+        <button [routerLink]="['/homecard/0']" class="btn btn-primary pull-left btn btn-info "><i class="fa fa-arrow-left" aria-hidden="true"></i>
         </button>
     </div>
 </div>
@@ -53,8 +53,8 @@
         <input type="checkbox" #checkBox name="comments" (click)="onViewComment()" id="card_comments">
         <label for="card_comments">
             <i id="iconcolor" class="fa-solid fa-angle-down "></i>
-            <h3 *ngIf="isClicked!=true" id="bottom">View Comments </h3>
-            <h3 *ngIf="isClicked==true" id="bottom">Hide Comments </h3>
+            <h3 *ngIf="isClicked!==true" id="bottom">View Comments </h3>
+            <h3 *ngIf="isClicked===true" id="bottom">Hide Comments </h3>
         </label>
         <div class="card-comments">
                 <div class="inner-addon right-addon">
@@ -85,6 +85,7 @@
                     </div>
                     <h4 id="heading">{{item.comments}}</h4>
                 </div>
+                <p class="no-records" *ngIf="commentList.length === 0">Commment panra Dei</p>
             </div>
         </div>
     </div>

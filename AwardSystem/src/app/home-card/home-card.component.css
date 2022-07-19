@@ -57,9 +57,10 @@ p{
 .card-img-overlay{
   height:60%;
 }
-.row{
-  margin-left:15%
-}
+ .row{
+  margin-left:0%;
+  margin-right:0%;
+} 
 /* corrected css */
 
 #applybutton{
@@ -178,3 +179,76 @@ button:disabled{
   font-weight: 900;
   text-align: center;
 }
+@media(max-width:280px){
+  .card{
+    width: 230px;
+  }
+}
+
+
+@media(min-width:375px){
+  .row{
+    margin-left: 2%;
+  }
+}
+
+@media(min-width:390px){
+  .row{
+    margin-left: 3%;
+  }
+}
+@media(min-width:412px){
+  .row{
+    margin-left: 7%;
+  }
+}
+@media(min-width:414px){
+  .row{
+    margin-left: 7%;
+  }
+}
+@media(min-width:520px){
+  .row{
+    margin-left: 15%;
+  }
+}
+@media(min-width:768px){
+  .row{
+    margin-top:30px;
+    margin-left: 5%;
+  }
+}
+@media(min-width:820px){
+  .row{
+    margin-top: 50px;
+    margin-left:7% ;
+  }
+}
+@media(min-width:912px){
+  .row{
+    margin-left: 12%;
+  }
+}
+
+@media(min-width:1024px){
+  .row{
+    margin-top:20px ;
+    margin-left:0%;
+  }
+}
+
+
+
+
+@media(min-width:1280px){
+  .row{
+    margin-top: 20px;
+   margin-left: 15%;
+  }
+ }
+
+
+
+
+
+
