@@ -5,10 +5,9 @@
 }
 /* corrected css */
 
-.input-group{
+ .input-group{ 
     height:103px;
-    width:660px;
-}
+} 
 .img-fluid{
     width:100px;
 }
@@ -24,15 +23,10 @@
 .addrequest{
     justify-content: center;
 }
-.awardImage{
+ .awardImage{
     margin-left: 33px;
 }
-.form-control{
-    width: 360px;    
-} 
-.Award{
-    width: 300px;
-}
+
 textarea{
     border-radius: 4px;
     padding: 10px;
@@ -116,11 +110,38 @@ margin-top: 50px;
     } 
    }
 
-   /* @media(min-width:768px){
+    @media(min-width:768px){
     .input-group{
         width: 610px;
     }
     .Award{
         width: 250px;
     }
+    .form-control{
+        width:360px ;
+    }
+    
+   } 
+
+   @media(min-width:1000px){
+    .form-control{
+        width: 360px;    
+    }  
+     .Award{
+        width: 300px;
+    } 
+    .input-group{
+        width: 660px;
+    }
+   }
+
+   /* @media(min-width:540px){
+   
+    .Award{
+        width: 350px;
+    }
+    .input-group{
+        width: 320px;
+    }
+
    } */
