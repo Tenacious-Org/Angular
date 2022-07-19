@@ -24,7 +24,8 @@ token:any;
 
   onLogout(){
     AuthenticationService.Logout();
-    this.route.navigateByUrl('/homecard/0')
+    this.route.navigateByUrl('')
+    window.location.reload()
   }
 
 }
