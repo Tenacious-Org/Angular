@@ -14,7 +14,7 @@
   padding-top: 100px;
   margin-left:150px;
 }
-.button-group{
+.back{
   width:30px;
   text-align: center;
 }
@@ -22,7 +22,7 @@
   color: white;
   font-size: xx-large;
 }
-.button-group .btn{
+.back button{
   margin-right:0px;
 }
 
