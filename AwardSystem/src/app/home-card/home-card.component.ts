@@ -19,7 +19,7 @@ export class HomeCardComponent implements OnInit {
 	pageId: any;
 	employeeId = 0;
 	isReadMore = true;
-	searchValue: any;
+	searchValue='';
 	isValidUser: any;
 	val:any;
 	awardTypes: any;
@@ -151,6 +151,7 @@ export class HomeCardComponent implements OnInit {
 			this.awardData = this.filteredData.filter(item => item.organisationId == searchOrganisation && item.departmentId == searchDepartment && item.awardTypeId == searchAwardType && new Date(item.updatedOn) >= new Date(FromDate) && new Date(item.updatedOn) <= new Date(ToDate));
 		}
 		this.isApplied = true;
+		this.page=1;
 	}
 
 	Reset() {
