@@ -52,4 +52,13 @@ export class DesignationComponent implements OnInit {
   }
   public data: DesignationVM[] = [];
 
+  dialogDisable(id:any){
+    let dialogRef =this.dialog.open(DialogboxComponent,{data:{value:"disable"}})
+    dialogRef.afterClosed().subscribe(value => {
+      if(value!=undefined){
+        this.Disable(id);
+      }
+    });
+  }
+
 }

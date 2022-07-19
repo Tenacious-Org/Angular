@@ -54,8 +54,13 @@ export class AwardsComponent implements OnInit {
 
   }
 
-  // dialogDisable(){
-  //   this.dialog.open(DialogboxComponent,{data:{value:"disable"}})
-  // }
+  dialogDisable(id:any){
+    let dialogRef =this.dialog.open(DialogboxComponent,{data:{value:"disable"}})
+    dialogRef.afterClosed().subscribe(value => {
+      if(value!=undefined){
+        this.Disable(id);
+      }
+    });
+  }
 
 }

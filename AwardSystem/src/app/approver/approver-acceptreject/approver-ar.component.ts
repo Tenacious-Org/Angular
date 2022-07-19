@@ -83,7 +83,6 @@ export class ApproverARComponent implements OnInit {
   }
   openDialog() {
     let dialogRef = this.dialog.open(RejectionReasonComponent, { data: { reason: this.Reason } });
-
     dialogRef.afterClosed().subscribe(value => {
       this.awards.rejectedReason = value;
       if (value != undefined) {

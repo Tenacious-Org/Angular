@@ -61,12 +61,22 @@ export class OrganisationComponent implements OnInit {
       this.openDialog(result);
     });
   }
+  
   // / openDialog(count:any){
   
   //   this.dialog.open(DialogboxComponent,{data:{name:this.organisationname,value:"Organisation"}});
   
   // }
   
+  
+  dialogDisable(id:any){
+    let dialogRef =this.dialog.open(DialogboxComponent,{data:{value:"disable"}})
+    dialogRef.afterClosed().subscribe(value => {
+      if(value!=undefined){
+        this.Disable(id);
+      }
+    });
+  }
    public data: Organisation[] = [];
   
 }

@@ -17,6 +17,7 @@ export class DialogboxComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data:any) {
 
   }
+  disable=1;
   ngOnInit(): void {
     this.dataType = typeof(this.data.count);
     console.log( this.dataType);

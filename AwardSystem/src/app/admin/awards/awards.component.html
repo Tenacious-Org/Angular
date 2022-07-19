@@ -31,7 +31,7 @@
                     <td>{{item.awardDescription}}</td>
                     <td > <button [routerLink]="['../edit-award',item.id]"  class="btn btn-primary" ><i class="fa-solid fa-pen-to-square" title="Edit"></i></button><div class="space"></div>
                         <button routerLink={{item.id}} class="btn btn-success" ><i class="fa-solid fa-circle-info" title="Details"></i></button><div class="space"></div>
-                        <button class="btn btn-danger" (click)="Disable(item.id)" ><i class="fa-solid fa-user-slash" data-toggle="modal" data-target="#Mymodal"title="Disable"></i></button><div class="space"></div></td>
+                        <button class="btn btn-danger" (click)="dialogDisable(item.id)" ><i class="fa-solid fa-user-slash" data-toggle="modal" data-target="#Mymodal"title="Disable"></i></button><div class="space"></div></td>
                 </tr>
             </tbody>
         </table>
