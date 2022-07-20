@@ -53,8 +53,8 @@
         <input type="checkbox" #checkBox name="comments" (click)="onViewComment()" id="card_comments">
         <label for="card_comments">
             <i id="iconcolor" class="fa-solid fa-angle-down "></i>
-            <h3 *ngIf="isClicked!==true" id="bottom">View Comments </h3>
-            <h3 *ngIf="isClicked===true" id="bottom">Hide Comments </h3>
+            <h3 *ngIf="isClicked!=true" id="bottom">View Comments </h3>
+            <h3 *ngIf="isClicked==true" id="bottom">Hide Comments </h3>
         </label>
         <div class="card-comments">
                 <div class="inner-addon right-addon">
@@ -67,8 +67,8 @@
             <div class="allcomments">
                 <div class="d-flex row justify-content-between" *ngFor="let item of commentList">
                     <div class="d-flex flex-row ">
-                        <div *ngIf="item.employeeImage===null ; else elseimage">
-                            <img *ngIf="item.gender==='Male';else elsegender " src='assets/images/male.jpg'
+                        <div *ngIf="item.employeeImage==null ; else elseimage">
+                            <img *ngIf="item.gender=='Male';else elsegender " src='assets/images/male.jpg'
                                 class="rounded-circle img-fluid" />
                             <ng-template #elsegender> <img src='assets/images/female.jpg'
                                     class="rounded-circle img-fluid" />
@@ -85,7 +85,7 @@
                     </div>
                     <h4 id="heading">{{item.comments}}</h4>
                 </div>
-                <p class="no-records" *ngIf="commentList.length === 0">Commment panra Dei</p>
+                <p class="no-records" *ngIf="commentList.length == 0">Commment panra Dei</p>
             </div>
         </div>
     </div>

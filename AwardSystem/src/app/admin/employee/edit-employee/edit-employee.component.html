@@ -108,11 +108,11 @@
                     <select name="organisationId" [(ngModel)]="data.organisationId" name="SelectOrg"
                         [(ngModel)]="SelectOrg" (change)="onSelectOrg()" class="custom-select">
                         <option selected>Choose...</option>
-                        <option *ngFor="let items of organisations" [selected]="items.id===SelectOrg"
+                        <option *ngFor="let items of organisations" [selected]="items.id==SelectOrg"
                             value={{items.id}}>{{items.organisationName}}</option>
                     </select>
                 </div>
-                <div *ngIf="organisationID===''" class="text-danger">Organisation should not be empty! </div>
+                <div *ngIf="organisationID==''" class="text-danger">Organisation should not be empty! </div>
 
             </div>
 
@@ -124,11 +124,11 @@
                     <select name="departmentId" [(ngModel)]="data.departmentId" name="SelectDep" [(ngModel)]="SelectDep"
                         (change)="onSelectDep()" class="custom-select">
                         <option selected>Choose...</option>
-                        <option *ngFor="let items of departments" [selected]="items.id===SelectDep" value={{items.id}}>
+                        <option *ngFor="let items of departments" [selected]="items.id==SelectDep" value={{items.id}}>
                             {{items.departmentName}}</option>
                     </select>
                 </div>
-                <div *ngIf="departmentID===''" class="text-danger">Department should not be empty! </div>
+                <div *ngIf="departmentID==''" class="text-danger">Department should not be empty! </div>
 
             </div>
         </div>
@@ -141,11 +141,11 @@
                 <div class="input-group">
                     <select name="designationId" [(ngModel)]="data.designationId" class="custom-select">
                         <option selected>Choose...</option>
-                        <option *ngFor="let items of designations" [selected]="items.id===selectedDesignation"
+                        <option *ngFor="let items of designations" [selected]="items.id==selectedDesignation"
                             value={{items.id}}>{{items.designationName}}</option>
                     </select>
                 </div>
-                <div *ngIf="designationID===''" class="text-danger">Designation should not be empty! </div>
+                <div *ngIf="designationID==''" class="text-danger">Designation should not be empty! </div>
 
             </div>
 
@@ -158,11 +158,11 @@
                     <select name="reportingPersonId" [(ngModel)]="data.reportingPersonId" class="custom-select">
                         <option selected>Choose...</option>
                         <option *ngFor="let items of reportingPersonList"
-                            [selected]="items.id===selectedReportingPerson" value={{items.id}}>{{items.firstName}}
+                            [selected]="items.id==selectedReportingPerson" value={{items.id}}>{{items.firstName}}
                             {{items.lastName}}</option>
                     </select>
                 </div>
-                <div *ngIf="reportingPersonID===''" class="text-danger">Reporting Person should not be empty!
+                <div *ngIf="reportingPersonID==''" class="text-danger">Reporting Person should not be empty!
                 </div>
 
             </div>
@@ -174,11 +174,11 @@
                 <div class="input-group">
                     <select name="hrID" [(ngModel)]="data.hrId" class="custom-select">
                         <option selected>Choose...</option>
-                        <option *ngFor="let items of hrList" [selected]="items.id===selectedHr" value={{items.id}}>
+                        <option *ngFor="let items of hrList" [selected]="items.id==selectedHr" value={{items.id}}>
                             {{items.firstName}} {{items.lastName}}</option>
                     </select>
                 </div>
-                <div *ngIf="HRId===''" class="text-danger">HR should not be empty! </div>
+                <div *ngIf="HRId==''" class="text-danger">HR should not be empty! </div>
 
             </div>
             <div class="col-sm-auto">

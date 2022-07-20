@@ -1,5 +1,5 @@
 <app-layout></app-layout>
-<div *ngIf="isValidUser!==null">
+<div *ngIf="isValidUser!=null">
   <app-sidebar></app-sidebar>
 </div>
 
@@ -74,13 +74,11 @@
         </div>
         <div class="applybutton col-auto">
           <button id="applybutton"
-            [disabled]="searchOrganisation == 0 && searchDepartment === 0 && searchAwardType === 0 && FromDate==ToDate && ToDate==FromDate"
+            [disabled]="searchOrganisation == 0 && searchDepartment == 0 && searchAwardType == 0 && FromDate==ToDate && ToDate==FromDate"
             (click)="awardFilter(searchOrganisation,searchDepartment,searchAwardType,FromDate,ToDate)">Apply</button>
         </div>
         <div class="applybutton col-auto">
-          <button id="applybutton"
-            [disabled]="searchOrganisation === 0 && searchDepartment === 0 && searchAwardType === 0  && FromDate===ToDate && ToDate===FromDate "
-            (click)="Reset()">Reset</button>
+          <button id="applybutton" [disabled]="searchOrganisation == 0 && searchDepartment == 0 && searchAwardType == 0  && FromDate==ToDate && ToDate==FromDate " (click)="Reset()">Reset</button>
         </div>
       </form>
     </div>
@@ -113,10 +111,9 @@
       </div>
     </div>
     <ng-container *ngIf="( awardData |filter:searchValue) as result">
-      <h3 class="no-records" *ngIf="result.length === 0">No Records found</h3>
-      <pagination-controls class="paginate" *ngIf="result.length !== 0" (pageChange)="page = $event">
-      </pagination-controls>
-    </ng-container>
+      <h3  class="no-records" *ngIf="result.length == 0">No Records found</h3>
+      <pagination-controls class="paginate" *ngIf="result.length != 0" (pageChange)="page = $event"></pagination-controls> 
+    </ng-container>    
 
   </div>
 </div>

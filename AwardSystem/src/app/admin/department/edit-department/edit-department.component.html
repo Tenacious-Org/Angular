@@ -18,11 +18,11 @@
                         <div *ngIf ="organisationName.touched && organisationName.errors?.['required']" class="alert alert-danger">
                             Organisation Name is Required!
                         </div>
-                              <option *ngFor="let items of organisation" [selected]="items.id===selectedOrganisation"  value={{items.id}} >{{items.organisationName}}</option>
+                              <option *ngFor="let items of organisation" [selected]="items.id==selectedOrganisation"  value={{items.id}} >{{items.organisationName}}</option>
                             </select>
                         </div>
             </div>
-            <div *ngIf="OrganisationId===''"class="alert alert-danger">Organisation name should not be empty!</div>
+            <div *ngIf="OrganisationId==''"class="alert alert-danger">Organisation name should not be empty!</div>
 
             <div class="department row">
                 <div class="col-auto">

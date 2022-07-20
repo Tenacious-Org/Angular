@@ -9,8 +9,8 @@
 
   <div class="card">
       <div class="card-body">
-          <div class=" rounded-circle text-center" *ngIf="data.image===null ; else elseimage">
-              <img *ngIf="data.gender==='Male';else elsegender " src='assets/images/male.jpg' class="rounded-circle img-fluid" style="width: 100px;" />  
+          <div class=" rounded-circle text-center" *ngIf="data.image==null ; else elseimage">
+              <img *ngIf="data.gender=='Male';else elsegender " src='assets/images/male.jpg' class="rounded-circle img-fluid" style="width: 100px;" />  
               <ng-template #elsegender> <img  src='assets/images/female.jpg' class="rounded-circle img-fluid" style="width: 100px;" /></ng-template>     
             </div>
             <ng-template  #elseimage><div class="text-center"><img [src]="'data:image/jpg;base64,'+ data.image" style=width:10rem; class="rounded-circle img-fluid" style="width: 100px;" /></div></ng-template>
@@ -67,7 +67,7 @@
 
               <div class="row text-center">
                   <h2 class="mb-0">Coupon</h2>
-                  <div *ngIf="data.statusId===2">
+                  <div *ngIf="data.statusId==2">
                     <input type="text" name="coupon" #coupon="ngModel" [(ngModel)]="data.couponCode" required pattern="^[a-zA-Z0-9]+$"  minlength="10" maxlength="50">
                     
                     <div *ngIf ="coupon.touched && coupon.errors?.['required']" class="text-danger">
@@ -80,7 +80,7 @@
                         <h3 class="text-danger" >{{error}}</h3>
                     </div>                   
                 </div>
-                <div *ngIf="data.statusId===4">
+                <div *ngIf="data.statusId==4">
                     <h3 class="text-muted mb-0">{{data.couponCode}}</h3>
                 </div>
 
@@ -89,7 +89,7 @@
 
         <br>
         <div class="modal-footer justify-content-center">
-            <div *ngIf="data.statusId===2">
+            <div *ngIf="data.statusId==2">
                 <button type="submit" class="btn btn-primary"
                     data-dismiss="modal" [disabled]="!yetToPublish.valid">Publish</button>
             </div>

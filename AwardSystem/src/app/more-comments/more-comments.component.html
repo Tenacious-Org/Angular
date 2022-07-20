@@ -58,8 +58,8 @@
                     <div class="allcomments">
                         <div class="d-flex row justify-content-between" *ngFor="let item of commentList">
                             <div class="d-flex flex-row ">
-                                <div *ngIf="item.employeeImage===null ; else elseimage">
-                                    <img *ngIf="item.gender==='Male';else elsegender " src='assets/images/male.jpg'
+                                <div *ngIf="item.employeeImage==null ; else elseimage">
+                                    <img *ngIf="item.gender=='Male';else elsegender " src='assets/images/male.jpg'
                                         class="rounded-circle img-fluid" />
                                     <ng-template #elsegender> <img src='assets/images/female.jpg'
                                             class="rounded-circle img-fluid" />

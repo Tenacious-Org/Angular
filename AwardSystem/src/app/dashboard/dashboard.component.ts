@@ -106,7 +106,7 @@ export class DashboardComponent implements OnInit {
 
         //Setting Organisation into a list
         var org:any = []
-        const search = (targetElement : string) => (arrElement : string) => arrElement === targetElement;
+        const search = (targetElement : string) => (arrElement : string) => arrElement == targetElement;
         for(var x of d1){
             if(org.some(search(x[0]))){
               continue
@@ -198,7 +198,7 @@ export class DashboardComponent implements OnInit {
 
       //Setting Organisation into a list
       var org:any = []
-      const search = (targetElement : string) => (arrElement : string) => arrElement === targetElement;
+      const search = (targetElement : string) => (arrElement : string) => arrElement == targetElement;
       for(var x of d1){
           if(org.some(search(x[0]))){
             continue
@@ -289,7 +289,7 @@ export class DashboardComponent implements OnInit {
 
       //Setting Organisation into a list
       var org:any = []
-      const search = (targetElement : string) => (arrElement : string) => arrElement === targetElement;
+      const search = (targetElement : string) => (arrElement : string) => arrElement == targetElement;
       for(var x of d1){
           if(org.some(search(x[0]))){
             continue
@@ -402,7 +402,7 @@ export class DashboardComponent implements OnInit {
 
           //Setting Organisation into a list
           var org:any = []
-          const search = (targetElement : string) => (arrElement : string) => arrElement === targetElement;
+          const search = (targetElement : string) => (arrElement : string) => arrElement == targetElement;
           for(var x of d1){
               if(org.some(search(x[0]))){
                 continue
@@ -491,7 +491,7 @@ export class DashboardComponent implements OnInit {
   
         //Setting Organisation into a list
         var org:any = []
-        const search = (targetElement : string) => (arrElement : string) => arrElement === targetElement;
+        const search = (targetElement : string) => (arrElement : string) => arrElement == targetElement;
         for(var x of d1){
             if(org.some(search(x[0]))){
               continue
@@ -609,7 +609,7 @@ export class DashboardComponent implements OnInit {
   
         //Setting Organisation into a list
         var org:any = []
-        const search = (targetElement : string) => (arrElement : string) => arrElement === targetElement;
+        const search = (targetElement : string) => (arrElement : string) => arrElement == targetElement;
         for(var x of d1){
             if(org.some(search(x[0]))){
               continue
@@ -727,7 +727,7 @@ export class DashboardComponent implements OnInit {
   
         //Setting Organisation into a list
         var org:any = []
-        const search = (targetElement : string) => (arrElement : string) => arrElement === targetElement;
+        const search = (targetElement : string) => (arrElement : string) => arrElement == targetElement;
         for(var x of d1){
             if(org.some(search(x[0]))){
               continue
@@ -846,7 +846,7 @@ export class DashboardComponent implements OnInit {
     
           //Setting Organisation into a list
           var org:any = []
-          const search = (targetElement : string) => (arrElement : string) => arrElement === targetElement;
+          const search = (targetElement : string) => (arrElement : string) => arrElement == targetElement;
           for(var x of d1){
               if(org.some(search(x[0]))){
                 continue
@@ -965,7 +965,7 @@ export class DashboardComponent implements OnInit {
 
         //Setting Organisation into a list
         var org:any = []
-        const search = (targetElement : string) => (arrElement : string) => arrElement === targetElement;
+        const search = (targetElement : string) => (arrElement : string) => arrElement == targetElement;
         for(var x of d1){
             if(org.some(search(x[0]))){
               continue
@@ -1059,7 +1059,7 @@ export class DashboardComponent implements OnInit {
    
          //Setting Organisation into a list
          var org:any = []
-         const search = (targetElement : string) => (arrElement : string) => arrElement === targetElement;
+         const search = (targetElement : string) => (arrElement : string) => arrElement == targetElement;
          for(var x of d1){
              if(org.some(search(x[0]))){
                continue
@@ -1179,7 +1179,7 @@ export class DashboardComponent implements OnInit {
 
         //Setting Organisation into a list
         var org:any = []
-        const search = (targetElement : string) => (arrElement : string) => arrElement === targetElement;
+        const search = (targetElement : string) => (arrElement : string) => arrElement == targetElement;
         for(var x of d1){
             if(org.some(search(x[0]))){
               continue
@@ -1269,7 +1269,7 @@ export class DashboardComponent implements OnInit {
       
             //Setting Organisation into a list
             var org:any = []
-            const search = (targetElement : string) => (arrElement : string) => arrElement === targetElement;
+            const search = (targetElement : string) => (arrElement : string) => arrElement == targetElement;
             for(var x of d1){
                 if(org.some(search(x[0]))){
                   continue
@@ -1387,7 +1387,7 @@ export class DashboardComponent implements OnInit {
 
         //Setting Organisation into a list
         var org:any = []
-        const search = (targetElement : string) => (arrElement : string) => arrElement === targetElement;
+        const search = (targetElement : string) => (arrElement : string) => arrElement == targetElement;
         for(var x of d1){
             if(org.some(search(x[0]))){
               continue
@@ -1479,7 +1479,7 @@ export class DashboardComponent implements OnInit {
   
         //Setting Organisation into a list
         var org:any = []
-        const search = (targetElement : string) => (arrElement : string) => arrElement === targetElement;
+        const search = (targetElement : string) => (arrElement : string) => arrElement == targetElement;
         for(var x of d1){
             if(org.some(search(x[0]))){
               continue
@@ -1597,7 +1597,7 @@ export class DashboardComponent implements OnInit {
    
          //Setting Organisation into a list
          var org:any = []
-         const search = (targetElement : string) => (arrElement : string) => arrElement === targetElement;
+         const search = (targetElement : string) => (arrElement : string) => arrElement == targetElement;
          for(var x of d1){
              if(org.some(search(x[0]))){
                continue
@@ -1715,7 +1715,7 @@ export class DashboardComponent implements OnInit {
   
         //Setting Organisation into a list
         var org:any = []
-        const search = (targetElement : string) => (arrElement : string) => arrElement === targetElement;
+        const search = (targetElement : string) => (arrElement : string) => arrElement == targetElement;
         for(var x of d1){
             if(org.some(search(x[0]))){
               continue
@@ -1833,7 +1833,7 @@ export class DashboardComponent implements OnInit {
   
         //Setting Organisation into a list
         var org:any = []
-        const search = (targetElement : string) => (arrElement : string) => arrElement === targetElement;
+        const search = (targetElement : string) => (arrElement : string) => arrElement == targetElement;
         for(var x of d1){
             if(org.some(search(x[0]))){
               continue
@@ -1958,7 +1958,7 @@ export class DashboardComponent implements OnInit {
 
       //Setting Organisation into a list
       var org:any = []
-      const search = (targetElement : string) => (arrElement : string) => arrElement === targetElement;
+      const search = (targetElement : string) => (arrElement : string) => arrElement == targetElement;
       for(var x of d1){
           if(org.some(search(x[0]))){
             continue

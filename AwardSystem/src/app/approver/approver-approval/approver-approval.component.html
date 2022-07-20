@@ -27,10 +27,10 @@
                 <tr class="text-center" *ngFor="let item of data  |filter:val| filter: filtervalue |  paginate: { itemsPerPage: 5, currentPage: page }; let i = index">
                     <td>{{5*(page-1)+i + 1}}</td>
                     <td>{{item.awardeeName}}</td>
-                    <td ><span *ngIf="item.statusId===1" class="badge badge-warning rounded-pill d-inline">{{item.status}}</span>
-                        <span *ngIf="item.statusId===2" class="badge badge-success rounded-pill d-inline">{{item.status}}</span>
-                        <span *ngIf="item.statusId===3" class="badge badge-danger rounded-pill d-inline">{{item.status}}</span>
-                        <span *ngIf="item.statusId===4" class="badge badge-primary rounded-pill d-inline">{{item.status}}</span>
+                    <td ><span *ngIf="item.statusId==1" class="badge badge-warning rounded-pill d-inline">{{item.status}}</span>
+                        <span *ngIf="item.statusId==2" class="badge badge-success rounded-pill d-inline">{{item.status}}</span>
+                        <span *ngIf="item.statusId==3" class="badge badge-danger rounded-pill d-inline">{{item.status}}</span>
+                        <span *ngIf="item.statusId==4" class="badge badge-primary rounded-pill d-inline">{{item.status}}</span>
                       </td> 
                     <td>
                         <a [routerLink]="['../approver-acceptreject',item.id]" routerLinkActive="router-link-active" class="btn btn-success" target="_self"><i

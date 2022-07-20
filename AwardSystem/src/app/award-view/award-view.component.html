@@ -11,9 +11,9 @@
      
         <div class="item-image">
             <div class=" rounded-circle text-center img1">
-                <div class=" text-center" *ngIf="data.awardeeImage===null ; else elseimage">
+                <div class=" text-center" *ngIf="data.awardeeImage==null ; else elseimage">
     
-                    <img *ngIf="data.gender==='Male';else elsegender " src='assets/images/male.jpg'
+                    <img *ngIf="data.gender=='Male';else elsegender " src='assets/images/male.jpg'
                         class="rounded-circle img-fluid" />
                     <ng-template #elsegender> <img src='assets/images/female.jpg' class="rounded-circle img-fluid" />
                     </ng-template>
@@ -25,7 +25,7 @@
                 </ng-template>
     
                 <div class=" rounded-circle text-center img2">
-                    <div class=" text-center" *ngIf="data.awardImage===null ; else elseawardimage">
+                    <div class=" text-center" *ngIf="data.awardImage==null ; else elseawardimage">
                         <img src='assets/images/award.png' class="rounded-circle img-fluid" />
                     </div>
                     <ng-template #elseawardimage>
@@ -44,7 +44,7 @@
                     <li class="nav-item">
                         <button class="nav-link" (click)="reason()">Reason</button>
                     </li>
-                    <li class="nav-item" *ngIf="data.statusId===3">
+                    <li class="nav-item" *ngIf="data.statusId==3">
                         <button class="nav-link" (click)="rejectionreason()">Rejection Reason</button>
                     </li>
                     <li class="nav-item">
@@ -53,7 +53,7 @@
                 </ul>
     
                 <div class="about-content show active" id="about">
-                    <div class="about" *ngIf="show===3">
+                    <div class="about" *ngIf="show==3">
                         <div class="row">
                             <div class="col">
                                 <label>ACEID</label>
@@ -105,7 +105,7 @@
                         
                       
                     </div>
-                    <div class="awardreason" *ngIf="show===1">
+                    <div class="awardreason" *ngIf="show==1">
                         <p>{{data.reason}},Artificial intelligence (AI) is intelligence demonstrated by machines, as opposed
                             to the natural intelligence displayed by animals including humans. AI research has been defined
                             as the field of study of intelligent agents, which refers to any system that perceives its
@@ -115,7 +115,7 @@
                             its goals
                         </p>
                     </div>
-                    <div class="rejectreason" *ngIf="show===2">
+                    <div class="rejectreason" *ngIf="show==2">
                         <p>{{data.rejectedReason}},Artificial intelligence (AI) is intelligence demonstrated by machines, as
                             opposed to the natural intelligence displayed by animals including humans. AI research has been
                             defined as the field of study of intelligent agents, which refers to any system that perceives
@@ -128,19 +128,19 @@
                     
                 </div>
                 <div class="button">
-                    <div *ngIf="pageId===2">
-                        <div class="text-center button-group" *ngIf="data.statusId===1">
+                    <div *ngIf="pageId==2">
+                        <div class="text-center button-group" *ngIf="data.statusId==1">
                             <button class="btn btn-success " (click)="OnSubmit()">Accept</button>
                             <button class="btn btn-danger " (click)="openDialog()">Reject</button>
                         </div>
                     </div>
-                    <div *ngIf="pageId===3">
+                    <div *ngIf="pageId==3">
                         
-                            <div class="row" *ngIf="data.statusId===2 || data.statusId===4">
+                            <div class="row" *ngIf="data.statusId==2 || data.statusId==4">
                                 <div class="col">
                                     <label>Coupon Code</label>
                                 </div>
-                                <div class="col coupon" *ngIf="data.statusId===2">
+                                <div class="col coupon" *ngIf="data.statusId==2">
                                     <input type="text" name="coupon" #coupon="ngModel" [(ngModel)]="data.couponCode"
                                         required pattern="^[a-zA-Z0-9]+$" minlength="10" maxlength="50">
     
@@ -154,10 +154,10 @@
                                         <h3 class="text-danger">{{error}}</h3>
                                     </div>
                                 </div>
-                                <div class="col" *ngIf="data.statusId===4">
+                                <div class="col" *ngIf="data.statusId==4">
                                     <label>{{data.couponCode}}</label>
                                 </div>
-                                <div class="col" *ngIf="data.statusId===2">
+                                <div class="col" *ngIf="data.statusId==2">
                                     <button (click)="onPublish()" class="btn btn-primary">Publish</button>
                                 </div>
                             </div>
