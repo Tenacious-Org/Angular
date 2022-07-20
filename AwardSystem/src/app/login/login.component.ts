@@ -55,14 +55,14 @@ showErrorMessage=false;
         AuthenticationService.SetDateWithExpiry("Publisher",data.isPublisher,data.expiryInMinutes)
 
 
-        console.log(AuthenticationService.GetData("token"))
-        console.log(AuthenticationService.GetData("UserName"))
-        console.log(AuthenticationService.GetData("User"))
-        console.log(AuthenticationService.GetData("Role"))
-        console.log(AuthenticationService.GetData("Admin"))
-        console.log(AuthenticationService.GetData("Requester"))
-        console.log(AuthenticationService.GetData("Approver"))
-        console.log(AuthenticationService.GetData("Publisher"))
+        // console.log(AuthenticationService.GetData("token"))
+        // console.log(AuthenticationService.GetData("UserName"))
+        // console.log(AuthenticationService.GetData("User"))
+        // console.log(AuthenticationService.GetData("Role"))
+        // console.log(AuthenticationService.GetData("Admin"))
+        // console.log(AuthenticationService.GetData("Requester"))
+        // console.log(AuthenticationService.GetData("Approver"))
+        // console.log(AuthenticationService.GetData("Publisher"))
 
 
         if(this.IsAdmin){

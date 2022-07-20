@@ -33,21 +33,7 @@ export class AuthenticationService {
     localStorage.setItem(key, JSON.stringify(item))
   }
  
-  static IsAdmin():boolean{
- 
-   return this.GetData("Admin")?.includes("true")? true: false;
- 
-  }
-  static IsRequester():boolean{
-   return this.GetData("Requester")?.includes("true")?true:false;
-  }
-
-  static IsApprover():boolean{
-  return this.GetData("Approver")?.includes("true")?true:false;
-  }
-  static IsPublisher():boolean{
-  return this.GetData("Publisher")?.includes("true")?true:false;
-  }
+  
  
  static Logout(){
    localStorage.clear();

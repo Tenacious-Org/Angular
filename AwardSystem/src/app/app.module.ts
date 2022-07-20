@@ -63,6 +63,9 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { AwardViewComponent } from './award-view/award-view.component';
 import { AwardListComponent } from './award-list/award-list.component';
 import { CommentsPageComponent } from './comments-page/comments-page.component';
+import { AdminChildGuard } from './admin-child.guard';
+import { AdminGuard } from './admin.guard';
+import { InvalidComponent } from './invalid/invalid.component';
 
 
 //import { TooltipModule } from 'ng2-tooltip-directive';
@@ -84,6 +87,7 @@ import { CommentsPageComponent } from './comments-page/comments-page.component';
     CommentsPageComponent,
 
     AdminComponent,
+    InvalidComponent,
     
 
 
@@ -129,6 +133,7 @@ import { CommentsPageComponent } from './comments-page/comments-page.component';
    ForgotPasswordComponent,
    AwardViewComponent,
    AwardListComponent,
+   InvalidComponent,
 
 
 
@@ -162,7 +167,7 @@ import { CommentsPageComponent } from './comments-page/comments-page.component';
 
 
   ],
-  providers: [],
+  providers: [AdminChildGuard,AdminGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
