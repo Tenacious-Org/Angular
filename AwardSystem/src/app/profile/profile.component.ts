@@ -25,7 +25,7 @@ export class ProfileComponent implements OnInit {
       this.id = params['id'];
     });
     //this.id=AuthenticationService.GetData("User");
-    this.sharedService.getById(this.endpoint,this.id)
+    this.sharedService.GetById(this.endpoint,this.id)
       .subscribe((data) => {
         this.data = data;
         console.log(this.data);

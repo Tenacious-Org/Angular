@@ -45,11 +45,11 @@ export class HomeCardComponent implements OnInit {
 	ngOnInit(): void {
 		this.isValidUser = AuthenticationService.GetData("token");
 		this.awardList()
-		this.sharedService.getAll(this.endpoint).subscribe(res => {
+		this.sharedService.GetAll(this.endpoint).subscribe(res => {
 			this.awardTypes = res;
 		});
 
-		this.sharedService.getAll(this.endpoint1).subscribe(data => {
+		this.sharedService.GetAll(this.endpoint1).subscribe(data => {
 			this.organisations = data;
 			console.log(this.organisations);
 		});
@@ -72,7 +72,7 @@ export class HomeCardComponent implements OnInit {
 	}
 
 	onSelectDep() {
-		this.sharedService.getDepartmentByOrganisation(this.searchOrganisation).subscribe(data => {
+		this.sharedService.GetDepartmentByOrganisationId(this.searchOrganisation).subscribe(data => {
 			this.departments = data;
 			console.log(this.departments);
 		});

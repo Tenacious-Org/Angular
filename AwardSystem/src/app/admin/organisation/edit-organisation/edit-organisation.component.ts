@@ -35,7 +35,7 @@ export class EditOrganisationComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.id = params['id'];
       console.log(this.id)
-      this.sharedService.getById(this.endpoint, this.id).subscribe((data) => {
+      this.sharedService.GetById(this.endpoint, this.id).subscribe((data) => {
         this.data = data;
         console.log(this.data);
       });
@@ -44,7 +44,7 @@ export class EditOrganisationComponent implements OnInit {
 
   OnSubmit() {
     console.log(this.data);
-    this.sharedService.edit(this.endpoint, this.data).subscribe({
+    this.sharedService.Edit(this.endpoint, this.data).subscribe({
       next: (data) => { console.log(data), data?this.showToast():null },
       error: (error) => this.error = error.error.message
     });

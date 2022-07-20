@@ -36,7 +36,7 @@ endpoint="Organisation";
 
   OnSubmit(){
     console.log(this.Organisation)
-    this.sharedService.add(this.endpoint,this.Organisation).subscribe({
+    this.sharedService.Add(this.endpoint,this.Organisation).subscribe({
       // console.log(res);
       // this.showToast();
       next: (res) => { console.log(res), res?this.showToast():null },

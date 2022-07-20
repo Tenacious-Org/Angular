@@ -51,7 +51,7 @@ export class SidebarComponent implements OnInit {
   ngOnInit(): void {
     this.role=AuthenticationService.GetData("Role");
     this.id=AuthenticationService.GetData("User");
-    this.sharedService.getById(this.endpoint,this.id)
+    this.sharedService.GetById(this.endpoint,this.id)
       .subscribe((data) => {
         this.data = data;
         console.log(this.data);
