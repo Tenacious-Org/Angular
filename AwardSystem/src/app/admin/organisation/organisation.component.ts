@@ -28,6 +28,7 @@ export class OrganisationComponent implements OnInit {
     }
     this.sharedService.GetAll(this.endpoint).subscribe(data=>{
       this.data=data;
+      this.filteredData=data;
       this.totalLength=data;
       console.log(data)
     });

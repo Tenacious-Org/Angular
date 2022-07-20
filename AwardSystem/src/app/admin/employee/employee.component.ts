@@ -30,6 +30,7 @@ export class EmployeeComponent implements OnInit {
       this.sharedService
         .GetAll(this.endpoint).subscribe((data) => {
           this.data = data;
+          this.filteredData=data;
           this.totalLength = data.length;
           console.log(data)
 
@@ -65,7 +66,7 @@ export class EmployeeComponent implements OnInit {
       }
       Search(value:string){
         this.data=this.filteredData.filter(item =>
-        item.awardeeName.toLowerCase().includes(value.toLowerCase()) || item.awardName.toLowerCase().includes(value.toLowerCase()))
+        item.awardeeName.toLowerCase().includes(value.toLowerCase()) || item.firstName.toLowerCase().includes(value.toLowerCase()))
         this.page=1;
       }
     

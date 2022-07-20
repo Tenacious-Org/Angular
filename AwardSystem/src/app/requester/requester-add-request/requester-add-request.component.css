@@ -1,0 +1,147 @@
+.errorMessage
+{
+    padding-right:250px;
+    text-align: center;
+}
+/* corrected css */
+
+ .input-group{ 
+    height:103px;
+} 
+.img-fluid{
+    width:100px;
+}
+ .card{
+    height:250px;
+    overflow:auto;
+    width:300px;
+    margin-top:10px;
+    margin-right:auto;
+    
+    text-align: center;
+} 
+.addrequest{
+    justify-content: center;
+}
+ .awardImage{
+    margin-left: 33px;
+}
+
+textarea{
+    border-radius: 4px;
+    padding: 10px;
+}
+
+@media(max-width:414px)
+{
+    .input-group,.form-control{
+        width:300px;
+    }
+    .Award{
+     width:330px
+    }
+     .awardImage{
+        margin-top: auto;
+        margin-left: auto;
+    } 
+    
+}
+@media(max-width:1020px){
+.addbutton,.closeButton{
+  width: 150px;
+  }
+  .card{
+    margin-top: 10px;
+    margin-left: 0%;
+
+  }
+}
+@media(max-width:300px){
+    .input-group,.form-control{
+        width:206px;
+    }
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+@media(min-width:390px) {
+    .card{
+        margin-left:3%;
+       }
+    
+}
+@media(min-width:414px) {
+    .card{
+        margin-left:6%;
+       }
+    
+}
+@media(max-width:360px){
+    .input-group,.form-control, .card{
+        width:285px;
+    }
+   
+}
+@media(min-width:412px){
+    .card{
+        margin-left:6% ;
+    }
+}
+@media(max-width:280px){
+        .input-group,.form-control, .card{
+            width:205px;
+        }
+}
+@media(min-width:1024px){
+    .card{
+        margin-left: 3rem;
+    }
+}
+@media(min-width:768px){
+        .awardimage{
+            margin-left: 50px;
+        }
+}
+@media(max-width:912px){
+    .border-box{
+margin-top: 50px;
+    } 
+   }
+
+    @media(min-width:768px){
+    .input-group{
+        width: 610px;
+    }
+    .Award{
+        width: 250px;
+    }
+    .form-control{
+        width:360px ;
+    }
+    
+   } 
+
+   @media(min-width:1000px){
+    .form-control{
+        width: 360px;    
+    }  
+     .Award{
+        width: 300px;
+    } 
+    .input-group{
+        width: 660px;
+    }
+   }
+
+   /* @media(min-width:540px){
+   
+    .Award{
+        width: 350px;
+    }
+    .input-group{
+        width: 320px;
+    }
+
+   } */

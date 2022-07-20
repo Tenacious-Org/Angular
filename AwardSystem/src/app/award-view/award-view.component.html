@@ -130,8 +130,8 @@
                 <div class="button">
                     <div *ngIf="pageId==2">
                         <div class="text-center button-group" *ngIf="data.statusId==1">
-                            <button class="btn btn-success " (click)="OnSubmit()">Accept</button>
-                            <button class="btn btn-danger " (click)="openDialog()">Reject</button>
+                            <button class="btn btn-success " (click)="OnAccept()">Accept</button>
+                            <button class="btn btn-danger " (click)="OnReject()">Reject</button>
                         </div>
                     </div>
                     <div *ngIf="pageId==3">

@@ -27,7 +27,7 @@ public filteredData: any[] = [];
     }
    this.sharedService.GetAll(this.endpoint).subscribe(data=>{
       this.data = data;
-      this.totalLength=data;
+      this.filteredData=data;
       console.log(this.data);
     });
   }

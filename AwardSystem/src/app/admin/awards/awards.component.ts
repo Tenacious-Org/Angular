@@ -30,6 +30,7 @@ export class AwardsComponent implements OnInit {
 
    this.sharedService.GetAll(this.endpoint).subscribe(data=>{
    this.data=data;
+   this.filteredData=data;
    this.totalLength=data;
    console.log(this.data);
    });
@@ -64,7 +65,7 @@ export class AwardsComponent implements OnInit {
   }
   Search(value:string){
 		this.data=this.filteredData.filter(item =>
-	 item.awardName.toLowerCase().includes(value.toLowerCase()))
+	  item.awardName.toLowerCase().includes(value.toLowerCase()))
 		this.page=1;
 	}
 

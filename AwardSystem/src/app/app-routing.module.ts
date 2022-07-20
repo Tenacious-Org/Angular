@@ -20,12 +20,9 @@ import { LoginComponent } from './login/login.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component'
 import { MoreCommentsComponent } from './more-comments/more-comments.component';
 
-import { RequesterComponent } from './requester/requester.component';
 
 import { AdminComponent } from './admin/admin.component';
-import { RequestComponent } from './requester/request/request.component';
-
-
+import { RequesterAddRequestComponent } from './requester/requester-add-request/requester-add-request.component';
 import { ProfileComponent } from './profile/profile.component';
 import { EmployeeComponent } from './admin/employee/employee.component';
 import { AddEmployeeComponent } from './admin/employee/add-employee/add-employee.component';
@@ -90,7 +87,7 @@ const routes: Routes = [
 
   
 
-
+  {path:'requester-add-request' , component:RequesterAddRequestComponent},
  
 
   
@@ -109,7 +106,6 @@ const routes: Routes = [
 
  
 
-  {path:'request/:id' , component:RequestComponent},
   {path: 'dashboard', component:DashboardComponent},
   {path: 'dialogbox', component:DialogboxComponent},
 

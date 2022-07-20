@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { HotToastService } from '@ngneat/hot-toast';
 import { AuthenticationService } from 'src/app/authentication.service';
 import { RejectionReasonComponent } from '../approver/rejection-reason/rejection-reason.component';
+import { DialogboxComponent } from '../dialogbox/dialogbox.component';
 
 @Component({
   selector: 'app-award-view',
@@ -70,7 +71,7 @@ export class AwardViewComponent implements OnInit {
       });
     });
   }
-  OnSubmit() {
+  OnAccept() {
     console.log(this.awards);
     this.awards.statusId = this.approvedId;
     this.awardService.approval(this.awards).subscribe(data => {
@@ -78,7 +79,7 @@ export class AwardViewComponent implements OnInit {
       this.acceptedToast();
     });
   }
-  openDialog() {
+  OnReject() {
     let dialogRef = this.dialog.open(RejectionReasonComponent, { data: { reason: this.Reason } });
 
     dialogRef.afterClosed().subscribe(value => {
@@ -95,13 +96,19 @@ export class AwardViewComponent implements OnInit {
     });
   }
   onPublish() {
-    console.log(this.data.couponCode);
+    let dialogRef =this.dialog.open(DialogboxComponent,{data:{value:"publish"}})
+    dialogRef.afterClosed().subscribe(value => {
+      if(value!=undefined){
+        console.log(this.data.couponCode);
     this.awards.couponCode = this.data.couponCode;
     this.awards.statusId = this.publishedId;
     this.awardService.approval(this.awards).subscribe({
       next: (res) => { console.log(res), res ? this.publishedToast() : null },
       error: (error) => this.error = error.error.message
     });
+      }
+    });
+    
   }
   publishedToast() {
     this.toastService.success('Published Successfully!',

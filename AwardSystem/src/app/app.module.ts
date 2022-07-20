@@ -43,12 +43,8 @@ import { AddEmployeeComponent } from './admin/employee/add-employee/add-employee
 import { EditEmployeeComponent } from './admin/employee/edit-employee/edit-employee.component';
 import { ApproverComponent } from './approver/approver.component';
 import { LoginComponent } from './login/login.component';
-
-import { RequesterComponent } from './requester/requester.component';
-
-
 import{FormsModule} from '@angular/forms';
-import { RequestComponent } from './requester/request/request.component';
+import { RequesterAddRequestComponent } from './requester/requester-add-request/requester-add-request.component';
 import { ProfileComponent } from './profile/profile.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RejectionReasonComponent } from './approver/rejection-reason/rejection-reason.component';
@@ -90,7 +86,7 @@ import { InvalidComponent } from './invalid/invalid.component';
     InvalidComponent,
     
 
-
+    RequesterAddRequestComponent,
     OrganisationComponent,
     AddOrganisationComponent,
     EditOrganisationComponent,
@@ -119,9 +115,6 @@ import { InvalidComponent } from './invalid/invalid.component';
 
 
 
- RequesterComponent,
-
- RequestComponent,
  ProfileComponent,
  RejectionReasonComponent,
  SidebarComponent,
