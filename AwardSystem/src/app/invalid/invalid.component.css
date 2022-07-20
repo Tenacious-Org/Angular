@@ -1,0 +1,16 @@
+h1,h4,h3{
+    text-align: center;
+    color: aqua;
+}
+/* h1{
+    margin-top: 10rem;
+
+} */
+div{
+    padding-top: 3rem;
+    background-color:black;
+    height: 100%;
+}
+img{
+    margin-left:41%;
+}

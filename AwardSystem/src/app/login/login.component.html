@@ -18,15 +18,14 @@
                     <span class="symbol-input100">
                         <i class="fa fa-user" aria-hidden="true"></i>
                     </span>
-                    <div class="text-danger " style="text-align:center ;" [class.d-none]="email.valid || email.untouched" *ngIf="email.errors?.['required']">
-                        Email Address is required.
-                      </div>
-                    <div *ngIf="email.touched && email.errors?.['pattern']" class="text-danger" style="text-align:center ;">
-                        Email is invalid!
-                    </div>
-                      
-                    
                 </div>
+                <div class="text-danger " style="text-align:center ;" [class.d-none]="email.valid || email.untouched" *ngIf="email.errors?.['required']">
+                    Email Address is required.
+                  </div>
+                <div *ngIf="email.touched && email.errors?.['pattern']" class="text-danger" style="text-align:center ;">
+                    Email is invalid!
+                </div>
+                <br>
                 
                 <div class="wrap-input100 validate-input" data-validate = "Password is required">
                     <input class="input100" type="password" required
