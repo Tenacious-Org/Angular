@@ -164,7 +164,7 @@
 
                 <div class="input-group">
                     <select name="hrID" [(ngModel)]="Employee.hrID" class="custom-select">
-                        <option *ngFor="let items of hrList" ngValue={{items.id}}>{{items.firstName}} {{items.lastName}}
+                        <option *ngFor="let items of hrList" value={{items.id}}>{{items.firstName}} {{items.lastName}}
                         </option>
                     </select>
                 </div>
