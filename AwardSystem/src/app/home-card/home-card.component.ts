@@ -169,6 +169,7 @@ export class HomeCardComponent implements OnInit {
 		this.ToDate = new Date("0001-01-01").toString();
 		this.ngOnInit();
 		this.isApplied = false;
+		this.page=1;
 	}
 }
 
