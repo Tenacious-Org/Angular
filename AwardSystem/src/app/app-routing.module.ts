@@ -43,10 +43,46 @@ import { DialogboxComponent } from './dialogbox/dialogbox.component';
 import { AwardViewComponent } from './award-view/award-view.component';
 import { AwardListComponent } from './award-list/award-list.component';
 import { CommentsPageComponent } from './comments-page/comments-page.component';
+import { AdminGuard } from './admin.guard';
+import { AdminChildGuard } from './admin-child.guard';
 // import { HotToastModule } from '@ngneat/hot-toast';
 
 
 const routes: Routes = [
+
+
+    {
+      path:'admin',
+      canActivate:[AdminGuard],
+      children:[
+        {
+          path:'',
+          component:AdminComponent
+        },
+        {
+          path:'',
+          canActivateChild:[AdminChildGuard],
+          children:[
+            {path:'awards', component:AwardsComponent},
+            {path:'add-awards', component:AddAwardsComponent},
+            {path:'edit-award/:id', component:EditAwardComponent},
+            {path:'awards/:id', component:ViewAwardComponent},         
+            {path:'department', component:DepartmentComponent},
+            {path:'add-department', component:AddDepartmentComponent},
+            {path:'edit-department/:id', component:EditDepartmentComponent},
+            {path:'designation', component:DesignationComponent},
+            {path:'add-designation', component:AddDesignationComponent},
+            {path:'edit-designation/:id', component:EditDesignationComponent},
+            {path:'employee', component:EmployeeComponent},
+            {path:'add-employee', component:AddEmployeeComponent},
+            {path:'edit-employee/:id', component:EditEmployeeComponent},
+            {path:'organisation', component:OrganisationComponent},
+            {path:'add-organisation', component:AddOrganisationComponent},
+            {path:'edit-organisation/:id', component:EditOrganisationComponent},
+          ]
+        }
+      ]
+    },
 
   {path:'layout' , component:LayoutComponent},
   {path:'login', component:LoginComponent},
@@ -55,27 +91,16 @@ const routes: Routes = [
   {path:'forgot-password' , component:ForgotPasswordComponent},
   {path:'comments/:id',component:CommentsPageComponent},
 
-  {path:'employee', component:EmployeeComponent},
-  {path:'add-employee', component:AddEmployeeComponent},
-  {path:'edit-employee/:id', component:EditEmployeeComponent},
+  
 
 
-  {path:'awards', component:AwardsComponent},
-  {path:'add-awards', component:AddAwardsComponent},
-  {path:'edit-award/:id', component:EditAwardComponent},
-  {path:'awards/:id', component:ViewAwardComponent},
+ 
 
-  {path:'department', component:DepartmentComponent},
-  {path:'add-department', component:AddDepartmentComponent},
-  {path:'edit-department/:id', component:EditDepartmentComponent},
+  
 
-  {path:'designation', component:DesignationComponent},
-  {path:'add-designation', component:AddDesignationComponent},
-  {path:'edit-designation/:id', component:EditDesignationComponent},
+  
 
-  {path:'organisation', component:OrganisationComponent},
-  {path:'add-organisation', component:AddOrganisationComponent},
-  {path:'edit-organisation/:id', component:EditOrganisationComponent},
+
 
   {path:'approver', component:ApproverComponent},
   {path:'approver-approval', component:ApproverApprovalComponent},
