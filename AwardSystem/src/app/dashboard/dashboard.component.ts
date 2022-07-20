@@ -61,12 +61,6 @@ export class DashboardComponent implements OnInit {
 
 
   ngOnInit(): void {
-    if(!AuthenticationService.GetData("Admin")){
-      this.router.navigateByUrl("")
-    }
-    else if(!AuthenticationService.GetData("Publisher")){
-      this.router.navigateByUrl("")
-    }
     this.Pie()
     this.sharedService.GetAll(this.endpoint).subscribe(data => {
       this.organisations = data;
@@ -371,12 +365,23 @@ export class DashboardComponent implements OnInit {
     if(fdate == ""){
       console.log("It is cleared value. so assign a from date value.")
       fdate = new Date("0001-04-15").toString()
+      this.fromdate = new Date("0001-04-15")
       console.log()
     }
     if(tdate == ""){
       console.log("It is cleared value. so assign a To date value.")
       tdate = new Date("0001-04-29").toString()
+      this.todate = new Date("0001-04-29")
     }
+
+    console.log("fdate: ",fdate)
+    console.log("tdate: ",tdate)
+
+    console.log(fdate != new Date("0001-04-15").toString())
+    console.log(tdate == new Date("0001-04-29").toString())
+
+    console.log("this.fromdate: ",this.fromdate)
+    console.log("this.fromdate: Hi   ",this.fromdate.toISOString().slice(0,10))
 
     //All Values Empty
     if(orgid == 0 && deptid == 0 && awdid == 0 && fdate == new Date("0001-04-15").toString() && tdate == new Date("0001-04-29").toString()){
