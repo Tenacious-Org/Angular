@@ -54,14 +54,14 @@ export class OrganisationComponent implements OnInit {
 
    
 
-   OnSubmit(Id:any){
-    console.log(Id);
-    this.sharedService.GetById(this.endpoint,Id).subscribe((data) => {
-      this.organisationname=data.organisationName;
-      console.log(this.organisationname);
-      this.openDialog(result);
-    });
-  }
+  //  OnSubmit(Id:any){
+  //   console.log(Id);
+  //   this.sharedService.GetById(this.endpoint,Id).subscribe((data) => {
+  //     this.organisationname=data.organisationName;
+  //     console.log(this.organisationname);
+  //     this.openDialog(result);
+  //   });
+  // }
   
   // / openDialog(count:any){
   
