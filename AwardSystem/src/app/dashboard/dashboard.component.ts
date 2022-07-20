@@ -2649,7 +2649,7 @@ export class DashboardComponent implements OnInit {
       });
     }
 
-    //All 5 Filter      //
+    //All 5 Filter - Organisation, Department, Award, Start, End
     if(orgid != 0 && deptid != 0 && awdid != 0 && fdate != new Date("0001-04-15").toString() && tdate != new Date("0001-04-29").toString()){
       console.log("Get all Data Filtered By Organisation, Department, Award, Startdate, Enddate")
       this.sharedService.getAllDetailsByDashboardFilters(this.SelectOrg, this.SelectDep, this.SelectAward, this.fromdate, this.todate).subscribe(res => {
