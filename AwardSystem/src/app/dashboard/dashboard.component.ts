@@ -4,6 +4,8 @@ import { Department } from 'Models/Department';
 import { Organisation } from 'Models/Organisation';
 import { SharedService } from 'src/app/shared.service';
 import { BaseChartDirective } from 'ng2-charts';
+import { AuthenticationService } from '../authentication.service';
+import { Router } from '@angular/router';
 
 
 
@@ -38,7 +40,7 @@ export class DashboardComponent implements OnInit {
   public pieChartLegend = true;
   public pieChartPlugins = [];
 
-  constructor(private sharedService: SharedService) { }
+  constructor(private sharedService: SharedService, private router:Router) { }
 
   //Storing the Values for thier List Getting from API
   awardData: any;
@@ -59,6 +61,12 @@ export class DashboardComponent implements OnInit {
 
 
   ngOnInit(): void {
+    if(!AuthenticationService.GetData("Admin")){
+      this.router.navigateByUrl("")
+    }
+    else if(!AuthenticationService.GetData("Publisher")){
+      this.router.navigateByUrl("")
+    }
     this.Pie()
     this.sharedService.GetAll(this.endpoint).subscribe(data => {
       this.organisations = data;
@@ -167,6 +175,7 @@ export class DashboardComponent implements OnInit {
     });
   }
 
+  //Select Award
   onSelectAward(){
     this.sharedService.getAllDetailsByDashboardFilters(this.SelectOrg, this.SelectDep, this.SelectAward, this.fromdate.toISOString().slice(0,10), this.todate.toISOString().slice(0,10)).subscribe(res => {
 
@@ -259,13 +268,6 @@ export class DashboardComponent implements OnInit {
 
   onSelectorg() {
     this.onSelectDepCascade()
-    console.log("Hiiiiii")
-    console.log(this.SelectOrg)
-    console.log(this.SelectDep)
-    console.log(this.SelectAward)
-    console.log(this.fromdate)
-    console.log(this.todate)
-
     this.sharedService.getAllDetailsByDashboardFilters(this.SelectOrg, this.SelectDep, this.SelectAward, this.fromdate.toISOString().slice(0,10), this.todate.toISOString().slice(0,10)).subscribe(res => {
 
       let tres = true;
