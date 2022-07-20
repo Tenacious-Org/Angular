@@ -159,7 +159,7 @@
                                     <label>{{data.couponCode}}</label>
                                 </div>
                                 <div class="col" *ngIf="data.statusId==2">
-                                    <button (click)="PublishDialog(data.awardeeId)" [disabled]="!myForm.form.valid"  class="btn btn-primary">Publish</button>
+                                    <button (click)="onPublish()" [disabled]="!myForm.form.valid"  class="btn btn-primary">Publish</button>
                                 </div>
                             </div>
                            </form>

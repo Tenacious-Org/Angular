@@ -110,14 +110,14 @@ export class AwardViewComponent implements OnInit {
     });
     
   }
-  PublishDialog(id:any){
-    let dialogRef =this.dialog.open(DialogboxComponent,{data:{value:"publish"}})
-    dialogRef.afterClosed().subscribe(value => {
-      if(value!=undefined){
-        this.onPublish();
-      }
-    });
-  }
+  // PublishDialog(id:any){
+  //   let dialogRef =this.dialog.open(DialogboxComponent,{data:{value:"publish"}})
+  //   dialogRef.afterClosed().subscribe(value => {
+  //     if(value!=undefined){
+  //       this.onPublish();
+  //     }
+  //   });
+  // }
   publishedToast() {
     this.toastService.success('Published Successfully!',
       {
