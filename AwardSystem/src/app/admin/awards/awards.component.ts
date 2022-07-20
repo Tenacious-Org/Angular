@@ -18,6 +18,8 @@ export class AwardsComponent implements OnInit {
   val:any;
   data:any;
   awardname: any;
+  searchValue='';
+  public filteredData: any[] = [];
 
   constructor(private sharedService:SharedService,private dialog: MatDialog ,private router:Router) { }
 
@@ -31,9 +33,7 @@ export class AwardsComponent implements OnInit {
    this.totalLength=data;
    console.log(this.data);
    });
-
   }
-
 
   Disable(Id:any){
     console.log(Id);
@@ -62,5 +62,10 @@ export class AwardsComponent implements OnInit {
       }
     });
   }
+  Search(value:string){
+		this.data=this.filteredData.filter(item =>
+	 item.awardName.toLowerCase().includes(value.toLowerCase()))
+		this.page=1;
+	}
 
 }

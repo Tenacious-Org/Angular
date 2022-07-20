@@ -11,20 +11,15 @@
                     class="btn btn-primary"><i class="fa-solid fa-user-plus"></i> Add Request</a>
             </div>
             <div class="searchfilter  form-inline btn-group search">
-                <input type="search" class="form-control rounded" [(ngModel)]="val" placeholder="Search"
+                <input type="search" class="form-control rounded" [(ngModel)]="searchValue" (input)="Search(searchValue)" placeholder="Search"
                     aria-label="Search" aria-describedby="search-addon" />
             </div>
             <div class=" filterbox dropdown me-4 mb-4">
-                
                 <select name="status"  [(ngModel)]="filtervalue" class="form-select" style="width:auto" (change)="changestatus($event)"> 
                     <option value=0 selected="selected">ALL</option>
-                    <option value={{items.id}} *ngFor="let items of statusList">{{items.statusName}}</option>
-                   
+                    <option value={{items.id}} *ngFor="let items of statusList">{{items.statusName}}</option>          
                 </select>
-                  
-
             </div>
-
         </div>
         <br>
         <table class="datatable table table-striped table-bordered">
@@ -39,7 +34,7 @@
             </thead>
             <tbody>
                 <tr class="tabledata"
-                    *ngFor="let item of data | filter:val| filter: filtervalue |paginate: { itemsPerPage: 5, currentPage: page }; let i=index">
+                    *ngFor="let item of data | filter: filtervalue |paginate: { itemsPerPage: 5, currentPage: page }; let i=index">
                     <td>{{ 5*(page-1)+i + 1}}</td>
                     <td>{{item.awardeeName}}</td>
                     <td>{{item.awardName}}</td>
@@ -66,7 +61,7 @@
                 </tr>
             </tbody>
         </table>
-        <ng-container *ngIf="( data | filter : val | filter:filtervalue) as result">
+        <ng-container *ngIf="( data | filter:filtervalue) as result">
             <p class="no-records" *ngIf="result.length == 0">No Records found</p>
             <pagination-controls class="pagination" *ngIf="result.length != 0" (pageChange)="page = $event"></pagination-controls>  
         </ng-container>   

@@ -15,6 +15,7 @@ export class AwardListComponent implements OnInit {
   page: number = 1;
   data: any;
   val: any;
+  searchValue='';
   filtervalue:any=0;
   endpoint ='status';
   statusList: any;
@@ -34,7 +35,7 @@ export class AwardListComponent implements OnInit {
     console.log(this.pageId)
     this.getAll(this.pageId);
     this.sharedService.getAll(this.endpoint).subscribe((data:any)=>{
-      this.statusList =  data;
+      this.statusList = data;
     })
 
   }
@@ -58,5 +59,10 @@ export class AwardListComponent implements OnInit {
     console.log(this.data)}
     this.page=1;
   }
+  Search(value:string){
+		this.data=this.filteredData.filter(item =>
+		item.awardeeName.toLowerCase().includes(value.toLowerCase()) || item.awardName.toLowerCase().includes(value.toLowerCase()))
+		this.page=1;
+	}
 
 }

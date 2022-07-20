@@ -13,7 +13,6 @@ import { EditDesignationComponent } from './admin/designation/edit-designation/e
 import { AddOrganisationComponent } from './admin/organisation/add-organisation/add-organisation.component';
 import { EditOrganisationComponent } from './admin/organisation/edit-organisation/edit-organisation.component';
 import { OrganisationComponent } from './admin/organisation/organisation.component';
-import { ApproverApprovalComponent } from './approver/approver-approval/approver-approval.component';
 import { ApproverComponent } from './approver/approver.component';
 import { FooterComponent } from './footer/footer.component';
 import { LayoutComponent } from './layout/layout.component';
@@ -22,10 +21,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { MoreCommentsComponent } from './more-comments/more-comments.component';
 
 import { RequesterComponent } from './requester/requester.component';
-import { RequesterAddRequestComponent } from './requester/requester-add-request/requester-add-request.component';
-import { RequesterViewComponent } from './requester/requester-view/requester-view.component';
-import { HrComponent } from './hr/hr.component';
-import { HrYettopublishComponent } from './hr/hr-yettopublish/hr-yettopublish.component';
+
 import { AdminComponent } from './admin/admin.component';
 import { RequestComponent } from './requester/request/request.component';
 
@@ -33,7 +29,6 @@ import { RequestComponent } from './requester/request/request.component';
 import { ProfileComponent } from './profile/profile.component';
 import { EmployeeComponent } from './admin/employee/employee.component';
 import { AddEmployeeComponent } from './admin/employee/add-employee/add-employee.component';
-import { ApproverARComponent } from './approver/approver-acceptreject/approver-ar.component';
 import { RejectionReasonComponent } from './approver/rejection-reason/rejection-reason.component';
 import { EditEmployeeComponent } from './admin/employee/edit-employee/edit-employee.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
@@ -103,8 +98,7 @@ const routes: Routes = [
 
 
   {path:'approver', component:ApproverComponent},
-  {path:'approver-approval', component:ApproverApprovalComponent},
-  {path:'approver-acceptreject/:id', component:ApproverARComponent},
+ 
   {path:'rejection-reason/:id' , component:RejectionReasonComponent},
 
   {path:'footer' , component:FooterComponent},
@@ -114,18 +108,10 @@ const routes: Routes = [
  
 
   {path:'request/:id' , component:RequestComponent},
-  {path:'requester-add-request' , component:RequesterAddRequestComponent},
-
-  {path:'requester-view' , component:RequesterViewComponent},
-  {path:'requester-view/:id' , component:RequesterViewComponent},
-  {path:'hr' , component:HrComponent},
-  {path:'hr-yettopublish/:id' , component:HrYettopublishComponent},
-
   {path: 'dashboard', component:DashboardComponent},
   {path: 'dialogbox', component:DialogboxComponent},
 
 
-  {path:'ApproverApproval', component:ApproverApprovalComponent},
   {path:'awardview/:id/:id1',component:AwardViewComponent},
   {path:'awardlist/:id',component:AwardListComponent},
   {path:'',redirectTo:'homecard/0', pathMatch: 'full' },

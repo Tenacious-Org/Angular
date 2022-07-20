@@ -11,7 +11,7 @@
                     Add Organisation </a>
             </div>
             <div class="form-inline btn-group search">
-                <input type="search" class="form-control rounded" [(ngModel)]="val" placeholder="Search"
+                <input type="search" class="form-control rounded" [(ngModel)]="searchValue" (input)="Search(searchValue)" placeholder="Search"
                     aria-label="Search" aria-describedby="search-addon" />
             </div>
         </div>
@@ -28,7 +28,7 @@
             </thead>
             <tbody>
                 <tr class="tenacioustable"
-                    *ngFor="let item of data | filter:val | paginate: { itemsPerPage: 5, currentPage: page }; let i= index">
+                    *ngFor="let item of data | paginate: { itemsPerPage: 5, currentPage: page }; let i= index">
                     <td>{{5*(page-1)+i + 1}}</td>
                     <td>{{item.organisationName}}</td>
                     <td> <button [routerLink]="['../edit-organisation/'+item.id]" class="btn btn-primary"
@@ -41,7 +41,7 @@
             </tbody>
         </table>
     </div>
-        <ng-container *ngIf="( data | filter : val) as result">
+        <ng-container *ngIf="( data ) as result">
             <p class="no-records" *ngIf="result.length == 0">No Records found</p>
             <pagination-controls class="paginate" *ngIf="result.length != 0" (pageChange)="page = $event"></pagination-controls>  
           </ng-container>

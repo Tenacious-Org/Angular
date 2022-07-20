@@ -16,7 +16,7 @@
       <div class="row">
         <div class="col-auto" id="searchfilter">
           <div class="form-inline btn-group search">
-            <input type="search" [(ngModel)]="searchValue" class="form-control" placeholder="Search by Name or Award"
+            <input type="search" [(ngModel)]="searchValue" (input)="Search(searchValue)" class="form-control" placeholder="Search by Name or Award"
               aria-label="Search" aria-describedby="search-addon" />
           </div>
           <button (click)="advanced()" class="advanced btn btn-primary"><i *ngIf="isShow"
@@ -88,7 +88,7 @@
 
   <div class=" container row" id="cardflip">
     <div class="card"
-      *ngFor="let item of awardData |filter:searchValue | paginate: { itemsPerPage: 6, currentPage: page }">
+      *ngFor="let item of awardData | paginate: { itemsPerPage: 6, currentPage: page }">
       <div class="flip-card-inner">
         <div class="flip-card-front">
           <img src="./assets/images/cardback.png" class="card-img-top" alt="Fissure in Sandstone" />
@@ -110,10 +110,11 @@
         </button>
       </div>
     </div>
-    <ng-container *ngIf="( awardData |filter:searchValue) as result">
-      <h3  class="no-records" *ngIf="result.length == 0">No Records found</h3>
-      <pagination-controls class="paginate" *ngIf="result.length != 0" (pageChange)="page = $event"></pagination-controls> 
-    </ng-container>    
+    <ng-container *ngIf="( awardData ) as result">
+      <h3 class="no-records" *ngIf="result.length === 0">No Records found</h3>
+      <pagination-controls class="paginate" *ngIf="result.length !== 0" (pageChange)="page = $event">
+      </pagination-controls>
+    </ng-container>
 
   </div>
 </div>

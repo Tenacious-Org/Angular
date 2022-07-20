@@ -155,6 +155,11 @@ export class HomeCardComponent implements OnInit {
 		this.isApplied = true;
 		this.page=1;
 	}
+	Search(value:string){
+		this.awardData=this.filteredData.filter(item =>
+		item.awardeeName.toLowerCase().includes(value.toLowerCase()) || item.awardName.toLowerCase().includes(value.toLowerCase()))
+		this.page=1;
+	}
 
 	Reset() {
 		this.searchOrganisation = 0;

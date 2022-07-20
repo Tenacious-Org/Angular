@@ -16,7 +16,8 @@ export class DepartmentComponent implements OnInit {
   totalLength: any;
   page: number = 1;
   endpoint = "Department";
-  val:any;
+  searchValue='';
+public filteredData: any[] = [];
   departmentname: any;
   constructor(private sharedService:SharedService,private dialog: MatDialog,private router:Router) { }
 
@@ -58,4 +59,13 @@ export class DepartmentComponent implements OnInit {
       }
     });
   }
+
+  Search(value:string){
+		this.data=this.filteredData.filter(item =>
+		item.departmentname.toLowerCase().includes(value.toLowerCase()))
+		this.page=1;
+	}
+
+
+
 }

@@ -42,19 +42,14 @@ import { EmployeeComponent } from './admin/employee/employee.component';
 import { AddEmployeeComponent } from './admin/employee/add-employee/add-employee.component';
 import { EditEmployeeComponent } from './admin/employee/edit-employee/edit-employee.component';
 import { ApproverComponent } from './approver/approver.component';
-import { ApproverApprovalComponent } from './approver/approver-approval/approver-approval.component';
 import { LoginComponent } from './login/login.component';
 
 import { RequesterComponent } from './requester/requester.component';
-import { RequesterAddRequestComponent } from './requester/requester-add-request/requester-add-request.component';
-import { RequesterViewComponent } from './requester/requester-view/requester-view.component';
-import { HrComponent } from './hr/hr.component';
-import { HrYettopublishComponent } from './hr/hr-yettopublish/hr-yettopublish.component';
+
 
 import{FormsModule} from '@angular/forms';
 import { RequestComponent } from './requester/request/request.component';
 import { ProfileComponent } from './profile/profile.component';
-import { ApproverARComponent } from './approver/approver-acceptreject/approver-ar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RejectionReasonComponent } from './approver/rejection-reason/rejection-reason.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
@@ -115,20 +110,15 @@ import { CommentsPageComponent } from './comments-page/comments-page.component';
     AddEmployeeComponent,
     EditEmployeeComponent,
     ApproverComponent,
-    ApproverApprovalComponent,
 
 
 
 
 
  RequesterComponent,
- RequesterAddRequestComponent,
- RequesterViewComponent,
- HrComponent,
- HrYettopublishComponent,
+
  RequestComponent,
  ProfileComponent,
- ApproverARComponent,
  RejectionReasonComponent,
  SidebarComponent,
  HomeCardComponent,

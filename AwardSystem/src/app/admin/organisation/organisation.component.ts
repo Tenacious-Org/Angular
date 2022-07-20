@@ -17,7 +17,8 @@ export class OrganisationComponent implements OnInit {
    totalLength: any;
    page: number = 1;
    count=0;
-   val:any;
+   searchValue='';
+   public filteredData: any[] = [];
    organisationname: any;
    constructor(private sharedService:SharedService,private dialog: MatDialog,private router:Router) { }
 
@@ -53,14 +54,14 @@ export class OrganisationComponent implements OnInit {
 
    
 
-   OnSubmit(Id:any){
-    console.log(Id);
-    this.sharedService.getById(this.endpoint,Id).subscribe((data) => {
-      this.organisationname=data.organisationName;
-      console.log(this.organisationname);
-      this.openDialog(result);
-    });
-  }
+  //  OnSubmit(Id:any){
+  //   console.log(Id);
+  //   this.sharedService.getById(this.endpoint,Id).subscribe((data) => {
+  //     this.organisationname=data.organisationName;
+  //     console.log(this.organisationname);
+  //     this.openDialog(result);
+  //   });
+  // }
   
   // / openDialog(count:any){
   
@@ -77,10 +78,14 @@ export class OrganisationComponent implements OnInit {
       }
     });
   }
+  Search(value:string){
+		this.data=this.filteredData.filter(item =>
+		item.organisationName.toLowerCase().includes(value.toLowerCase()))
+		this.page=1;
+	}
+
+
    public data: Organisation[] = [];
   
-}
-function result(result: any) {
-  throw new Error('Function not implemented.');
 }
 

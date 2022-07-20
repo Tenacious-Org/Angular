@@ -16,7 +16,8 @@ export class EmployeeComponent implements OnInit {
   endpoint="Employee";
   totalLength: any;
   page: number = 1;
-  val:any;
+  searchValue='';
+  public filteredData: any[] = [];
   employeename: any;
  
 
@@ -62,6 +63,13 @@ export class EmployeeComponent implements OnInit {
           }
         });
       }
+      Search(value:string){
+        this.data=this.filteredData.filter(item =>
+        item.awardeeName.toLowerCase().includes(value.toLowerCase()) || item.awardName.toLowerCase().includes(value.toLowerCase()))
+        this.page=1;
+      }
+    
+   
     
 
 }

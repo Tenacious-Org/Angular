@@ -16,7 +16,8 @@ export class DesignationComponent implements OnInit {
   totalLength: any;
   page: number = 1;
   endpoint = "Designation";
-  val:any;
+  searchValue='';
+  public filteredData: any[] = [];
   designationname: any;
   constructor(private sharedService:SharedService,private dialog: MatDialog,private router:Router  ) { }
 
@@ -60,5 +61,12 @@ export class DesignationComponent implements OnInit {
       }
     });
   }
+  Search(value:string){
+		this.data=this.filteredData.filter(item =>
+		item.designationName.toLowerCase().includes(value.toLowerCase()))
+		this.page=1;
+	}
+
+
 
 }
