@@ -9,12 +9,22 @@ import { AuthenticationService } from './authentication.service';
 })
 export class AdminChildGuard implements CanActivateChild {
 
-  // constructor(private _router:Router){}
+  constructor(private _router:Router){}
 
   canActivateChild(
     childRoute: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+      if(AuthenticationService.GetData("Admin"))
+      {
+        return true;
+      }
+      else{
+        AuthenticationService.Logout();
+        this._router.navigate(['/homecard/0']);
+        return true;
+      }
     return true;
+
     }
   
 }
