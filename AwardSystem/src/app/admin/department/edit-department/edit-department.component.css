@@ -11,6 +11,9 @@
 .border-box {
     position: relative;
 }
+.input{
+    width:230px;
+}
 
 @media(max-width:1920px) {
     .addbutton {

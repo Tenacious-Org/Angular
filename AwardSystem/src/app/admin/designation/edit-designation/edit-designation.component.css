@@ -7,7 +7,9 @@
     display: flex;
     justify-content: center;
 }
-
+.input{
+    width:230px;
+}
 .border-box {
     position: relative;
 }

@@ -7,6 +7,9 @@
     margin-bottom: 3px;
     justify-content: center;
 }
+.input{
+    width:230px;
+}
 
 .container {
     display: flex;

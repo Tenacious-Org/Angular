@@ -41,8 +41,8 @@
                 <div *ngIf ="designationName.touched && designationName.errors?.['required']" class="alert alert-danger">
                     Designation Name is Required!
                 </div>
-                <div *ngIf ="designationName.touched && designationName.errors?.['pattern']" class="alert alert-danger" >
-                    Designation Name is invalid!
+                <div *ngIf ="designationName.touched && designationName.errors?.['pattern']" class="alert alert-danger input" >
+                    Should not contain Numbers and special characters!
                 </div>
                 <div class="text-danger"  >
                     {{error}}

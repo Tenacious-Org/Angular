@@ -20,7 +20,7 @@
                     Firstname is Required!
                 </div>
                 <div *ngIf="firstname.touched && firstname.errors?.['pattern']" class="text-danger">
-                    Firstname is invalid!
+                    Should not contain Numbers and special characters!
                 </div>
 
             </div>
@@ -34,7 +34,7 @@
                     Lastname is Required!
                 </div>
                 <div *ngIf="lastname.touched && lastname.errors?.['pattern']" class="text-danger">
-                    Lastname is invalid!
+                    Should not contain Numbers and special characters!
                 </div>
             </div>
 
@@ -49,7 +49,7 @@
                     [ngModel]="data.dob | date:'YYYY-MM-dd'" id="dob" class="form-control"
                     aria-describedby="dobHelpInline">
                 <div *ngIf="dob.touched && dob.errors?.['required']" class="text-danger">
-                    Date of Birth is Require
+                    Date of Birth is Required
                 </div>
             </div>
             <div class="col-auto">
@@ -74,7 +74,7 @@
                     ACEID is Required!
                 </div>
                 <div *ngIf="aceid.touched && aceid.errors?.['pattern']" class="text-danger">
-                    ACEID is invalid!
+                    Should start with ACE and shouldn't exceed 8 Characters!
                 </div>
                 <div >
                     <h3 class="text-danger" >{{error}}</h3>

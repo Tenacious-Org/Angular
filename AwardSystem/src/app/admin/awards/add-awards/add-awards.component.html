@@ -17,8 +17,8 @@
                 <div *ngIf="name.touched && name.errors?.['required']" class="text-left text-danger">
                     Award Name is Required!
                 </div>
-                <div *ngIf="name.touched && name.errors?.['pattern']" class="text-left text-danger">
-                    Award Name is invalid!
+                <div *ngIf="name.touched && name.errors?.['pattern']" class="text-left text-danger input">
+                    Should not contain numbers and special characters!
                 </div>
                 <div>
                     <h3 class="text-center text-danger">{{error}}</h3>
@@ -28,13 +28,13 @@
         <div class="award row">
             <div class="col-auto">
                 <label class="col-form-label">Award Description</label>
-                <input type="text" #description="ngModel" required pattern="/\w*\s*|\w|\D/gm" minlength="10" maxlength="200" class="form-control"
+                <input type="text" #description="ngModel" required pattern="[/\w*\s*|\w|\D/gm]{50,1000}" class="form-control"
                     name="awardDescription" [(ngModel)]="AwardType.awardDescription">
                 <div *ngIf="description.touched && description.errors?.['required']" class="text-left text-danger">
                     Description is Required!
                 </div>
                 <div *ngIf="description.touched && description.errors?.['pattern']" class="text-left text-danger">
-                    Description is invalid!
+                    Should not exceed 1000 characters!
                 </div>
             </div>
         </div>

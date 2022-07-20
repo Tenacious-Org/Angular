@@ -35,8 +35,8 @@
                 <div class="text-danger"  >
                     {{error}}
                 </div>
-                <div *ngIf ="departmentName.touched && departmentName.errors?.['pattern']" class="text-left text-danger" >
-                    Department Name is invalid!
+                <div *ngIf ="departmentName.touched && departmentName.errors?.['pattern']" class="text-left text-danger input" >
+                    Should not contain Numbers and special characters!
                 </div>
                
             </div> 

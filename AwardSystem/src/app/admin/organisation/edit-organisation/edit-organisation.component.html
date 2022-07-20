@@ -12,11 +12,11 @@
             <div class="col-auto">
                 <label for="firstName" class="col-form-label">Organisation Name</label>
                 <input type="text" #organisationName="ngModel" name="organisationName" required pattern="^[a-zA-Z][a-zA-Z\s]{0,20}[a-zA-Z]$" class="form-control" value={{data.organisationName}} [(ngModel)]="data.organisationName" >
-                <div *ngIf ="organisationName.touched && organisationName.errors?.['required']" class="text-danger">
+                <div *ngIf ="organisationName.touched && organisationName.errors?.['required']" class="text-danger input">
                     Organisation Name is Required!
                 </div>
-                <div *ngIf ="organisationName.touched && organisationName.errors?.['pattern']" class="text-danger" >
-                    Organisation Name is invalid!
+                <div *ngIf ="organisationName.touched && organisationName.errors?.['pattern']" class="text-danger input" >
+                    Should not contain numbers and special characters!
                 </div>
                 <div >
                     <h3 class="text-danger" >{{error}}</h3>

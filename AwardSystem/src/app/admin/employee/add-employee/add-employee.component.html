@@ -12,11 +12,11 @@
                 <label class="col-form-label">Firstname</label>
                 <input type="text" #firstname="ngModel" required pattern="^[a-zA-Z][a-zA-Z\s]{0,20}[a-zA-Z\s]$"
                     class="form-control" name="firstName" [(ngModel)]="Employee.Firstname">
-                <div *ngIf="firstname.touched && firstname.errors?.['required']" class="text-danger">
+                <div *ngIf="firstname.touched && firstname.errors?.['required']" class="text-danger ">
                     Firstname is Required!
                 </div>
-                <div *ngIf="firstname.touched && firstname.errors?.['pattern']" class="text-danger">
-                    Firstname is invalid!
+                <div *ngIf="firstname.touched && firstname.errors?.['pattern']" class="text-danger input">
+                    Should not contain Numbers and special characters!
                 </div>
             </div>
 
@@ -27,8 +27,8 @@
                 <div *ngIf="lastname.touched && lastname.errors?.['required']" class="text-danger">
                     Lastname is Required!
                 </div>
-                <div *ngIf="lastname.touched && lastname.errors?.['pattern']" class="text-danger">
-                    Lastname is invalid!
+                <div *ngIf="lastname.touched && lastname.errors?.['pattern']" class="text-danger input">
+                    Should not contain Numbers and special characters!
                 </div>
             </div>
         </div>
@@ -69,8 +69,8 @@
                 <div *ngIf="aceid.touched && aceid.errors?.['required']" class="text-danger">
                     ACEID is Required!
                 </div>
-                <div *ngIf="aceid.touched && aceid.errors?.['pattern']" class="text-danger">
-                    ACEID is invalid!
+                <div *ngIf="aceid.touched && aceid.errors?.['pattern']" class="text-danger input">
+                    Should start with ACE and shouldn't exceed 8 Characters!
                 </div>
                 <div >
                     <h3 class="text-danger" >{{error}}</h3>

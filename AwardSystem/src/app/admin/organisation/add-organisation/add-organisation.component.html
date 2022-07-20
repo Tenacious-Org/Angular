@@ -16,8 +16,8 @@
                 <div *ngIf ="organisationName.touched && organisationName.errors?.['required']" class=" text-danger">
                     Organisation Name is Required!
                 </div>
-                <div *ngIf ="organisationName.touched && organisationName.errors?.['pattern']" class="text-danger" >
-                    Organisation Name is invalid!
+                <div *ngIf ="organisationName.touched && organisationName.errors?.['pattern']" class="text-danger input" >
+                    Should not contain numbers and special characters!
                 </div>
                 <div >
                     <h3 class="text-danger" >{{error}}</h3>
