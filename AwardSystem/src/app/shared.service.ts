@@ -91,91 +91,11 @@ Disable(endpoint:any,id:any):Observable<string>{
     return this.http.get<any>(this.apiurl + `Dashboard/GetAllAwardees`)
   }
 
-  //get All Winners Organisation Wise
-  GetAllAwardeeOrganisationWise(id:any):Observable<any>
+  //Filtering Dashboard
+  getAllDetailsByDashboardFilters(organisationId: number, departmentId: number, awardId: number, start : any, end: any)
   {
-    return this.http.get<any>(this.apiurl + `Dashboard/GetAllOrgWise?id=${id}`,{ headers: this.headers })
+    return this.http.get<any>(this.apiurl + `Dashboard/GetDashboardDetailsByFilters?organisationId=${organisationId}&departmentId=${departmentId}&awardId=${awardId}&start=${start}&end=${end}`,{ headers: this.headers })
   }
 
-  //get All Winners Award Wise
-  GetAllAwardeeAwardWise(id:any):Observable<any>
-  {
-    return this.http.get<any>(this.apiurl + `Dashboard/GetAllAwardWise?id=${id}`,{ headers: this.headers })
-  }
-
-  //get all winners from organisation and award wise
-  GetAllAwardeeOrgAndDeptWise(orgid:number, deptid:number){
-    return this.http.get<any>(this.apiurl + `Dashboard/GetAllOrgandDepWise?orgid=${orgid}&depid=${deptid}`,{ headers: this.headers })
-  }
-
-  //get all winners from organisation and award wise
-  GetAllAwardeeOrgAndAwardWise(orgid:number, awdid:number){
-    return this.http.get<any>(this.apiurl + `Dashboard/GetAllOrgandAwardWise?orgid=${orgid}&awdid=${awdid}`,{ headers: this.headers })
-  }
-
-  //get all winners from organisation and award wise
-  GetAllAwardeeOrgDeptAndAwardWise(orgid:number, deptid:number, awdid: number){
-    return this.http.get<any>(this.apiurl + `Dashboard/GetAllOrgDepandAwardWise?orgid=${orgid}&depid=${deptid}&awdid=${awdid}`,{ headers: this.headers })
-  }
-
-  //get all winners from organisation, Department and From date wise
-  GetAllAwardeeOrgDeptAndFromDateWise(orgid:number, deptid:number, fdate: Date){
-    return this.http.get<any>(this.apiurl + `Dashboard/GetAllFilteredOrgDepandFromDateWise?orgid=${orgid}&deptid=${deptid}&start=${fdate}`,{ headers: this.headers })
-  }
-
-  //get all winners from organisation, Award and From date wise
-  GetAllAwardeeOrgAwardAndFromDateWise(orgid:number, awdid:number, fdate: Date){
-    return this.http.get<any>(this.apiurl + `Dashboard/GetAllFilteredOrgAwdandFromDateWise?orgid=${orgid}&awdid=${awdid}&start=${fdate}`,{ headers: this.headers })
-  }
-
-  //get all winners from organisation, Department and To date wise
-  GetAllAwardeeOrgDeptAndToDateWise(orgid:number, deptid:number, tdate: Date){
-    return this.http.get<any>(this.apiurl + `Dashboard/GetAllFilteredOrgDepandToDateWise?orgid=${orgid}&deptid=${deptid}&end=${tdate}`,{ headers: this.headers })
-  }
-
-  //get all winners from organisation, Award and To date wise
-  GetAllAwardeeOrgAwardAndToDateWise(orgid:number, awdid:number, tdate: Date){
-    return this.http.get<any>(this.apiurl + `Dashboard/GetAllFilteredOrgAwdandToDateWise?orgid=${orgid}&awdid=${awdid}&end=${tdate}`,{ headers: this.headers })
-  }
-
-  //get by all Filters From Date Range
-  GetAllAwardeeFromDateWise(fdate:Date){
-    return this.http.get<any>(this.apiurl + `Dashboard/GetAllFilteredFromDateWise?start=${fdate}`,{ headers: this.headers })
-  }
-
-  //get by all Filters Organisation and From Date Range
-  GetAllAwardeeOrgAndFromDateWise(orgid: number, fdate:Date){
-    return this.http.get<any>(this.apiurl + `Dashboard/GetAllFilteredOrganisationandFromDateWise?orgid=${orgid}&start=${fdate}`,{ headers: this.headers })
-  }
-
-  //get all Organisation Department Date range
-  GetAllAwardeeOrgDepDateWise(orgid:number, deptid: number, fdate: Date, tdate: Date){
-    return this.http.get<any>(this.apiurl + `Dashboard/GetAllOrgDepandDateWise?orgid=${orgid}&deptid=${deptid}&start=${fdate}&end=${tdate}`,{ headers: this.headers })
-  }
-
-  //get all Organisation Award Date range
-  GetAllAwardeeOrgAwardDateWise(orgid:number, awdid: number, fdate: Date, tdate: Date){
-    return this.http.get<any>(this.apiurl + `Dashboard/GetAllOrgAwdandDateWise?orgid=${orgid}&awdid=${awdid}&start=${fdate}&end=${tdate}`,{ headers: this.headers })
-  }
-
-  //get by all Filters To Date Range
-  GetAllAwardeeToDateWise(tdate:Date){
-    return this.http.get<any>(this.apiurl + `Dashboard/GetAllFilteredToDateWise?end=${tdate}`,{ headers: this.headers })
-  }
-
-  //get by all Filters Organisation and From Date Range
-  GetAllAwardeeOrgAndToDateWise(orgid: number, tdate:Date){
-    return this.http.get<any>(this.apiurl + `Dashboard/GetAllFilteredOrganisationandFromDateWise?orgid=${orgid}&end=${tdate}`,{ headers: this.headers })
-  }
-
-  //get by all Filters
-  GetAllAwardeeDateWise(fdate:Date, tdate:Date){
-    return this.http.get<any>(this.apiurl + `Dashboard/GetAllDateWise?start=${fdate}&end=${tdate}`,{ headers: this.headers })
-  }
-
-  //get by all Filters
-  GetAllAwardeeByOrgDeptAwardAndDateWise(orgid: number, deptid: number, awdid: number, fdate:Date, tdate:Date){
-    return this.http.get<any>(this.apiurl + `Dashboard/GetAllFilteredDateWise?orgid=${orgid}&deptid=${deptid}&awdid=${awdid}&start=${fdate}&end=${tdate}`,{ headers: this.headers })
-  }
-
+  
 }
