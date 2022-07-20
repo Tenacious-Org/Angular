@@ -19,8 +19,9 @@ export class AdminGuard implements CanActivate {
       return true;
     }
     else{
+      this._router.navigate(['/homecard/0']);
       AuthenticationService.Logout();
-      this._router.navigate(['/invalid']);
+       
       return true;
     }
   }
