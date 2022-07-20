@@ -208,11 +208,7 @@ hr:not([size]){
 }
 
 /* Back button */
-.backbutton{
-  float: left;
-  padding-top: 40px;
-  margin-left:40px;
-}
+
 .button-group{
   /* width:30px; */
   text-align: center;
@@ -271,6 +267,11 @@ hr:not([size]){
   }
   .sendicon{
     margin-right: 20px;
+  }
+  .backbutton{
+    float: left;
+    padding-top: 100px;
+    margin-left:40px;
   }
   
   }
@@ -395,8 +396,10 @@ hr:not([size]){
   .form-control{
     width: 730px;
   }
-  .sendicon{
-    
+  .backbutton{
+    float: left;
+    padding-top: 30px;
+    margin-left:40px;
   }
   
   }
@@ -438,6 +441,11 @@ hr:not([size]){
     }
     .form-control{
       width: 730px;
+    }
+    .backbutton{
+      float: left;
+      padding-top: 40px;
+      margin-left:40px;
     }
     
     }
