@@ -58,7 +58,7 @@ endpoint1="Organisation";
       dismissible: true,
       
     })
-    this.router.navigate(['/department']);
+    this.router.navigate(['/admin/department']);
   }
   CheckName(OrganisationId: any)
   {

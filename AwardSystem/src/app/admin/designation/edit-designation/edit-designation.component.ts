@@ -63,7 +63,7 @@ showToast() {
     autoClose: true,
     dismissible: true,
   })
-  this.routing.navigate(['/designation']);
+  this.routing.navigate(['/admin/designation']);
 
 }
 CheckName(DepartmentId: any,RoleId:any)

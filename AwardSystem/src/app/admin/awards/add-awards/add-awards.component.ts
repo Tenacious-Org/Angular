@@ -60,7 +60,7 @@ export class AddAwardsComponent implements OnInit {
       dismissible: true,
       
     })
-    this.router.navigate(['/awards']);
+    this.router.navigate(['/admin/awards']);
 
   }
   

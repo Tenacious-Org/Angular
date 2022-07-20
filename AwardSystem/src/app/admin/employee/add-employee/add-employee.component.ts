@@ -129,7 +129,7 @@ export class AddEmployeeComponent implements OnInit {
       dismissible: true,
       icon: '❎',
     })
-    this.router.navigate(['/employee']);
+    this.router.navigate(['/admin/employee']);
 
   }
    

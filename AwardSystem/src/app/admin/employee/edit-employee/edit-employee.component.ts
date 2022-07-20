@@ -145,7 +145,7 @@ showToast() {
     dismissible: true,
     icon: '❎',
   })
-  this.routing.navigate(['/employee']);
+  this.routing.navigate(['/admin/employee']);
 
 }
 

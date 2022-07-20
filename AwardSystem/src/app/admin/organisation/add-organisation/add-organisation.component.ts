@@ -50,7 +50,7 @@ endpoint="Organisation";
       autoClose: true,
       dismissible: true,
     })
-    this.router.navigate(['/organisation']);
+    this.router.navigate(['/admin/organisation']);
 
   }
 

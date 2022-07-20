@@ -58,7 +58,7 @@ selectedOrganisation:any;
         autoClose: true,
         dismissible: true,
       })
-      this.routing.navigate(['/department']);
+      this.routing.navigate(['/admin/department']);
     
     }
     CheckName(organisationId:any)

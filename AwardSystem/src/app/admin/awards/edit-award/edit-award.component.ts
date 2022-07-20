@@ -71,7 +71,7 @@ export class EditAwardComponent implements OnInit {
       dismissible: true,
       
     })
-    this.routing.navigate(['/awards']);
+    this.routing.navigate(['/admin/awards']);
   }
 
   ImageConversion(fileInput:any){

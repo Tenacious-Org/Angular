@@ -55,7 +55,7 @@ export class EditOrganisationComponent implements OnInit {
         autoClose: true,
         dismissible: true,
       })
-    this.routing.navigate(['/organisation']);
+    this.routing.navigate(['/admin/organisation']);
   }
 }
 
