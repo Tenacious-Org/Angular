@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { HotToastService } from '@ngneat/hot-toast';
 import { AuthenticationService } from 'src/app/authentication.service';
 import { RejectionReasonComponent } from '../approver/rejection-reason/rejection-reason.component';
+import { DialogboxComponent } from '../dialogbox/dialogbox.component';
 
 @Component({
   selector: 'app-award-view',
@@ -101,6 +102,14 @@ export class AwardViewComponent implements OnInit {
     this.awardService.approval(this.awards).subscribe({
       next: (res) => { console.log(res), res ? this.publishedToast() : null },
       error: (error) => this.error = error.error.message
+    });
+  }
+  PublishDialog(id:any){
+    let dialogRef =this.dialog.open(DialogboxComponent,{data:{value:"publish"}})
+    dialogRef.afterClosed().subscribe(value => {
+      if(value!=undefined){
+        this.onPublish();
+      }
     });
   }
   publishedToast() {

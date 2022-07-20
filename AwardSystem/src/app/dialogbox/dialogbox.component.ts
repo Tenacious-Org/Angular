@@ -18,6 +18,7 @@ export class DialogboxComponent implements OnInit {
 
   }
   disable=1;
+  publish=1;
   ngOnInit(): void {
     this.dataType = typeof(this.data.count);
     console.log( this.dataType);
