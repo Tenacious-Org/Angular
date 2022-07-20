@@ -31,7 +31,7 @@
       <div class="col-auto p-1.5">
         <label class="labels">Reason</label>
         <textarea type="textarea" name="reason" class="input-group " placeholder="Reason" #reason="ngModel"
-          required pattern="[/\w*\s*|\w|\D/gm]{50,1000}" [(ngModel)]="Awards.reason"></textarea>
+          required pattern="[/\w*\s*|\w|\D/gm]{0,1000}" [(ngModel)]="Awards.reason"></textarea>
         <div *ngIf="reason.touched && reason.errors?.['required']" class="text-danger">
           Reason is Required!
         </div>
