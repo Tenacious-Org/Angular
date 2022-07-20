@@ -37,13 +37,13 @@ endpoint1="Organisation";
       this.router.navigateByUrl("")
     }
     
-    this.sharedService.getAll(this.endpoint1).subscribe(data=>{
+    this.sharedService.GetAll(this.endpoint1).subscribe(data=>{
       this.data=data;
     });  
   }
   OnSubmit(){
     console.log(this.Department)
-    this.sharedService.add(this.endpoint,this.Department).subscribe({
+    this.sharedService.Add(this.endpoint,this.Department).subscribe({
       // console.log(res);
       // this.showToast();
       next: (res) => { console.log(res), res?this.showToast():null },

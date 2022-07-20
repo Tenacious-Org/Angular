@@ -44,7 +44,7 @@ export class AddAwardsComponent implements OnInit {
 
   OnSubmit(){
     console.log(this.AwardType);
-    this.sharedService.add(this.endpoint,this.AwardType).subscribe({
+    this.sharedService.Add(this.endpoint,this.AwardType).subscribe({
       // console.log(res);
       // this.showToast();
       next:(res) => { console.log(res), res?this.showToast():null },

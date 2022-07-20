@@ -28,14 +28,14 @@ selectedOrganisation:any;
 
       this.router.params.subscribe(params => {
         this.Id = params['id'];
-       this.sharedService.getById(this.endpoint,this.Id).subscribe((result) => {
+       this.sharedService.GetById(this.endpoint,this.Id).subscribe((result) => {
             this.data = result;
             console.log(this.Id);
             console.log(this.data);
             this.selectedOrganisation=this.data.organisationId;
           });
         });
-      this.sharedService.getAll(this.endpoint1).subscribe(data=>{
+      this.sharedService.GetAll(this.endpoint1).subscribe(data=>{
         this.organisation=data;
       });
       
@@ -45,7 +45,7 @@ selectedOrganisation:any;
 
     OnSubmit(){
       console.log(this.data)
-      this.sharedService.edit(this.endpoint,this.data).subscribe({
+      this.sharedService.Edit(this.endpoint,this.data).subscribe({
         // console.log(res);
         // this.showToast();
         next: (res) => { console.log(res), res?this.showToast():null },

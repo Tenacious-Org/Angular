@@ -32,7 +32,7 @@ export class EditDesignationComponent implements OnInit {
     }
     this.router.params.subscribe(params => {
       this.Id = params['id'];
-     this.sharedService.getById(this.endpoint1,this.Id).subscribe((result) => {
+     this.sharedService.GetById(this.endpoint1,this.Id).subscribe((result) => {
           this.data = result;
           console.log(this.data);
           this.selectedDepartment=this.data.departmentId;
@@ -40,17 +40,17 @@ export class EditDesignationComponent implements OnInit {
           console.log(this.selectedRole);
         });
       });
-    this.sharedService.getAll(this.endpoint).subscribe(data=>{
+    this.sharedService.GetAll(this.endpoint).subscribe(data=>{
       this.departments=data;
     });    
-    this.sharedService.getAll(this.endpoint2).subscribe(data=>{
+    this.sharedService.GetAll(this.endpoint2).subscribe(data=>{
       this.roles=data;
       console.log(this.roles);
     });
    }
 
   OnSubmit(){
-    this.sharedService.edit(this.endpoint1,this.data).subscribe({
+    this.sharedService.Edit(this.endpoint1,this.data).subscribe({
       // console.log(data);
       // this.showToast();
       next: (res) => { console.log(res),res?this.showToast():null },

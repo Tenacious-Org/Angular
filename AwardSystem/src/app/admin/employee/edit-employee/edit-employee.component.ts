@@ -63,7 +63,7 @@ export class EditEmployeeComponent implements OnInit {
     }
     this.router.params.subscribe(params => {
       this.Id = params['id'];
-     this.sharedService.getById(this.endpoint1,this.Id).subscribe((result) => {
+     this.sharedService.GetById(this.endpoint1,this.Id).subscribe((result) => {
           this.data = result;
           console.log(this.Id);
           console.log(this.data);
@@ -79,31 +79,31 @@ export class EditEmployeeComponent implements OnInit {
           console.log(this.SelectOrg);
           console.log(this.selectedHr);
           console.log(this.selectedReportingPerson);
-          this.sharedService.getDepartmentByOrganisation(this.SelectOrg).subscribe(data=>{
+          this.sharedService.GetDepartmentByOrganisationId(this.SelectOrg).subscribe(data=>{
             this.departments = data;
             console.log(this.departments);
           });
-           this.sharedService.getReportingPersonByDepartment(this.SelectDep).subscribe(data=>{
+           this.sharedService.GetReportingPersonByDepartmentId(this.SelectDep).subscribe(data=>{
           this.reportingPersonList = data;
           console.log(this.reportingPersonList);
         });
-        this.sharedService.getHrByDepartment(this.SelectDep).subscribe(data=>{
+        this.sharedService.GetHrByDepartmentId(this.SelectDep).subscribe(data=>{
           this.hrList = data;
           console.log(this.hrList);
         });
-        this.sharedService.getDesignationByDepartment(this.SelectDep).subscribe(data=>{
+        this.sharedService.GetDesignationByDepartmentId(this.SelectDep).subscribe(data=>{
           this.designations = data;
           console.log(this.designations);
         });
         });
       });
-      this.sharedService.getAll(this.endpoint).subscribe(data=>{
+      this.sharedService.GetAll(this.endpoint).subscribe(data=>{
         this.organisations=data;
       });
 
   }
   onSelectOrg(){
-    this.sharedService.getDepartmentByOrganisation(this.SelectOrg).subscribe(data=>{
+    this.sharedService.GetDepartmentByOrganisationId(this.SelectOrg).subscribe(data=>{
       this.departments = data;
       console.log(this.departments);
     });
@@ -111,15 +111,15 @@ export class EditEmployeeComponent implements OnInit {
 
    onSelectDep(){
 
-    this.sharedService.getReportingPersonByDepartment(this.SelectDep).subscribe(data=>{
+    this.sharedService.GetReportingPersonByDepartmentId(this.SelectDep).subscribe(data=>{
       this.reportingPersonList = data;
       console.log(this.reportingPersonList);
     });
-    this.sharedService.getHrByDepartment(this.SelectDep).subscribe(data=>{
+    this.sharedService.GetHrByDepartmentId(this.SelectDep).subscribe(data=>{
       this.hrList = data;
       console.log(this.hrList);
     });
-    this.sharedService.getDesignationByDepartment(this.SelectDep).subscribe(data=>{
+    this.sharedService.GetDesignationByDepartmentId(this.SelectDep).subscribe(data=>{
       this.designations = data;
       console.log(this.designations);
     });
@@ -133,7 +133,7 @@ export class EditEmployeeComponent implements OnInit {
       this.data.imageString=this.data.image;
       
     }
-    this.sharedService.edit(this.endpoint1,this.data).subscribe({
+    this.sharedService.Edit(this.endpoint1,this.data).subscribe({
       next:(res) => { console.log(res), res?this.showToast():null },
       error: (error) => this.error = error.error.message
     })

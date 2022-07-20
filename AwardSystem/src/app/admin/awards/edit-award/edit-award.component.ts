@@ -40,7 +40,7 @@ export class EditAwardComponent implements OnInit {
     }
     this.route.params.subscribe(params => {
     this.Id = params['id'];
-    this.sharedService.getById(this.endpoint,this.Id).subscribe((result) => {
+    this.sharedService.GetById(this.endpoint,this.Id).subscribe((result) => {
       this.data = result;
       if(this.data.image!=''){
         this.imgsrc='data:image/jpg;base64,'+ this.data.image;
@@ -56,7 +56,7 @@ export class EditAwardComponent implements OnInit {
     if(this.data.imageString==null && this.data.image!=''){
       this.data.imageString=this.data.image;
     }
-    this.sharedService.edit(this.endpoint,this.data).subscribe({
+    this.sharedService.Edit(this.endpoint,this.data).subscribe({
       // console.log(data);
       // this.showToast();
       next:(res) => { console.log(res), res?this.showToast():null },

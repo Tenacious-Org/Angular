@@ -25,7 +25,7 @@ public filteredData: any[] = [];
     if(!AuthenticationService.GetData("Admin")){
       this.router.navigateByUrl("")
     }
-   this.sharedService.getAll(this.endpoint).subscribe(data=>{
+   this.sharedService.GetAll(this.endpoint).subscribe(data=>{
       this.data = data;
       this.totalLength=data;
       console.log(this.data);
@@ -33,10 +33,10 @@ public filteredData: any[] = [];
   }
   Disable(Id:any){
     console.log(Id);
-    this.sharedService.getById(this.endpoint,Id).subscribe((data) => {
+    this.sharedService.GetById(this.endpoint,Id).subscribe((data) => {
       this.departmentname=data.departmentName;
       console.log(this.departmentname);
-    this.sharedService.disable(this.endpoint,Id).subscribe((result) => {
+    this.sharedService.Disable(this.endpoint,Id).subscribe((result) => {
       console.log(result);
       this.openDialog(result);
       this.ngOnInit()

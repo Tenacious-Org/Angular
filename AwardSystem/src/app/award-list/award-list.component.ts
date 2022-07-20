@@ -33,14 +33,14 @@ export class AwardListComponent implements OnInit {
       this.pageId = params['id'];
     });
     console.log(this.pageId)
-    this.getAll(this.pageId);
-    this.sharedService.getAll(this.endpoint).subscribe((data:any)=>{
-      this.statusList = data;
+    this.GetAll(this.pageId);
+    this.sharedService.GetAll(this.endpoint).subscribe((data:any)=>{
+      this.statusList =  data;
     })
 
   }
  
-  getAll(pageId:any) {
+  GetAll(pageId:any) {
     this.awardService
       .getAwardsList(pageId)
       .subscribe((data) => {
@@ -53,7 +53,7 @@ export class AwardListComponent implements OnInit {
     console.log(e.target.value)
     this.filtervalue=e.target.value;
     if(this.filtervalue==0){
-      this.getAll(this.pageId);
+      this.GetAll(this.pageId);
     }else{
     this.data = this.filteredData.filter(item=> item.statusId == this.filtervalue);
     console.log(this.data)}

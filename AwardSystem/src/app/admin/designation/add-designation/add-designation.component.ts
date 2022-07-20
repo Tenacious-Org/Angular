@@ -39,11 +39,11 @@ export class AddDesignationComponent implements OnInit {
     if(!AuthenticationService.GetData("Admin")){
       this.router.navigateByUrl("")
     }
-    this.sharedService.getAll(this.endpoint).subscribe(data=>{
+    this.sharedService.GetAll(this.endpoint).subscribe(data=>{
       this.departments=data;
       console.log(this.departments);
     });
-    this.sharedService.getAll(this.endpoint2).subscribe(data=>{
+    this.sharedService.GetAll(this.endpoint2).subscribe(data=>{
       this.roles=data;
       console.log(this.roles);
     });
@@ -51,7 +51,7 @@ export class AddDesignationComponent implements OnInit {
    }
 
   OnSubmit(){
-    this.sharedService.add(this.endpoint1,this.Designation).subscribe({
+    this.sharedService.Add(this.endpoint1,this.Designation).subscribe({
       // console.log(data);
       next: (res) => { console.log(res),res?this.showToast():null},
       error: (error) => this.error = error.error.message

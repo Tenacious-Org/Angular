@@ -79,7 +79,7 @@ export class AddEmployeeComponent implements OnInit {
     if(!AuthenticationService.GetData("Admin")){
       this.router.navigateByUrl("")
     }
-    this.sharedService.getAll(this.endpoint).subscribe(data=>{
+    this.sharedService.GetAll(this.endpoint).subscribe(data=>{
       this.organisations=data;
       console.log(this.organisations);
     });
@@ -87,22 +87,22 @@ export class AddEmployeeComponent implements OnInit {
   }
 
   onSelectDep(){
-    this.sharedService.getDepartmentByOrganisation(this.SelectOrg).subscribe(data=>{
+    this.sharedService.GetDepartmentByOrganisationId(this.SelectOrg).subscribe(data=>{
       this.departments = data;
       console.log(this.departments);
     });
    }
 
    onSelectDes(){
-    this.sharedService.getDesignationByDepartment(this.SelectDep).subscribe(data=>{
+    this.sharedService.GetDesignationByDepartmentId(this.SelectDep).subscribe(data=>{
       this.designations = data;
       console.log(this.designations);
     });
-    this.sharedService.getReportingPersonByDepartment(this.SelectDep).subscribe(data=>{
+    this.sharedService.GetReportingPersonByDepartmentId(this.SelectDep).subscribe(data=>{
       this.reportingPersonList = data;
       console.log(this.reportingPersonList);
     });
-    this.sharedService.getHrByDepartment(this.SelectDep).subscribe(data=>{
+    this.sharedService.GetHrByDepartmentId(this.SelectDep).subscribe(data=>{
       this.hrList = data;
       console.log(this.hrList);
       
@@ -114,7 +114,7 @@ export class AddEmployeeComponent implements OnInit {
     console.log(this.Employee.dob)
     console.log(this.Employee)
     this.Employee.password="Admin@123";
-    this.sharedService.add(this.endpoint1,this.Employee).subscribe({
+    this.sharedService.Add(this.endpoint1,this.Employee).subscribe({
       // console.log(data);
       // this.showToast();
       next:(res) => { console.log(res),res?this.showToast():null },

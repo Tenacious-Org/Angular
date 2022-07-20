@@ -28,7 +28,7 @@ export class EmployeeComponent implements OnInit {
       this.router.navigateByUrl("")
     }
       this.sharedService
-        .getAll(this.endpoint).subscribe((data) => {
+        .GetAll(this.endpoint).subscribe((data) => {
           this.data = data;
           this.totalLength = data.length;
           console.log(data)
@@ -37,10 +37,10 @@ export class EmployeeComponent implements OnInit {
       }
       Disable(Id:any){
         console.log(Id);
-        this.sharedService.getById(this.endpoint,Id).subscribe((data) => {
+        this.sharedService.GetById(this.endpoint,Id).subscribe((data) => {
           this.employeename=data.firstName +" "+ data.lastName;
           console.log(this.employeename);
-        this.sharedService.disable(this.endpoint,Id).subscribe((result) => {
+        this.sharedService.Disable(this.endpoint,Id).subscribe((result) => {
           console.log(result);
           this.openDialog(result);
           this.ngOnInit()
