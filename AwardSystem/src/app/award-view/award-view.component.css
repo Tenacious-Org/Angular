@@ -6,7 +6,7 @@
   .container {
     display: grid;
     grid-template-columns: 150px 350px; 
-    grid-template-rows: 500px;
+    grid-template-rows: 550px;
     grid-column-gap: 0px;
     padding-top: 20px;
     
@@ -65,7 +65,7 @@
   .container {
     display: grid;
     grid-template-columns: 150px 350px; 
-    grid-template-rows: 500px;
+    grid-template-rows: 540px;
     grid-column-gap: 0px;
     padding-top: 200px;
     padding-left: 100px;
@@ -142,7 +142,7 @@
     margin-left: 260px;
     display: grid;
     grid-template-columns: 200px 700px; 
-    grid-template-rows: 450px;
+    grid-template-rows: 480px;
     grid-column-gap: 0px;
     max-width:1200px;
     width:1000px;
@@ -172,9 +172,6 @@
     width:150px;
    }
 }
-
-
-
 
 
 
@@ -265,7 +262,7 @@ img{
   margin-left: 200px;
   display: grid;
   grid-template-columns: 200px 700px; 
-  grid-template-rows: 450px;
+  grid-template-rows: 480px;
   grid-column-gap: 0px;
   max-width:1200px;
   width:1000px;
@@ -289,7 +286,7 @@ img{
   padding-left: 120px;
 }
 }
-.couponName,.coupon{
+.couponName,.coupon,.label,.coupondetail{
   margin-top: 10px;
 }
 .publish{
