@@ -57,17 +57,17 @@
                     </li>
                     <div class="sidebar-items" *ngIf="id!=3">
                         <li *ngIf="role==2 || role==3 || role==4">
-                            <a [routerLink]="['/awardlist/2']"><i
+                            <a (click)="reloadrequest()"><i
                                     class="fa-solid fa-paper-plane  ml-4 mr-3"></i>Request</a>
                         </li>
                     </div>
                     <li *ngIf="role==3 || role==4">
-                        <a [routerLink]="['/awardlist/3']"><i
+                        <a (click)="reloadapprove()"><i
                                 class="fa-solid fa-circle-check ml-4 mr-3"></i>Approval</a>
                     </li>
                     <div  class="sidebar-items"*ngIf="id!=3">
                         <li *ngIf="role==4">
-                            <a [routerLink]="['/awardlist/4']"><i class="fa-solid fa-upload ml-4 mr-3"></i>Publish</a>
+                            <a (click)="reloadpublish()"><i class="fa-solid fa-upload ml-4 mr-3"></i>Publish</a>
                         </li>
                     </div>
                     <li *ngIf=" role==4">

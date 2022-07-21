@@ -153,4 +153,5 @@ export class AwardViewComponent implements OnInit {
   about(){
     this.show = 3;
   }
+  htmlString = '<h1>Hello gowtham</h1>';
 }

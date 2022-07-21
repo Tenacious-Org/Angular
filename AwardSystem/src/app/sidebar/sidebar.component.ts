@@ -7,6 +7,7 @@ import { trigger,
   animateChild } from '@angular/animations';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthenticationService } from '../authentication.service';
 import { SharedService } from '../shared.service';
 
@@ -46,7 +47,7 @@ export class SidebarComponent implements OnInit {
   id: any;
   data: any;
   endpoint="Employee";
-  constructor(private sharedService: SharedService) { }
+  constructor(private sharedService: SharedService, private router:Router) { }
 
   ngOnInit(): void {
     this.role=AuthenticationService.GetData("Role");
@@ -61,6 +62,21 @@ export class SidebarComponent implements OnInit {
   
   toggleDisplayDivIf() {
     this.isShowDivIf = !this.isShowDivIf;
+  }
+  reloadrequest(){
+    this.router.navigateByUrl('/',{skipLocationChange:true}).then(()=>{
+      this.router.navigate(['/awardlist/2']);
+    })
+  }
+  reloadapprove(){
+    this.router.navigateByUrl('/',{skipLocationChange:true}).then(()=>{
+      this.router.navigate(['/awardlist/3']);
+    })
+  }
+  reloadpublish(){
+    this.router.navigateByUrl('/',{skipLocationChange:true}).then(()=>{
+      this.router.navigate(['/awardlist/4']);
+    })
   }
 
 

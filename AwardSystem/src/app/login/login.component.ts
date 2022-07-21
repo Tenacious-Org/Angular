@@ -67,10 +67,14 @@ showErrorMessage=false;
 
         if(this.IsAdmin){
 
-          this.route.navigateByUrl("/dashboard");  
+          this.route.navigateByUrl("/dashboard").then(()=>{
+            window.location.reload();
+          })
         }
         else {
-          this.route.navigateByUrl("");
+          this.route.navigateByUrl("").then(()=>{
+            window.location.reload();
+          })
 
         }
         console.log(data)
