@@ -3,7 +3,7 @@
   <app-sidebar></app-sidebar>
   <div class="filters ">
     <div class="row g-4 ml-3 mb-2">
-      <div class="col-auto p-1.5" style="display:inline;">
+      <div class="col-auto dashboardfilter " style="display:inline;">
         <label for="org" class="col-form-label">Organisation</label>
         <div class="input-group">
           <select name="organisationId"  [value] = "0" name="SelectOrg" [(ngModel)]="SelectOrg" onclick="changeid()" (change)="onSelectorg()" class="custom-select">
@@ -12,7 +12,7 @@
           </select>
         </div>
       </div>
-      <div class="col-auto p-1.5" style="display:inline;">
+      <div class="col-auto dashboardfilter" style="display:inline;">
         <label for="org" class="col-form-label">Department</label>
         <div class="input-group">
           <select name="departmentId"  [value] = "0" name="SelectDep" [(ngModel)]="SelectDep" onclick="changeid()"  class="custom-select">
@@ -21,7 +21,7 @@
           </select>
         </div>
       </div>
-      <div class="awardFilter">
+      <div class="awardFilter dashboardfilter">
         <label  class="col-form-label" for="exampleFormControlSelect1">Award</label>
         <div class="input-group">
           <select name="awardTypeId" [value] = "0" #awardName="ngModel" name="SelectAward" [(ngModel)]="SelectAward" (change)="onSelectAward()" onclick="changeid()"
@@ -39,7 +39,7 @@
 
         <label  class="col-form-label ml-3" for="fromdate">From Date</label>
 
-        <div class="input-group col-auto p-1.5">
+        <div class="input-group col-auto ">
 
           <input class="form-control " type="date" id="fromdate" name="fromdate" [(ngModel)]="fromdate">
 
@@ -51,7 +51,7 @@
 
         <label  class="col-form-label ml-3" for="todate">To Date</label>
 
-        <div class="input-group col-auto p-1.5">
+        <div class="input-group col-auto ">
 
           <input class="form-control" type="date" id="fromdate" name="todate" [(ngModel)]="todate">
 
@@ -59,7 +59,7 @@
 
       </div>
       
-      <div class="apply" >
+      <div class="apply " >
         <button style="padding:0.5rem;" (click)="Apply(SelectOrg, SelectDep, SelectAward, fromdate, todate)" type="submit">Apply</button>
       </div>
       <div *ngIf="res" class="reset" style="float:left; width:auto;margin-top:3.5rem">

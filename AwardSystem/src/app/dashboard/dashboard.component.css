@@ -1,11 +1,11 @@
-#myChart{ width:500px; height:500px; }
+
 
 #outer{
     overflow-x: hidden;
 }
 
 .input-group{
-    width:180px;
+    width:150px;
 }
 .form-control{
     width:180px;
@@ -22,7 +22,8 @@
 }
 .fromdate,.todate{
     float:left;
-    width:auto
+    width:170px;
+    
 }
 .awardFilter{
     display:inline;
@@ -36,3 +37,42 @@
         left:15%;
         bottom:5%
     } */
+
+    .dashboardfilter{
+        padding-right:0%;
+    }
+    @media(max-width:280px){
+        #myChart{ width:250px; height:250px; }
+    
+        }
+    @media(max-width:750px){
+           
+    .filters{
+        padding-top: 30%;
+       
+       }
+
+    }
+
+    @media(min-width:820px){
+           
+        .filters{
+            padding-top: 20%;
+           margin-left: 100px;
+           }
+
+           
+    #myChart{ width:500px; height:500px; }
+    
+        }
+
+    @media(min-width:1024px){
+        
+        .filters{
+          padding-top: 9%;
+         width: auto;
+         margin-left: 200px;
+         }
+    
+        #myChart{ width:350px; height:350px; }
+        }
