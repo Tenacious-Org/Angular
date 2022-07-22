@@ -60,10 +60,10 @@
       </div>
       
       <div class="apply " >
-        <button style="padding:0.5rem;" (click)="Apply(SelectOrg, SelectDep, SelectAward, fromdate, todate)" type="submit">Apply</button>
+        <button  (click)="Apply(SelectOrg, SelectDep, SelectAward, fromdate, todate)" type="submit">Apply</button>
       </div>
-      <div *ngIf="res" class="reset" style="float:left; width:auto;margin-top:3.5rem">
-        <button style="padding:0.5rem;" (click)="Pie()" type="submit">Reset</button>
+      <div *ngIf="res" class="reset">
+        <button (click)="Pie()" type="submit">Reset</button>
       </div>
 
 

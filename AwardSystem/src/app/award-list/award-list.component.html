@@ -15,7 +15,7 @@
                     aria-label="Search" aria-describedby="search-addon" />
             </div>
             <div class=" filterbox dropdown me-4 mb-4">
-                <select name="status"  [(ngModel)]="filtervalue" class="form-select" style="width:auto" (change)="changestatus($event)"> 
+                <select name="status"  [(ngModel)]="filtervalue" class="form-select" (change)="changestatus($event)"> 
                     <option value=0 selected="selected">ALL</option>
                     <option value={{items.id}} *ngFor="let items of statusList">{{items.statusName}}</option>          
                 </select>

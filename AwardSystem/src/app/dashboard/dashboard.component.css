@@ -3,6 +3,17 @@
 #outer{
     overflow-x: hidden;
 }
+.apply button{
+    padding:0.5rem;
+}
+.reset{
+    float:left; 
+    width:auto;
+    margin-top:3.5rem;
+} 
+.reset button{
+    padding:0.5rem;
+}
 
 .input-group{
     width:150px;

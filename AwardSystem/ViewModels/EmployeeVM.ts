@@ -1,14 +1,22 @@
 export class EmployeeVM
 {
     id = 0;
+    aceid = 0;
     firstName = '';
     lastName = '';
+    fullName='';
     email = '';
+    gender = '';
     dob = '';
     image = '';
+    organisationId = '';
+    departmentId = '';
+    designationId = '';
     organisationName = '';
     departmentName = '';
     designationName = '';
+    reportingPersonId='';
+    hrId = '';
     reportingPersonName = '';
     hRName = '';
     password = '';

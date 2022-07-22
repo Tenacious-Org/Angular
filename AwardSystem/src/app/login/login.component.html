@@ -19,10 +19,10 @@
                         <i class="fa fa-user" aria-hidden="true"></i>
                     </span>
                 </div>
-                <div class="text-danger " style="text-align:center ;" [class.d-none]="email.valid || email.untouched" *ngIf="email.errors?.['required']">
+                <div class="text-danger text-center " [class.d-none]="email.valid || email.untouched" *ngIf="email.errors?.['required']">
                     Email Address is required.
                   </div>
-                <div *ngIf="email.touched && email.errors?.['pattern']" class="text-danger" style="text-align:center ;">
+                <div *ngIf="email.touched && email.errors?.['pattern']" class="text-danger text-center ">
                     Email is invalid!
                 </div>
                 <br>
@@ -35,7 +35,7 @@
                         <i class="fa fa-lock" aria-hidden="true"></i>
                     </span>
                 </div>
-                <div class="text-danger " style="text-align:center ;" [class.d-none]="password.valid || password.untouched" *ngIf="password.errors?.['required']">
+                <div class="text-danger text-center " [class.d-none]="password.valid || password.untouched" *ngIf="password.errors?.['required']">
                     Password is required.
                   </div>
                   
