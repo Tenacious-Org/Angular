@@ -6,8 +6,8 @@ import { AuthenticationService } from './authentication.service';
   providedIn: 'root'
 })
 export class SharedService {
-  readonly apiurl = "https://localhost:7275/";
-  constructor(private http: HttpClient) { }
+  readonly apiurl = "http://172.24.209.186/DedSec/";
+  constructor(private http:HttpClient) { }
 
   public headers = new HttpHeaders({
     'Content-Type': 'application/json',
