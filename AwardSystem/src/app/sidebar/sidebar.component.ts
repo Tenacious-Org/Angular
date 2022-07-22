@@ -45,7 +45,7 @@ export class SidebarComponent implements OnInit {
 
   role:any;
   id: any;
-  data: any;
+  data: string[]=[];
   endpoint="Employee";
   constructor(private sharedService: SharedService, private router:Router) { }
 

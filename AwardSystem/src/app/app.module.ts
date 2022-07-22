@@ -62,6 +62,7 @@ import { CommentsPageComponent } from './comments-page/comments-page.component';
 import { AdminChildGuard } from './admin-child.guard';
 import { AdminGuard } from './admin.guard';
 import { InvalidComponent } from './invalid/invalid.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 
 //import { TooltipModule } from 'ng2-tooltip-directive';
@@ -160,7 +161,10 @@ import { InvalidComponent } from './invalid/invalid.component';
 
 
   ],
-  providers: [AdminChildGuard,AdminGuard],
+  providers: [AdminChildGuard,AdminGuard,
+  {provide:LocationStrategy, useClass:HashLocationStrategy}
+  
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
