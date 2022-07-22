@@ -130,6 +130,9 @@ p{
   right:30%;
 
 }
+.form-select{
+  height:40px;
+}
 .filterform{
   justify-content: left;
   margin-top:5px;
