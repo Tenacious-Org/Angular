@@ -13,10 +13,20 @@ import { HotToastService } from '@ngneat/hot-toast';
 })
 export class CommentsPageComponent implements OnInit {
 
-  data: any;
+  data: any={
+    
+  };
+
+
   Id: any;
   employeeId = AuthenticationService.GetData('User');
-  commentList: any;
+  commentList: any={
+    id : 0,
+    comments : '',
+    employeeName :'',
+    employeeImage : '',
+    commentedOn : new Date() 
+  }
   isReadMore = true;
   isAuthorize: any;
 
