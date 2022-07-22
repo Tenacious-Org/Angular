@@ -43,6 +43,9 @@
                 <div *ngIf="dob.touched && dob.errors?.['required']" class="text-danger">
                     Date of Birth is Required!
                 </div>
+                <div *ngIf="error.includes('Age') || error.includes('Date')">
+                    <span><h3 class="text-danger" >{{error}}</h3></span>
+                </div>
             </div>
 
             <div class="col-auto">
@@ -72,8 +75,8 @@
                 <div *ngIf="aceid.touched && aceid.errors?.['pattern']" class="text-danger input">
                     Should start with ACE and shouldn't exceed 8 Characters!
                 </div>
-                <div >
-                    <h3 class="text-danger" >{{error}}</h3>
+                <div *ngIf="error.includes('ACE')">
+                    <span><h3 class="text-danger" >{{error}}</h3></span>
                 </div>
             </div>
 
@@ -87,6 +90,9 @@
                 </div>
                 <div *ngIf="email.touched && email.errors?.['pattern']" class="text-danger">
                     Email is invalid!
+                </div>
+                <div *ngIf="error.includes('Email')">
+                    <span><h3 class="text-danger" >{{error}}</h3></span>
                 </div>
             </div>
 
