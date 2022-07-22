@@ -53,7 +53,9 @@
         left:15%;
         bottom:5%
     } */
-
+.custom-select{
+    height: 40px;
+}
     .dashboardfilter{
         padding-right:0%;
         display:inline;

@@ -24,7 +24,7 @@
       <div class="awardFilter dashboardfilter">
         <label  class="col-form-label" for="exampleFormControlSelect1">Award</label>
         <div class="input-group">
-          <select class="text-area" name="awardTypeId" [value] = "0" #awardName="ngModel" name="SelectAward" [(ngModel)]="SelectAward" (change)="onSelectAward()" onclick="changeid()"
+          <select  name="awardTypeId" [value] = "0" #awardName="ngModel" name="SelectAward" [(ngModel)]="SelectAward" (change)="onSelectAward()" onclick="changeid()"
             class="custom-select">
             <div *ngIf="awardName.touched && awardName.errors?.['required']" class="alert alert-danger">
               Award Name is Required!
