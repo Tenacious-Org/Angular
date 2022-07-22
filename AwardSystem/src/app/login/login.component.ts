@@ -30,12 +30,13 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  OnSubmit() {
-
-    this.IsLoading = true;
-    this.showErrorMessage = false;
-    const headers = { 'content-type': 'application/json' }
-    this.http.post<any>(`https://localhost:7275/Token`, this.user)
+  OnSubmit(){
+    
+    this.IsLoading=true;
+    this.showErrorMessage=false;
+    const headers = { 'content-type': 'application/json'}
+    console.log(this.user)  
+    this.http.post<any>(`http://172.24.209.186/DedSec/Token`,this.user)
       .subscribe({
         next: (data) => {
           this.IsAdmin = data.isAdmin,
