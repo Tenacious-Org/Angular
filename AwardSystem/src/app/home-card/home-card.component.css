@@ -132,6 +132,7 @@ p{
 }
 .form-select{
   height:40px;
+  border-color: black;
 }
 .filterform{
   justify-content: left;
