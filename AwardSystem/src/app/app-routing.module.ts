@@ -38,6 +38,7 @@ import { CommentsPageComponent } from './comments-page/comments-page.component';
 import { AdminGuard } from './admin.guard';
 import { AdminChildGuard } from './admin-child.guard';
 import { InvalidComponent } from './invalid/invalid.component';
+import { RequestGuard } from './request.guard';
 // import { HotToastModule } from '@ngneat/hot-toast';
 
 
@@ -76,6 +77,9 @@ const routes: Routes = [
         }
       ]
     },
+
+    {path:'requester-add-request' , component:RequesterAddRequestComponent,canActivate:[RequestGuard]},
+
     {path:'invalid',component:InvalidComponent},
 
   {path:'layout' , component:LayoutComponent},
@@ -87,7 +91,6 @@ const routes: Routes = [
 
   
 
-  {path:'requester-add-request' , component:RequesterAddRequestComponent},
  
 
   
