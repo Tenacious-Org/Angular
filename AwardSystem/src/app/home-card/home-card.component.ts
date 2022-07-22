@@ -60,7 +60,7 @@ export class HomeCardComponent implements OnInit {
 		this.router.params.subscribe(params => {
 			this.pageId = params['id'];
 			console.log(this.pageId)
-			this.awardService.getAwardsList(this.pageId).subscribe(data => {
+			this.awardService.GetAwardsList(this.pageId).subscribe(data => {
 				this.awardData = data;
 				this.filteredData = data;
 				console.log(this.filteredData)

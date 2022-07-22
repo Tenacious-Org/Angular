@@ -31,14 +31,14 @@ export class MoreCommentsComponent implements OnInit {
     this.isAuthorize = AuthenticationService.GetData("token")
     this.route.params.subscribe(params => {
       this.Id = params['id'];
-      this.awardService.getAwardById(this.Id).subscribe((result) => {
+      this.awardService.GetAwardById(this.Id).subscribe((result) => {
         this.data = result;
       });
     });
 
 
 
-    this.awardService.getComments(this.Id).subscribe(result => {
+    this.awardService.GetComments(this.Id).subscribe(result => {
       this.commentList = result;
     })
 
@@ -47,7 +47,7 @@ export class MoreCommentsComponent implements OnInit {
 
     this.Comments.employeeId = this.employeeId;
     this.Comments.awardId = this.Id;
-    this.awardService.addComment(this.Comments).subscribe(data => {
+    this.awardService.AddComment(this.Comments).subscribe(data => {
       this.ngOnInit()
       this.Comments.comments = ''
     });

@@ -41,7 +41,7 @@ export class AwardListComponent implements OnInit {
 
   GetAll(pageId: any) {
     this.awardService
-      .getAwardsList(pageId)
+      .GetAwardsList(pageId)
       .subscribe((data) => {
         this.data = data;
         this.filteredData = data;

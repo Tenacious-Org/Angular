@@ -53,7 +53,7 @@ export class AwardViewComponent implements OnInit {
     this.activatedRoute.params.subscribe(params => {
       this.Id = params['id1'];
       this.pageId = params['id']
-      this.awardService.getAwardById(this.Id).subscribe((result) => {
+      this.awardService.GetAwardById(this.Id).subscribe((result) => {
         this.data = result;
         this.awards.id = this.data.id;
         this.awards.requesterId = this.data.requesterId;
@@ -69,7 +69,7 @@ export class AwardViewComponent implements OnInit {
   }
   OnAccept() {
     this.awards.statusId = this.approvedId;
-    this.awardService.approval(this.awards).subscribe(data => {
+    this.awardService.Approval(this.awards).subscribe(data => {
       this.acceptedToast();
     });
   }
@@ -80,7 +80,7 @@ export class AwardViewComponent implements OnInit {
       this.awards.rejectedReason = value;
       if (value != undefined) {
         this.awards.statusId = this.rejectedId;
-        this.awardService.approval(this.awards).subscribe(data => {
+        this.awardService.Approval(this.awards).subscribe(data => {
           this.rejectedToast();
 
         });
@@ -94,7 +94,7 @@ export class AwardViewComponent implements OnInit {
       if (value != undefined) {
         this.awards.couponCode = this.data.couponCode;
         this.awards.statusId = this.publishedId;
-        this.awardService.approval(this.awards).subscribe({
+        this.awardService.Approval(this.awards).subscribe({
           next: (res) => { res ? this.publishedToast() : null },
           error: (error) => this.error = error.error.message
         });

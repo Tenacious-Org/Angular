@@ -15,37 +15,37 @@ export class AwardService {
   })
 
   // Get Awards --> pageId 0=Homepage , 1=myawards, 2= requesterList , 3= approverList, 4=HR List .
-  getAwardsList(pageId:any):Observable<any>{
+  GetAwardsList(pageId:any):Observable<any>{
     return this.http.get<any>(this.apiurl+`GetAwardsList?pageId=${pageId}`,{ headers: this.headers })
   }
 
-  getAwardsByStatusId(id:any):Observable<any>{
+  GetAwardsByStatusId(id:any):Observable<any>{
     return this.http.get<any>(this.apiurl+`GetAwardsByStatusId?statusId=${id}`,{ headers: this.headers })
   }
 
   // Get Award By id
-  getAwardById(id:any):Observable<any>
+  GetAwardById(id:any):Observable<any>
   {
     return this.http.get<any>(this.apiurl+`GetAwardById?id=${id}`,{ headers: this.headers })
   }
 
   //Approval of the request
-  approval(data:any): Observable<any>
+  Approval(data:any): Observable<any>
   {
     return this.http.put<any>(this.apiurl+`Approval`,data,{ headers: this.headers });
   }
 
   // Add comments - Awardservices
-  addComment(data:any): Observable<any>
+  AddComment(data:any): Observable<any>
   {
     return this.http.post<any>(this.apiurl +'AddComment', data,{ headers: this.headers })
   }
-  addRequest(data:any): Observable<any>
+  AddRequest(data:any): Observable<any>
   {
     return this.http.post<any>(this.apiurl +`RaiseRequest`, data,{ headers: this.headers })
   }
 
-  getComments(awardId:any):Observable<any>
+  GetComments(awardId:any):Observable<any>
   {
     return this.http.get<any>(this.apiurl+`GetComments?awardId=${awardId}`,{ headers: this.headers })
   }
