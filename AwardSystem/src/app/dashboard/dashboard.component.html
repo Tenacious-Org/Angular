@@ -3,7 +3,7 @@
   <app-sidebar></app-sidebar>
   <div class="filters ">
     <div class="row g-4 ml-3 mb-2">
-      <div class="col-auto dashboardfilter " style="display:inline;">
+      <div class="col-auto dashboardfilter ">
         <label for="org" class="col-form-label">Organisation</label>
         <div class="input-group">
           <select name="organisationId"  [value] = "0" name="SelectOrg" [(ngModel)]="SelectOrg" onclick="changeid()" (change)="onSelectorg()" class="custom-select">
@@ -12,7 +12,7 @@
           </select>
         </div>
       </div>
-      <div class="col-auto dashboardfilter" style="display:inline;">
+      <div class="col-auto dashboardfilter" >
         <label for="org" class="col-form-label">Department</label>
         <div class="input-group">
           <select name="departmentId"  [value] = "0" name="SelectDep" [(ngModel)]="SelectDep" onclick="changeid()"  class="custom-select">
@@ -24,7 +24,7 @@
       <div class="awardFilter dashboardfilter">
         <label  class="col-form-label" for="exampleFormControlSelect1">Award</label>
         <div class="input-group">
-          <select name="awardTypeId" [value] = "0" #awardName="ngModel" name="SelectAward" [(ngModel)]="SelectAward" (change)="onSelectAward()" onclick="changeid()"
+          <select class="text-area" name="awardTypeId" [value] = "0" #awardName="ngModel" name="SelectAward" [(ngModel)]="SelectAward" (change)="onSelectAward()" onclick="changeid()"
             class="custom-select">
             <div *ngIf="awardName.touched && awardName.errors?.['required']" class="alert alert-danger">
               Award Name is Required!
@@ -60,10 +60,10 @@
       </div>
       
       <div class="apply " >
-        <button  (click)="Apply(SelectOrg, SelectDep, SelectAward, fromdate, todate)" type="submit">Apply</button>
+        <button class="dashboardbutton"  (click)="Apply(SelectOrg, SelectDep, SelectAward, fromdate, todate)" type="submit">Apply</button>
       </div>
-      <div *ngIf="res" class="reset">
-        <button (click)="Pie()" type="submit">Reset</button>
+      <div *ngIf="res" class="reset" >
+        <button class="dashboardbutton"  (click)="Pie()" type="submit">Reset</button>
       </div>
 
 
