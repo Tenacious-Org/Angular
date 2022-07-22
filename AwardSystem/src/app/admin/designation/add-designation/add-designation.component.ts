@@ -18,60 +18,56 @@ export class AddDesignationComponent implements OnInit {
   roleID: any;
   departmentID: any;
   error: any;
-  constructor(private sharedService:SharedService,private router:Router,private toastService: HotToastService,private dialog: MatDialog) { }
-  Designation : any = {
-    id : 0,
-    designationName : '',
-    departmentId  : 0,
-    roleId:0,
-    addedBy : 1,
-    addedOn : Date.now
+  constructor(private sharedService: SharedService, private router: Router, private toastService: HotToastService, private dialog: MatDialog) { }
+  Designation: any = {
+    id: 0,
+    designationName: '',
+    departmentId: 0,
+    roleId: 0,
+    addedBy: 1,
+    addedOn: Date.now
 
   }
-  departments : Department[]=[];
-  roles:any;
-  selectOrg:any=0;
-  endpoint="Department";
-  endpoint1="Designation";
-  endpoint2="Role";
+  departments: Department[] = [];
+  roles: any;
+  selectOrg: any = 0;
+  endpoint = "Department";
+  endpoint1 = "Designation";
+  endpoint2 = "Role";
 
-   ngOnInit(): void {
-    if(!AuthenticationService.GetData("Admin")){
+  ngOnInit(): void {
+    if (!AuthenticationService.GetData("Admin")) {
       this.router.navigateByUrl("")
     }
-    this.sharedService.GetAll(this.endpoint).subscribe(data=>{
-      this.departments=data;
-      console.log(this.departments);
+    this.sharedService.GetAll(this.endpoint).subscribe(data => {
+      this.departments = data;
     });
-    this.sharedService.GetAll(this.endpoint2).subscribe(data=>{
-      this.roles=data;
-      console.log(this.roles);
+    this.sharedService.GetAll(this.endpoint2).subscribe(data => {
+      this.roles = data;
     });
 
-   }
+  }
 
-  OnSubmit(){
-    this.sharedService.Add(this.endpoint1,this.Designation).subscribe({
-      // console.log(data);
-      next: (res) => { console.log(res),res?this.showToast():null},
+  OnSubmit() {
+    this.sharedService.Add(this.endpoint1, this.Designation).subscribe({
+      next: (res) => { res ? this.showToast() : null },
       error: (error) => this.error = error.error.message
     });
-    
+
   }
   showToast() {
     this.toastService.success('Designation added Successfully!',
-    {
-      autoClose: true,
-      dismissible: true,
-      icon: '❎',
-    })
+      {
+        autoClose: true,
+        dismissible: true,
+        icon: '❎',
+      })
     this.router.navigate(['/designation']);
-    
+
 
   }
-  CheckName(DepartmentId: any,RoleId:any)
-  {
-    this.departmentID=DepartmentId;
-    this.roleID=RoleId;
+  CheckName(DepartmentId: any, RoleId: any) {
+    this.departmentID = DepartmentId;
+    this.roleID = RoleId;
   }
 }

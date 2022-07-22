@@ -12,57 +12,52 @@ import { AuthenticationService } from 'src/app/authentication.service';
   styleUrls: ['./edit-department.component.css']
 })
 export class EditDepartmentComponent implements OnInit {
-Id:any=0;
-data:any;
-selectedOrganisation:any;
+  Id: any = 0;
+  data: any;
+  selectedOrganisation: any;
   OrganisationId: any;
   error: any;
-  constructor(private sharedService:SharedService, private router:ActivatedRoute, private routing:Router,private toastService: HotToastService) { }
-  endpoint="Department";
-  endpoint1="Organisation";
-    ngOnInit(): void {
-      if(!AuthenticationService.GetData("Admin")){
-        this.routing.navigateByUrl("")
-      }
-      
-
-      this.router.params.subscribe(params => {
-        this.Id = params['id'];
-       this.sharedService.GetById(this.endpoint,this.Id).subscribe((result) => {
-            this.data = result;
-            console.log(this.Id);
-            console.log(this.data);
-            this.selectedOrganisation=this.data.organisationId;
-          });
-        });
-      this.sharedService.GetAll(this.endpoint1).subscribe(data=>{
-        this.organisation=data;
-      });
-      
-  
+  constructor(private sharedService: SharedService, private router: ActivatedRoute, private routing: Router, private toastService: HotToastService) { }
+  endpoint = "Department";
+  endpoint1 = "Organisation";
+  ngOnInit(): void {
+    if (!AuthenticationService.GetData("Admin")) {
+      this.routing.navigateByUrl("")
     }
-    public organisation: Organisation[] = [];
 
-    OnSubmit(){
-      console.log(this.data)
-      this.sharedService.Edit(this.endpoint,this.data).subscribe({
-        // console.log(res);
-        // this.showToast();
-        next: (res) => { console.log(res), res?this.showToast():null },
-        error: (error) => this.error = error.error.message
+
+    this.router.params.subscribe(params => {
+      this.Id = params['id'];
+      this.sharedService.GetById(this.endpoint, this.Id).subscribe((result) => {
+        this.data = result;
+        this.selectedOrganisation = this.data.organisationId;
       });
-    }
-    showToast() {
-      this.toastService.success('Department updated Successfully!',
+    });
+    this.sharedService.GetAll(this.endpoint1).subscribe(data => {
+      this.organisation = data;
+    });
+
+
+  }
+  public organisation: Organisation[] = [];
+
+  OnSubmit() {
+    this.sharedService.Edit(this.endpoint, this.data).subscribe({
+      // this.showToast();
+      next: (res) => { res ? this.showToast() : null },
+      error: (error) => this.error = error.error.message
+    });
+  }
+  showToast() {
+    this.toastService.success('Department updated Successfully!',
       {
         autoClose: true,
         dismissible: true,
       })
-      this.routing.navigate(['/admin/department']);
-    
-    }
-    CheckName(organisationId:any)
-    {
-      this.OrganisationId=organisationId;
-    }
+    this.routing.navigate(['/admin/department']);
+
+  }
+  CheckName(organisationId: any) {
+    this.OrganisationId = organisationId;
+  }
 }

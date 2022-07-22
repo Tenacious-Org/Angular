@@ -29,23 +29,20 @@ export class EditOrganisationComponent implements OnInit {
   constructor(private sharedService: SharedService, private route: ActivatedRoute, private location: Location, private router: Router, private routing: Router, private toastService: HotToastService) { }
 
   ngOnInit(): void {
-    if(!AuthenticationService.GetData("Admin")){
+    if (!AuthenticationService.GetData("Admin")) {
       this.router.navigateByUrl("")
     }
     this.route.params.subscribe(params => {
       this.id = params['id'];
-      console.log(this.id)
       this.sharedService.GetById(this.endpoint, this.id).subscribe((data) => {
         this.data = data;
-        console.log(this.data);
       });
     });
   }
 
   OnSubmit() {
-    console.log(this.data);
     this.sharedService.Edit(this.endpoint, this.data).subscribe({
-      next: (data) => { console.log(data), data?this.showToast():null },
+      next: (data) => { data ? this.showToast() : null },
       error: (error) => this.error = error.error.message
     });
   }

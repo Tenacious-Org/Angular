@@ -10,23 +10,22 @@ import { AuthenticationService } from '../authentication.service';
 export class LayoutComponent implements OnInit {
   user: any;
 
-  constructor(private route:Router) { }
-token:any;
+  constructor(private route: Router) { }
+  token: any;
   ngOnInit(): void {
-    this.token=AuthenticationService.GetData("token");
-    this.user=AuthenticationService.GetData("Role");
-
-    console.log(this.token)
+    this.token = AuthenticationService.GetData("token");
+    this.user = AuthenticationService.GetData("Role");
   }
-  onLogin(){
+  onLogin() {
     this.route.navigateByUrl("/login")
   }
 
-  onLogout(){
+  onLogout() {
     AuthenticationService.Logout();
     //this.route.navigateByUrl('')
-    this.route.navigateByUrl('/',{skipLocationChange:true}).then(()=>{
-      this.route.navigate(['/homecard/0'])});
+    this.route.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.route.navigate(['/homecard/0'])
+    });
     // window.location.reload()
   }
 

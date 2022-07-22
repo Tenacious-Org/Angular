@@ -12,63 +12,60 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./add-department.component.css']
 })
 export class AddDepartmentComponent implements OnInit {
-organisationName:any='';
-error:any='';
-Id:any;
-  constructor(private toastService: HotToastService,private sharedService:SharedService, private router:Router) {}
+  organisationName: any = '';
+  error: any = '';
+  Id: any;
+  constructor(private toastService: HotToastService, private sharedService: SharedService, private router: Router) { }
 
-    response="success";
-    Department : any = {
-    id :0,
-    departmentName : '',
-    organisationId :0,
-    addedBy : 1,
-    addedOn : Date.now ,
-    updatedBy : 1,
-    updatedOn : Date.now, 
+  response = "success";
+  Department: any = {
+    id: 0,
+    departmentName: '',
+    organisationId: 0,
+    addedBy: 1,
+    addedOn: Date.now,
+    updatedBy: 1,
+    updatedOn: Date.now,
   }
   public data: Organisation[] = [];
 
-endpoint="Department";
-endpoint1="Organisation";
+  endpoint = "Department";
+  endpoint1 = "Organisation";
   ngOnInit(): void {
 
-    if(!AuthenticationService.GetData("Admin")){
+    if (!AuthenticationService.GetData("Admin")) {
       this.router.navigateByUrl("")
     }
-    
-    this.sharedService.GetAll(this.endpoint1).subscribe(data=>{
-      this.data=data;
-    });  
-  }
-  OnSubmit(){
-    console.log(this.Department)
-    this.sharedService.Add(this.endpoint,this.Department).subscribe({
-      // console.log(res);
-      // this.showToast();
-      next: (res) => { console.log(res), res?this.showToast():null },
-        error: (error) => this.error = error.error.message
+
+    this.sharedService.GetAll(this.endpoint1).subscribe(data => {
+      this.data = data;
     });
-  
+  }
+  OnSubmit() {
+    this.sharedService.Add(this.endpoint, this.Department).subscribe({
+      // this.showToast();
+      next: (res) => { res ? this.showToast() : null },
+      error: (error) => this.error = error.error.message
+    });
+
   }
   showToast() {
     this.toastService.success('Department added Successfully !',
-    {
-      autoClose: true,
-      dismissible: true,
-      
-    })
+      {
+        autoClose: true,
+        dismissible: true,
+
+      })
     this.router.navigate(['/admin/department']);
   }
-  CheckName(OrganisationId: any)
-  {
-    this.Id=OrganisationId;
+  CheckName(OrganisationId: any) {
+    this.Id = OrganisationId;
   }
-  }
+}
 
-  
-    
 
-  
+
+
+
 
 

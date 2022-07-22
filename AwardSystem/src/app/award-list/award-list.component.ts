@@ -10,59 +10,56 @@ import { SharedService } from '../shared.service';
   styleUrls: ['./award-list.component.css']
 })
 export class AwardListComponent implements OnInit {
-  pageId :any;
+  pageId: any;
   totalLength: any;
   page: number = 1;
   data: any;
   val: any;
-  searchValue='';
-  filtervalue:any=0;
-  endpoint ='status';
+  searchValue = '';
+  filtervalue: any = 0;
+  endpoint = 'status';
   statusList: any;
   public filteredData: any[] = [];
 
-  
- 
-  constructor(private awardService: AwardService,private sharedService:SharedService,private router:Router,private activatedRoute:ActivatedRoute) {}
+
+
+  constructor(private awardService: AwardService, private sharedService: SharedService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    if(!AuthenticationService.GetData("Requester") && !AuthenticationService.GetData("Approver") && !AuthenticationService.GetData("Publisher")){
+    if (!AuthenticationService.GetData("Requester") && !AuthenticationService.GetData("Approver") && !AuthenticationService.GetData("Publisher")) {
       this.router.navigateByUrl("")
     }
     this.activatedRoute.params.subscribe(params => {
       this.pageId = params['id'];
     });
-    console.log(this.pageId)
     this.GetAll(this.pageId);
-    this.sharedService.GetAll(this.endpoint).subscribe((data:any)=>{
-      this.statusList =  data;
+    this.sharedService.GetAll(this.endpoint).subscribe((data: any) => {
+      this.statusList = data;
     })
 
   }
- 
-  GetAll(pageId:any) {
+
+  GetAll(pageId: any) {
     this.awardService
       .getAwardsList(pageId)
       .subscribe((data) => {
         this.data = data;
-        this.filteredData=data;
-        console.log(this.data);
+        this.filteredData = data;
       });
   }
-  changestatus(e:any){
-    console.log(e.target.value)
-    this.filtervalue=e.target.value;
-    if(this.filtervalue==0){
+  changestatus(e: any) {
+    this.filtervalue = e.target.value;
+    if (this.filtervalue == 0) {
       this.GetAll(this.pageId);
-    }else{
-    this.data = this.filteredData.filter(item=> item.statusId == this.filtervalue);
-    console.log(this.data)}
-    this.page=1;
+    } else {
+      this.data = this.filteredData.filter(item => item.statusId == this.filtervalue);
+    }
+    this.page = 1;
   }
-  Search(value:string){
-		this.data=this.filteredData.filter(item =>
-		item.awardeeName.toLowerCase().includes(value.toLowerCase()) || item.awardName.toLowerCase().includes(value.toLowerCase()))
-		this.page=1;
-	}
+  Search(value: string) {
+    this.data = this.filteredData.filter(item =>
+      item.awardeeName.toLowerCase().includes(value.toLowerCase()) || item.awardName.toLowerCase().includes(value.toLowerCase()))
+    this.page = 1;
+  }
 
 }

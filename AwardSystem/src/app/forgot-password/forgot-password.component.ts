@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../authentication.service';
 import { Employee } from 'Models/Employee';
@@ -12,9 +12,9 @@ import { Employee } from 'Models/Employee';
 export class ForgotPasswordComponent implements OnInit {
 
   constructor() { }
-  user:any={
+  user: any = {
 
-    email:'',
+    email: '',
     password: '',
 
   }

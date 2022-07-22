@@ -13,42 +13,40 @@ import { AuthenticationService } from 'src/app/authentication.service';
   styleUrls: ['./add-organisation.component.css']
 })
 export class AddOrganisationComponent implements OnInit {
-  error:any='';
+  error: any = '';
 
-endpoint="Organisation";
-  constructor(private sharedService:SharedService, private location: Location, private router:Router,private toastService: HotToastService,private dialog: MatDialog) { }
-  Organisation : any = {
-    id : 0,
-    organisationName : '',
-    addedBy : 1,
-    addedOn : Date.now,
-  
- 
+  endpoint = "Organisation";
+  constructor(private sharedService: SharedService, private location: Location, private router: Router, private toastService: HotToastService, private dialog: MatDialog) { }
+  Organisation: any = {
+    id: 0,
+    organisationName: '',
+    addedBy: 1,
+    addedOn: Date.now,
+
+
   }
 
   ngOnInit(): void {
-    if(!AuthenticationService.GetData("Admin")){
+    if (!AuthenticationService.GetData("Admin")) {
       this.router.navigateByUrl("")
     }
-   
+
   }
 
-  OnSubmit(){
-    console.log(this.Organisation)
-    this.sharedService.Add(this.endpoint,this.Organisation).subscribe({
-      // console.log(res);
+  OnSubmit() {
+    this.sharedService.Add(this.endpoint, this.Organisation).subscribe({
       // this.showToast();
-      next: (res) => { console.log(res), res?this.showToast():null },
+      next: (res) => { res ? this.showToast() : null },
       error: (error) => this.error = error.error.message
     })
-    
+
   }
   showToast() {
     this.toastService.success('Organisation added Successfully!',
-    {
-      autoClose: true,
-      dismissible: true,
-    })
+      {
+        autoClose: true,
+        dismissible: true,
+      })
     this.router.navigate(['/admin/organisation']);
 
   }

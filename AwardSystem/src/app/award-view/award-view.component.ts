@@ -52,7 +52,7 @@ export class AwardViewComponent implements OnInit {
     }
     this.activatedRoute.params.subscribe(params => {
       this.Id = params['id1'];
-      this.pageId=params['id']
+      this.pageId = params['id']
       this.awardService.getAwardById(this.Id).subscribe((result) => {
         this.data = result;
         this.awards.id = this.data.id;
@@ -64,18 +64,12 @@ export class AwardViewComponent implements OnInit {
         this.awards.hRId = this.data.hRId;
         this.awards.addedBy = this.data.addedBy;
         this.awards.addedOn = this.data.addedOn;
-        console.log(this.data.statusId);
-        console.log(this.data.rejectedReason);
-        console.log(this.data);
-
       });
     });
   }
   OnAccept() {
-    console.log(this.awards);
     this.awards.statusId = this.approvedId;
     this.awardService.approval(this.awards).subscribe(data => {
-      console.log(data);
       this.acceptedToast();
     });
   }
@@ -87,7 +81,6 @@ export class AwardViewComponent implements OnInit {
       if (value != undefined) {
         this.awards.statusId = this.rejectedId;
         this.awardService.approval(this.awards).subscribe(data => {
-          console.log(this.awards);
           this.rejectedToast();
 
         });
@@ -96,19 +89,18 @@ export class AwardViewComponent implements OnInit {
     });
   }
   onPublish() {
-    let dialogRef =this.dialog.open(DialogboxComponent,{data:{value:"publish"}})
+    let dialogRef = this.dialog.open(DialogboxComponent, { data: { value: "publish" } })
     dialogRef.afterClosed().subscribe(value => {
-      if(value!=undefined){
-        console.log(this.data.couponCode);
-    this.awards.couponCode = this.data.couponCode;
-    this.awards.statusId = this.publishedId;
-    this.awardService.approval(this.awards).subscribe({
-      next: (res) => { console.log(res), res ? this.publishedToast() : null },
-      error: (error) => this.error = error.error.message
-    });
+      if (value != undefined) {
+        this.awards.couponCode = this.data.couponCode;
+        this.awards.statusId = this.publishedId;
+        this.awardService.approval(this.awards).subscribe({
+          next: (res) => { res ? this.publishedToast() : null },
+          error: (error) => this.error = error.error.message
+        });
       }
     });
-    
+
   }
   // PublishDialog(id:any){
   //   let dialogRef =this.dialog.open(DialogboxComponent,{data:{value:"publish"}})
@@ -144,13 +136,13 @@ export class AwardViewComponent implements OnInit {
     this.router.navigate(['/awardlist/3']);
 
   }
-  reason(){
+  reason() {
     this.show = 1;
   }
-  rejectionreason(){
+  rejectionreason() {
     this.show = 2;
   }
-  about(){
+  about() {
     this.show = 3;
   }
   htmlString = '<h1>Hello gowtham</h1>';

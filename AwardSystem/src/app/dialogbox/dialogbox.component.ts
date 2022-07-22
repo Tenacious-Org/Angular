@@ -9,21 +9,18 @@ import { Router } from '@angular/router';
   styleUrls: ['./dialogbox.component.css']
 })
 export class DialogboxComponent implements OnInit {
-  value:string='';
-  
-  dataType:any;
-   
-  constructor(public dialogRef: MatDialogRef<DialogboxComponent>,private router: Router,
-    @Inject(MAT_DIALOG_DATA) public data:any) {
+  value: string = '';
+
+  dataType: any;
+
+  constructor(public dialogRef: MatDialogRef<DialogboxComponent>, private router: Router,
+    @Inject(MAT_DIALOG_DATA) public data: any) {
 
   }
-  disable=1;
-  publish=1;
+  disable = 1;
+  publish = 1;
   ngOnInit(): void {
-    this.dataType = typeof(this.data.count);
-    console.log( this.dataType);
-    console.log( typeof(this.dataType));
-    console.log(this.data.class)
+    this.dataType = typeof (this.data.count);
 
   }
 
@@ -31,6 +28,6 @@ export class DialogboxComponent implements OnInit {
     this.dialogRef.close();
     this.router.navigate(this.data.class)
   }
-  
+
 
 }

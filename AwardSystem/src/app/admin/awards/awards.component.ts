@@ -12,61 +12,57 @@ import { Router } from '@angular/router';
 })
 
 export class AwardsComponent implements OnInit {
-  endpoint="AwardType";
+  endpoint = "AwardType";
   totalLength: any;
   page: number = 1;
-  val:any;
-  data:any;
+  val: any;
+  data: any;
   awardname: any;
-  searchValue='';
+  searchValue = '';
   public filteredData: any[] = [];
 
-  constructor(private sharedService:SharedService,private dialog: MatDialog ,private router:Router) { }
+  constructor(private sharedService: SharedService, private dialog: MatDialog, private router: Router) { }
 
   ngOnInit(): void {
-    if(!AuthenticationService.GetData("Admin")){
+    if (!AuthenticationService.GetData("Admin")) {
       this.router.navigateByUrl("")
     }
 
-   this.sharedService.GetAll(this.endpoint).subscribe(data=>{
-   this.data=data;
-   this.filteredData=data;
-   this.totalLength=data;
-   console.log(this.data);
-   });
-  }
-
-  Disable(Id:any){
-    console.log(Id);
-    this.sharedService.GetById(this.endpoint,Id).subscribe((data) => {
-      this.awardname=data.awardName;
-      console.log(this.awardname);
-    this.sharedService.Disable(this.endpoint,Id).subscribe((result) => {
-      console.log(result);
-      this.openDialog(result);
-      this.ngOnInit()
-      //setTimeout(()=> { this.ngOnInit()}, 1000)
+    this.sharedService.GetAll(this.endpoint).subscribe(data => {
+      this.data = data;
+      this.filteredData = data;
+      this.totalLength = data;
     });
-  });
-  }
-  openDialog(count:any){
-
-    this.dialog.open(DialogboxComponent,{data:{name:this.awardname,count:count,value:"Awardtype"}});
-
   }
 
-  dialogDisable(id:any){
-    let dialogRef =this.dialog.open(DialogboxComponent,{data:{value:"disable"}})
+  Disable(Id: any) {
+    this.sharedService.GetById(this.endpoint, Id).subscribe((data) => {
+      this.awardname = data.awardName;
+      this.sharedService.Disable(this.endpoint, Id).subscribe((result) => {
+        this.openDialog(result);
+        this.ngOnInit()
+        //setTimeout(()=> { this.ngOnInit()}, 1000)
+      });
+    });
+  }
+  openDialog(count: any) {
+
+    this.dialog.open(DialogboxComponent, { data: { name: this.awardname, count: count, value: "Awardtype" } });
+
+  }
+
+  dialogDisable(id: any) {
+    let dialogRef = this.dialog.open(DialogboxComponent, { data: { value: "disable" } })
     dialogRef.afterClosed().subscribe(value => {
-      if(value!=undefined){
+      if (value != undefined) {
         this.Disable(id);
       }
     });
   }
-  Search(value:string){
-		this.data=this.filteredData.filter(item =>
-	  item.awardName.toLowerCase().includes(value.toLowerCase()))
-		this.page=1;
-	}
+  Search(value: string) {
+    this.data = this.filteredData.filter(item =>
+      item.awardName.toLowerCase().includes(value.toLowerCase()))
+    this.page = 1;
+  }
 
 }

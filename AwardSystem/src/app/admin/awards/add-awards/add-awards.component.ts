@@ -14,63 +14,60 @@ import { AuthenticationService } from 'src/app/authentication.service';
   styleUrls: ['./add-awards.component.css']
 })
 export class AddAwardsComponent implements OnInit {
-  imgsrc="";
-  endpoint ="AwardType";
+  imgsrc = "";
+  endpoint = "AwardType";
   imageError = "";
   isImageSaved: boolean = false;
   cardImageBase64 = "";
   error: any;
-  
-  
-  constructor(private toastService: HotToastService,private sharedService:SharedService,private router: Router) { }
 
-  response="success"; 
-  AwardType : any ={
-  id : 0,
-  awardName : '',
-  awardDescription :'',
-  image: null,
-  imageName:'',
-  imageString : this.cardImageBase64,
-  addedBy : 1,
-  addedOn : Date.now
+
+  constructor(private toastService: HotToastService, private sharedService: SharedService, private router: Router) { }
+
+  response = "success";
+  AwardType: any = {
+    id: 0,
+    awardName: '',
+    awardDescription: '',
+    image: null,
+    imageName: '',
+    imageString: this.cardImageBase64,
+    addedBy: 1,
+    addedOn: Date.now
   }
 
   ngOnInit(): void {
-    if(!AuthenticationService.GetData("Admin")){
+    if (!AuthenticationService.GetData("Admin")) {
       this.router.navigateByUrl("")
     }
   }
 
-  OnSubmit(){
-    console.log(this.AwardType);
-    this.sharedService.Add(this.endpoint,this.AwardType).subscribe({
-      // console.log(res);
+  OnSubmit() {
+    this.sharedService.Add(this.endpoint, this.AwardType).subscribe({
       // this.showToast();
-      next:(res) => { console.log(res), res?this.showToast():null },
-        error: (error) => this.error = error.error.message
+      next: (res) => { res ? this.showToast() : null },
+      error: (error) => this.error = error.error.message
     });
 
   }
-  
+
   showToast() {
     this.toastService.success('Award added Successfully !',
-    {
-      autoClose: true,
-      dismissible: true,
-      
-    })
+      {
+        autoClose: true,
+        dismissible: true,
+
+      })
     this.router.navigate(['/admin/awards']);
 
   }
-  
 
-  ImageConversion(fileInput:any){
-    var x:any=document.getElementById("image");
-    var file=x.files[0];
-    if('name' in file){
-      this.AwardType.imageName=file.name;
-      console.log(this.AwardType.imageName);
+
+  ImageConversion(fileInput: any) {
+    var x: any = document.getElementById("image");
+    var file = x.files[0];
+    if ('name' in file) {
+      this.AwardType.imageName = file.name;
     }
     this.imageError = "";
     if (fileInput.target.files && fileInput.target.files[0]) {
@@ -84,7 +81,6 @@ export class AddAwardsComponent implements OnInit {
 
         return false;
       }
-      console.log(fileInput.target.files[0].type)
 
       if (!allowed_types.includes(fileInput.target.files[0].type)) {
         this.imageError = 'Only Images are allowed ( JPG | PNG )';
@@ -95,13 +91,13 @@ export class AddAwardsComponent implements OnInit {
         const image = new Image();
         image.src = e.target.result;
         image.onload = rs => {
-          this.imgsrc=e.target.result;
+          this.imgsrc = e.target.result;
           const imgBase64Path = e.target.result;
           this.cardImageBase64 = imgBase64Path;
-          this.cardImageBase64= this.cardImageBase64.replace("data:image/png;base64,", "");
-          this.cardImageBase64= this.cardImageBase64.replace("data:image/jpg;base64,", "");
-          this.cardImageBase64= this.cardImageBase64.replace("data:image/jpeg;base64,", "");
-          this.AwardType.imageString=this.cardImageBase64;
+          this.cardImageBase64 = this.cardImageBase64.replace("data:image/png;base64,", "");
+          this.cardImageBase64 = this.cardImageBase64.replace("data:image/jpg;base64,", "");
+          this.cardImageBase64 = this.cardImageBase64.replace("data:image/jpeg;base64,", "");
+          this.AwardType.imageString = this.cardImageBase64;
           this.isImageSaved = true;
         }
       };

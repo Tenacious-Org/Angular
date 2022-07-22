@@ -13,63 +13,58 @@ import { AuthenticationService } from 'src/app/authentication.service';
 })
 export class EditDesignationComponent implements OnInit {
   roles: any;
-  endpoint2="Role";
+  endpoint2 = "Role";
   error: any;
   departmentID: any;
   roleID: any;
-  constructor(private sharedService:SharedService, private router:ActivatedRoute, private routing:Router,private toastService: HotToastService) { }
-  Id:any=0;
-  data:any;
-  departments : Department[]=[];
-  selectedDepartment:any;
-  selectedRole:any;
-  endpoint="Department";
-  endpoint1="Designation";
+  constructor(private sharedService: SharedService, private router: ActivatedRoute, private routing: Router, private toastService: HotToastService) { }
+  Id: any = 0;
+  data: any;
+  departments: Department[] = [];
+  selectedDepartment: any;
+  selectedRole: any;
+  endpoint = "Department";
+  endpoint1 = "Designation";
 
-   ngOnInit(): void {
-    if(!AuthenticationService.GetData("Admin")){
+  ngOnInit(): void {
+    if (!AuthenticationService.GetData("Admin")) {
       this.routing.navigateByUrl("")
     }
     this.router.params.subscribe(params => {
       this.Id = params['id'];
-     this.sharedService.GetById(this.endpoint1,this.Id).subscribe((result) => {
-          this.data = result;
-          console.log(this.data);
-          this.selectedDepartment=this.data.departmentId;
-          this.selectedRole=this.data.roleId;
-          console.log(this.selectedRole);
-        });
+      this.sharedService.GetById(this.endpoint1, this.Id).subscribe((result) => {
+        this.data = result;
+        this.selectedDepartment = this.data.departmentId;
+        this.selectedRole = this.data.roleId;
       });
-    this.sharedService.GetAll(this.endpoint).subscribe(data=>{
-      this.departments=data;
-    });    
-    this.sharedService.GetAll(this.endpoint2).subscribe(data=>{
-      this.roles=data;
-      console.log(this.roles);
     });
-   }
+    this.sharedService.GetAll(this.endpoint).subscribe(data => {
+      this.departments = data;
+    });
+    this.sharedService.GetAll(this.endpoint2).subscribe(data => {
+      this.roles = data;
+    });
+  }
 
-  OnSubmit(){
-    this.sharedService.Edit(this.endpoint1,this.data).subscribe({
-      // console.log(data);
+  OnSubmit() {
+    this.sharedService.Edit(this.endpoint1, this.data).subscribe({
       // this.showToast();
-      next: (res) => { console.log(res),res?this.showToast():null },
+      next: (res) => { res ? this.showToast() : null },
       error: (error) => this.error = error.error.message
     });
-}
-showToast() {
-  this.toastService.success('Designation updated Successfully!',
-  {
-    autoClose: true,
-    dismissible: true,
-  })
-  this.routing.navigate(['/admin/designation']);
+  }
+  showToast() {
+    this.toastService.success('Designation updated Successfully!',
+      {
+        autoClose: true,
+        dismissible: true,
+      })
+    this.routing.navigate(['/admin/designation']);
 
-}
-CheckName(DepartmentId: any,RoleId:any)
-  {
-    this.departmentID=DepartmentId;
-    this.roleID=RoleId;
+  }
+  CheckName(DepartmentId: any, RoleId: any) {
+    this.departmentID = DepartmentId;
+    this.roleID = RoleId;
   }
 
 }

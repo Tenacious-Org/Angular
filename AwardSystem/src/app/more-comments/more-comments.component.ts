@@ -14,53 +14,49 @@ import { HotToastService } from '@ngneat/hot-toast';
 })
 export class MoreCommentsComponent implements OnInit {
   data: any;
-  Id:any;
-  employeeId=AuthenticationService.GetData('User');
-  commentList:any;
-  isReadMore =true;
-  isAuthorize:any;
-  constructor(private awardService:AwardService, private route:ActivatedRoute,private routing:Router, private dialog: MatDialog,private toastService: HotToastService) { }
-  Comments :any ={
-    id :  0,
-    comments : '',
-    employeeId : 0,
-    awardId : 0,
+  Id: any;
+  employeeId = AuthenticationService.GetData('User');
+  commentList: any;
+  isReadMore = true;
+  isAuthorize: any;
+  constructor(private awardService: AwardService, private route: ActivatedRoute, private routing: Router, private dialog: MatDialog, private toastService: HotToastService) { }
+  Comments: any = {
+    id: 0,
+    comments: '',
+    employeeId: 0,
+    awardId: 0,
   }
-  
+
   ngOnInit(): void {
-    this.isAuthorize=AuthenticationService.GetData("token") 
+    this.isAuthorize = AuthenticationService.GetData("token")
     this.route.params.subscribe(params => {
       this.Id = params['id'];
-     this.awardService.getAwardById(this.Id).subscribe((result) => {
-          this.data = result;
-          console.log(this.data);
-        });
+      this.awardService.getAwardById(this.Id).subscribe((result) => {
+        this.data = result;
       });
-    
+    });
 
 
-      this.awardService.getComments(this.Id).subscribe(result=>{
-        this.commentList=result;
-        console.log(this.commentList.commentedOn);
-      })
+
+    this.awardService.getComments(this.Id).subscribe(result => {
+      this.commentList = result;
+    })
 
   }
-  OnSubmit(){
-  
-    console.log(this.Comments);
-    this.Comments.employeeId=this.employeeId;
-    this.Comments.awardId=this.Id;
-    this.awardService.addComment(this.Comments).subscribe(data=>{
-      console.log(data);
+  OnSubmit() {
+
+    this.Comments.employeeId = this.employeeId;
+    this.Comments.awardId = this.Id;
+    this.awardService.addComment(this.Comments).subscribe(data => {
       this.ngOnInit()
-      this.Comments.comments=''
+      this.Comments.comments = ''
     });
   }
-  LogintoComment(){
+  LogintoComment() {
     if (AuthenticationService.GetData("token") == null)
-       this.dialog.open(DialogboxComponent,{data:{value:"notValid"}});
+      this.dialog.open(DialogboxComponent, { data: { value: "notValid" } });
   }
 
-  
-  
+
+
 }

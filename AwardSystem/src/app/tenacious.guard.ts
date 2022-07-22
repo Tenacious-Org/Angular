@@ -6,19 +6,18 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class TenaciousGuard implements CanActivate {
-  canActivate(){
-     const isTenacious =false;
-      if(isTenacious)
-      {
-        return true;
-      }
-      else{
-        return false;
-      }
+  canActivate() {
+    const isTenacious = false;
+    if (isTenacious) {
+      return true;
+    }
+    else {
+      return false;
+    }
   }
-    // route: ActivatedRouteSnapshot,
-    // state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    // return true;
+  // route: ActivatedRouteSnapshot,
+  // state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+  // return true;
   //}
-  
+
 }

@@ -15,17 +15,17 @@ import { AuthenticationService } from 'src/app/authentication.service';
 export class RejectionReasonComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<RejectionReasonComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any,private router:Router) {
+    @Inject(MAT_DIALOG_DATA) public data: any, private router: Router) {
 
   }
   ngOnInit(): void {
-    if(!AuthenticationService.GetData("Approver")&& !AuthenticationService.GetData("Publisher")){
+    if (!AuthenticationService.GetData("Approver") && !AuthenticationService.GetData("Publisher")) {
       this.router.navigateByUrl("")
     }
 
 
   }
- 
+
 
   close() {
     this.dialogRef.close();

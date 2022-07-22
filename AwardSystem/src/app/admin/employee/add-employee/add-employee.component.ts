@@ -22,136 +22,125 @@ export class AddEmployeeComponent implements OnInit {
   pipe = new DatePipe('en-US');
   //changed= this.pipe.transform(this.today ,'YYY-MM-dd');
   month = (this.today.getMonth());
-  maxMonth = this.pipe.transform(this.month , 'MM');
+  maxMonth = this.pipe.transform(this.month, 'MM');
   date = (this.today.getDate());
-  maxDate = this.pipe.transform(this.date , 'dd');
-  year = (this.today.getFullYear()-18);
-  change = (this.year + '-' + this.maxMonth + '-' +this.maxDate);
+  maxDate = this.pipe.transform(this.date, 'dd');
+  year = (this.today.getFullYear() - 18);
+  change = (this.year + '-' + this.maxMonth + '-' + this.maxDate);
   organisationID: any;
   departmentID: any;
   designationID: any;
   reportingPersonID: any;
   HRId: any;
   DepartmentID: any;
-  
-  constructor(private sharedService:SharedService, private router:Router,private toastService: HotToastService,private dialog: MatDialog) { }
-  imgsrc='';
+
+  constructor(private sharedService: SharedService, private router: Router, private toastService: HotToastService, private dialog: MatDialog) { }
+  imgsrc = '';
   imageError = "";
   isImageSaved: boolean = false;
   cardImageBase64 = "";
-  error:any='';
-  
+  error: any = '';
 
-  Employee : any = {
-    id : 0,
-    aceid : '',
-    firstName : '',
-    lastName : '',
-    email : '',
-    dob : Date,
-    gender:'',
-    image:'',
-    imageName:'',
-    imageString : this.cardImageBase64,
-    organisationId : 0,
-    departmentId : 0,
-    designationId : 0,
-    reportingPersonId : 0,
-    hrID : 0,
-    password : '',
-    addedBy : 0,
-    addedOn : Date.now
+
+  Employee: any = {
+    id: 0,
+    aceid: '',
+    firstName: '',
+    lastName: '',
+    email: '',
+    dob: Date,
+    gender: '',
+    image: '',
+    imageName: '',
+    imageString: this.cardImageBase64,
+    organisationId: 0,
+    departmentId: 0,
+    designationId: 0,
+    reportingPersonId: 0,
+    hrID: 0,
+    password: '',
+    addedBy: 0,
+    addedOn: Date.now
   }
 
   organisations: Organisation[] = [];
   departments: Department[] = [];
   designations: Designation[] = [];
-  reportingPersonList :any;
-  hrList:any;
+  reportingPersonList: any;
+  hrList: any;
   SelectOrg: any = 0;
   SelectDep: any = 0;
-  SelectDes:any=0;
+  SelectDes: any = 0;
   endpoint = "Organisation";
   endpoint1 = "Employee";
-	public filteredData: any[] = [];
+  public filteredData: any[] = [];
 
   ngOnInit(): void {
-    if(!AuthenticationService.GetData("Admin")){
+    if (!AuthenticationService.GetData("Admin")) {
       this.router.navigateByUrl("")
     }
-    this.sharedService.GetAll(this.endpoint).subscribe(data=>{
-      this.organisations=data;
-      console.log(this.organisations);
+    this.sharedService.GetAll(this.endpoint).subscribe(data => {
+      this.organisations = data;
     });
-    
+
   }
 
-  onSelectDep(){
-    this.sharedService.GetDepartmentByOrganisationId(this.SelectOrg).subscribe(data=>{
+  onSelectDep() {
+    this.sharedService.GetDepartmentByOrganisationId(this.SelectOrg).subscribe(data => {
       this.departments = data;
-      console.log(this.departments);
     });
-   }
+  }
 
-   onSelectDes(){
-    this.sharedService.GetDesignationByDepartmentId(this.SelectDep).subscribe(data=>{
+  onSelectDes() {
+    this.sharedService.GetDesignationByDepartmentId(this.SelectDep).subscribe(data => {
       this.designations = data;
-      console.log(this.designations);
     });
-    this.sharedService.GetReportingPersonByDepartmentId(this.SelectDep).subscribe(data=>{
+    this.sharedService.GetReportingPersonByDepartmentId(this.SelectDep).subscribe(data => {
       this.reportingPersonList = data;
-      console.log(this.reportingPersonList);
     });
-    this.sharedService.GetHrByDepartmentId(this.SelectDep).subscribe(data=>{
+    this.sharedService.GetHrByDepartmentId(this.SelectDep).subscribe(data => {
       this.hrList = data;
-      console.log(this.hrList);
-      
     });
-   }
+  }
 
-   OnSubmit(){
+  OnSubmit() {
 
-    console.log(this.Employee.dob)
-    console.log(this.Employee)
-    this.Employee.password="Admin@123";
-    this.sharedService.Add(this.endpoint1,this.Employee).subscribe({
-      // console.log(data);
+    this.Employee.password = "Admin@123";
+    this.sharedService.Add(this.endpoint1, this.Employee).subscribe({
       // this.showToast();
-      next:(res) => { console.log(res),res?this.showToast():null },
+      next: (res) => { res ? this.showToast() : null },
       error: (error) => this.error = error.error.message
     })
 
   }
   showToast() {
     this.toastService.success('Employee Added Succesfully!',
-    {
-      autoClose: true,
-      dismissible: true,
-      icon: '❎',
-    })
+      {
+        autoClose: true,
+        dismissible: true,
+        icon: '❎',
+      })
     this.router.navigate(['/admin/employee']);
 
   }
-   
-  CheckName(OrganisationId:any,DepartmentId: any,DesignationId:any,reportingPersonId:any,hrID:any)
-  {
-    this.organisationID=OrganisationId;
-    this.departmentID=DepartmentId;
-    this.designationID=DesignationId;
-    this.reportingPersonID=reportingPersonId;
-    this.HRId=hrID;
- 
+
+  CheckName(OrganisationId: any, DepartmentId: any, DesignationId: any, reportingPersonId: any, hrID: any) {
+    this.organisationID = OrganisationId;
+    this.departmentID = DepartmentId;
+    this.designationID = DesignationId;
+    this.reportingPersonID = reportingPersonId;
+    this.HRId = hrID;
+
   }
-  changeDate(){
-    document.getElementById("dob")?.setAttribute("max",this.change);
+  changeDate() {
+    document.getElementById("dob")?.setAttribute("max", this.change);
   }
 
-  ImageConversion(fileInput:any){
-    var x:any=document.getElementById("image");
-    var file=x.files[0];
-    if('name' in file){
-      this.Employee.imageName=file.name;
-      console.log(this.Employee.imageName);
+  ImageConversion(fileInput: any) {
+    var x: any = document.getElementById("image");
+    var file = x.files[0];
+    if ('name' in file) {
+      this.Employee.imageName = file.name;
     }
     this.imageError = "";
     if (fileInput.target.files && fileInput.target.files[0]) {
@@ -165,7 +154,6 @@ export class AddEmployeeComponent implements OnInit {
 
         return false;
       }
-      console.log(fileInput.target.files[0].type)
 
       if (!allowed_types.includes(fileInput.target.files[0].type)) {
         this.imageError = 'Only Images are allowed ( JPG | PNG )';
@@ -176,13 +164,13 @@ export class AddEmployeeComponent implements OnInit {
         const image = new Image();
         image.src = e.target.result;
         image.onload = rs => {
-          this.imgsrc=e.target.result;
+          this.imgsrc = e.target.result;
           const imgBase64Path = e.target.result;
           this.cardImageBase64 = imgBase64Path;
-          this.cardImageBase64= this.cardImageBase64.replace("data:image/png;base64,", "");
-          this.cardImageBase64= this.cardImageBase64.replace("data:image/jpg;base64,", "");
-          this.cardImageBase64= this.cardImageBase64.replace("data:image/jpeg;base64,", "");
-          this.Employee.imageString=this.cardImageBase64;
+          this.cardImageBase64 = this.cardImageBase64.replace("data:image/png;base64,", "");
+          this.cardImageBase64 = this.cardImageBase64.replace("data:image/jpg;base64,", "");
+          this.cardImageBase64 = this.cardImageBase64.replace("data:image/jpeg;base64,", "");
+          this.Employee.imageString = this.cardImageBase64;
           this.isImageSaved = true;
         }
       };

@@ -9,7 +9,7 @@ export class ApproverComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-   
+
   }
 
 }

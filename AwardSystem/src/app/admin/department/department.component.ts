@@ -16,55 +16,51 @@ export class DepartmentComponent implements OnInit {
   totalLength: any;
   page: number = 1;
   endpoint = "Department";
-  searchValue='';
-public filteredData: any[] = [];
+  searchValue = '';
+  public filteredData: any[] = [];
   departmentname: any;
-  constructor(private sharedService:SharedService,private dialog: MatDialog,private router:Router) { }
+  constructor(private sharedService: SharedService, private dialog: MatDialog, private router: Router) { }
 
   ngOnInit(): void {
-    if(!AuthenticationService.GetData("Admin")){
+    if (!AuthenticationService.GetData("Admin")) {
       this.router.navigateByUrl("")
     }
-   this.sharedService.GetAll(this.endpoint).subscribe(data=>{
+    this.sharedService.GetAll(this.endpoint).subscribe(data => {
       this.data = data;
-      this.filteredData=data;
-      console.log(this.data);
+      this.filteredData = data;
     });
   }
-  Disable(Id:any){
-    console.log(Id);
-    this.sharedService.GetById(this.endpoint,Id).subscribe((data) => {
-      this.departmentname=data.departmentName;
-      console.log(this.departmentname);
-    this.sharedService.Disable(this.endpoint,Id).subscribe((result) => {
-      console.log(result);
-      this.openDialog(result);
-      this.ngOnInit()
-      //setTimeout(()=> { this.ngOnInit()},1000)
+  Disable(Id: any) {
+    this.sharedService.GetById(this.endpoint, Id).subscribe((data) => {
+      this.departmentname = data.departmentName;
+      this.sharedService.Disable(this.endpoint, Id).subscribe((result) => {
+        this.openDialog(result);
+        this.ngOnInit()
+        //setTimeout(()=> { this.ngOnInit()},1000)
+      });
     });
-  });
   }
-  openDialog(count:any){
+  openDialog(count: any) {
 
-    this.dialog.open(DialogboxComponent,{data:{name:this.departmentname,count:count,value:"Department"}});
+    this.dialog.open(DialogboxComponent, { data: { name: this.departmentname, count: count, value: "Department" } });
 
   }
 
   public data: DepartmentVM[] = [];
-  dialogDisable(id:any){
-    let dialogRef =this.dialog.open(DialogboxComponent,{data:{value:"disable"}})
+  dialogDisable(id: any) {
+    let dialogRef = this.dialog.open(DialogboxComponent, { data: { value: "disable" } })
     dialogRef.afterClosed().subscribe(value => {
-      if(value!=undefined){
+      if (value != undefined) {
         this.Disable(id);
       }
     });
   }
 
-  Search(value:string){
-		this.data=this.filteredData.filter(item =>
-		item.departmentname.toLowerCase().includes(value.toLowerCase()))
-		this.page=1;
-	}
+  Search(value: string) {
+    this.data = this.filteredData.filter(item =>
+      item.departmentname.toLowerCase().includes(value.toLowerCase()))
+    this.page = 1;
+  }
 
 
 

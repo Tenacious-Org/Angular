@@ -1,10 +1,12 @@
-import { trigger,
+import {
+  trigger,
   state,
   style,
   animate,
   transition,
   query,
-  animateChild } from '@angular/animations';
+  animateChild
+} from '@angular/animations';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -23,58 +25,58 @@ import { SharedService } from '../shared.service';
     ]),
     trigger('easeInOut', [
       transition('void => *', [
-          style({
-              opacity: 0
-          }),
-          animate("500ms ease-in", style({
-              opacity: 1
-          }))
+        style({
+          opacity: 0
+        }),
+        animate("500ms ease-in", style({
+          opacity: 1
+        }))
       ]),
       transition('* => void', [
-          style({
-              opacity: 1
-          }),
-          animate("500ms ease-in", style({
-              opacity: 0
-          }))
-        ])
+        style({
+          opacity: 1
+        }),
+        animate("500ms ease-in", style({
+          opacity: 0
+        }))
       ])
+    ])
   ]
 })
 export class SidebarComponent implements OnInit {
 
-  role:any;
+  role: any;
   id: any;
-  data: string[]=[];
-  endpoint="Employee";
-  constructor(private sharedService: SharedService, private router:Router) { }
+  data: string[] = [];
+  endpoint = "Employee";
+  constructor(private sharedService: SharedService, private router: Router) { }
 
   ngOnInit(): void {
-    this.role=AuthenticationService.GetData("Role");
-    this.id=AuthenticationService.GetData("User");
-    this.sharedService.GetById(this.endpoint,this.id)
+    this.role = AuthenticationService.GetData("Role");
+    this.id = AuthenticationService.GetData("User");
+    this.sharedService.GetById(this.endpoint, this.id)
       .subscribe((data) => {
         this.data = data;
-        console.log(this.data);
-      });  }
- 
+      });
+  }
+
   isShowDivIf = false;
-  
+
   toggleDisplayDivIf() {
     this.isShowDivIf = !this.isShowDivIf;
   }
-  reloadrequest(){
-    this.router.navigateByUrl('/',{skipLocationChange:true}).then(()=>{
+  reloadrequest() {
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
       this.router.navigate(['/awardlist/2']);
     })
   }
-  reloadapprove(){
-    this.router.navigateByUrl('/',{skipLocationChange:true}).then(()=>{
+  reloadapprove() {
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
       this.router.navigate(['/awardlist/3']);
     })
   }
-  reloadpublish(){
-    this.router.navigateByUrl('/',{skipLocationChange:true}).then(()=>{
+  reloadpublish() {
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
       this.router.navigate(['/awardlist/4']);
     })
   }
