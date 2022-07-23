@@ -94,7 +94,7 @@ export class RequesterAddRequestComponent implements OnInit {
 
   OnSubmit() {
     this.Awards.awardeeId = this.selectedAwardee;
-    this.awardService.addRequest(this.Awards).subscribe({
+    this.awardService.AddRequest(this.Awards).subscribe({
       next: (res) => { res ? this.showToast() : null },
       error: (error) => this.error = error.error.message
     });
