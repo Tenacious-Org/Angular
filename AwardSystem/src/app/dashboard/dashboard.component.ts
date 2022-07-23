@@ -381,7 +381,6 @@ export class DashboardComponent implements OnInit {
     console.log(tdate == new Date("0001-04-29").toString())
 
     console.log("this.fromdate: ",this.fromdate)
-    console.log("this.fromdate: Hi   ",this.fromdate.toISOString().slice(0,10))
 
     //All Values Empty
     if(orgid == 0 && deptid == 0 && awdid == 0 && fdate == new Date("0001-04-15").toString() && tdate == new Date("0001-04-29").toString()){
