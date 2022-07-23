@@ -7,7 +7,7 @@ import { AuthenticationService } from './authentication.service';
   providedIn: 'root'
 })
 export class AwardService {
-  readonly apiurl = "http://172.24.209.186/DedSec/Award/";
+  readonly apiurl = "https://localhost:7275/Award/";
   constructor(private http:HttpClient) { }
   public headers = new HttpHeaders({
     'Content-Type': 'application/json',
