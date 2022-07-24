@@ -38,7 +38,7 @@ export class RequesterAddRequestComponent implements OnInit {
       approverId: 0,
       reason: '',
       rejectReason: '',
-      hRId: 0,
+      publisherId: 0,
       couponCode: '',
       statusId: 0,
       isActive: true,

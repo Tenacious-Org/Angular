@@ -7,7 +7,7 @@ export class Awards
     approverId : number = 0;
     reason : string = '';
     rejectReason : string = '';
-    hRId : number = 0;
+    publisherId : number = 0;
     couponCode : string = '';
     statusId = 0;
     addedBy = 0;
