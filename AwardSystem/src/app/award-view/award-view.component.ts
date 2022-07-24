@@ -61,7 +61,7 @@ export class AwardViewComponent implements OnInit {
         this.awards.awardTypeId = this.data.awardTypeId;
         this.awards.approverId = this.data.approverId;
         this.awards.reason = this.data.reason;
-        this.awards.hRId = this.data.hRId;
+        this.awards.publisherId = this.data.publisherId;
         this.awards.addedBy = this.data.addedBy;
         this.awards.addedOn = this.data.addedOn;
       });
@@ -82,10 +82,8 @@ export class AwardViewComponent implements OnInit {
         this.awards.statusId = this.rejectedId;
         this.awardService.Approval(this.awards).subscribe(data => {
           this.rejectedToast();
-
         });
       }
-
     });
   }
   onPublish() {
@@ -100,7 +98,6 @@ export class AwardViewComponent implements OnInit {
         });
       }
     });
-
   }
   // PublishDialog(id:any){
   //   let dialogRef =this.dialog.open(DialogboxComponent,{data:{value:"publish"}})
@@ -134,7 +131,6 @@ export class AwardViewComponent implements OnInit {
         icon: '❎',
       })
     this.router.navigate(['/awardlist/3']);
-
   }
   reason() {
     this.show = 1;
