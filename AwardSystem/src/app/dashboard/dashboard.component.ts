@@ -206,7 +206,7 @@ export class DashboardComponent implements OnInit {
     if(orgid != 0 && deptid == 0 && awdid == 0 && fdate == new Date("0001-04-15").toString() && tdate == new Date("0001-04-29").toString()){
       console.log("Filtered By Organisation.")
       this.onSelectDepCascade()
-      this.sharedService.getAllDetailsByDashboardFilters(this.SelectOrg, this.SelectDep, this.SelectAward, this.fromdate.toISOString().slice(0,10), this.todate.toISOString().slice(0,10)).subscribe(res => {
+      this.sharedService.GetAllDetailsByDashboardFilters(this.SelectOrg, this.SelectDep, this.SelectAward, this.fromdate.toISOString().slice(0,10), this.todate.toISOString().slice(0,10)).subscribe(res => {
 
         let tres = true;
         this.res = tres;
@@ -297,7 +297,7 @@ export class DashboardComponent implements OnInit {
     //Filtered By Awards
     if(orgid == 0 && deptid == 0 && awdid != 0 && fdate == new Date("0001-04-15").toString() && tdate == new Date("0001-04-29").toString()){
       console.log("Filtered By Awards.")
-      this.sharedService.getAllDetailsByDashboardFilters(this.SelectOrg, this.SelectDep, this.SelectAward, this.fromdate.toISOString().slice(0,10), this.todate.toISOString().slice(0,10)).subscribe(res => {
+      this.sharedService.GetAllDetailsByDashboardFilters(this.SelectOrg, this.SelectDep, this.SelectAward, this.fromdate.toISOString().slice(0,10), this.todate.toISOString().slice(0,10)).subscribe(res => {
 
         let tres = true;
         this.res = tres;
@@ -389,7 +389,7 @@ export class DashboardComponent implements OnInit {
     //Filtered By Organisation and Department wise
     if(orgid != 0 && deptid != 0 && awdid == 0 && fdate == new Date("0001-04-15").toString() && tdate == new Date("0001-04-29").toString()){
       console.log("Filtered By Organisation and Department wise.")
-      this.sharedService.getAllDetailsByDashboardFilters(this.SelectOrg, this.SelectDep, this.SelectAward, this.fromdate.toISOString().slice(0,10), this.todate.toISOString().slice(0,10)).subscribe( (res) =>
+      this.sharedService.GetAllDetailsByDashboardFilters(this.SelectOrg, this.SelectDep, this.SelectAward, this.fromdate.toISOString().slice(0,10), this.todate.toISOString().slice(0,10)).subscribe( (res) =>
       {
         
           //converting api values into list
@@ -479,7 +479,7 @@ export class DashboardComponent implements OnInit {
     //Filtered By Organisation and Award wise
     if(orgid != 0 && deptid == 0 && awdid != 0 && fdate == new Date("0001-04-15").toString() && tdate == new Date("0001-04-29").toString()){
       console.log("Get All Data Filtered By Organisation and Award Type.")
-      this.sharedService.getAllDetailsByDashboardFilters(this.SelectOrg, this.SelectDep, this.SelectAward, this.fromdate.toISOString().slice(0,10), this.todate.toISOString().slice(0,10)).subscribe(res => {
+      this.sharedService.GetAllDetailsByDashboardFilters(this.SelectOrg, this.SelectDep, this.SelectAward, this.fromdate.toISOString().slice(0,10), this.todate.toISOString().slice(0,10)).subscribe(res => {
 
         //converting api values into list
         let d = []
@@ -597,7 +597,7 @@ export class DashboardComponent implements OnInit {
     //Filtered By Organisation and From Date
     if(orgid != 0 && deptid == 0 && awdid == 0 && fdate != new Date("0001-04-15").toString() && tdate == new Date("0001-04-29").toString()){
       console.log("Get Data By Organisation and From Date.")
-      this.sharedService.getAllDetailsByDashboardFilters(this.SelectOrg, this.SelectDep, this.SelectAward, this.fromdate, this.todate.toISOString().slice(0,10)).subscribe( res =>
+      this.sharedService.GetAllDetailsByDashboardFilters(this.SelectOrg, this.SelectDep, this.SelectAward, this.fromdate, this.todate.toISOString().slice(0,10)).subscribe( res =>
       {
         //converting api values into list
         let d = []
@@ -715,7 +715,7 @@ export class DashboardComponent implements OnInit {
     //Filtered By Organisation and To Date
     if(orgid != 0 && deptid == 0 && awdid == 0 && fdate == new Date("0001-04-15").toString() && tdate != new Date("0001-04-29").toString()){
       console.log("Get Data By Organisation and To Date.")
-      this.sharedService.getAllDetailsByDashboardFilters(this.SelectOrg, this.SelectDep, this.SelectAward, this.fromdate.toISOString().slice(0,10), this.todate).subscribe( res => {
+      this.sharedService.GetAllDetailsByDashboardFilters(this.SelectOrg, this.SelectDep, this.SelectAward, this.fromdate.toISOString().slice(0,10), this.todate).subscribe( res => {
 
         //converting api values into list
         let d = []
@@ -833,7 +833,7 @@ export class DashboardComponent implements OnInit {
     //Filtered By Organisation, From Date and To Date.
     if(orgid != 0 && deptid == 0 && awdid == 0 && fdate != new Date("0001-04-15").toString() && tdate != new Date("0001-04-29").toString()){
       console.log("Get Data By Organisation, From Date and To Date.")
-      this.sharedService.getAllDetailsByDashboardFilters(this.SelectOrg, this.SelectDep, this.SelectAward, this.fromdate, this.todate).subscribe( res => {
+      this.sharedService.GetAllDetailsByDashboardFilters(this.SelectOrg, this.SelectDep, this.SelectAward, this.fromdate, this.todate).subscribe( res => {
 
         //converting api values into list
         let d = []
@@ -951,7 +951,7 @@ export class DashboardComponent implements OnInit {
     //Filtered By Organisation, Department and Awards
     if(orgid != 0 && deptid != 0 && awdid != 0 && fdate == new Date("0001-04-15").toString() && tdate == new Date("0001-04-29").toString()){
       console.log("Get Data By Organisation, Department and Awards.")
-      this.sharedService.getAllDetailsByDashboardFilters(this.SelectOrg, this.SelectDep, this.SelectAward, this.fromdate.toISOString().slice(0,10), this.todate.toISOString().slice(0,10)).subscribe( res => 
+      this.sharedService.GetAllDetailsByDashboardFilters(this.SelectOrg, this.SelectDep, this.SelectAward, this.fromdate.toISOString().slice(0,10), this.todate.toISOString().slice(0,10)).subscribe( res => 
       {
 
           //converting api values into list
@@ -1070,7 +1070,7 @@ export class DashboardComponent implements OnInit {
     //Filtered By Organisation, Department and From Date
     if(orgid != 0 && deptid != 0 && awdid == 0 && fdate != new Date("0001-04-15").toString() && tdate == new Date("0001-04-29").toString()){
       console.log("Get Data By Organisation, Department and From Date.")
-      this.sharedService.getAllDetailsByDashboardFilters(this.SelectOrg, this.SelectDep, this.SelectAward, this.fromdate, this.todate.toISOString().slice(0,10)).subscribe( res =>
+      this.sharedService.GetAllDetailsByDashboardFilters(this.SelectOrg, this.SelectDep, this.SelectAward, this.fromdate, this.todate.toISOString().slice(0,10)).subscribe( res =>
       {
 
         //converting api values into list
@@ -1160,7 +1160,7 @@ export class DashboardComponent implements OnInit {
     //Filtered By Organisation, Award and From Date
     if(orgid != 0 && deptid == 0 && awdid != 0 && fdate != new Date("0001-04-15").toString() && tdate == new Date("0001-04-29").toString()){
       console.log("Get Data By Organisation, Award and From Date.")
-      this.sharedService.getAllDetailsByDashboardFilters(this.SelectOrg, this.SelectDep, this.SelectAward, this.fromdate, this.todate.toISOString().slice(0,10)).subscribe( res =>
+      this.sharedService.GetAllDetailsByDashboardFilters(this.SelectOrg, this.SelectDep, this.SelectAward, this.fromdate, this.todate.toISOString().slice(0,10)).subscribe( res =>
       {
         console.log("Selectorg: ", this.SelectOrg)
         console.log("SelectDep: ", this.SelectDep)
@@ -1284,7 +1284,7 @@ export class DashboardComponent implements OnInit {
     if(orgid != 0 && deptid != 0 && awdid == 0 && fdate == new Date("0001-04-15").toString() && tdate != new Date("0001-04-29").toString()){
       console.log("Get Data By Organisation, Department and To Date.")
       
-      this.sharedService.getAllDetailsByDashboardFilters(this.SelectOrg, this.SelectDep, this.SelectAward, this.fromdate.toISOString().slice(0,10), this.todate).subscribe( res =>
+      this.sharedService.GetAllDetailsByDashboardFilters(this.SelectOrg, this.SelectDep, this.SelectAward, this.fromdate.toISOString().slice(0,10), this.todate).subscribe( res =>
       {
 
         //converting api values into list
@@ -1374,7 +1374,7 @@ export class DashboardComponent implements OnInit {
     //Filtered By Organisation, Award and To Date
     if(orgid != 0 && deptid == 0 && awdid != 0 && fdate == new Date("0001-04-15").toString() && tdate != new Date("0001-04-29").toString()){
       console.log("Get Data By Organisation, Award and To Date.")
-      this.sharedService.getAllDetailsByDashboardFilters(this.SelectOrg, this.SelectDep, this.SelectAward, this.fromdate.toISOString().slice(0,10), this.todate).subscribe( res =>
+      this.sharedService.GetAllDetailsByDashboardFilters(this.SelectOrg, this.SelectDep, this.SelectAward, this.fromdate.toISOString().slice(0,10), this.todate).subscribe( res =>
         {
 
             //converting api values into list
@@ -1493,7 +1493,7 @@ export class DashboardComponent implements OnInit {
     //Filter Organisation, Department, Award, From Date
     if(orgid != 0 && deptid != 0 && awdid !=0 && fdate != new Date("0001-04-15").toString() && tdate == new Date("0001-04-29").toString()){
       console.log("Get Data By Organisation, Department, Award, From Date")
-      this.sharedService.getAllDetailsByDashboardFilters(this.SelectOrg, this.SelectDep, this.SelectAward, this.fromdate, this.todate.toISOString().slice(0,10)).subscribe(res => {
+      this.sharedService.GetAllDetailsByDashboardFilters(this.SelectOrg, this.SelectDep, this.SelectAward, this.fromdate, this.todate.toISOString().slice(0,10)).subscribe(res => {
 
         console.log("selctorg: ",this.SelectOrg)
         console.log("selctdep: ",this.SelectDep)
@@ -1614,7 +1614,7 @@ export class DashboardComponent implements OnInit {
     //Filter Organisation, Department, Award, To Date
     if(orgid != 0 && deptid != 0 && awdid !=0 && fdate == new Date("0001-04-15").toString() && tdate != new Date("0001-04-29").toString()){
       console.log("Get Data By Organisation, Department, Award, To Date")
-      this.sharedService.getAllDetailsByDashboardFilters(this.SelectOrg, this.SelectDep, this.SelectAward, this.fromdate.toISOString().slice(0,10), this.todate).subscribe(res => {
+      this.sharedService.GetAllDetailsByDashboardFilters(this.SelectOrg, this.SelectDep, this.SelectAward, this.fromdate.toISOString().slice(0,10), this.todate).subscribe(res => {
 
         console.log("selctorg: ",this.SelectOrg)
         console.log("selctdep: ",this.SelectDep)
@@ -1735,7 +1735,7 @@ export class DashboardComponent implements OnInit {
     //Filter By Award, From Date
     if(orgid == 0 && deptid == 0 && awdid != 0 && fdate != new Date("0001-04-15").toString() && tdate == new Date("0001-04-29").toString()){
       console.log("Get Data By Award, From Date.")
-      this.sharedService.getAllDetailsByDashboardFilters(this.SelectOrg, this.SelectDep, this.SelectAward, this.fromdate, this.todate.toISOString().slice(0,10)).subscribe(res => {
+      this.sharedService.GetAllDetailsByDashboardFilters(this.SelectOrg, this.SelectDep, this.SelectAward, this.fromdate, this.todate.toISOString().slice(0,10)).subscribe(res => {
 
         console.log("selctorg: ",this.SelectOrg)
         console.log("selctdep: ",this.SelectDep)
@@ -1856,7 +1856,7 @@ export class DashboardComponent implements OnInit {
     //Filter By Award, To Date
     if(orgid == 0 && deptid == 0 && awdid != 0 && fdate == new Date("0001-04-15").toString() && tdate != new Date("0001-04-29").toString()){
       console.log("Get Data By Award, To Date.")
-      this.sharedService.getAllDetailsByDashboardFilters(this.SelectOrg, this.SelectDep, this.SelectAward, this.fromdate.toISOString().slice(0,10), this.todate).subscribe(res => {
+      this.sharedService.GetAllDetailsByDashboardFilters(this.SelectOrg, this.SelectDep, this.SelectAward, this.fromdate.toISOString().slice(0,10), this.todate).subscribe(res => {
 
         console.log("selctorg: ",this.SelectOrg)
         console.log("selctdep: ",this.SelectDep)
@@ -1977,7 +1977,7 @@ export class DashboardComponent implements OnInit {
     //Filter By Award, From Date, To Date
     if(orgid == 0 && deptid == 0 && awdid != 0 && fdate != new Date("0001-04-15").toString() && tdate != new Date("0001-04-29").toString()){
       console.log("Get Data By Award, From Date, and To Date.")
-      this.sharedService.getAllDetailsByDashboardFilters(this.SelectOrg, this.SelectDep, this.SelectAward, this.fromdate, this.todate).subscribe(res => {
+      this.sharedService.GetAllDetailsByDashboardFilters(this.SelectOrg, this.SelectDep, this.SelectAward, this.fromdate, this.todate).subscribe(res => {
 
         console.log("selctorg: ",this.SelectOrg)
         console.log("selctdep: ",this.SelectDep)
@@ -2098,7 +2098,7 @@ export class DashboardComponent implements OnInit {
     //Filtered By Organisation, Department, From date and To date
     if(orgid != 0 && deptid != 0 && awdid == 0 && fdate != new Date("0001-04-15").toString() && tdate != new Date("0001-04-29").toString()){
       console.log("Get Data By Organisation, Department, From Date and To Date.")
-      this.sharedService.getAllDetailsByDashboardFilters(this.SelectOrg, this.SelectDep, this.SelectAward, this.fromdate, this.todate).subscribe( res => {
+      this.sharedService.GetAllDetailsByDashboardFilters(this.SelectOrg, this.SelectDep, this.SelectAward, this.fromdate, this.todate).subscribe( res => {
         //converting api values into list
         let d = []
         let d1:string[][] = []
@@ -2188,7 +2188,7 @@ export class DashboardComponent implements OnInit {
     //Filtered By Organisation, Award, From date and To date
     if(orgid != 0 && deptid == 0 && awdid != 0 && fdate != new Date("0001-04-15").toString() && tdate != new Date("0001-04-29").toString()){
       console.log("Get Data By Organisation, Award, From Date and To Date.")
-      this.sharedService.getAllDetailsByDashboardFilters(this.SelectOrg, this.SelectDep, this.SelectAward, this.fromdate, this.todate).subscribe( res => {
+      this.sharedService.GetAllDetailsByDashboardFilters(this.SelectOrg, this.SelectDep, this.SelectAward, this.fromdate, this.todate).subscribe( res => {
 
         //converting api values into list
         let d = []
@@ -2306,7 +2306,7 @@ export class DashboardComponent implements OnInit {
     //Filtered By From Date
     if(orgid == 0 && deptid == 0 && awdid == 0 && fdate != new Date("0001-04-15").toString() && tdate == new Date("0001-04-29").toString()){
       console.log("Get Data By From Date.")
-      this.sharedService.getAllDetailsByDashboardFilters(this.SelectOrg, this.SelectDep, this.SelectAward, this.fromdate, this.todate.toISOString().slice(0,10)).subscribe( res =>{
+      this.sharedService.GetAllDetailsByDashboardFilters(this.SelectOrg, this.SelectDep, this.SelectAward, this.fromdate, this.todate.toISOString().slice(0,10)).subscribe( res =>{
 
          //converting api values into list
          let d = []
@@ -2424,7 +2424,7 @@ export class DashboardComponent implements OnInit {
     //Filtered By To Date
     if(orgid == 0 && deptid == 0 && awdid == 0 && fdate == new Date("0001-04-15").toString() && tdate != new Date("0001-04-29").toString()){
       console.log("Get Data By To Date.")
-      this.sharedService.getAllDetailsByDashboardFilters(this.SelectOrg, this.SelectDep, this.SelectAward, this.fromdate.toISOString().slice(0,10), this.todate).subscribe( res => {
+      this.sharedService.GetAllDetailsByDashboardFilters(this.SelectOrg, this.SelectDep, this.SelectAward, this.fromdate.toISOString().slice(0,10), this.todate).subscribe( res => {
 
         //converting api values into list
         let d = []
@@ -2542,7 +2542,7 @@ export class DashboardComponent implements OnInit {
     //Filter by From Date and To Date
     if(orgid == 0 && deptid == 0 && awdid == 0 && fdate != new Date("0001-04-15").toString() && tdate != new Date("0001-04-29").toString()){
       console.log("Get Date By Date Range")
-      this.sharedService.getAllDetailsByDashboardFilters(this.SelectOrg, this.SelectDep, this.SelectAward, this.fromdate, this.todate).subscribe( res => {
+      this.sharedService.GetAllDetailsByDashboardFilters(this.SelectOrg, this.SelectDep, this.SelectAward, this.fromdate, this.todate).subscribe( res => {
 
         //converting api values into list
         let d = []
@@ -2661,7 +2661,7 @@ export class DashboardComponent implements OnInit {
     //All 5 Filter - Organisation, Department, Award, Start, End
     if(orgid != 0 && deptid != 0 && awdid != 0 && fdate != new Date("0001-04-15").toString() && tdate != new Date("0001-04-29").toString()){
       console.log("Get all Data Filtered By Organisation, Department, Award, Startdate, Enddate")
-      this.sharedService.getAllDetailsByDashboardFilters(this.SelectOrg, this.SelectDep, this.SelectAward, this.fromdate, this.todate).subscribe(res => {
+      this.sharedService.GetAllDetailsByDashboardFilters(this.SelectOrg, this.SelectDep, this.SelectAward, this.fromdate, this.todate).subscribe(res => {
 
         console.log("selctorg: ",this.SelectOrg)
         console.log("selctdep: ",this.SelectDep)

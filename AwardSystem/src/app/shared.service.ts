@@ -26,7 +26,6 @@ export class SharedService {
 
   //create method
   Add(endpoint: any, data: any): Observable<any> {
-
     return this.http.post<any>(this.apiurl + endpoint + '/Create', data, { headers: this.headers })
   }
 
@@ -84,9 +83,13 @@ export class SharedService {
   }
 
   //Filtering Dashboard
-  getAllDetailsByDashboardFilters(organisationId: number, departmentId: number, awardId: number, start: any, end: any) {
+  GetAllDetailsByDashboardFilters(organisationId: number, departmentId: number, awardId: number, start: any, end: any) {
     return this.http.get<any>(this.apiurl + `Dashboard/GetDashboardDetailsByFilters?organisationId=${organisationId}&departmentId=${departmentId}&awardId=${awardId}&start=${start}&end=${end}`, { headers: this.headers })
   }
 
+  //Forgot password
+  ForgotPassword(data:any):Observable<any>{
+    return this.http.post<any>(this.apiurl + 'Employee/ForgotPassword', data, { headers: this.headers })
+  }
 
 }
