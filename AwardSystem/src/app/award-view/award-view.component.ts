@@ -68,14 +68,19 @@ export class AwardViewComponent implements OnInit {
     });
   }
   OnAccept() {
+    if (!AuthenticationService.GetData("Approver") && !AuthenticationService.GetData("Publisher")) {
+      this.router.navigateByUrl("")
+    }
     this.awards.statusId = this.approvedId;
     this.awardService.Approval(this.awards).subscribe(data => {
       this.acceptedToast();
     });
   }
   OnReject() {
+    if (!AuthenticationService.GetData("Approver") && !AuthenticationService.GetData("Publisher")) {
+      this.router.navigateByUrl("")
+    }
     let dialogRef = this.dialog.open(RejectionReasonComponent, { data: { reason: this.Reason } });
-
     dialogRef.afterClosed().subscribe(value => {
       this.awards.rejectedReason = value;
       if (value != undefined) {
@@ -87,6 +92,9 @@ export class AwardViewComponent implements OnInit {
     });
   }
   onPublish() {
+    if (!AuthenticationService.GetData("Publisher")) {
+      this.router.navigateByUrl("")
+    }
     let dialogRef = this.dialog.open(DialogboxComponent, { data: { value: "publish" } })
     dialogRef.afterClosed().subscribe(value => {
       if (value != undefined) {
@@ -99,14 +107,6 @@ export class AwardViewComponent implements OnInit {
       }
     });
   }
-  // PublishDialog(id:any){
-  //   let dialogRef =this.dialog.open(DialogboxComponent,{data:{value:"publish"}})
-  //   dialogRef.afterClosed().subscribe(value => {
-  //     if(value!=undefined){
-  //       this.onPublish();
-  //     }
-  //   });
-  // }
   publishedToast() {
     this.toastService.success('Published Successfully!',
       {

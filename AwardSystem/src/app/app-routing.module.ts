@@ -36,12 +36,7 @@ import { AdminGuard } from './admin.guard';
 import { AdminChildGuard } from './admin-child.guard';
 import { InvalidComponent } from './invalid/invalid.component';
 import { RequestGuard } from './request.guard';
-// import { HotToastModule } from '@ngneat/hot-toast';
-
-
 const routes: Routes = [
-
-
   {
     path: 'admin',
     canActivate: [AdminGuard],
@@ -75,7 +70,7 @@ const routes: Routes = [
     ]
   },
 
-  { path: 'requester-add-request', component: RequesterAddRequestComponent, canActivate: [RequestGuard] },
+  { path: 'requester-add-request', component: RequesterAddRequestComponent},
   { path: 'invalid', component: InvalidComponent },
   { path: 'layout', component: LayoutComponent },
   { path: 'login', component: LoginComponent },
@@ -93,7 +88,6 @@ const routes: Routes = [
   { path: 'awardlist/:id', component: AwardListComponent },
   { path: '', redirectTo: 'homecard/0', pathMatch: 'full' },
 ];
-
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
