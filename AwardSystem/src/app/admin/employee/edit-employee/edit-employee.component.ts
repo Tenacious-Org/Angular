@@ -41,12 +41,10 @@ export class EditEmployeeComponent implements OnInit {
   departments: Department[] = [];
   designations: Designation[] = [];
   reportingPersonList: any;
-  SelectOrg: any = 0;
-  SelectDep: any = 0;
-
   endpoint = "Organisation";
   endpoint1 = "Employee";
   endpoint2 = "Department";
+  endpoint3 = "Designation";
   hrList: any;
   organisationID: any;
   departmentID: any;
@@ -55,6 +53,7 @@ export class EditEmployeeComponent implements OnInit {
   HRId: any;
   Dob: any;
   error: any;
+  DesignationName: any;
   constructor(private sharedService: SharedService, private router: ActivatedRoute, private routing: Router, private toastService: HotToastService) { }
 
   ngOnInit(): void {
@@ -65,25 +64,26 @@ export class EditEmployeeComponent implements OnInit {
       this.Id = params['id'];
       this.sharedService.GetById(this.endpoint1, this.Id).subscribe((result) => {
         this.data = result;
+        console.log(this.data)
         if (this.data.image != "") {
           this.imgsrc = 'data:image/jpg;base64,' + this.data.image;
         }
-        this.SelectOrg = this.data.organisationId;
-        this.SelectDep = this.data.departmentId;
+        this.selectedOrganisation = this.data.organisationId;
+        this.selectedDepartment = this.data.departmentId;
         this.selectedDesignation = this.data.designationId;
         this.selectedReportingPerson = this.data.reportingPersonId;
         this.selectedHr = this.data.hrId;
         this.Dob = formatDate(this.data.dob, 'YYYY-MM-dd', 'en')
-        this.sharedService.GetDepartmentByOrganisationId(this.SelectOrg).subscribe(data => {
+        this.sharedService.GetDepartmentByOrganisationId(this.selectedOrganisation).subscribe(data => {
           this.departments = data;
         });
-        this.sharedService.GetReportingPersonByDepartmentId(this.SelectDep).subscribe(data => {
+        this.sharedService.GetReportingPersonByDepartmentId(this.selectedDepartment).subscribe(data => {
           this.reportingPersonList = data;
         });
-        this.sharedService.GetHrByDepartmentId(this.SelectDep).subscribe(data => {
+        this.sharedService.GetHrByDepartmentId(this.selectedDepartment).subscribe(data => {
           this.hrList = data;
         });
-        this.sharedService.GetDesignationByDepartmentId(this.SelectDep).subscribe(data => {
+        this.sharedService.GetDesignationByDepartmentId(this.selectedDepartment).subscribe(data => {
           this.designations = data;
         });
       });
@@ -93,30 +93,43 @@ export class EditEmployeeComponent implements OnInit {
     });
 
   }
-  onSelectOrg() {
-    this.sharedService.GetDepartmentByOrganisationId(this.SelectOrg).subscribe(data => {
+  onSelectOrganisation() {
+    this.sharedService.GetDepartmentByOrganisationId(this.selectedOrganisation).subscribe(data => {
       this.departments = data;
     });
   }
 
-  onSelectDep() {
-
-    this.sharedService.GetReportingPersonByDepartmentId(this.SelectDep).subscribe(data => {
-      this.reportingPersonList = data;
-    });
-    this.sharedService.GetHrByDepartmentId(this.SelectDep).subscribe(data => {
-      this.hrList = data;
-    });
-    this.sharedService.GetDesignationByDepartmentId(this.SelectDep).subscribe(data => {
+  onSelectDepartment() {
+    this.sharedService.GetDesignationByDepartmentId(this.selectedDepartment).subscribe(data => {
       this.designations = data;
     });
+    
+  }
+  onSelectDesignation(){
+    this.sharedService.GetById(this.endpoint3,this.selectedDesignation).subscribe(data => {
+        this.DesignationName=data.designationName.toLowerCase();
+        console.log(this.DesignationName)
+        if(this.DesignationName=='hr'){
+          this.sharedService.GetEmployeeByVpDesignation().subscribe(data => {
+            this.reportingPersonList = data;
+            this.hrList = data;
+          });
+        }
+        if(this.DesignationName!='hr'){
+          this.sharedService.GetReportingPersonByDepartmentId(this.selectedDepartment).subscribe(data => {
+            this.reportingPersonList = data;
+          });
+          this.sharedService.GetHrByDepartmentId(this.selectedDepartment).subscribe(data => {
+            this.hrList = data;
+          });
+        }
+    }); 
   }
 
   OnSubmit() {
     this.data.dob = this.Dob;
     if (this.data.imageString == null && this.data.image != null) {
       this.data.imageString = this.data.image;
-
     }
     this.sharedService.Edit(this.endpoint1, this.data).subscribe({
       next: (res) => { res ? this.showToast() : null },

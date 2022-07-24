@@ -14,7 +14,7 @@
           </div>
         <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onSelectAwardee($event)">
           <mat-option *ngFor="let item of filteredOptions | async" [value]="item.firstName" [id]="item.id">
-            {{item.firstName}} </mat-option>
+            {{item.firstName}} {{item.lastName}}</mat-option>
         </mat-autocomplete>
       </div>
       <div class="Award col-auto ">

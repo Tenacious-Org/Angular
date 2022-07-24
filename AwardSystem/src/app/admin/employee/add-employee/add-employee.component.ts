@@ -68,11 +68,13 @@ export class AddEmployeeComponent implements OnInit {
   designations: Designation[] = [];
   reportingPersonList: any;
   hrList: any;
-  SelectOrg: any = 0;
-  SelectDep: any = 0;
-  SelectDes: any = 0;
+  SelectOrganisation: any = 0;
+  SelectDepartment: any = 0;
+  SelectDesignation: any = 0;
   endpoint = "Organisation";
   endpoint1 = "Employee";
+  endpoint2 = "Designation";
+  DesignationName:any;
   public filteredData: any[] = [];
 
   ngOnInit(): void {
@@ -82,36 +84,46 @@ export class AddEmployeeComponent implements OnInit {
     this.sharedService.GetAll(this.endpoint).subscribe(data => {
       this.organisations = data;
     });
-
   }
 
-  onSelectDep() {
-    this.sharedService.GetDepartmentByOrganisationId(this.SelectOrg).subscribe(data => {
+  onSelectOrganisation() {
+    this.sharedService.GetDepartmentByOrganisationId(this.SelectOrganisation).subscribe(data => {
       this.departments = data;
     });
   }
 
-  onSelectDes() {
-    this.sharedService.GetDesignationByDepartmentId(this.SelectDep).subscribe(data => {
+  onSelectDepartment() {
+    this.sharedService.GetDesignationByDepartmentId(this.SelectDepartment).subscribe(data => {
       this.designations = data;
     });
-    this.sharedService.GetReportingPersonByDepartmentId(this.SelectDep).subscribe(data => {
-      this.reportingPersonList = data;
-    });
-    this.sharedService.GetHrByDepartmentId(this.SelectDep).subscribe(data => {
-      this.hrList = data;
-    });
+    
+  }
+  onSelectDesignation(){
+    this.sharedService.GetById(this.endpoint2,this.SelectDesignation).subscribe(data => {
+        this.DesignationName=data.designationName.toLowerCase();
+        console.log(this.DesignationName)
+        if(this.DesignationName=='hr'){
+          this.sharedService.GetEmployeeByVpDesignation().subscribe(data => {
+            this.reportingPersonList = data;
+            this.hrList = data;
+          });
+        }
+        if(this.DesignationName!='hr'){
+          this.sharedService.GetReportingPersonByDepartmentId(this.SelectDepartment).subscribe(data => {
+            this.reportingPersonList = data;
+          });
+          this.sharedService.GetHrByDepartmentId(this.SelectDepartment).subscribe(data => {
+            this.hrList = data;
+          });
+        }
+    }); 
   }
 
   OnSubmit() {
-
-    this.Employee.password = "Admin@123";
     this.sharedService.Add(this.endpoint1, this.Employee).subscribe({
-      // this.showToast();
       next: (res) => { res ? this.showToast() : null },
       error: (error) => this.error = error.error.message
     })
-
   }
   showToast() {
     this.toastService.success('Employee Added Succesfully!',

@@ -43,7 +43,7 @@ export class SharedService {
   //Get Department By Organisation ID
   GetDepartmentByOrganisationId(id: any): Observable<any> {
     return this.http.get<any>(this.apiurl + `Department/GetDepartmentsByOrganisationId?id=${id}`, { headers: this.headers })
-  }
+  } 
 
   //Get Designation By Department ID
   GetDesignationByDepartmentId(id: any): Observable<any> {
@@ -64,7 +64,11 @@ export class SharedService {
   GetHrByDepartmentId(departmentId: any): Observable<any> {
     return this.http.get<any>(this.apiurl + `Employee/GetHrByDepartment?departmentId=${departmentId}`, { headers: this.headers })
   }
-
+  
+ //Get employee by VP designation
+ GetEmployeeByVpDesignation(): Observable<any> {
+  return this.http.get<any>(this.apiurl + `Employee/GetEmployeeByVpDesignation`, { headers: this.headers })
+}
   //Get Requested Award List
   GetRequestedAwardList(id: number): Observable<any> {
     return this.http.get<any>(this.apiurl + `Award/GetRequestedAwardsList?id=${id}`, { headers: this.headers })

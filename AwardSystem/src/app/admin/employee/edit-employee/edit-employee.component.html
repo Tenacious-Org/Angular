@@ -51,14 +51,14 @@
                 <div *ngIf="dob.touched && dob.errors?.['required']" class="text-danger">
                     Date of Birth is Required
                 </div>
-                <div *ngIf="error.includes('Age') || error.includes('Date')">
-                    <span><h3 class="text-danger" >{{error}}</h3></span>
-                </div>
+                <!-- <div *ngIf="error.includes('Age') || error.includes('Date')">
+                    <span><h3 class="text-danger">{{error}}</h3></span>
+                </div> -->
             </div>
             <div class="col-auto">
                 <label for="dept" class="col-form-label">Gender</label>
                 <div class="input-group">
-                    <select name="gender" [(ngModel)]="data.gender" class="custom-select">
+                    <select name="gender"  [(ngModel)]="data.gender" class="custom-select">
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
                     </select>
@@ -79,9 +79,9 @@
                 <div *ngIf="aceid.touched && aceid.errors?.['pattern']" class="text-danger">
                     Should start with ACE and shouldn't exceed 8 Characters!
                 </div>
-                <div *ngIf="error.includes('ACE')">
-                    <span><h3 class="text-danger" >{{error}}</h3></span>
-                </div>
+                <!-- <div *ngIf="error.includes('ACE')">
+                    <span><h3 class="text-danger">{{error}}</h3></span>
+                </div> -->
             </div>
 
             <div class="col-auto">
@@ -95,9 +95,9 @@
                 <div *ngIf="email.touched && email.errors?.['pattern']" class="text-danger">
                     Email is invalid!
                 </div>
-                <div *ngIf="error.includes('Email')">
-                    <span><h3 class="text-danger" >{{error}}</h3></span>
-                </div>
+                <!-- <div *ngIf="error.includes('Email')">
+                    <span><h3 class="text-danger">{{error}}</h3></span>
+                </div> -->
             </div>
 
         </div>
@@ -108,10 +108,10 @@
                 <label for="org" class="col-form-label">Organisation</label>
 
                 <div class="input-group">
-                    <select name="organisationId" [(ngModel)]="data.organisationId" name="SelectOrg"
-                        [(ngModel)]="SelectOrg" (change)="onSelectOrg()" class="custom-select">
+                    <select name="organisationId" [(ngModel)]="data.organisationId" name="selectedOrganisation"
+                        [(ngModel)]="selectedOrganisation" (change)="onSelectOrganisation()" class="custom-select">
                         <option selected>Choose...</option>
-                        <option *ngFor="let items of organisations" [selected]="items.id==SelectOrg"
+                        <option *ngFor="let items of organisations" [selected]="items.id==selectedOrganisation"
                             value={{items.id}}>{{items.organisationName}}</option>
                     </select>
                 </div>
@@ -124,10 +124,10 @@
                 <label for="dept" class="col-form-label">Department</label>
 
                 <div class="input-group">
-                    <select name="departmentId" [(ngModel)]="data.departmentId" name="SelectDep" [(ngModel)]="SelectDep"
-                        (change)="onSelectDep()" class="custom-select">
+                    <select name="departmentId" [(ngModel)]="data.departmentId" name="selectedDepartment" [(ngModel)]="selectedDepartment"
+                        (change)="onSelectDepartment()" class="custom-select">
                         <option selected>Choose...</option>
-                        <option *ngFor="let items of departments" [selected]="items.id==SelectDep" value={{items.id}}>
+                        <option *ngFor="let items of departments" [selected]="items.id==selectedDepartment" value={{items.id}}>
                             {{items.departmentName}}</option>
                     </select>
                 </div>
@@ -142,7 +142,7 @@
                 <label for="designation" class="col-form-label">Designation</label>
 
                 <div class="input-group">
-                    <select name="designationId" [(ngModel)]="data.designationId" class="custom-select">
+                    <select name="designationId" [(ngModel)]="data.designationId" name="selectedDesignation" [(ngModel)]="selectedDesignation" (change)="onSelectDesignation()" class="custom-select">
                         <option selected>Choose...</option>
                         <option *ngFor="let items of designations" [selected]="items.id==selectedDesignation"
                             value={{items.id}}>{{items.designationName}}</option>
