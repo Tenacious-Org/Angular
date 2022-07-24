@@ -186,7 +186,9 @@ button:disabled{
 @media(max-width:280px){
   .card{
     width: 230px;
+   margin-left: 25px;
   }
+
 }
 
 
@@ -198,7 +200,7 @@ button:disabled{
 
 @media(min-width:390px){
   .row{
-    margin-left: 3%;
+    margin-left: 3.5%;
   }
 }
 @media(min-width:412px){
