@@ -44,7 +44,7 @@ export class RequesterAddRequestComponent implements OnInit {
       isActive: true,
     }
   firstName: any;
-  error: any;
+  error: any='';
 
 
   constructor(private sharedService: SharedService, private awardService: AwardService, private toastService: HotToastService, private router: Router) { }

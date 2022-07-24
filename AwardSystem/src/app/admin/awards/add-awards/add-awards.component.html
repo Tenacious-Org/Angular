@@ -20,8 +20,8 @@
                 <div *ngIf="name.touched && name.errors?.['pattern']" class="text-left text-danger input">
                     Should not contain numbers and special characters!
                 </div>
-                <div>
-                    <h3 class="text-center text-danger">{{error}}</h3>
+                <div *ngIf="name.touched && error.includes('Award')">
+                    <span><h3 class="text-center text-danger">{{error}}</h3></span>
                 </div>
             </div>
         </div>
@@ -36,7 +36,11 @@
                 <div *ngIf="description.touched && description.errors?.['pattern']" class="text-left text-danger">
                     Should not exceed 1000 characters!
                 </div>
+                
             </div>
+            <div *ngIf="error.includes('Description')">
+                    <span><h3 class="text-center text-danger">{{error}}</h3></span>
+                </div> 
         </div>
         <div class="award row">
             <div class="chooseImage col-auto ">

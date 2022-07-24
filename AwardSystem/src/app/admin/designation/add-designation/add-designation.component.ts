@@ -17,7 +17,7 @@ export class AddDesignationComponent implements OnInit {
   Id: any;
   roleID: any;
   departmentID: any;
-  error: any;
+  error: any='';
   constructor(private sharedService: SharedService, private router: Router, private toastService: HotToastService, private dialog: MatDialog) { }
   Designation: any = {
     id: 0,

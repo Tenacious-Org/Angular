@@ -18,6 +18,9 @@
                 <div *ngIf ="name.touched && name.errors?.['pattern']" class="text-left text-danger" >
                     Award Name is invalid!
                 </div>
+                <div *ngIf="name.touched && error.includes('Award')">
+                    <span><h3 class="text-center text-danger">{{error}}</h3></span>
+                </div>
             </div>
         </div>
         <div class="award row">
@@ -33,6 +36,9 @@
                 <div class="choose-file-label">
                     <label class="col-form-label ">Award Image</label>
                 </div> 
+                <div *ngIf="name.touched && error.includes('Description')">
+                    <span><h3 class="text-center text-danger">{{error}}</h3></span>
+                </div>
             </div>
         </div>
         

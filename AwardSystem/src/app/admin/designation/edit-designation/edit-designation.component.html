@@ -19,6 +19,9 @@
                     </select>
                 </div>
                 <div *ngIf="departmentID===''" class="alert alert-danger">Department name should not be empty! </div>
+                <div *ngIf="error.includes('Department')">
+                    <span><h3 class="text-center text-danger">{{error}}</h3></span>
+                </div>
 
             </div>
         </div>
@@ -31,6 +34,9 @@
                     </select>
                 </div>
                 <div *ngIf="roleID===''" class="alert alert-danger">Role  should not be empty! </div>
+                <div *ngIf="error.includes('Role')">
+                    <span><h3 class="text-center text-danger">{{error}}</h3></span>
+                </div>
 
             </div>
         </div>
@@ -43,11 +49,10 @@
                 </div>
                 <div *ngIf ="designationName.touched && designationName.errors?.['pattern']" class="alert alert-danger input" >
                     Should not contain Numbers and special characters!
-                </div>
-                <div class="text-danger"  >
-                    {{error}}
-                </div>
-           
+                </div>          
+        </div>
+        <div *ngIf="designationName.touched && error.includes('Designation')">
+            <span><h3 class="text-center text-danger">{{error}}</h3></span>
         </div>
     </div>
         <div class="addbutton row button-group">
