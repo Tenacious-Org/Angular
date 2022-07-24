@@ -4,16 +4,11 @@
 
 
 <div class="container table-box">
-
     <form class="border-box" #myForm="ngForm" (ngSubmit)="OnSubmit()">
-
         <span class="border-box-tip"><b>Edit Employee</b></span>
-
         <div class="employee row">
-
             <div class="col-auto">
                 <label for="firstName" class="col-form-label">First Name</label>
-
                 <input type="text" name="firstName" #firstname="ngModel" [(ngModel)]="data.firstName"
                     class="form-control" aria-describedby="firstNameHelpInline">
                 <div *ngIf="firstname.touched && firstname.errors?.['required']" class="text-danger">
@@ -22,9 +17,7 @@
                 <div *ngIf="firstname.touched && firstname.errors?.['pattern']" class="text-danger">
                     Should not contain Numbers and special characters!
                 </div>
-
             </div>
-
             <div class="col-auto">
                 <label for="lastName" class="col-form-label">Last Name</label>
 
@@ -37,12 +30,8 @@
                     Should not contain Numbers and special characters!
                 </div>
             </div>
-
         </div>
-
-
         <div class="employee row">
-
             <div class="col-auto">
                 <label for="datetime" class="col-form-label">Date of Birth </label>
                 <input type="date" #dob="ngModel" required name="Dob" (click)="changeDate()" [(ngModel)]="Dob"
@@ -67,10 +56,7 @@
                     </select>
                 </div>
             </div>
-
         </div>
-
-
         <div class="employee row">
             <div class="col-auto">
                 <label for="aceid" class="col-form-label">AceID</label>
@@ -86,7 +72,6 @@
                     <span><h3 class="text-danger">{{error}}</h3></span>
                 </div>
             </div>
-
             <div class="col-auto">
                 <label for="email" class="col-form-label">Email</label>
                 <input type="email" name="email" #email="ngModel" required
@@ -102,10 +87,7 @@
                     <span><h3 class="text-danger">{{error}}</h3></span>
                 </div>
             </div>
-
         </div>
-
-
         <div class="employee row">
             <div class="col-auto">
                 <label for="org" class="col-form-label">Organisation</label>
@@ -119,13 +101,9 @@
                     </select>
                 </div>
                 <div *ngIf="organisationID==''" class="text-danger">Organisation should not be empty! </div>
-
             </div>
-
             <div class="col-auto">
-
                 <label for="dept" class="col-form-label">Department</label>
-
                 <div class="input-group">
                     <select name="departmentId" [(ngModel)]="data.departmentId" name="selectedDepartment" [(ngModel)]="selectedDepartment"
                         (change)="onSelectDepartment()" class="custom-select">
@@ -135,15 +113,11 @@
                     </select>
                 </div>
                 <div *ngIf="departmentID==''" class="text-danger">Department should not be empty! </div>
-
             </div>
         </div>
         <div class="employee row">
-
             <div class="col-auto">
-
                 <label for="designation" class="col-form-label">Designation</label>
-
                 <div class="input-group">
                     <select name="designationId" [(ngModel)]="data.designationId" name="selectedDesignation" [(ngModel)]="selectedDesignation" (change)="onSelectDesignation()" class="custom-select">
                         <option selected>Choose...</option>
@@ -152,14 +126,9 @@
                     </select>
                 </div>
                 <div *ngIf="designationID==''" class="text-danger">Designation should not be empty! </div>
-
             </div>
-
-
             <div class="col-auto" >
-
                 <label class="col-form-label">Reporting Person Name</label>
-
                 <div class="input-group">
                     <select name="reportingPersonId" [(ngModel)]="data.reportingPersonId" class="custom-select">
                         <option selected>Choose...</option>
@@ -170,9 +139,7 @@
                 </div>
                 <div *ngIf="reportingPersonID==''" class="text-danger">Reporting Person should not be empty!
                 </div>
-
             </div>
-
         </div>
         <div class="employee row">
             <div class="col-sm-auto">
@@ -185,10 +152,8 @@
                     </select>
                 </div>
                 <div *ngIf="HRId==''" class="text-danger">HR should not be empty! </div>
-
             </div>
             <div class="col-sm-auto">
-
                 <label class="col-form-label">Employee Image</label>
                 <div class="input-group">
                     <input type="file" #image="ngModel" accept=".jpeg,.jpg,.png" required
@@ -200,12 +165,7 @@
                     <img [src]="imgsrc" id="img">
                 </div>
             </div>
-
-
-
         </div>
-
-
         <div class="addbutton row button-group">
             <button
                 (click)="CheckName(data.organisationId,data.departmentId,data.designationId,data.reportingPersonId,data.hrID)"
