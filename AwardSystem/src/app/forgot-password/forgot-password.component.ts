@@ -12,7 +12,7 @@ import { HotToastService } from '@ngneat/hot-toast';
   styleUrls: ['./forgot-password.component.css']
 })
 export class ForgotPasswordComponent implements OnInit {
-  error: any;
+  error: any='';
 
   constructor( private sharedService:SharedService,private router: Router, private toastService: HotToastService) { }
   UserDetails: any = {
