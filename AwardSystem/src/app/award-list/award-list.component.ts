@@ -32,16 +32,24 @@ export class AwardListComponent implements OnInit {
     this.activatedRoute.params.subscribe(params => {
       this.pageId = params['id'];
     });
-    this.GetAll(this.pageId);
-    this.sharedService.GetAll(this.endpoint).subscribe((data: any) => {
-      this.statusList = data;
-    })
+    this.GetAllAwardsList();
+    this.GetAllStatus();
 
   }
-
-  GetAll(pageId: any) {
+  GetAllStatus(){
+    this.sharedService.GetAll(this.endpoint).subscribe((data: any) => {
+      if(this.pageId!=4){
+        this.statusList=data;
+      }
+      if(this.pageId==4){
+        this.statusList = data.filter((obj) => (obj.id) != 1 &&  (obj.id) != 3); 
+      }
+      console.log(this.statusList)
+    })
+  }
+  GetAllAwardsList() {
     this.awardService
-      .GetAwardsList(pageId)
+      .GetAwardsList(this.pageId)
       .subscribe((data) => {
         this.data = data;
         this.filteredData = data;
@@ -50,7 +58,7 @@ export class AwardListComponent implements OnInit {
   changestatus(e: any) {
     this.filtervalue = e.target.value;
     if (this.filtervalue == 0) {
-      this.GetAll(this.pageId);
+      this.GetAllAwardsList();
     } else {
       this.data = this.filteredData.filter(item => item.statusId == this.filtervalue);
     }
