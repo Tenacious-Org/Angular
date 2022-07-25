@@ -21,9 +21,9 @@
 
             <thead>
                 <tr class="tenacioustable">
-                    <th>S.NO</th>
+                    <th id="serialnumber" >S.NO</th>
                     <th>Organization Name</th>
-                    <th>Action</th>
+                    <th id="buttoncolumn">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -31,10 +31,10 @@
                     *ngFor="let item of data | paginate: { itemsPerPage: 5, currentPage: page }; let i= index">
                     <td>{{5*(page-1)+i + 1}}</td>
                     <td>{{item.organisationName}}</td>
-                    <td> <button [routerLink]="['../edit-organisation/'+item.id]" class="btn btn-primary"
+                    <td> <button id="button" [routerLink]="['../edit-organisation/'+item.id]" class="btn btn-primary"
                             target="_self"><i class="fa-solid fa-pen-to-square" title="Edit"></i></button><div class="space"> </div>
                         <div class="space"></div>
-                        <button (click)="dialogDisable(item.id)" class="btn btn-danger"><i class="fa-solid fa-user-slash"
+                        <button id="button" (click)="dialogDisable(item.id)" class="btn btn-danger"><i class="fa-solid fa-user-slash"
                                 title="Disable"></i></button><div class="space"></div>
                     </td>
                 </tr>

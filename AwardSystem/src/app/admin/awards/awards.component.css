@@ -34,6 +34,29 @@
 .ngx-pagination{
   margin-top: 16px;
 }
+#buttoncolumn{
+  width:300px;
+}
+
+@media(max-width:990px) {
+
+  #buttoncolumn{
+   width:200px;
+  }
+ 
+
+ }
+
+ @media (max-width:770px)
+ {
+   .tableclass{
+     overflow-x: auto;
+     margin-bottom: 16px;
+   }
+   #serialnumber{
+    width:100px;
+  }
+ }
 @media(max-width:580px) {
 
   .input-group,
@@ -42,25 +65,36 @@
 
   }
 }
-@media(max-width:370px) {
+@media(max-width:470px) {
 
-  .form-inline{
+  .input-group,
+  .form-control {
       width: 140px;
-      float:left;
-      margin-top:5px;
   }
+  #button{
+    padding:0.25rem 0.55rem;
+    font-size:0.5rem;
+  }
+  #buttoncolumn{
+    width:150px;
+   }
+}
+@media(max-width:380px) {
+
+  .input-group,
+  .form-control {
+      width: 140px;
+  }
+  #button{
+    padding:0.25rem 0.55rem;
+    font-size:0.5rem;
+  }
+  #buttoncolumn{
+    width:100px;
+   }
 }
 
-@media (max-width:770px)
-{
-  .tableclass{
-    overflow-x: auto;
-    margin-bottom: 16px;
-  }
-  th,td{
-    min-width:180px;
-  }
-}
+
 @media(max-width:370px) {
 
   .tableclass{
@@ -69,6 +103,13 @@
   th,td{
     min-width:100px;
   }
+  .form-inline{
+    width: 140px;
+    float:left;
+    margin-top:5px;
 }
+}
+
+
 
 

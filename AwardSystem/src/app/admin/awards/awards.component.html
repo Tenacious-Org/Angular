@@ -20,18 +20,16 @@
                 <tr class="tenacioustable">
                     <th id="serialnumber">S.NO</th>
                     <th>Award Name</th>
-                    <th>Award Description</th>
-                    <th>Action</th>
+                    <th id="buttoncolumn">Action</th>
                 </tr>
             </thead>
             <tbody>
                 <tr class="tenacioustable" *ngFor="let item of data  | paginate: { itemsPerPage: 5, currentPage: page };let i = index">
                     <td >{{5*(page-1)+i + 1}}</td>
                     <td>{{item.awardName}}</td>
-                    <td>{{item.awardDescription}}</td>
-                    <td > <button [routerLink]="['../edit-award',item.id]"  class="btn btn-primary" ><i class="fa-solid fa-pen-to-square" title="Edit"></i></button><div class="space"></div>
-                        <button routerLink={{item.id}} class="btn btn-success" ><i class="fa-solid fa-circle-info" title="Details"></i></button><div class="space"></div>
-                        <button class="btn btn-danger" (click)="dialogDisable(item.id)" ><i class="fa-solid fa-user-slash" data-toggle="modal" data-target="#Mymodal"title="Disable"></i></button><div class="space"></div></td>
+                    <td ><button  id="button" [routerLink]="['../edit-award',item.id]"  class="btn btn-primary" ><i class="fa-solid fa-pen-to-square" title="Edit"></i></button><div class="space"></div>
+                        <button id="button" routerLink={{item.id}} class="btn btn-success" ><i class="fa-solid fa-circle-info" title="Details"></i></button><div class="space"></div>
+                        <button id="button" class="btn btn-danger" (click)="dialogDisable(item.id)" ><i class="fa-solid fa-user-slash" data-toggle="modal" data-target="#Mymodal"title="Disable"></i></button><div class="space"></div></td>
                 </tr>
             </tbody>
         </table>
