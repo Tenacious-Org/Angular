@@ -44,7 +44,6 @@ export class AwardListComponent implements OnInit {
       if(this.pageId==4){
         this.statusList = data.filter((obj) => (obj.id) != 1 &&  (obj.id) != 3); 
       }
-      console.log(this.statusList)
     })
   }
   GetAllAwardsList() {

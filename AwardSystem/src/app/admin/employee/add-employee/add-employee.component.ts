@@ -101,7 +101,6 @@ export class AddEmployeeComponent implements OnInit {
   onSelectDesignation(){
     this.sharedService.GetById(this.endpoint2,this.SelectDesignation).subscribe(data => {
         this.DesignationName=data.designationName.toLowerCase();
-        console.log(data.id)
         if(this.DesignationName=='hr'){
           this.sharedService.GetEmployeeByVpDesignation().subscribe(data => {
             this.reportingPersonList = data;
