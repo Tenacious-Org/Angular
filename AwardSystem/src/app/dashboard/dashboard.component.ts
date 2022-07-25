@@ -161,8 +161,6 @@ export class DashboardComponent implements OnInit {
         temp1.push(temp)
         this.pieChartDatasets = temp1
 
-        
-
     });
   }
 
@@ -646,18 +644,15 @@ export class DashboardComponent implements OnInit {
         var temp1 = []
         temp1.push(temp)
 
-      
         this.pieChartDatasets = temp1
         this.pieChartLabels = dept
-
-        console.log("piechartlabels: ",this.pieChartLabels)
 
       });
     }
 
     //Filtered By Organisation and To Date
     if(orgid != 0 && deptid == 0 && awdid == 0 && fdate == new Date("0001-04-15").toString() && tdate != new Date("0001-04-29").toString()){
-      console.log("Get Data By Organisation and To Date.")
+      
       this.sharedService.GetAllDetailsByDashboardFilters(this.SelectOrg, this.SelectDep, this.SelectAward, this.fromdate.toISOString().slice(0,10), this.todate).subscribe( res => {
 
         //converting api values into list
@@ -671,7 +666,6 @@ export class DashboardComponent implements OnInit {
           d1.push(d)
           d = []          
         }
-        console.log("List: ",d1)
   
         //setting into calculate a total count in dictionary
         var dict:any = {}
@@ -681,7 +675,6 @@ export class DashboardComponent implements OnInit {
             dict[new_item] = dict.hasOwnProperty(new_item)? ++dict[new_item] : 1;
           }
         }
-        console.log("Dict: ",dict)
   
         //Setting Organisation into a list
         var org:any = []
@@ -695,7 +688,6 @@ export class DashboardComponent implements OnInit {
             }
         }
         this.org = org
-        console.log("Organisation: ", this.org)
   
         //Setting Department into a list
         var dept:any = []
@@ -708,7 +700,6 @@ export class DashboardComponent implements OnInit {
             }
         }
         this.dept = dept
-        console.log("Departent: ",this.dept)
   
         //Setting Awards into a list
         var award:any = []
@@ -720,7 +711,6 @@ export class DashboardComponent implements OnInit {
               award.push(x[2])
             }
         }
-        console.log("Award: ",this.award)
   
         //setting Organisation count into a list
         var orgcnt:any = []
@@ -732,7 +722,6 @@ export class DashboardComponent implements OnInit {
           }
         }
         this.orgcnt = orgcnt
-        console.log("Organisation Count:",this.orgcnt)
   
         //setting department values into a list
         var deptcnt:any = []
@@ -744,7 +733,6 @@ export class DashboardComponent implements OnInit {
           }
         }
         this.deptcnt = deptcnt
-        console.log("Department Count:",this.deptcnt)
   
         //setting award values into a list
         var awdcnt:any = []
@@ -755,12 +743,10 @@ export class DashboardComponent implements OnInit {
             }
           }
         }
-        console.log("Awards Count:",awdcnt)
   
         // Dictionary Creation and uploaded it to a list
         var temp:any = {}
         temp["data"] = deptcnt
-        console.log("Temp : ",temp)
         var temp1 = []
         temp1.push(temp)
 
@@ -768,14 +754,12 @@ export class DashboardComponent implements OnInit {
         this.pieChartDatasets = temp1
         this.pieChartLabels = dept
 
-        console.log("piechartlabels: ",this.pieChartLabels)
-
       });
     }
 
     //Filtered By Organisation, From Date and To Date.
     if(orgid != 0 && deptid == 0 && awdid == 0 && fdate != new Date("0001-04-15").toString() && tdate != new Date("0001-04-29").toString()){
-      console.log("Get Data By Organisation, From Date and To Date.")
+      
       this.sharedService.GetAllDetailsByDashboardFilters(this.SelectOrg, this.SelectDep, this.SelectAward, this.fromdate, this.todate).subscribe( res => {
 
         //converting api values into list
@@ -789,7 +773,6 @@ export class DashboardComponent implements OnInit {
           d1.push(d)
           d = []          
         }
-        console.log("List: ",d1)
   
         //setting into calculate a total count in dictionary
         var dict:any = {}
@@ -799,7 +782,6 @@ export class DashboardComponent implements OnInit {
             dict[new_item] = dict.hasOwnProperty(new_item)? ++dict[new_item] : 1;
           }
         }
-        console.log("Dict: ",dict)
   
         //Setting Organisation into a list
         var org:any = []
@@ -813,7 +795,6 @@ export class DashboardComponent implements OnInit {
             }
         }
         this.org = org
-        console.log("Organisation: ", this.org)
   
         //Setting Department into a list
         var dept:any = []
@@ -826,7 +807,6 @@ export class DashboardComponent implements OnInit {
             }
         }
         this.dept = dept
-        console.log("Departent: ",this.dept)
   
         //Setting Awards into a list
         var award:any = []
@@ -838,7 +818,6 @@ export class DashboardComponent implements OnInit {
               award.push(x[2])
             }
         }
-        console.log("Award: ",this.award)
   
         //setting Organisation count into a list
         var orgcnt:any = []
@@ -850,7 +829,6 @@ export class DashboardComponent implements OnInit {
           }
         }
         this.orgcnt = orgcnt
-        console.log("Organisation Count:",this.orgcnt)
   
         //setting department values into a list
         var deptcnt:any = []
@@ -862,7 +840,6 @@ export class DashboardComponent implements OnInit {
           }
         }
         this.deptcnt = deptcnt
-        console.log("Department Count:",this.deptcnt)
   
         //setting award values into a list
         var awdcnt:any = []
@@ -873,12 +850,10 @@ export class DashboardComponent implements OnInit {
             }
           }
         }
-        console.log("Awards Count:",awdcnt)
   
         // Dictionary Creation and uploaded it to a list
         var temp:any = {}
         temp["data"] = deptcnt
-        console.log("Temp : ",temp)
         var temp1 = []
         temp1.push(temp)
 
@@ -886,14 +861,12 @@ export class DashboardComponent implements OnInit {
         this.pieChartDatasets = temp1
         this.pieChartLabels = dept
 
-        console.log("piechartlabels: ",this.pieChartLabels)
-
       });
     }
 
     //Filtered By Organisation, Department and Awards
     if(orgid != 0 && deptid != 0 && awdid != 0 && fdate == new Date("0001-04-15").toString() && tdate == new Date("0001-04-29").toString()){
-      console.log("Get Data By Organisation, Department and Awards.")
+      
       this.sharedService.GetAllDetailsByDashboardFilters(this.SelectOrg, this.SelectDep, this.SelectAward, this.fromdate.toISOString().slice(0,10), this.todate.toISOString().slice(0,10)).subscribe( res => 
       {
 
@@ -908,7 +881,6 @@ export class DashboardComponent implements OnInit {
             d1.push(d)
             d = []          
           }
-          console.log("List: ",d1)
     
           //setting into calculate a total count in dictionary
           var dict:any = {}
@@ -918,7 +890,6 @@ export class DashboardComponent implements OnInit {
               dict[new_item] = dict.hasOwnProperty(new_item)? ++dict[new_item] : 1;
             }
           }
-          console.log("Dict: ",dict)
     
           //Setting Organisation into a list
           var org:any = []
@@ -932,7 +903,6 @@ export class DashboardComponent implements OnInit {
               }
           }
           this.org = org
-          console.log("Organisation: ", this.org)
     
           //Setting Department into a list
           var dept:any = []
@@ -945,7 +915,6 @@ export class DashboardComponent implements OnInit {
               }
           }
           this.dept = dept
-          console.log("Departent: ",this.dept)
     
           //Setting Awards into a list
           var award:any = []
@@ -957,7 +926,6 @@ export class DashboardComponent implements OnInit {
                 award.push(x[2])
               }
           }
-          console.log("Award: ",this.award)
     
           //setting Organisation count into a list
           var orgcnt:any = []
@@ -969,7 +937,6 @@ export class DashboardComponent implements OnInit {
             }
           }
           this.orgcnt = orgcnt
-          console.log("Organisation Count:",this.orgcnt)
     
           //setting department values into a list
           var deptcnt:any = []
@@ -981,7 +948,6 @@ export class DashboardComponent implements OnInit {
             }
           }
           this.deptcnt = deptcnt
-          console.log("Department Count:",this.deptcnt)
     
           //setting award values into a list
           var awdcnt:any = []
@@ -992,27 +958,23 @@ export class DashboardComponent implements OnInit {
               }
             }
           }
-          console.log("Awards Count:",awdcnt)
     
           // Dictionary Creation and uploaded it to a list
           var temp:any = {}
           temp["data"] = deptcnt
-          console.log("Temp : ",temp)
           var temp1 = []
           temp1.push(temp)
   
         
           this.pieChartDatasets = temp1
           this.pieChartLabels = dept
-  
-          console.log("piechartlabels: ",this.pieChartLabels)
 
       });
     }
 
     //Filtered By Organisation, Department and From Date
     if(orgid != 0 && deptid != 0 && awdid == 0 && fdate != new Date("0001-04-15").toString() && tdate == new Date("0001-04-29").toString()){
-      console.log("Get Data By Organisation, Department and From Date.")
+      
       this.sharedService.GetAllDetailsByDashboardFilters(this.SelectOrg, this.SelectDep, this.SelectAward, this.fromdate, this.todate.toISOString().slice(0,10)).subscribe( res =>
       {
 
@@ -1027,7 +989,6 @@ export class DashboardComponent implements OnInit {
           d1.push(d)
           d = []          
         }
-        console.log(d1)
 
         //setting into calculate a total count in dictionary
         var dict:any = {}
@@ -1037,7 +998,6 @@ export class DashboardComponent implements OnInit {
             dict[new_item] = dict.hasOwnProperty(new_item)? ++dict[new_item] : 1;
           }
         }
-        console.log(dict)
 
         //Setting Organisation into a list
         var org:any = []
@@ -1051,7 +1011,6 @@ export class DashboardComponent implements OnInit {
             }
         }
         this.org = org
-        console.log(this.org)
 
         //Setting Awards into a list
         var award:any = []
@@ -1064,7 +1023,6 @@ export class DashboardComponent implements OnInit {
             }
         }
         this.pieChartLabels = award
-        console.log(this.award)
 
         //setting award values into a list
         var orgcnt:any = []
@@ -1076,7 +1034,6 @@ export class DashboardComponent implements OnInit {
           }
         }
         this.orgcnt = orgcnt
-        console.log("Organisation :",this.orgcnt)
 
         //setting award values into a list
         var awdcnt:any = []
@@ -1087,12 +1044,10 @@ export class DashboardComponent implements OnInit {
             }
           }
         }
-        console.log("Awards :",awdcnt)
 
         // Dictionary Creation and uploaded it to a list
         var temp:any = {}
         temp["data"] = awdcnt
-        console.log("Temp : ",temp)
         var temp1 = []
         temp1.push(temp)
         this.pieChartDatasets = temp1
@@ -1102,13 +1057,9 @@ export class DashboardComponent implements OnInit {
 
     //Filtered By Organisation, Award and From Date
     if(orgid != 0 && deptid == 0 && awdid != 0 && fdate != new Date("0001-04-15").toString() && tdate == new Date("0001-04-29").toString()){
-      console.log("Get Data By Organisation, Award and From Date.")
+      
       this.sharedService.GetAllDetailsByDashboardFilters(this.SelectOrg, this.SelectDep, this.SelectAward, this.fromdate, this.todate.toISOString().slice(0,10)).subscribe( res =>
       {
-        console.log("Selectorg: ", this.SelectOrg)
-        console.log("SelectDep: ", this.SelectDep)
-        console.log("SelectAward: ", this.SelectAward)
-        console.log("fromdate: ", this.fromdate)
 
          //converting api values into list
          let d = []
@@ -1121,7 +1072,6 @@ export class DashboardComponent implements OnInit {
            d1.push(d)
            d = []          
          }
-         console.log("List: ",d1)
    
          //setting into calculate a total count in dictionary
          var dict:any = {}
@@ -1131,7 +1081,6 @@ export class DashboardComponent implements OnInit {
              dict[new_item] = dict.hasOwnProperty(new_item)? ++dict[new_item] : 1;
            }
          }
-         console.log("Dict: ",dict)
    
          //Setting Organisation into a list
          var org:any = []
@@ -1145,7 +1094,6 @@ export class DashboardComponent implements OnInit {
              }
          }
          this.org = org
-         console.log("Organisation: ", this.org)
    
          //Setting Department into a list
          var dept:any = []
@@ -1158,7 +1106,6 @@ export class DashboardComponent implements OnInit {
              }
          }
          this.dept = dept
-         console.log("Departent: ",this.dept)
    
          //Setting Awards into a list
          var award:any = []
@@ -1170,7 +1117,6 @@ export class DashboardComponent implements OnInit {
                award.push(x[2])
              }
          }
-         console.log("Award: ",this.award)
    
          //setting Organisation count into a list
          var orgcnt:any = []
@@ -1182,7 +1128,6 @@ export class DashboardComponent implements OnInit {
            }
          }
          this.orgcnt = orgcnt
-         console.log("Organisation Count:",this.orgcnt)
    
          //setting department values into a list
          var deptcnt:any = []
@@ -1194,7 +1139,6 @@ export class DashboardComponent implements OnInit {
            }
          }
          this.deptcnt = deptcnt
-         console.log("Department Count:",this.deptcnt)
    
          //setting award values into a list
          var awdcnt:any = []
@@ -1205,27 +1149,22 @@ export class DashboardComponent implements OnInit {
              }
            }
          }
-         console.log("Awards Count:",awdcnt)
    
          // Dictionary Creation and uploaded it to a list
          var temp:any = {}
          temp["data"] = deptcnt
-         console.log("Temp : ",temp)
          var temp1 = []
          temp1.push(temp)
  
        
          this.pieChartDatasets = temp1
          this.pieChartLabels = dept
- 
-         console.log("piechartlabels: ",this.pieChartLabels)
   
       });
     }
 
     //Filtered By Organisation, Department and To Date
     if(orgid != 0 && deptid != 0 && awdid == 0 && fdate == new Date("0001-04-15").toString() && tdate != new Date("0001-04-29").toString()){
-      console.log("Get Data By Organisation, Department and To Date.")
       
       this.sharedService.GetAllDetailsByDashboardFilters(this.SelectOrg, this.SelectDep, this.SelectAward, this.fromdate.toISOString().slice(0,10), this.todate).subscribe( res =>
       {
@@ -1241,7 +1180,6 @@ export class DashboardComponent implements OnInit {
           d1.push(d)
           d = []          
         }
-        console.log(d1)
 
         //setting into calculate a total count in dictionary
         var dict:any = {}
@@ -1251,7 +1189,6 @@ export class DashboardComponent implements OnInit {
             dict[new_item] = dict.hasOwnProperty(new_item)? ++dict[new_item] : 1;
           }
         }
-        console.log(dict)
 
         //Setting Organisation into a list
         var org:any = []
@@ -1265,7 +1202,6 @@ export class DashboardComponent implements OnInit {
             }
         }
         this.org = org
-        console.log(this.org)
 
         //Setting Awards into a list
         var award:any = []
@@ -1278,7 +1214,6 @@ export class DashboardComponent implements OnInit {
             }
         }
         this.pieChartLabels = award
-        console.log(this.award)
 
         //setting award values into a list
         var orgcnt:any = []
@@ -1290,7 +1225,6 @@ export class DashboardComponent implements OnInit {
           }
         }
         this.orgcnt = orgcnt
-        console.log("Organisation :",this.orgcnt)
 
         //setting award values into a list
         var awdcnt:any = []
@@ -1301,12 +1235,10 @@ export class DashboardComponent implements OnInit {
             }
           }
         }
-        console.log("Awards :",awdcnt)
 
         // Dictionary Creation and uploaded it to a list
         var temp:any = {}
         temp["data"] = awdcnt
-        console.log("Temp : ",temp)
         var temp1 = []
         temp1.push(temp)
         this.pieChartDatasets = temp1
@@ -1316,7 +1248,7 @@ export class DashboardComponent implements OnInit {
 
     //Filtered By Organisation, Award and To Date
     if(orgid != 0 && deptid == 0 && awdid != 0 && fdate == new Date("0001-04-15").toString() && tdate != new Date("0001-04-29").toString()){
-      console.log("Get Data By Organisation, Award and To Date.")
+      
       this.sharedService.GetAllDetailsByDashboardFilters(this.SelectOrg, this.SelectDep, this.SelectAward, this.fromdate.toISOString().slice(0,10), this.todate).subscribe( res =>
         {
 
@@ -1331,7 +1263,6 @@ export class DashboardComponent implements OnInit {
               d1.push(d)
               d = []          
             }
-            console.log("List: ",d1)
       
             //setting into calculate a total count in dictionary
             var dict:any = {}
@@ -1341,7 +1272,6 @@ export class DashboardComponent implements OnInit {
                 dict[new_item] = dict.hasOwnProperty(new_item)? ++dict[new_item] : 1;
               }
             }
-            console.log("Dict: ",dict)
       
             //Setting Organisation into a list
             var org:any = []
@@ -1355,7 +1285,6 @@ export class DashboardComponent implements OnInit {
                 }
             }
             this.org = org
-            console.log("Organisation: ", this.org)
       
             //Setting Department into a list
             var dept:any = []
@@ -1368,7 +1297,6 @@ export class DashboardComponent implements OnInit {
                 }
             }
             this.dept = dept
-            console.log("Departent: ",this.dept)
       
             //Setting Awards into a list
             var award:any = []
@@ -1380,7 +1308,6 @@ export class DashboardComponent implements OnInit {
                   award.push(x[2])
                 }
             }
-            console.log("Award: ",this.award)
       
             //setting Organisation count into a list
             var orgcnt:any = []
@@ -1392,7 +1319,6 @@ export class DashboardComponent implements OnInit {
               }
             }
             this.orgcnt = orgcnt
-            console.log("Organisation Count:",this.orgcnt)
       
             //setting department values into a list
             var deptcnt:any = []
@@ -1404,7 +1330,6 @@ export class DashboardComponent implements OnInit {
               }
             }
             this.deptcnt = deptcnt
-            console.log("Department Count:",this.deptcnt)
       
             //setting award values into a list
             var awdcnt:any = []
@@ -1415,34 +1340,25 @@ export class DashboardComponent implements OnInit {
                 }
               }
             }
-            console.log("Awards Count:",awdcnt)
       
             // Dictionary Creation and uploaded it to a list
             var temp:any = {}
             temp["data"] = deptcnt
-            console.log("Temp : ",temp)
             var temp1 = []
             temp1.push(temp)
 
           
             this.pieChartDatasets = temp1
             this.pieChartLabels = dept
-
-            console.log("piechartlabels: ",this.pieChartLabels)
   
         });
     }
 
     //Filter Organisation, Department, Award, From Date
     if(orgid != 0 && deptid != 0 && awdid !=0 && fdate != new Date("0001-04-15").toString() && tdate == new Date("0001-04-29").toString()){
-      console.log("Get Data By Organisation, Department, Award, From Date")
+      
       this.sharedService.GetAllDetailsByDashboardFilters(this.SelectOrg, this.SelectDep, this.SelectAward, this.fromdate, this.todate.toISOString().slice(0,10)).subscribe(res => {
 
-        console.log("selctorg: ",this.SelectOrg)
-        console.log("selctdep: ",this.SelectDep)
-        console.log("selctawd: ",this.SelectAward)
-        console.log("fromdate: ",this.fromdate)
-        console.log("todate: ",this.todate)
 
         //converting api values into list
       let d = []
@@ -1455,7 +1371,6 @@ export class DashboardComponent implements OnInit {
         d1.push(d)
         d = []          
       }
-      console.log(d1)
 
       //setting into calculate a total count in dictionary
       var dict:any = {}
@@ -1465,7 +1380,6 @@ export class DashboardComponent implements OnInit {
           dict[new_item] = dict.hasOwnProperty(new_item)? ++dict[new_item] : 1;
         }
       }
-      console.log(dict)
 
       //Setting Organisation into a list
       var org:any = []
@@ -1479,7 +1393,6 @@ export class DashboardComponent implements OnInit {
           }
       }
       this.org = org
-      console.log(this.org)
 
       //Setting Department into a list
       var dept:any = []
@@ -1492,7 +1405,6 @@ export class DashboardComponent implements OnInit {
           }
       }
       this.dept = dept
-      console.log(this.dept)
 
       //Setting Awards into a list
       var award:any = []
@@ -1505,7 +1417,6 @@ export class DashboardComponent implements OnInit {
           }
       }
       this.pieChartLabels = dept
-      console.log(this.award)
 
       //setting award values into a list
       var orgcnt:any = []
@@ -1517,7 +1428,6 @@ export class DashboardComponent implements OnInit {
         }
       }
       this.orgcnt = orgcnt
-      console.log("Organisation :",this.orgcnt)
 
       //setting award values into a list
       var deptcnt:any = []
@@ -1529,7 +1439,6 @@ export class DashboardComponent implements OnInit {
         }
       }
       this.deptcnt = deptcnt
-      console.log("Department :",this.deptcnt)
 
       //setting award values into a list
       var awdcnt:any = []
@@ -1540,12 +1449,10 @@ export class DashboardComponent implements OnInit {
           }
         }
       }
-      console.log("Awards :",awdcnt)
 
       // Dictionary Creation and uploaded it to a list
       var temp:any = {}
       temp["data"] = deptcnt
-      console.log("Temp : ",temp)
       var temp1 = []
       temp1.push(temp)
       this.pieChartDatasets = temp1
@@ -1556,14 +1463,8 @@ export class DashboardComponent implements OnInit {
 
     //Filter Organisation, Department, Award, To Date
     if(orgid != 0 && deptid != 0 && awdid !=0 && fdate == new Date("0001-04-15").toString() && tdate != new Date("0001-04-29").toString()){
-      console.log("Get Data By Organisation, Department, Award, To Date")
+      
       this.sharedService.GetAllDetailsByDashboardFilters(this.SelectOrg, this.SelectDep, this.SelectAward, this.fromdate.toISOString().slice(0,10), this.todate).subscribe(res => {
-
-        console.log("selctorg: ",this.SelectOrg)
-        console.log("selctdep: ",this.SelectDep)
-        console.log("selctawd: ",this.SelectAward)
-        console.log("fromdate: ",this.fromdate)
-        console.log("todate: ",this.todate)
 
         //converting api values into list
       let d = []
@@ -1576,7 +1477,6 @@ export class DashboardComponent implements OnInit {
         d1.push(d)
         d = []          
       }
-      console.log(d1)
 
       //setting into calculate a total count in dictionary
       var dict:any = {}
@@ -1586,7 +1486,6 @@ export class DashboardComponent implements OnInit {
           dict[new_item] = dict.hasOwnProperty(new_item)? ++dict[new_item] : 1;
         }
       }
-      console.log(dict)
 
       //Setting Organisation into a list
       var org:any = []
@@ -1600,7 +1499,6 @@ export class DashboardComponent implements OnInit {
           }
       }
       this.org = org
-      console.log(this.org)
 
       //Setting Department into a list
       var dept:any = []
@@ -1613,7 +1511,6 @@ export class DashboardComponent implements OnInit {
           }
       }
       this.dept = dept
-      console.log(this.dept)
 
       //Setting Awards into a list
       var award:any = []
@@ -1626,7 +1523,6 @@ export class DashboardComponent implements OnInit {
           }
       }
       this.pieChartLabels = dept
-      console.log(this.award)
 
       //setting award values into a list
       var orgcnt:any = []
@@ -1638,7 +1534,6 @@ export class DashboardComponent implements OnInit {
         }
       }
       this.orgcnt = orgcnt
-      console.log("Organisation :",this.orgcnt)
 
       //setting award values into a list
       var deptcnt:any = []
@@ -1650,7 +1545,6 @@ export class DashboardComponent implements OnInit {
         }
       }
       this.deptcnt = deptcnt
-      console.log("Department :",this.deptcnt)
 
       //setting award values into a list
       var awdcnt:any = []
@@ -1661,12 +1555,10 @@ export class DashboardComponent implements OnInit {
           }
         }
       }
-      console.log("Awards :",awdcnt)
 
       // Dictionary Creation and uploaded it to a list
       var temp:any = {}
       temp["data"] = deptcnt
-      console.log("Temp : ",temp)
       var temp1 = []
       temp1.push(temp)
       this.pieChartDatasets = temp1
@@ -1677,14 +1569,9 @@ export class DashboardComponent implements OnInit {
 
     //Filter By Award, From Date
     if(orgid == 0 && deptid == 0 && awdid != 0 && fdate != new Date("0001-04-15").toString() && tdate == new Date("0001-04-29").toString()){
-      console.log("Get Data By Award, From Date.")
+      
       this.sharedService.GetAllDetailsByDashboardFilters(this.SelectOrg, this.SelectDep, this.SelectAward, this.fromdate, this.todate.toISOString().slice(0,10)).subscribe(res => {
 
-        console.log("selctorg: ",this.SelectOrg)
-        console.log("selctdep: ",this.SelectDep)
-        console.log("selctawd: ",this.SelectAward)
-        console.log("fromdate: ",this.fromdate)
-        console.log("todate: ",this.todate)
 
         //converting api values into list
       let d = []
@@ -1697,7 +1584,6 @@ export class DashboardComponent implements OnInit {
         d1.push(d)
         d = []          
       }
-      console.log(d1)
 
       //setting into calculate a total count in dictionary
       var dict:any = {}
@@ -1707,7 +1593,6 @@ export class DashboardComponent implements OnInit {
           dict[new_item] = dict.hasOwnProperty(new_item)? ++dict[new_item] : 1;
         }
       }
-      console.log(dict)
 
       //Setting Organisation into a list
       var org:any = []
@@ -1721,7 +1606,6 @@ export class DashboardComponent implements OnInit {
           }
       }
       this.org = org
-      console.log(this.org)
 
       //Setting Department into a list
       var dept:any = []
@@ -1734,7 +1618,6 @@ export class DashboardComponent implements OnInit {
           }
       }
       this.dept = dept
-      console.log(this.dept)
 
       //Setting Awards into a list
       var award:any = []
@@ -1747,7 +1630,6 @@ export class DashboardComponent implements OnInit {
           }
       }
       this.pieChartLabels = org
-      console.log(this.award)
 
       //setting award values into a list
       var orgcnt:any = []
@@ -1759,7 +1641,6 @@ export class DashboardComponent implements OnInit {
         }
       }
       this.orgcnt = orgcnt
-      console.log("Organisation :",this.orgcnt)
 
       //setting award values into a list
       var deptcnt:any = []
@@ -1771,7 +1652,6 @@ export class DashboardComponent implements OnInit {
         }
       }
       this.deptcnt = deptcnt
-      console.log("Department :",this.deptcnt)
 
       //setting award values into a list
       var awdcnt:any = []
@@ -1782,12 +1662,10 @@ export class DashboardComponent implements OnInit {
           }
         }
       }
-      console.log("Awards :",awdcnt)
 
       // Dictionary Creation and uploaded it to a list
       var temp:any = {}
       temp["data"] = orgcnt
-      console.log("Temp : ",temp)
       var temp1 = []
       temp1.push(temp)
       this.pieChartDatasets = temp1
@@ -1798,14 +1676,8 @@ export class DashboardComponent implements OnInit {
 
     //Filter By Award, To Date
     if(orgid == 0 && deptid == 0 && awdid != 0 && fdate == new Date("0001-04-15").toString() && tdate != new Date("0001-04-29").toString()){
-      console.log("Get Data By Award, To Date.")
+      
       this.sharedService.GetAllDetailsByDashboardFilters(this.SelectOrg, this.SelectDep, this.SelectAward, this.fromdate.toISOString().slice(0,10), this.todate).subscribe(res => {
-
-        console.log("selctorg: ",this.SelectOrg)
-        console.log("selctdep: ",this.SelectDep)
-        console.log("selctawd: ",this.SelectAward)
-        console.log("fromdate: ",this.fromdate)
-        console.log("todate: ",this.todate)
 
         //converting api values into list
       let d = []
@@ -1818,7 +1690,6 @@ export class DashboardComponent implements OnInit {
         d1.push(d)
         d = []          
       }
-      console.log(d1)
 
       //setting into calculate a total count in dictionary
       var dict:any = {}
@@ -1828,7 +1699,6 @@ export class DashboardComponent implements OnInit {
           dict[new_item] = dict.hasOwnProperty(new_item)? ++dict[new_item] : 1;
         }
       }
-      console.log(dict)
 
       //Setting Organisation into a list
       var org:any = []
@@ -1842,7 +1712,6 @@ export class DashboardComponent implements OnInit {
           }
       }
       this.org = org
-      console.log(this.org)
 
       //Setting Department into a list
       var dept:any = []
@@ -1855,7 +1724,6 @@ export class DashboardComponent implements OnInit {
           }
       }
       this.dept = dept
-      console.log(this.dept)
 
       //Setting Awards into a list
       var award:any = []
@@ -1868,7 +1736,6 @@ export class DashboardComponent implements OnInit {
           }
       }
       this.pieChartLabels = org
-      console.log(this.award)
 
       //setting award values into a list
       var orgcnt:any = []
@@ -1880,7 +1747,6 @@ export class DashboardComponent implements OnInit {
         }
       }
       this.orgcnt = orgcnt
-      console.log("Organisation :",this.orgcnt)
 
       //setting award values into a list
       var deptcnt:any = []
@@ -1892,7 +1758,6 @@ export class DashboardComponent implements OnInit {
         }
       }
       this.deptcnt = deptcnt
-      console.log("Department :",this.deptcnt)
 
       //setting award values into a list
       var awdcnt:any = []
@@ -1903,12 +1768,10 @@ export class DashboardComponent implements OnInit {
           }
         }
       }
-      console.log("Awards :",awdcnt)
 
       // Dictionary Creation and uploaded it to a list
       var temp:any = {}
       temp["data"] = orgcnt
-      console.log("Temp : ",temp)
       var temp1 = []
       temp1.push(temp)
       this.pieChartDatasets = temp1
@@ -1919,14 +1782,8 @@ export class DashboardComponent implements OnInit {
 
     //Filter By Award, From Date, To Date
     if(orgid == 0 && deptid == 0 && awdid != 0 && fdate != new Date("0001-04-15").toString() && tdate != new Date("0001-04-29").toString()){
-      console.log("Get Data By Award, From Date, and To Date.")
+      
       this.sharedService.GetAllDetailsByDashboardFilters(this.SelectOrg, this.SelectDep, this.SelectAward, this.fromdate, this.todate).subscribe(res => {
-
-        console.log("selctorg: ",this.SelectOrg)
-        console.log("selctdep: ",this.SelectDep)
-        console.log("selctawd: ",this.SelectAward)
-        console.log("fromdate: ",this.fromdate)
-        console.log("todate: ",this.todate)
 
         //converting api values into list
       let d = []
@@ -1939,7 +1796,6 @@ export class DashboardComponent implements OnInit {
         d1.push(d)
         d = []          
       }
-      console.log(d1)
 
       //setting into calculate a total count in dictionary
       var dict:any = {}
@@ -1949,7 +1805,6 @@ export class DashboardComponent implements OnInit {
           dict[new_item] = dict.hasOwnProperty(new_item)? ++dict[new_item] : 1;
         }
       }
-      console.log(dict)
 
       //Setting Organisation into a list
       var org:any = []
@@ -1963,7 +1818,6 @@ export class DashboardComponent implements OnInit {
           }
       }
       this.org = org
-      console.log(this.org)
 
       //Setting Department into a list
       var dept:any = []
@@ -1976,7 +1830,6 @@ export class DashboardComponent implements OnInit {
           }
       }
       this.dept = dept
-      console.log(this.dept)
 
       //Setting Awards into a list
       var award:any = []
@@ -1989,7 +1842,6 @@ export class DashboardComponent implements OnInit {
           }
       }
       this.pieChartLabels = org
-      console.log(this.award)
 
       //setting award values into a list
       var orgcnt:any = []
@@ -2001,7 +1853,6 @@ export class DashboardComponent implements OnInit {
         }
       }
       this.orgcnt = orgcnt
-      console.log("Organisation :",this.orgcnt)
 
       //setting award values into a list
       var deptcnt:any = []
@@ -2013,7 +1864,6 @@ export class DashboardComponent implements OnInit {
         }
       }
       this.deptcnt = deptcnt
-      console.log("Department :",this.deptcnt)
 
       //setting award values into a list
       var awdcnt:any = []
@@ -2024,12 +1874,10 @@ export class DashboardComponent implements OnInit {
           }
         }
       }
-      console.log("Awards :",awdcnt)
 
       // Dictionary Creation and uploaded it to a list
       var temp:any = {}
       temp["data"] = orgcnt
-      console.log("Temp : ",temp)
       var temp1 = []
       temp1.push(temp)
       this.pieChartDatasets = temp1
@@ -2040,7 +1888,7 @@ export class DashboardComponent implements OnInit {
 
     //Filtered By Organisation, Department, From date and To date
     if(orgid != 0 && deptid != 0 && awdid == 0 && fdate != new Date("0001-04-15").toString() && tdate != new Date("0001-04-29").toString()){
-      console.log("Get Data By Organisation, Department, From Date and To Date.")
+      
       this.sharedService.GetAllDetailsByDashboardFilters(this.SelectOrg, this.SelectDep, this.SelectAward, this.fromdate, this.todate).subscribe( res => {
         //converting api values into list
         let d = []
@@ -2053,7 +1901,6 @@ export class DashboardComponent implements OnInit {
           d1.push(d)
           d = []          
         }
-        console.log(d1)
 
         //setting into calculate a total count in dictionary
         var dict:any = {}
@@ -2063,7 +1910,6 @@ export class DashboardComponent implements OnInit {
             dict[new_item] = dict.hasOwnProperty(new_item)? ++dict[new_item] : 1;
           }
         }
-        console.log(dict)
 
         //Setting Organisation into a list
         var org:any = []
@@ -2077,7 +1923,6 @@ export class DashboardComponent implements OnInit {
             }
         }
         this.org = org
-        console.log(this.org)
 
         //Setting Awards into a list
         var award:any = []
@@ -2090,7 +1935,6 @@ export class DashboardComponent implements OnInit {
             }
         }
         this.pieChartLabels = award
-        console.log(this.award)
 
         //setting award values into a list
         var orgcnt:any = []
@@ -2102,7 +1946,6 @@ export class DashboardComponent implements OnInit {
           }
         }
         this.orgcnt = orgcnt
-        console.log("Organisation :",this.orgcnt)
 
         //setting award values into a list
         var awdcnt:any = []
@@ -2113,12 +1956,10 @@ export class DashboardComponent implements OnInit {
             }
           }
         }
-        console.log("Awards :",awdcnt)
 
         // Dictionary Creation and uploaded it to a list
         var temp:any = {}
         temp["data"] = awdcnt
-        console.log("Temp : ",temp)
         var temp1 = []
         temp1.push(temp)
         this.pieChartDatasets = temp1
@@ -2130,7 +1971,7 @@ export class DashboardComponent implements OnInit {
 
     //Filtered By Organisation, Award, From date and To date
     if(orgid != 0 && deptid == 0 && awdid != 0 && fdate != new Date("0001-04-15").toString() && tdate != new Date("0001-04-29").toString()){
-      console.log("Get Data By Organisation, Award, From Date and To Date.")
+      
       this.sharedService.GetAllDetailsByDashboardFilters(this.SelectOrg, this.SelectDep, this.SelectAward, this.fromdate, this.todate).subscribe( res => {
 
         //converting api values into list
@@ -2144,7 +1985,6 @@ export class DashboardComponent implements OnInit {
           d1.push(d)
           d = []          
         }
-        console.log("List: ",d1)
   
         //setting into calculate a total count in dictionary
         var dict:any = {}
@@ -2154,7 +1994,6 @@ export class DashboardComponent implements OnInit {
             dict[new_item] = dict.hasOwnProperty(new_item)? ++dict[new_item] : 1;
           }
         }
-        console.log("Dict: ",dict)
   
         //Setting Organisation into a list
         var org:any = []
@@ -2168,7 +2007,6 @@ export class DashboardComponent implements OnInit {
             }
         }
         this.org = org
-        console.log("Organisation: ", this.org)
   
         //Setting Department into a list
         var dept:any = []
@@ -2181,7 +2019,6 @@ export class DashboardComponent implements OnInit {
             }
         }
         this.dept = dept
-        console.log("Departent: ",this.dept)
   
         //Setting Awards into a list
         var award:any = []
@@ -2193,7 +2030,6 @@ export class DashboardComponent implements OnInit {
               award.push(x[2])
             }
         }
-        console.log("Award: ",this.award)
   
         //setting Organisation count into a list
         var orgcnt:any = []
@@ -2205,7 +2041,6 @@ export class DashboardComponent implements OnInit {
           }
         }
         this.orgcnt = orgcnt
-        console.log("Organisation Count:",this.orgcnt)
   
         //setting department values into a list
         var deptcnt:any = []
@@ -2217,7 +2052,6 @@ export class DashboardComponent implements OnInit {
           }
         }
         this.deptcnt = deptcnt
-        console.log("Department Count:",this.deptcnt)
   
         //setting award values into a list
         var awdcnt:any = []
@@ -2228,12 +2062,10 @@ export class DashboardComponent implements OnInit {
             }
           }
         }
-        console.log("Awards Count:",awdcnt)
   
         // Dictionary Creation and uploaded it to a list
         var temp:any = {}
         temp["data"] = deptcnt
-        console.log("Temp : ",temp)
         var temp1 = []
         temp1.push(temp)
 
@@ -2241,14 +2073,12 @@ export class DashboardComponent implements OnInit {
         this.pieChartDatasets = temp1
         this.pieChartLabels = dept
 
-        console.log("piechartlabels: ",this.pieChartLabels)
-
       });
     }
 
     //Filtered By From Date
     if(orgid == 0 && deptid == 0 && awdid == 0 && fdate != new Date("0001-04-15").toString() && tdate == new Date("0001-04-29").toString()){
-      console.log("Get Data By From Date.")
+      
       this.sharedService.GetAllDetailsByDashboardFilters(this.SelectOrg, this.SelectDep, this.SelectAward, this.fromdate, this.todate.toISOString().slice(0,10)).subscribe( res =>{
 
          //converting api values into list
@@ -2262,7 +2092,6 @@ export class DashboardComponent implements OnInit {
            d1.push(d)
            d = []          
          }
-         console.log("List: ",d1)
    
          //setting into calculate a total count in dictionary
          var dict:any = {}
@@ -2272,7 +2101,6 @@ export class DashboardComponent implements OnInit {
              dict[new_item] = dict.hasOwnProperty(new_item)? ++dict[new_item] : 1;
            }
          }
-         console.log("Dict: ",dict)
    
          //Setting Organisation into a list
          var org:any = []
@@ -2286,7 +2114,6 @@ export class DashboardComponent implements OnInit {
              }
          }
          this.org = org
-         console.log("Organisation: ", this.org)
    
          //Setting Department into a list
          var dept:any = []
@@ -2299,7 +2126,6 @@ export class DashboardComponent implements OnInit {
              }
          }
          this.dept = dept
-         console.log("Departent: ",this.dept)
    
          //Setting Awards into a list
          var award:any = []
@@ -2311,7 +2137,6 @@ export class DashboardComponent implements OnInit {
                award.push(x[2])
              }
          }
-         console.log("Award: ",this.award)
    
          //setting Organisation count into a list
          var orgcnt:any = []
@@ -2323,7 +2148,6 @@ export class DashboardComponent implements OnInit {
            }
          }
          this.orgcnt = orgcnt
-         console.log("Organisation Count:",this.orgcnt)
    
          //setting department values into a list
          var deptcnt:any = []
@@ -2335,7 +2159,6 @@ export class DashboardComponent implements OnInit {
            }
          }
          this.deptcnt = deptcnt
-         console.log("Department Count:",this.deptcnt)
    
          //setting award values into a list
          var awdcnt:any = []
@@ -2346,27 +2169,23 @@ export class DashboardComponent implements OnInit {
              }
            }
          }
-         console.log("Awards Count:",awdcnt)
    
          // Dictionary Creation and uploaded it to a list
          var temp:any = {}
          temp["data"] = orgcnt
-         console.log("Temp : ",temp)
          var temp1 = []
          temp1.push(temp)
  
        
          this.pieChartDatasets = temp1
          this.pieChartLabels = org
- 
-         console.log("piechartlabels: ",this.pieChartLabels)
 
       });
     }
 
     //Filtered By To Date
     if(orgid == 0 && deptid == 0 && awdid == 0 && fdate == new Date("0001-04-15").toString() && tdate != new Date("0001-04-29").toString()){
-      console.log("Get Data By To Date.")
+      
       this.sharedService.GetAllDetailsByDashboardFilters(this.SelectOrg, this.SelectDep, this.SelectAward, this.fromdate.toISOString().slice(0,10), this.todate).subscribe( res => {
 
         //converting api values into list
@@ -2380,7 +2199,6 @@ export class DashboardComponent implements OnInit {
           d1.push(d)
           d = []          
         }
-        console.log("List: ",d1)
   
         //setting into calculate a total count in dictionary
         var dict:any = {}
@@ -2390,7 +2208,6 @@ export class DashboardComponent implements OnInit {
             dict[new_item] = dict.hasOwnProperty(new_item)? ++dict[new_item] : 1;
           }
         }
-        console.log("Dict: ",dict)
   
         //Setting Organisation into a list
         var org:any = []
@@ -2404,7 +2221,6 @@ export class DashboardComponent implements OnInit {
             }
         }
         this.org = org
-        console.log("Organisation: ", this.org)
   
         //Setting Department into a list
         var dept:any = []
@@ -2417,7 +2233,6 @@ export class DashboardComponent implements OnInit {
             }
         }
         this.dept = dept
-        console.log("Departent: ",this.dept)
   
         //Setting Awards into a list
         var award:any = []
@@ -2429,7 +2244,6 @@ export class DashboardComponent implements OnInit {
               award.push(x[2])
             }
         }
-        console.log("Award: ",this.award)
   
         //setting Organisation count into a list
         var orgcnt:any = []
@@ -2441,7 +2255,6 @@ export class DashboardComponent implements OnInit {
           }
         }
         this.orgcnt = orgcnt
-        console.log("Organisation Count:",this.orgcnt)
   
         //setting department values into a list
         var deptcnt:any = []
@@ -2453,7 +2266,6 @@ export class DashboardComponent implements OnInit {
           }
         }
         this.deptcnt = deptcnt
-        console.log("Department Count:",this.deptcnt)
   
         //setting award values into a list
         var awdcnt:any = []
@@ -2464,12 +2276,10 @@ export class DashboardComponent implements OnInit {
             }
           }
         }
-        console.log("Awards Count:",awdcnt)
   
         // Dictionary Creation and uploaded it to a list
         var temp:any = {}
         temp["data"] = orgcnt
-        console.log("Temp : ",temp)
         var temp1 = []
         temp1.push(temp)
 
@@ -2477,14 +2287,12 @@ export class DashboardComponent implements OnInit {
         this.pieChartDatasets = temp1
         this.pieChartLabels = org
 
-        console.log("piechartlabels: ",this.pieChartLabels)
-
       });
     }
 
     //Filter by From Date and To Date
     if(orgid == 0 && deptid == 0 && awdid == 0 && fdate != new Date("0001-04-15").toString() && tdate != new Date("0001-04-29").toString()){
-      console.log("Get Date By Date Range")
+
       this.sharedService.GetAllDetailsByDashboardFilters(this.SelectOrg, this.SelectDep, this.SelectAward, this.fromdate, this.todate).subscribe( res => {
 
         //converting api values into list
@@ -2498,7 +2306,6 @@ export class DashboardComponent implements OnInit {
           d1.push(d)
           d = []          
         }
-        console.log("List: ",d1)
   
         //setting into calculate a total count in dictionary
         var dict:any = {}
@@ -2508,7 +2315,6 @@ export class DashboardComponent implements OnInit {
             dict[new_item] = dict.hasOwnProperty(new_item)? ++dict[new_item] : 1;
           }
         }
-        console.log("Dict: ",dict)
   
         //Setting Organisation into a list
         var org:any = []
@@ -2522,7 +2328,6 @@ export class DashboardComponent implements OnInit {
             }
         }
         this.org = org
-        console.log("Organisation: ", this.org)
   
         //Setting Department into a list
         var dept:any = []
@@ -2535,7 +2340,6 @@ export class DashboardComponent implements OnInit {
             }
         }
         this.dept = dept
-        console.log("Departent: ",this.dept)
   
         //Setting Awards into a list
         var award:any = []
@@ -2547,7 +2351,6 @@ export class DashboardComponent implements OnInit {
               award.push(x[2])
             }
         }
-        console.log("Award: ",this.award)
   
         //setting Organisation count into a list
         var orgcnt:any = []
@@ -2559,7 +2362,6 @@ export class DashboardComponent implements OnInit {
           }
         }
         this.orgcnt = orgcnt
-        console.log("Organisation Count:",this.orgcnt)
   
         //setting department values into a list
         var deptcnt:any = []
@@ -2571,7 +2373,6 @@ export class DashboardComponent implements OnInit {
           }
         }
         this.deptcnt = deptcnt
-        console.log("Department Count:",this.deptcnt)
   
         //setting award values into a list
         var awdcnt:any = []
@@ -2582,12 +2383,10 @@ export class DashboardComponent implements OnInit {
             }
           }
         }
-        console.log("Awards Count:",awdcnt)
   
         // Dictionary Creation and uploaded it to a list
         var temp:any = {}
         temp["data"] = orgcnt
-        console.log("Temp : ",temp)
         var temp1 = []
         temp1.push(temp)
 
@@ -2595,22 +2394,13 @@ export class DashboardComponent implements OnInit {
         this.pieChartDatasets = temp1
         this.pieChartLabels = org
 
-        console.log("piechartlabels: ",this.pieChartLabels)
-
-
       });
     }
 
     //All 5 Filter - Organisation, Department, Award, Start, End
     if(orgid != 0 && deptid != 0 && awdid != 0 && fdate != new Date("0001-04-15").toString() && tdate != new Date("0001-04-29").toString()){
-      console.log("Get all Data Filtered By Organisation, Department, Award, Startdate, Enddate")
-      this.sharedService.GetAllDetailsByDashboardFilters(this.SelectOrg, this.SelectDep, this.SelectAward, this.fromdate, this.todate).subscribe(res => {
 
-        console.log("selctorg: ",this.SelectOrg)
-        console.log("selctdep: ",this.SelectDep)
-        console.log("selctawd: ",this.SelectAward)
-        console.log("fromdate: ",this.fromdate)
-        console.log("todate: ",this.todate)
+      this.sharedService.GetAllDetailsByDashboardFilters(this.SelectOrg, this.SelectDep, this.SelectAward, this.fromdate, this.todate).subscribe(res => {
 
         //converting api values into list
       let d = []
@@ -2623,7 +2413,6 @@ export class DashboardComponent implements OnInit {
         d1.push(d)
         d = []          
       }
-      console.log(d1)
 
       //setting into calculate a total count in dictionary
       var dict:any = {}
@@ -2633,7 +2422,6 @@ export class DashboardComponent implements OnInit {
           dict[new_item] = dict.hasOwnProperty(new_item)? ++dict[new_item] : 1;
         }
       }
-      console.log(dict)
 
       //Setting Organisation into a list
       var org:any = []
@@ -2647,7 +2435,6 @@ export class DashboardComponent implements OnInit {
           }
       }
       this.org = org
-      console.log(this.org)
 
       //Setting Department into a list
       var dept:any = []
@@ -2660,7 +2447,6 @@ export class DashboardComponent implements OnInit {
           }
       }
       this.dept = dept
-      console.log(this.dept)
 
       //Setting Awards into a list
       var award:any = []
@@ -2673,7 +2459,6 @@ export class DashboardComponent implements OnInit {
           }
       }
       this.pieChartLabels = dept
-      console.log(this.award)
 
       //setting award values into a list
       var orgcnt:any = []
@@ -2685,7 +2470,6 @@ export class DashboardComponent implements OnInit {
         }
       }
       this.orgcnt = orgcnt
-      console.log("Organisation :",this.orgcnt)
 
       //setting award values into a list
       var deptcnt:any = []
@@ -2697,7 +2481,6 @@ export class DashboardComponent implements OnInit {
         }
       }
       this.deptcnt = deptcnt
-      console.log("Department :",this.deptcnt)
 
       //setting award values into a list
       var awdcnt:any = []
@@ -2708,12 +2491,10 @@ export class DashboardComponent implements OnInit {
           }
         }
       }
-      console.log("Awards :",awdcnt)
 
       // Dictionary Creation and uploaded it to a list
       var temp:any = {}
       temp["data"] = deptcnt
-      console.log("Temp : ",temp)
       var temp1 = []
       temp1.push(temp)
       this.pieChartDatasets = temp1
