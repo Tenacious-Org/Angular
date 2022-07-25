@@ -22,11 +22,10 @@ export class LayoutComponent implements OnInit {
 
   onLogout() {
     AuthenticationService.Logout();
-    //this.route.navigateByUrl('')
     this.route.navigateByUrl('/', { skipLocationChange: true }).then(() => {
       this.route.navigate(['/homecard/0'])
     });
-    // window.location.reload()
+    window.location.reload()
   }
 
 }
