@@ -9,6 +9,8 @@
             data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
             aria-label="Toggle navigation">
             <a *ngIf="user!=5" id="nav-logo" [routerLink]="['']"> Tenacious</a>
+            <a *ngIf="user==5" id="nav-logo" [routerLink]="['/dashboard']"> Tenacious</a>
+
         </button>
 
         <!-- Collapsible wrapper -->
