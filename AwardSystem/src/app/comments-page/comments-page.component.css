@@ -274,11 +274,18 @@ hr:not([size]){
     margin-left:40px;
 
   }
+  .no-records{
+    width: 200px;
+    height: 120px;
+  }
   
   }
   @media(min-width:360px){
     .form-control{
       width: 210px;
+    }
+    .no-records{
+      width: 270px;
     }
   }
 @media(min-width:375px){
@@ -307,6 +314,9 @@ hr:not([size]){
 .sendicon{
   margin-right: 20px;
 }
+.no-records{
+  width: 300px;
+}
 
 }
 
@@ -319,6 +329,9 @@ hr:not([size]){
   .form-control{
     width: 260px;
   }
+  .no-records{
+    width: 300px;
+  }
 }
 @media(min-width:414px){
   .form-control{
@@ -329,6 +342,9 @@ hr:not([size]){
   .form-control{
     width: 390px;
   }
+  .no-records{
+    width: 450px;
+  }
 }
 
 @media(min-width:768px){
@@ -337,7 +353,7 @@ hr:not([size]){
     margin-left: 100px ;
   }
   .form-control{
-    width: 410px;
+    width: 500px;
   }
   .backbutton{
     margin-top: 100px;
@@ -402,6 +418,11 @@ hr:not([size]){
     padding-top: 30px;
     margin-left:40px;
   }
+
+  .no-records{
+    width: 750px;
+  }
+  
   
   }
 
