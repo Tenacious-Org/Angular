@@ -6,7 +6,7 @@ import { AuthenticationService } from './authentication.service';
   providedIn: 'root'
 })
 export class SharedService {
-  readonly apiurl = "http://172.24.209.186/DedSec/";
+  readonly apiurl = "http://172.24.209.186/AMS-api/";
   constructor(private http:HttpClient) { }
 
   public headers = new HttpHeaders({
