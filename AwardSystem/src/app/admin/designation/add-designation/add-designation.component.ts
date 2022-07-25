@@ -62,9 +62,7 @@ export class AddDesignationComponent implements OnInit {
         dismissible: true,
         icon: '❎',
       })
-    this.router.navigate(['/designation']);
-
-
+    this.router.navigate(['/admin/designation']);
   }
   CheckName(DepartmentId: any, RoleId: any) {
     this.departmentID = DepartmentId;
