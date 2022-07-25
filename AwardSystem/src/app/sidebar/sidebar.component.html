@@ -20,7 +20,7 @@
 
             <ul class="list-unstyled components mt-4 mb-5 sidebar-items">
                 <li>
-                    <a [routerLink]="['/dashboard']"><i class=" fa-solid fa-house-chimney ml-4 mr-3"></i>Home</a>
+                    <a [routerLink]="['/dashboard']"><i class=" fa-solid fa-house-chimney ml-4 mr-3"></i>Dashboard</a>
                 </li>
                 <li>
                     <a [routerLink]="['/admin/awards']"><i class=" fa-solid fa-medal ml-4 mr-3"></i>Awards</a>
@@ -65,7 +65,7 @@
                         <a (click)="reloadapprove()"><i
                                 class="fa-solid fa-circle-check ml-4 mr-3"></i>Approval</a>
                     </li>
-                    <div  class="sidebar-items"*ngIf="id!=3">
+                    <div  class="sidebar-items">
                         <li *ngIf="role==4">
                             <a (click)="reloadpublish()"><i class="fa-solid fa-upload ml-4 mr-3"></i>Publish</a>
                         </li>

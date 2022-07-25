@@ -66,9 +66,10 @@ export class SidebarComponent implements OnInit {
     this.isShowDivIf = !this.isShowDivIf;
   }
   reloadrequest() {
-    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-      this.router.navigate(['/awardlist/2']);
-    })
+    this.router.navigateByUrl('/awardlist/2')
+    // , { skipLocationChange: true }).then(() => {
+    //   this.router.navigate(['/awardlist/2']);
+    // })
   }
   reloadapprove() {
     this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
