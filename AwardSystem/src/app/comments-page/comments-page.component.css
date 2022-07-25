@@ -186,7 +186,7 @@ hr:not([size]){
   position: relative;
   padding-left: 24px;
   margin-top: 20px;
-  max-width: 770px;
+  max-width: 790px;
 }
 
 .sendicon{
@@ -263,7 +263,7 @@ hr:not([size]){
     height: 60px;
   }
   .form-control{
-    width: 180px;
+    width: 130px;
   }
   .sendicon{
     margin-right: 20px;
@@ -272,12 +272,13 @@ hr:not([size]){
     float: left;
     padding-top: 100px;
     margin-left:40px;
+
   }
   
   }
   @media(min-width:360px){
     .form-control{
-      width: 260px;
+      width: 210px;
     }
   }
 @media(min-width:375px){
@@ -301,7 +302,7 @@ hr:not([size]){
   height: 60px;
 }
 .form-control{
-  width: 280px;
+  width: 220px;
 }
 .sendicon{
   margin-right: 20px;
@@ -311,22 +312,22 @@ hr:not([size]){
 
 @media(min-width:390px){
   .form-control{
-    width: 290px;
+    width: 240px;
   }
 }
 @media(min-width:412px){
   .form-control{
-    width: 310px;
+    width: 260px;
   }
 }
 @media(min-width:414px){
   .form-control{
-    width: 310px;
+    width: 260px;
   }
 }
 @media(min-width:540px){
   .form-control{
-    width: 440px;
+    width: 390px;
   }
 }
 
@@ -336,7 +337,7 @@ hr:not([size]){
     margin-left: 100px ;
   }
   .form-control{
-    width: 460px;
+    width: 410px;
   }
   .backbutton{
     margin-top: 100px;
@@ -353,7 +354,7 @@ hr:not([size]){
     margin-top: 100px;
   }
   .form-control{
-    width: 460px;
+    width: 410px;
   }
 }
 
@@ -394,7 +395,7 @@ hr:not([size]){
     height: 96px;
   }
   .form-control{
-    width: 730px;
+    width: 700px;
   }
   .backbutton{
     float: left;
@@ -440,7 +441,7 @@ hr:not([size]){
       height: 96px;
     }
     .form-control{
-      width: 730px;
+      width: 700px;
     }
     .backbutton{
       float: left;
