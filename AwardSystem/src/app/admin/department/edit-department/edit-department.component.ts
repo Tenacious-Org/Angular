@@ -16,7 +16,7 @@ export class EditDepartmentComponent implements OnInit {
   data: any;
   selectedOrganisation: any;
   OrganisationId: any;
-  error: any;
+  error: any='';
   constructor(private sharedService: SharedService, private router: ActivatedRoute, private routing: Router, private toastService: HotToastService) { }
   endpoint = "Department";
   endpoint1 = "Organisation";

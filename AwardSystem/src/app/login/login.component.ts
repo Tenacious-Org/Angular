@@ -45,24 +45,12 @@ export class LoginComponent implements OnInit {
             this.IsPublisher = data.isPublisher,
             this.IsVerified = data.IsVerified
           AuthenticationService.SetDateWithExpiry("token", data.token, data.expiryInMinutes)
-          AuthenticationService.SetDateWithExpiry("UserName", data.userName, data.expiryInMinutes)
           AuthenticationService.SetDateWithExpiry("Role", data.isRole, data.expiryInMinutes)
           AuthenticationService.SetDateWithExpiry("User", data.userId, data.expiryInMinutes)
           AuthenticationService.SetDateWithExpiry("Admin", data.isAdmin, data.expiryInMinutes)
           AuthenticationService.SetDateWithExpiry("Requester", data.isRequester, data.expiryInMinutes)
           AuthenticationService.SetDateWithExpiry("Approver", data.isApprover, data.expiryInMinutes)
           AuthenticationService.SetDateWithExpiry("Publisher", data.isPublisher, data.expiryInMinutes)
-
-
-          // console.log(AuthenticationService.GetData("token"))
-          // console.log(AuthenticationService.GetData("UserName"))
-          // console.log(AuthenticationService.GetData("User"))
-          // console.log(AuthenticationService.GetData("Role"))
-          // console.log(AuthenticationService.GetData("Admin"))
-          // console.log(AuthenticationService.GetData("Requester"))
-          // console.log(AuthenticationService.GetData("Approver"))
-          // console.log(AuthenticationService.GetData("Publisher"))
-
 
           if (this.IsAdmin) {
 

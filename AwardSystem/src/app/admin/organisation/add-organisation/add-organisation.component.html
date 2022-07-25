@@ -19,8 +19,8 @@
                 <div *ngIf ="organisationName.touched && organisationName.errors?.['pattern']" class="text-danger input" >
                     Should not contain numbers and special characters!
                 </div>
-                <div >
-                    <h3 class="text-danger" >{{error}}</h3>
+                <div *ngIf="error.includes('Organisation')">
+                    <span><h3 class="text-center text-danger">{{error}}</h3></span>
                 </div>
             </div>
         </div>

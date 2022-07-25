@@ -22,6 +22,9 @@
                            
                 </div>
             </div>
+            <div *ngIf="error.includes('Organisation')">
+                <span><h3 class="text-center text-danger">{{error}}</h3></span>
+            </div>
         </div>
             <!-- <div *ngIf ="Department.organisationId.touched && Department.organisationId.errors?.['required']" class="alert alert-danger">Organisation Name is required</div> -->
             <div *ngIf="Id==''" class="alert alert-danger cust-al">Organisation name should not be empty! </div>
@@ -32,8 +35,8 @@
                 <div *ngIf ="departmentName.touched && departmentName.errors?.['required']" class="text-danger">
                     Department Name is Required!
                 </div>
-                <div class="text-danger"  >
-                    {{error}}
+                <div *ngIf="error.includes('Department')">
+                    <h3 class="text-center text-danger">{{error}}</h3>
                 </div>
                 <div *ngIf ="departmentName.touched && departmentName.errors?.['pattern']" class="text-left text-danger input" >
                     Should not contain Numbers and special characters!

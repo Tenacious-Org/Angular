@@ -58,7 +58,7 @@ export class DepartmentComponent implements OnInit {
 
   Search(value: string) {
     this.data = this.filteredData.filter(item =>
-      item.departmentname.toLowerCase().includes(value.toLowerCase()))
+      item.departmentName.toLowerCase().includes(value.toLowerCase()))
     this.page = 1;
   }
 

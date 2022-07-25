@@ -12,11 +12,15 @@
           <div *ngIf="searchAwardee.touched && searchAwardee.errors?.['required']" class="text-danger">
             AwardeeName is Required!
           </div>
+          
         <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onSelectAwardee($event)">
           <mat-option *ngFor="let item of filteredOptions | async" [value]="item.firstName" [id]="item.id">
             {{item.firstName}} {{item.lastName}}</mat-option>
         </mat-autocomplete>
       </div>
+      <div *ngIf="error.includes('Reason')">
+        <span><h3 class="text-center text-danger">{{error}}</h3></span>
+    </div>
       <div class="Award col-auto ">
         <label for="exampleFormControlSelect1">Award</label>
         <select name="awardTypeId" #awardName="ngModel"  required [(ngModel)]="Awards.awardTypeId" class="custom-select"
@@ -24,10 +28,15 @@
           <div *ngIf="awardName.touched && awardName.errors?.['required']" class="text-danger">
             Award Name is Required!
           </div>
+        
           <option *ngFor="let items of data" value={{items.id}}>{{items.awardName}}</option>
         </select>
+      
       </div>
-      <span class="text-danger errorMessage">{{error}}</span>
+
+      <div *ngIf="error.includes('Award')">
+        <span><h3 class="text-center text-danger">{{error}}</h3></span>
+    </div>
       <div class="col-auto p-1.5">
         <label class="labels">Reason</label>
         <textarea type="textarea" name="reason" class="input-group " placeholder="Reason" #reason="ngModel"
@@ -38,6 +47,9 @@
         <div *ngIf="reason.touched && reason.errors?.['pattern']" class="text-danger">
           Reason shouldn't Exceed 1000 characters!
         </div>
+        <div *ngIf="error.includes('Reason')">
+          <span><h3 class="text-center text-danger">{{error}}</h3></span>
+      </div>
       </div>
     </div>
     <!-- Requester add request container contains awardee image,award image-->

@@ -17,7 +17,7 @@ export class EditAwardComponent implements OnInit {
   cardImageBase64 = "";
   Id = 0;
   endpoint = "AwardType";
-  error = 'any';
+  error : any='';
 
 
   data: any = {

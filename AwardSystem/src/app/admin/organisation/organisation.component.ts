@@ -50,23 +50,6 @@ export class OrganisationComponent implements OnInit {
   }
 
 
-
-  //  OnSubmit(Id:any){
-  //   console.log(Id);
-  //   this.sharedService.GetById(this.endpoint,Id).subscribe((data) => {
-  //     this.organisationname=data.organisationName;
-  //     console.log(this.organisationname);
-  //     this.openDialog(result);
-  //   });
-  // }
-
-  // / openDialog(count:any){
-
-  //   this.dialog.open(DialogboxComponent,{data:{name:this.organisationname,value:"Organisation"}});
-
-  // }
-
-
   dialogDisable(id: any) {
     let dialogRef = this.dialog.open(DialogboxComponent, { data: { value: "disable" } })
     dialogRef.afterClosed().subscribe(value => {

@@ -19,7 +19,7 @@ export class AddAwardsComponent implements OnInit {
   imageError = "";
   isImageSaved: boolean = false;
   cardImageBase64 = "";
-  error: any;
+  error: any='';
 
 
   constructor(private toastService: HotToastService, private sharedService: SharedService, private router: Router) { }

@@ -3,7 +3,7 @@ import { Employee } from 'Models/Employee';
 import { SharedService } from 'src/app/shared.service';
 import { AwardType } from 'Models/AwardType';
 import { AwardService } from 'src/app/award.service';
-import { FormBuilder, FormControl } from '@angular/forms';
+import { FormControl } from '@angular/forms';
 import { map, startWith } from 'rxjs/operators';
 import { HotToastService } from '@ngneat/hot-toast';
 import { Router } from '@angular/router';
@@ -44,16 +44,11 @@ export class RequesterAddRequestComponent implements OnInit {
       isActive: true,
     }
   firstName: any;
-  error: any;
+  error: any='';
 
 
-  constructor(private sharedService: SharedService, private awardService: AwardService, private formBuilder: FormBuilder, private toastService: HotToastService, private router: Router) { }
-
-
+  constructor(private sharedService: SharedService, private awardService: AwardService, private toastService: HotToastService, private router: Router) { }
   data: AwardType[] = [];
-
-
-
   ngOnInit(): void {
     if (!AuthenticationService.GetData("Requester") && !AuthenticationService.GetData("Approver") && !AuthenticationService.GetData("Publisher")) {
       this.router.navigateByUrl("")
@@ -61,18 +56,14 @@ export class RequesterAddRequestComponent implements OnInit {
     this.sharedService.GetEmployeeByRequester(this.employeeId).subscribe(response => {
       this.employees = response;
     });
-
     this.searchAwardee = new FormControl();
-
     this.filteredOptions = this.searchAwardee.valueChanges.pipe(
       startWith(null),
       map(value => this._filter(value))
     );
-
     this.sharedService.GetAll(this.endpoints).subscribe(data => {
       this.data = data;
     });
-
   }
   private _filter(val: string): any[] {
     return this.employees.filter((s) => new RegExp(val, 'gi').test(s.firstName));
@@ -84,14 +75,12 @@ export class RequesterAddRequestComponent implements OnInit {
       this.isAwardee = 1;
     });
   }
-
   onSelectAward() {
     this.sharedService.GetById(this.endpoints, this.Awards.awardTypeId).subscribe(data => {
       this.awardData = data;
       this.isAward = 1;
     });
   }
-
   OnSubmit() {
     this.Awards.awardeeId = this.selectedAwardee;
     this.awardService.AddRequest(this.Awards).subscribe({

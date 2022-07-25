@@ -14,7 +14,7 @@ import { AuthenticationService } from 'src/app/authentication.service';
 export class EditDesignationComponent implements OnInit {
   roles: any;
   endpoint2 = "Role";
-  error: any;
+  error: any='';
   departmentID: any;
   roleID: any;
   constructor(private sharedService: SharedService, private router: ActivatedRoute, private routing: Router, private toastService: HotToastService) { }

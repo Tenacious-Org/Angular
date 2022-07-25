@@ -18,10 +18,17 @@
                         <div *ngIf ="organisationName.touched && organisationName.errors?.['required']" class="alert alert-danger">
                             Organisation Name is Required!
                         </div>
+                      
                               <option *ngFor="let items of organisation" [selected]="items.id==selectedOrganisation"  value={{items.id}} >{{items.organisationName}}</option>
                             </select>
+                           
                         </div>
+                         <div *ngIf="organisationName.touched && error.includes('Organisation')">
+                                <span><h3 class="text-center text-danger">{{error}}</h3></span>
+                            </div>
+                        
             </div>
+          
             <div *ngIf="OrganisationId==''"class="alert alert-danger">Organisation name should not be empty!</div>
 
             <div class="department row">
@@ -31,8 +38,8 @@
                 <div *ngIf ="departmentName.touched && departmentName.errors?.['required']" class="alert alert-danger">
                     Department Name is Required!
                 </div>
-                <div >
-                    <h3 class="text-danger" >{{error}}</h3>
+                <div *ngIf="departmentName.touched && error.includes('Department')">
+                    <span><h3 class="text-center text-danger">{{error}}</h3></span>
                 </div>
                 <div *ngIf ="departmentName.touched && departmentName.errors?.['pattern']" class="alert alert-danger input" >
                     Should not contain Numbers and special characters!

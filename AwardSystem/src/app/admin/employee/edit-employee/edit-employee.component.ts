@@ -64,7 +64,6 @@ export class EditEmployeeComponent implements OnInit {
       this.Id = params['id'];
       this.sharedService.GetById(this.endpoint1, this.Id).subscribe((result) => {
         this.data = result;
-        console.log(this.data)
         if (this.data.image != "") {
           this.imgsrc = 'data:image/jpg;base64,' + this.data.image;
         }
@@ -73,16 +72,25 @@ export class EditEmployeeComponent implements OnInit {
         this.selectedDesignation = this.data.designationId;
         this.selectedReportingPerson = this.data.reportingPersonId;
         this.selectedHr = this.data.hrId;
+        this.DesignationName=this.data.designationName.toLowerCase();
         this.Dob = formatDate(this.data.dob, 'YYYY-MM-dd', 'en')
         this.sharedService.GetDepartmentByOrganisationId(this.selectedOrganisation).subscribe(data => {
           this.departments = data;
         });
-        this.sharedService.GetReportingPersonByDepartmentId(this.selectedDepartment).subscribe(data => {
-          this.reportingPersonList = data;
-        });
-        this.sharedService.GetHrByDepartmentId(this.selectedDepartment).subscribe(data => {
-          this.hrList = data;
-        });
+        if(this.DesignationName=='hr'){
+          this.sharedService.GetEmployeeByVpDesignation().subscribe(data => {
+            this.reportingPersonList = data;
+            this.hrList = data;
+          });
+        }
+        if(this.DesignationName!='hr'){
+          this.sharedService.GetReportingPersonByDepartmentId(this.selectedDepartment).subscribe(data => {
+            this.reportingPersonList = data;
+          });
+          this.sharedService.GetHrByDepartmentId(this.selectedDepartment).subscribe(data => {
+            this.hrList = data;
+          });
+        }
         this.sharedService.GetDesignationByDepartmentId(this.selectedDepartment).subscribe(data => {
           this.designations = data;
         });
@@ -108,7 +116,6 @@ export class EditEmployeeComponent implements OnInit {
   onSelectDesignation(){
     this.sharedService.GetById(this.endpoint3,this.selectedDesignation).subscribe(data => {
         this.DesignationName=data.designationName.toLowerCase();
-        console.log(this.DesignationName)
         if(this.DesignationName=='hr'){
           this.sharedService.GetEmployeeByVpDesignation().subscribe(data => {
             this.reportingPersonList = data;
