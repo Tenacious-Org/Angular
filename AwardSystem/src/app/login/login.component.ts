@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
     this.showErrorMessage=false;
     const headers = { 'content-type': 'application/json'}
     console.log(this.user)  
-    this.http.post<any>(`http://172.24.209.186/DedSec/Token`,this.user)
+    this.http.post<any>(`http://172.24.209.186/AMS-api/Token`,this.user)
       .subscribe({
         next: (data) => {
           this.IsAdmin = data.isAdmin,
