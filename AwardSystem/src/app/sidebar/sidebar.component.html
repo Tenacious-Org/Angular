@@ -7,13 +7,12 @@
     </div>
 
     <div *ngIf="!isShowDivIf" class="p-4 pt-5">
-        <div class="text-center">
-            <img [src]="'data:image/jpg;base64,'+ data.image" class="rounded-circle img-fluid" />
-        </div>
-        <!-- <ng-template #elseimage>
-            <div class="mt-3 mb-4 text-center"></div>
-        </ng-template> -->
-
+    <div class="text-center" *ngIf="role==5 ; else elseimage">
+        <img  src='assets/images/Manager.png' class="rounded-circle img-fluid"  />  
+    </div> 
+    <ng-template  #elseimage>
+        <div class="text-center"><img [src]="'data:image/jpg;base64,'+ data.image" class="rounded-circle img-fluid" /></div>
+     </ng-template> 
         <h4 class="text-light mt-4 text-center">{{data.firstName}} {{data.lastName}}</h4>
         <!-- Admin Sidebar -->
         <div *ngIf="role==5; else userSidebar">
