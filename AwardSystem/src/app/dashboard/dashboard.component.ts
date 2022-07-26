@@ -652,7 +652,6 @@ export class DashboardComponent implements OnInit {
 
     //Filtered By Organisation and To Date
     if(orgid != 0 && deptid == 0 && awdid == 0 && fdate == new Date("0001-04-15").toString() && tdate != new Date("0001-04-29").toString()){
-      
       this.sharedService.GetAllDetailsByDashboardFilters(this.SelectOrg, this.SelectDep, this.SelectAward, this.fromdate.toISOString().slice(0,10), this.todate).subscribe( res => {
 
         //converting api values into list
@@ -759,7 +758,6 @@ export class DashboardComponent implements OnInit {
 
     //Filtered By Organisation, From Date and To Date.
     if(orgid != 0 && deptid == 0 && awdid == 0 && fdate != new Date("0001-04-15").toString() && tdate != new Date("0001-04-29").toString()){
-      
       this.sharedService.GetAllDetailsByDashboardFilters(this.SelectOrg, this.SelectDep, this.SelectAward, this.fromdate, this.todate).subscribe( res => {
 
         //converting api values into list
