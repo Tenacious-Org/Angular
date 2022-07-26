@@ -116,7 +116,7 @@ export class AwardViewComponent implements OnInit {
     this.router.navigate(['/awardlist/4']);
   }
   acceptedToast() {
-    this.toastService.success('Request Accepted!',
+    this.toastService.success('Request Approved!',
       {
         autoClose: true,
         dismissible: true,
