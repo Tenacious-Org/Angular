@@ -40,12 +40,12 @@
       <div class="col-auto p-1.5">
         <label class="labels">Reason</label>
         <textarea type="textarea" name="reason" class="input-group " placeholder="Reason" #reason="ngModel"
-          required pattern="[/\w*\s*|\w|\D/gm]{10,1000}" [(ngModel)]="Awards.reason"></textarea>
+          required pattern="[/\w*\s*|\w|\D/gm]{10,}" [(ngModel)]="Awards.reason"></textarea>
         <div *ngIf="reason.touched && reason.errors?.['required']" class="text-danger">
           Reason is Required!
         </div>
         <div *ngIf="reason.touched && reason.errors?.['pattern']" class="text-danger">
-          Reason shouldn't Exceed 1000 characters!
+          Reason should be more than 10 characters!
         </div>
         <div *ngIf="error.includes('Reason')">
           <span><h3 class="text-center text-danger">{{error}}</h3></span>
