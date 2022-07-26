@@ -17,23 +17,26 @@
         <div *ngIf="role==5; else userSidebar">
 
             <ul class="list-unstyled components mt-4 mb-5 sidebar-items">
-                <li>
-                    <a [routerLink]="['/dashboard']"><i class=" fa-solid fa-house-chimney ml-4 mr-3"></i>Dashboard</a>
+                <li *ngIf="data.designationId==2">
+                    <a [routerLink]="['']"><i class="fa-solid fa-house-chimney ml-4 mr-3"></i>Home</a>
                 </li>
                 <li>
+                    <a [routerLink]="['/dashboard']"><i class=" fa-solid fa-chart-bar ml-4 mr-3"></i>Dashboard</a>
+                </li>
+                <li *ngIf="data.designationId!=2">
                     <a [routerLink]="['/admin/awards']"><i class=" fa-solid fa-medal ml-4 mr-3"></i>Awards</a>
                 </li>
-                <li>
+                <li *ngIf="data.designationId!=2">
                     <a [routerLink]="['/admin/employee']"><i class=" fa-solid fa-address-book ml-4 mr-3"></i>Employee</a>
                 </li>
-                <li>
+                <li *ngIf="data.designationId!=2">
                     <a [routerLink]="['/admin/organisation']"><i
                             class=" fa-solid fa-building-columns ml-4 mr-3"></i>Organization</a>
                 </li>
-                <li>
+                <li *ngIf="data.designationId!=2">
                     <a [routerLink]="['/admin/department']"><i class="fa-solid fa-landmark-dome ml-4 mr-3"></i>Department</a>
                 </li>
-                <li>
+                <li *ngIf="data.designationId!=2">
                     <a [routerLink]="['/admin/designation']"><i class="fa-brands fa-dailymotion ml-4 mr-3"></i>Designation</a>
                 </li>
             </ul>
