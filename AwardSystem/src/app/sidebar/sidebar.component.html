@@ -5,10 +5,9 @@
             <span class="sr-only">Toggle Menu</span>
         </button>
     </div>
-
     <div *ngIf="!isShowDivIf" class="p-4 pt-5">
     <div class="text-center" *ngIf="role==5 ; else elseimage">
-        <img  src='assets/images/Manager.png' class="rounded-circle img-fluid"  />  
+        <img  src='https://cdn-icons.flaticon.com/png/512/3281/premium/3281355.png?token=exp=1658815040~hmac=b756901700b10e99a3a1409c70374104' class="rounded-circle img-fluid"  />  
     </div> 
     <ng-template  #elseimage>
         <div class="text-center"><img [src]="'data:image/jpg;base64,'+ data.image" class="rounded-circle img-fluid" /></div>
