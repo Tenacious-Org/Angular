@@ -97,6 +97,7 @@ export class HomeCardComponent implements OnInit {
 		else if (searchOrganisation != 0 && searchDepartment != 0 && searchAwardType != 0 && FromDate == new Date("0001-01-01").toString() && ToDate == new Date("0001-01-01").toString()) {
 			this.awardData = this.filteredData.filter(item => item.organisationId == searchOrganisation && item.departmentId == searchDepartment && item.awardTypeId == searchAwardType);
 		}
+		
 		//5.Search by FromDate
 		else if (searchOrganisation == 0 && searchDepartment == 0 && searchAwardType == 0 && FromDate != new Date("0001-01-01").toString() && ToDate == new Date("0001-01-01").toString()) {
 			this.awardData = this.filteredData.filter(item => new Date(item.updatedOn) >= new Date(FromDate));
@@ -132,6 +133,10 @@ export class HomeCardComponent implements OnInit {
 		//13.Search by department and award type and FromDate and ToDate
 		else if (searchOrganisation != 0 && searchDepartment != 0 && searchAwardType != 0 && FromDate != new Date("0001-01-01").toString() && ToDate != new Date("0001-01-01").toString()) {
 			this.awardData = this.filteredData.filter(item => item.organisationId == searchOrganisation && item.departmentId == searchDepartment && item.awardTypeId == searchAwardType && new Date(item.updatedOn) >= new Date(FromDate) && new Date(item.updatedOn) <= new Date(ToDate));
+		}
+		//14.Search by Organisation and award type
+		else if (searchOrganisation != 0 && searchDepartment == 0 && searchAwardType != 0 && FromDate == new Date("0001-01-01").toString() && ToDate == new Date("0001-01-01").toString()) {
+			this.awardData = this.filteredData.filter(item => item.organisationId == searchOrganisation && item.awardTypeId == searchAwardType);
 		}
 		this.isApplied = true;
 		this.page=1;
