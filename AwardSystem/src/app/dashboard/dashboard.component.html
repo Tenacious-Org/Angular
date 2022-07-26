@@ -6,7 +6,7 @@
       <div class="col-auto dashboardfilter ">
         <label for="org" class="col-form-label">Organisation</label>
         <div class="input-group">
-          <select name="organisationId"  [value] = "0" name="SelectOrg" [(ngModel)]="SelectOrg" class="custom-select">
+          <select name="organisationId"  [value] = "0" name="SelectOrg" [(ngModel)]="SelectOrg" (change)="onSelectDepCascade()" class="custom-select">
             <option value = 0 selected>Choose...</option>
             <option *ngFor="let items of organisations" ngValue={{items.id}}>{{items.organisationName}}</option>
           </select>
@@ -63,7 +63,7 @@
         <button class="dashboardbutton"  (click)="Apply(SelectOrg, SelectDep, SelectAward, fromdate, todate)" type="submit">Apply</button>
       </div>
       <div *ngIf="res" class="reset" >
-        <button class="dashboardbutton"  (click)="Pie()" type="submit">Reset</button>
+        <button class="dashboardbutton"  (click)="Pie()" (click)="Reset() " type="submit">Reset</button>
       </div>
 
 

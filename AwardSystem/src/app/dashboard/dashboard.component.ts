@@ -2503,4 +2503,14 @@ export class DashboardComponent implements OnInit {
     }
 
   }
+
+  Reset() {
+		this.SelectOrg = 0;
+  this.SelectDep = 0;
+  this.SelectAward = 0;
+  this.fromdate = new Date("0001-04-15")
+  this.todate = new Date("0001-04-29")
+		this.ngOnInit();
+		//this.isApplied = false;
+	}
 }
