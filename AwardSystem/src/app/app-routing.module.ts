@@ -36,6 +36,7 @@ import { AdminGuard } from './admin.guard';
 import { AdminChildGuard } from './admin-child.guard';
 import { InvalidComponent } from './invalid/invalid.component';
 import { RequestGuard } from './request.guard';
+import { AuthGuard } from './auth.guard';
 const routes: Routes = [
   {
     path: 'admin',
@@ -77,13 +78,13 @@ const routes: Routes = [
   { path: 'sidebar', component: SidebarComponent },
   { path: 'profile/:id', component: ProfileComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
-  { path: 'comments/:id', component: CommentsPageComponent },
+  { path: 'comments/:id', component: CommentsPageComponent},
   { path: 'approver', component: ApproverComponent },
   { path: 'rejection-reason/:id', component: RejectionReasonComponent },
   { path: 'footer', component: FooterComponent },
   { path: 'homecard/:id', component: HomeCardComponent },
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'dialogbox', component: DialogboxComponent },
+  { path: 'dialogbox', component: DialogboxComponent},
   { path: 'awardview/:id/:id1', component: AwardViewComponent },
   { path: 'awardlist/:id', component: AwardListComponent },
   { path: '', redirectTo: 'homecard/0', pathMatch: 'full' },

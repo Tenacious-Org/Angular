@@ -48,13 +48,9 @@ export class CommentsPageComponent implements OnInit {
         this.data = result;
       });
     });
-
-
-
     this.awardService.GetComments(this.Id).subscribe(result => {
       this.commentList = result;
     })
-
   }
   onViewComment() {
     this.isClicked = !this.isClicked;
@@ -71,7 +67,4 @@ export class CommentsPageComponent implements OnInit {
     if (AuthenticationService.GetData("token") == null)
       this.dialog.open(DialogboxComponent, { data: { value: "notValid" } });
   }
-
-
-
 }
