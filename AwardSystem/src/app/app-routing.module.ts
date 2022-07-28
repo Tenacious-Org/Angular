@@ -36,7 +36,6 @@ import { AdminGuard } from './admin.guard';
 import { AdminChildGuard } from './admin-child.guard';
 import { InvalidComponent } from './invalid/invalid.component';
 import { RequestGuard } from './request.guard';
-import { AuthGuard } from './auth.guard';
 const routes: Routes = [
   {
     path: 'admin',
