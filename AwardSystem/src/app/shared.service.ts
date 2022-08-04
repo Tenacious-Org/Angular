@@ -77,9 +77,9 @@ export class SharedService {
 
   }
 
-  //Get All Winners
-  GetAllAwardee(): Observable<any> {
-    return this.http.get<any>(this.apiurl + `Dashboard/GetAllAwardees`)
+  //Get All Awards Last 1 Year
+  GetAllAwardsLast1Year(): Observable<any> {
+    return this.http.get<any>(this.apiurl + `Dashboard/GetAllAwardsLast1Year`)
   }
 
   //Filtering Dashboard

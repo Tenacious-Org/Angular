@@ -83,7 +83,7 @@ export class DashboardComponent implements OnInit {
 
   //Get Last One Year Statistics of This System
   Pie():void{
-    this.sharedService.GetAllAwardee().subscribe( (res) =>
+    this.sharedService.GetAllAwardsLast1Year().subscribe( (res) =>
     {
       let tres = false;
       this.res = tres;
@@ -2504,11 +2504,10 @@ export class DashboardComponent implements OnInit {
 
   Reset() {
 		this.SelectOrg = 0;
-  this.SelectDep = 0;
-  this.SelectAward = 0;
-  this.fromdate = new Date("0001-04-15")
-  this.todate = new Date("0001-04-29")
+    this.SelectDep = 0;
+    this.SelectAward = 0;
+    this.fromdate = new Date("0001-04-15")
+    this.todate = new Date("0001-04-29")
 		this.ngOnInit();
-		//this.isApplied = false;
 	}
 }
