@@ -12,15 +12,16 @@
           <div *ngIf="searchAwardee.touched && searchAwardee.errors?.['required']" class="text-danger">
             AwardeeName is Required!
           </div>
-          
+          <div *ngIf="error.includes('Awardee Id')">
+            <span><h3 class="text-center text-danger">{{error}}</h3></span>
+        </div>
         <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onSelectAwardee($event)">
           <mat-option *ngFor="let item of filteredOptions | async" [value]="item.firstName" [id]="item.id">
             {{item.firstName}} {{item.lastName}}</mat-option>
         </mat-autocomplete>
+
       </div>
-      <div *ngIf="error.includes('Reason')">
-        <span><h3 class="text-center text-danger">{{error}}</h3></span>
-    </div>
+    
       <div class="Award col-auto ">
         <label for="exampleFormControlSelect1">Award</label>
         <select name="awardTypeId" #awardName="ngModel"  required [(ngModel)]="Awards.awardTypeId" class="custom-select"
@@ -31,12 +32,13 @@
         
           <option *ngFor="let items of data" value={{items.id}}>{{items.awardName}}</option>
         </select>
+        <div *ngIf="error.includes('Award Type')">
+          <span><h3 class="text-center text-danger">{{error}}</h3></span>
+      </div>
       
       </div>
 
-      <div *ngIf="error.includes('Award')">
-        <span><h3 class="text-center text-danger">{{error}}</h3></span>
-    </div>
+      
       <div class="col-auto p-1.5">
         <label class="labels">Reason</label>
         <textarea type="textarea" name="reason" class="input-group " placeholder="Reason" #reason="ngModel"
@@ -91,7 +93,7 @@
       </div>
     </div>
     <div class="addrequest row mt-5 button-group">
-      <button (click)="CheckName(Awards.AwardeeName)" type="submit" class="btn addbutton btn-primary col-lg-2"
+      <button type="submit" class="btn addbutton btn-primary col-lg-2"
         [disabled]="!myForm.form.valid">Submit</button>
       <a [routerLink]="['/awardlist/2']" routerLinkActive="router-link-active" class="btn closeButton btn-danger col-lg-2"
         type="button">Cancel</a>

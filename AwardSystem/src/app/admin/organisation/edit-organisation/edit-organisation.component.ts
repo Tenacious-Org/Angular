@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Location } from '@angular/common';
 import { SharedService } from 'src/app/shared.service';
 import { HotToastService } from '@ngneat/hot-toast';
-import { Organisation } from 'Models/Organisation';
 import { AuthenticationService } from 'src/app/authentication.service';
 
 
@@ -26,7 +23,7 @@ export class EditOrganisationComponent implements OnInit {
     Id: 0,
     OrganisationName: '',
   }
-  constructor(private sharedService: SharedService, private route: ActivatedRoute, private location: Location, private router: Router, private routing: Router, private toastService: HotToastService) { }
+  constructor(private sharedService: SharedService, private route: ActivatedRoute, private router: Router, private routing: Router, private toastService: HotToastService) { }
 
   ngOnInit(): void {
     if (!AuthenticationService.GetData("Admin")) {

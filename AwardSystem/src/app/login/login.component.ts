@@ -3,7 +3,6 @@ import { Component, OnInit, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AuthenticationService } from '../authentication.service';
-import { Employee } from 'Models/Employee';
 
 @Component({
   selector: 'app-login',

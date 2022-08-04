@@ -1,12 +1,11 @@
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
 
-  constructor(private router:Router) { }
+  constructor() { }
   static GetData(key:string):string|null {
     const itemStr = localStorage.getItem(key)
     if (!itemStr) {
@@ -21,10 +20,10 @@ export class AuthenticationService {
     return item.value
   }
  
-   static SetDateWithExpiry(key:string,value:string, expiryInMinutes:number) {
+  static SetDateWithExpiry(key:string,value:string, expiryInMinutes:number) {
     const now = new Date()
     expiryInMinutes =expiryInMinutes*60000;
- 
+  
     const item = {
       value: value,
  
@@ -32,8 +31,6 @@ export class AuthenticationService {
     }
     localStorage.setItem(key, JSON.stringify(item))
   }
- 
-  
  
  static Logout(){
    localStorage.clear();

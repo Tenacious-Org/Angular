@@ -61,8 +61,8 @@ export class RequesterAddRequestComponent implements OnInit {
       startWith(null),
       map(value => this._filter(value))
     );
-    this.sharedService.GetAll(this.endpoints).subscribe(data => {
-      this.data = data;
+    this.sharedService.GetAll(this.endpoints).subscribe(result => {
+      this.data = result;
     });
   }
   private _filter(val: string): any[] {
@@ -96,8 +96,4 @@ export class RequesterAddRequestComponent implements OnInit {
       })
     this.router.navigate(['/awardlist/2']);
   }
-  CheckName(FirstName: any) {
-    this.firstName = FirstName;
-  }
-
 }
