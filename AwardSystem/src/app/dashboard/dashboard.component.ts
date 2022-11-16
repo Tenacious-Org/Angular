@@ -109,7 +109,7 @@ export class DashboardComponent implements OnInit {
         }
 
         //Setting Organisation into a list
-        var org:any = []
+        var org:any[] = []
         const search = (targetElement : string) => (arrElement : string) => arrElement == targetElement;
         for(var x of d1){
             if(org.some(search(x[0]))){
@@ -133,7 +133,7 @@ export class DashboardComponent implements OnInit {
         }
         this.pieChartLabels = award
 
-        //setting award values into a list
+        //setting organisation values into a list
         var orgcnt:any = []
         for(var j of org){
           for(var h of Object.keys(dict)){
@@ -147,9 +147,9 @@ export class DashboardComponent implements OnInit {
         //setting award values into a list
         var awdcnt:any = []
         for(var j of award){
-          for(var k of Object.keys(dict)){
-            if(j == k){
-              awdcnt.push(dict[k])
+          for(var h of Object.keys(dict)){
+            if(j == h){
+              awdcnt.push(dict[h])
             }
           }
         }
@@ -159,6 +159,7 @@ export class DashboardComponent implements OnInit {
         temp["data"] = awdcnt
         var temp1 = []
         temp1.push(temp)
+        console.log("Temp1: ", temp1)
         this.pieChartDatasets = temp1
 
     });
